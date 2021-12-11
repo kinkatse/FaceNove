@@ -50,3 +50,10 @@ Completed 200 OK in 434ms (Views: 429.5ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 438ms (Views: 424.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2021-12-10 23:48:27 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
