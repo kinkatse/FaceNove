@@ -1,0 +1,52 @@
+Started GET "/" for ::1 at 2021-12-09 13:03:41 -0500
+
+ActiveRecord::NoDatabaseError - FATAL:  database "FaceNove_development" does not exist:
+
+Started POST "/__better_errors/14c35b9b9e2cf3dc/variables" for ::1 at 2021-12-09 13:03:41 -0500
+  [1m[35m (1805.9ms)[0m  [1m[35mCREATE DATABASE "FaceNove_development" ENCODING = 'unicode'[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (952.3ms)[0m  [1m[35mCREATE DATABASE "FaceNove_test" ENCODING = 'unicode'[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (22.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4026952314568362480)[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (3.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-12-09 18:10:41.820519"], ["updated_at", "2021-12-09 18:10:41.820519"]]
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4026952314568362480)[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/kakintse/.rbenv/versions/2.5.1/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for ::1 at 2021-12-09 13:11:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 430ms (Views: 418.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-10 23:44:31 -0500
+Started GET "/" for 127.0.0.1 at 2021-12-10 23:44:31 -0500
+Processing by StaticPagesController#root as HTML
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 434ms (Views: 429.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 438ms (Views: 424.7ms | ActiveRecord: 0.0ms)
+
+
