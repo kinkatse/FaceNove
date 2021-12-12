@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // the top level element which will 'contain' the rest of the elements we will
     // eventually manipulate through React). The ReactDOM.render takes the container
     // given and then update it only mutating the DOM as necessary to reflect the
-    // React component.
+    // React component. This will also replace the container element so that is
+    // why we should put "React is Broken!" in the container, because if that is
+    // shown on the browser, it means that React couldn't render and replace it.
     const root = document.getElementById("root");
     ReactDOM.render(<Root/>, root)
 })
