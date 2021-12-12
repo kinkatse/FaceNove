@@ -14,9 +14,11 @@ class AuthForm extends React.Component {
     render() {
         return (
             <div className="authform">
-                <LogIn />
-                <SignUp />
-                <p className="authform-note">Create a page or Nove for sharing you or your interests!</p>
+                <div className="authform-core">
+                    <LogIn />
+                    <SignUp />
+                </div>
+                <p className="authform-note">Create a Page or Nove for sharing you or your interests!</p>
             </div>
         )
     }
