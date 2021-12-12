@@ -16,7 +16,7 @@ class AuthForm extends React.Component {
             <div className="authform">
                 <LogIn />
                 <SignUp />
-                <p className="authform-note">Create a Page for sharing you or your interests!</p>
+                <p className="authform-note">Create a page or Nove for sharing you or your interests!</p>
             </div>
         )
     }
