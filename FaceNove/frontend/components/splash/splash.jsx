@@ -6,8 +6,10 @@ import Footer from './footer'
 
 const Splash = () => (
     <div className="splash">
-        <LogoSection />
-        <AuthForm />
+        <div className="splash-core">
+            <LogoSection />
+            <AuthForm />
+        </div>
         <Footer />
     </div>
 )
