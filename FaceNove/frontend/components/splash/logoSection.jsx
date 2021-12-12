@@ -12,6 +12,8 @@ class LogoSection extends React.Component {
         return (
             <div className="logo-section">
                 <h1>logo</h1>
+                {/* <img src={this.props.logo_src} alt="FaceNove"/> */}
+                <div className="logo"></div>
             </div>
         )
     }
