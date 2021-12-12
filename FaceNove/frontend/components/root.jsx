@@ -1,13 +1,18 @@
 import React from 'react';
+// Need this even if we dont extend from React.Component
 
-class Root extends React.Component {
-    render() {
-        return (
-            <div>
-                <h1>React is Working!</h1>
-            </div>
-        )
-    }
-}
+// Did with implicit return with ()
+export const Root = () => (
+    <div>
+        <h1>React is Working!</h1>
+    </div>
+)
 
-export default Root;
+// This is explicit return with {}
+// export const Root = () => {
+//     return (
+//         <div>
+//             <h1>React is Working!</h1>
+//         </div>
+//     )
+// }
