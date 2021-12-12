@@ -11,7 +11,7 @@ class LogIn extends React.Component {
 
     render() {
         return (
-            <div className="login">
+            <div className="loginform">
                 {/* <h1>login</h1> */}
                 <label className="logemail">
                     <input

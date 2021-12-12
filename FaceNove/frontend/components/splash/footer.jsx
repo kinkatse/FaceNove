@@ -12,7 +12,7 @@ class Footer extends React.Component {
         return (
             <div className="footer">
                 <div className="footer-info">
-                    <span>footer</span>
+                    {/* <span>footer</span> */}
                     <span className="footer-message">Kin Ka Tse</span>
                     <span className="footer-message">Clone of Facebook</span>
                 </div>

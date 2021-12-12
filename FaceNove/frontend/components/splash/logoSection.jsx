@@ -11,7 +11,7 @@ class LogoSection extends React.Component {
     render() {
         return (
             <div className="logo-section">
-                <h1>logo</h1>
+                {/* <h1>logo</h1> */}
                 {/* <img src={this.props.logo_src} alt="FaceNove"/> */}
                 {/* <div className="logo"></div> */}
                 <h1 className="front-logo">facenove</h1>
