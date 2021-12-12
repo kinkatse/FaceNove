@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SignUp extends React.Component {
+class LogoSection extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -10,12 +10,11 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <div className="signup">
-                <h1>signup</h1>
-                {/* <div>Modal for signup goes here</div> */}
+            <div className="logo-section">
+                <h1>logo</h1>
             </div>
         )
     }
 }
 
-export default SignUp;
+export default LogoSection;
