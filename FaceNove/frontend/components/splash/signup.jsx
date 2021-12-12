@@ -11,8 +11,15 @@ class SignUp extends React.Component {
     render() {
         return (
             <div className="signup">
-                <h1>signup</h1>
+                {/* <h1>signup</h1> */}
                 {/* <div>Modal for signup goes here</div> */}
+                <div className="submit">
+                    <input
+                        className="submitbutton"
+                        type="submit"
+                        value={this.props.formType}
+                    />
+                </div>
             </div>
         )
     }
