@@ -4,9 +4,9 @@ import Splash from './splash/splash'
 
 class App extends React.Component {
     render() {
-        <div>
+        return (<div>
             <Splash/>
-        </div>
+        </div>)
     }
     
 }

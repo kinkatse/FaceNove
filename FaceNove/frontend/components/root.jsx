@@ -9,11 +9,11 @@ console.log("React is Working!")
 // Ghost tags are useful to have a divider that isn't shown
 // on the browser when we inspect elements so all the elements
 // are nested cleanly
-export const Root = () => (
+export const Root = ({store}) => (
     <>
-        <Provider>
+        {/* <Provider store={store}> */}
             <App />
-        </Provider>
+        {/* </Provider> */}
     </>
 )
 // We use the Provider to wrap around the App which will pass the store
