@@ -1,7 +1,7 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-import Splash from './splash/splash';
-// Need this even if we dont extend from React.Component
+import App from './app';
 
 console.log("React is Working!")
 
@@ -11,16 +11,13 @@ console.log("React is Working!")
 // are nested cleanly
 export const Root = () => (
     <>
-        {/* <h1>React is Working!</h1> */}
-        <Splash />
+        <Provider>
+            <App />
+        </Provider>
     </>
 )
+// We use the Provider to wrap around the App which will pass the store
+// for every component and then we call connect() when we need it for
+// that specific component
 
-// This is explicit return with {}
-// export const Root = () => {
-//     return (
-//         <div>
-//             <h1>React is Working!</h1>
-//         </div>
-//     )
-// }
+// Can use {} for explicit return which calls return
