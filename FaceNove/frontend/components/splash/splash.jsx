@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LogoSection from './logoSection';
-import AuthForm from './authForm';
+import LogoSection from './logo_section';
+import AuthForm from './auth_form';
 import Footer from './footer'
 
 const Splash = () => (

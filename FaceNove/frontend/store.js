@@ -8,7 +8,7 @@ import { createStore } from 'redux'
 // Here we import the rootReducer and pass this in as
 // the first argument for createStore. Make sure we
 // get the path right because it has a nested folder
-import rootReducer from './reducers/rootReducer'
+import rootReducer from './reducers/root_reducer'
 
 // This is creating a const variable with a preloadedState
 // which is something we may need from a previous state
