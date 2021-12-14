@@ -14,8 +14,12 @@ class LogoSection extends React.Component {
     }
 
     render() {
+        // We passed down color and updateColor() from the App to change the color of the logo
+        // once we click the onClick event listener, which we handle the click with the updateColor
+        // which does setState so it will rerender everything after setting state in the App and
+        // all its children components will also update so the color will be updated. We can
+        // change it dynamically with interpolating it in the className of the logo element
         let color = this.props.color;
-        // debugger
         return (
             <div className="logo-section">
                 {/* <h1>logo</h1> */}
