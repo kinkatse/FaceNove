@@ -5,6 +5,7 @@ import SplashContainer from './splash/splash_container'
 // Possibly put background here?
 class App extends React.Component {
     constructor(props){
+        // debugger
         super(props)
         // this.state = {
         //     color: 'blue'

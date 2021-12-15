@@ -7,7 +7,16 @@ const colorReducer = (state = {color: 'blue'}, action) => {
     // don't modify the old state with Object.freeze and set the nextState
     // to Object.assign of the old state
     Object.freeze(state)
-    const nextState = Object.assign({}, state)
+    // debugger
+    // Here the state will end up being 'blue' when we expected it to be
+    // {color: 'blue'}
+    // const nextState = Object.assign({}, state)
+    // Then that becomes {0: 'b', 1: 'l', 2: 'u', 3: 'e'} since the
+    // Object.assign function second parameter needs to be an object
+    // thus, it makes string 'blue' into an object with each char being
+    // the value to its index. It's weird and idk why
+    let nextState;
+    debugger
 
     // This is where the purity of this function comes in since the action.type
     // will always be something we expect from the action and can predict the outcome
@@ -25,12 +34,23 @@ const colorReducer = (state = {color: 'blue'}, action) => {
             // nextState["color"]. We use this below in default to examplify that
 
             // Why does state eventually go from {color: 'blue'} to just 'blue'?
-            if (state === 'blue') {
-                return nextState.color = 'green'
-            } else if (state === 'green') {
-                return nextState.color = 'red'
+            debugger
+            if (state.color === 'blue') {
+                debugger
+                // return nextState.color = 'green'
+                nextState = Object.assign({}, state, {color: 'green'})
+                debugger
+                return nextState;
+            } else if (state.color === 'green') {
+                // return nextState.color = 'red'
+                nextState = Object.assign({}, state, {color: 'red'})
+                debugger
+                return nextState;
             } else {
-                return nextState.color = 'blue'
+                // return nextState.color = 'blue'
+                nextState = Object.assign({}, state, {color: 'blue'})
+                debugger
+                return nextState;
             }
         case COLOR_ERROR:
             alert('Color theme for ' + action.error + ' is not available');
@@ -38,7 +58,12 @@ const colorReducer = (state = {color: 'blue'}, action) => {
             // Return the original color theme which is blue. This is also hit when we
             // first load the app with the initial action being the
             // {type: "@@redux/INITa.t.t.a.b"} which then hits our default case
-            return nextState["color"] = 'blue';
+            debugger
+            // return nextState.color = 'blue'
+            nextState = Object.assign({}, state, {color: 'blue'})
+            debugger
+            return nextState;
+            // return nextState["color"] = 'blue';
     }
 }
 
