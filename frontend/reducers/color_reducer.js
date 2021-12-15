@@ -1,4 +1,4 @@
-import { RECEIVE_COLOR, COLOR_ERROR } from "../actions/color_actions";
+import { TOGGLE_COLOR, COLOR_ERROR } from "../actions/color_actions";
 
 const colorReducer = (state = {color: 'blue'}, action) => {
     // Reducer only takes in a state and action and will return a new state.
@@ -12,15 +12,26 @@ const colorReducer = (state = {color: 'blue'}, action) => {
     // This is where the purity of this function comes in since the action.type
     // will always be something we expect from the action and can predict the outcome
     switch(action.type) {
-        case RECEIVE_COLOR:
+        case TOGGLE_COLOR:
             // Setting old State's key into color as the action.color which is
             // dependent on user choice since action only dispatches after being hit
             // on event listener
-            return nextState.color = action.color;
+
+            // Attempting to have receive color before but now changed mind to toggle
+            // return nextState.color = action.color;
             // Seems like we cannot key into the with nextState[color] like we are used
             // to with Ruby. In Javascript, we have two ways to add properties to an
             // object, dot notation like this or square bracket notation which is like
             // nextState["color"]. We use this below in default to examplify that
+
+            // Why does state eventually go from {color: 'blue'} to just 'blue'?
+            if (state === 'blue') {
+                return nextState.color = 'green'
+            } else if (state === 'green') {
+                return nextState.color = 'red'
+            } else {
+                return nextState.color = 'blue'
+            }
         case COLOR_ERROR:
             alert('Color theme for ' + action.error + ' is not available');
         default:

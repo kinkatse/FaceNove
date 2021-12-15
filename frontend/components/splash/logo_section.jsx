@@ -3,15 +3,15 @@ import React from 'react';
 class LogoSection extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        // this.state = {
 
-        }
-        this.handleClick = this.handleClick.bind(this);
+        // }
+        // this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick() {
-        this.props.updateColor();
-    }
+    // handleClick() {
+    //     this.props.updateColor();
+    // }
 
     render() {
         // We passed down color and updateColor() from the App to change the color of the logo
@@ -25,7 +25,7 @@ class LogoSection extends React.Component {
                 {/* <h1>logo</h1> */}
                 {/* <img src={this.props.logo_src} alt="FaceNove"/> */}
                 {/* <div className="logo"></div> */}
-                <h1 className={'front-logo ' + color} onClick={this.handleClick}>facenove</h1>
+                <h1 className={'front-logo ' + color} onClick={this.props.updateColor}>facenove</h1>
                 <p className="under-logo-message">Connect with friends and be the face of your own page!</p>
             </div>
         )
