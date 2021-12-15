@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // React component. This will also replace the container element so that is
     // why we should put "React is Broken!" in the container, because if that is
     // shown on the browser, it means that React couldn't render and replace it.
-    let store = configureStore;
+    let store = configureStore();
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root)
 })
