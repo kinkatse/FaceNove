@@ -6,9 +6,6 @@ import App from './app';
 console.log("React is Working!")
 
 // Did with implicit return with ()
-// Ghost tags are useful to have a divider that isn't shown
-// on the browser when we inspect elements so all the elements
-// are nested cleanly
 export const Root = ({store}) => (
     <Provider store={store}>
         <App />

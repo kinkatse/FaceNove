@@ -3,16 +3,12 @@ import React from 'react';
 class Footer extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-
-        }
     }
 
     render() {
         return (
             <div className="footer">
                 <div className="footer-info">
-                    {/* <span>footer</span> */}
                     <span className="footer-message">Kin Ka Tse</span>
                     <span className="footer-message">Clone of Facebook</span>
                 </div>

@@ -7,7 +7,6 @@ const colorReducer = (state = {color: 'blue'}, action) => {
     // don't modify the old state with Object.freeze and set the nextState
     // to Object.assign of the old state
     Object.freeze(state)
-    // debugger
     // Here the state will end up being 'blue' when we expected it to be
     // {color: 'blue'}
     // const nextState = Object.assign({}, state)
@@ -32,24 +31,17 @@ const colorReducer = (state = {color: 'blue'}, action) => {
             // to with Ruby. In Javascript, we have two ways to add properties to an
             // object, dot notation like this or square bracket notation which is like
             // nextState["color"]. We use this below in default to examplify that
-
-            // Why does state eventually go from {color: 'blue'} to just 'blue'?
-            debugger
             if (state.color === 'blue') {
-                debugger
                 // return nextState.color = 'green'
                 nextState = Object.assign({}, state, {color: 'green'})
-                debugger
                 return nextState;
             } else if (state.color === 'green') {
                 // return nextState.color = 'red'
                 nextState = Object.assign({}, state, {color: 'red'})
-                debugger
                 return nextState;
             } else {
                 // return nextState.color = 'blue'
                 nextState = Object.assign({}, state, {color: 'blue'})
-                debugger
                 return nextState;
             }
         case COLOR_ERROR:
@@ -58,12 +50,7 @@ const colorReducer = (state = {color: 'blue'}, action) => {
             // Return the original color theme which is blue. This is also hit when we
             // first load the app with the initial action being the
             // {type: "@@redux/INITa.t.t.a.b"} which then hits our default case
-            debugger
-            // return nextState.color = 'blue'
-            nextState = Object.assign({}, state, {color: 'blue'})
-            debugger
-            return nextState;
-            // return nextState["color"] = 'blue';
+            return state;
     }
 }
 

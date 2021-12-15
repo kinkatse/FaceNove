@@ -13,9 +13,9 @@ import rootReducer from '../reducers/root_reducer'
 // For our purposes, the preloadedState will help us determine if the current
 // user is still logged in and so even when we refresh the page, we should still
 // keep the state
-const configureStore = (preloadedState = {}) => (
-    createStore(rootReducer, preloadedState)
-)
+const configureStore = (preloadedState = {}) => {
+    return createStore(rootReducer, preloadedState)
+}
 
 // Static creation of store:
 // const store = createStore(() => {}, preloadedState);
