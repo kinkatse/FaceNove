@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 // Import createStore function from redux which will allow us to initialize
 // the store with a reducer. Later we will add the middleware as another
 // import from the 'redux' library. We would also need thunk and logger
@@ -7,6 +7,9 @@ import { createStore } from 'redux'
 // createStore. Make sure we get the path right because it has a nested folder
 import rootReducer from '../reducers/root_reducer'
 
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+
 // This is creating a const variable with a preloadedState which is something
 // we may need from a previous state and use that as the state parameter that
 // createStore takes but if there is no preloadedState, then it defaults to {}
@@ -14,7 +17,7 @@ import rootReducer from '../reducers/root_reducer'
 // user is still logged in and so even when we refresh the page, we should still
 // keep the state
 const configureStore = (preloadedState = {}) => {
-    return createStore(rootReducer, preloadedState)
+    return createStore(rootReducer, preloadedState, applyMiddleware(thunk, logger))
 }
 
 // Static creation of store:
