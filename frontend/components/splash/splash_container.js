@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Splash from './splash'
 
-// Actions
 import { toggleColor } from '../../actions/color_actions';
 
 const mapStateToProps = (state) => {

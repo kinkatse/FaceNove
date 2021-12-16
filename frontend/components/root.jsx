@@ -5,14 +5,8 @@ import App from './app';
 
 console.log("React is Working!")
 
-// Did with implicit return with ()
 export const Root = ({store}) => (
     <Provider store={store}>
         <App />
     </Provider>
 )
-// We use the Provider to wrap around the App which will pass the store
-// for every component and then we call connect() when we need it for
-// that specific component
-
-// Can use {} for explicit return which calls return
