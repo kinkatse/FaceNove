@@ -3,6 +3,10 @@ import { combineReducers } from 'redux';
 // when we initialize it since it can only take one reducer as a parameter
 
 // Import reducers for each slice of state
+import entities from './entities_reducer';
+import session from './session_reducer';
+import errors from './errors_reducer';
+import ui from './ui_reducer';
 
 const rootReducer = combineReducers({
     // Example:
