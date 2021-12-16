@@ -1,4 +1,4 @@
-import { TOGGLE_COLOR, COLOR_ERROR } from "../actions/color_actions";
+import { TOGGLE_COLOR } from "../actions/color_actions";
 
 const colorReducer = (state = {color: 'blue'}, action) => {
     // Reducer only takes in a state and action and will return a new state.
@@ -7,15 +7,6 @@ const colorReducer = (state = {color: 'blue'}, action) => {
     // don't modify the old state with Object.freeze and set the nextState
     // to Object.assign of the old state
     Object.freeze(state)
-    // Here the state will end up being 'blue' when we expected it to be
-    // {color: 'blue'}
-    // const nextState = Object.assign({}, state)
-    // Then that becomes {0: 'b', 1: 'l', 2: 'u', 3: 'e'} since the
-    // Object.assign function second parameter needs to be an object
-    // thus, it makes string 'blue' into an object with each char being
-    // the value to its index. It's weird and idk why
-    let nextState;
-    debugger
 
     // This is where the purity of this function comes in since the action.type
     // will always be something we expect from the action and can predict the outcome
@@ -25,27 +16,13 @@ const colorReducer = (state = {color: 'blue'}, action) => {
             // dependent on user choice since action only dispatches after being hit
             // on event listener
 
-            // Attempting to have receive color before but now changed mind to toggle
-            // return nextState.color = action.color;
-            // Seems like we cannot key into the with nextState[color] like we are used
-            // to with Ruby. In Javascript, we have two ways to add properties to an
-            // object, dot notation like this or square bracket notation which is like
-            // nextState["color"]. We use this below in default to examplify that
             if (state.color === 'blue') {
-                // return nextState.color = 'green'
-                nextState = Object.assign({}, state, {color: 'green'})
-                return nextState;
+                return Object.assign({}, state, {color: 'green'})
             } else if (state.color === 'green') {
-                // return nextState.color = 'red'
-                nextState = Object.assign({}, state, {color: 'red'})
-                return nextState;
+                return Object.assign({}, state, {color: 'red'})
             } else {
-                // return nextState.color = 'blue'
-                nextState = Object.assign({}, state, {color: 'blue'})
-                return nextState;
+                return Object.assign({}, state, {color: 'blue'})
             }
-        case COLOR_ERROR:
-            alert('Color theme for ' + action.error + ' is not available');
         default:
             // Return the original color theme which is blue. This is also hit when we
             // first load the app with the initial action being the

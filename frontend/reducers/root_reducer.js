@@ -15,9 +15,9 @@ const rootReducer = combineReducers({
     // that is just syntactic sugar. Need our state to have multiple slices of state so we need
     // many different reducers that handle different parts of the app like sessions, ui, entities,
     // errors etc, so we shouldn't just do one reducer per functionality, that may become very tedious
-    entities,
-    session,
-    errors,
+    // entities,
+    // session,
+    // errors,
     ui
 })
 

@@ -5,10 +5,11 @@ import Splash from './splash'
 import { toggleColor } from '../../actions/color_actions';
 
 const mapStateToProps = (state) => {
-    // This is state.color.color because of our rootReducer making an additional key to
-    // color. This will be fixed once we have more in our state for different slices of state
+    // This went through the root reducer which is why we need to key into
+    // ui, colorRed and then color since that is the particular slice
+    // of state we want
     return {
-        color: state.color.color
+        color: state.ui.colorRed.color
     }
 }
 
