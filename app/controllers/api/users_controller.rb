@@ -33,6 +33,13 @@ class Api::UsersController < ApplicationController
     end
 
     def update
+        @emailUser = User.find_by(id: params[:id])
+        # .update_attribute is a rails built in method and takes in params to update all info passed in
+        if @emailUser.update_attributes(email_user_params)
+            render "api/users/show"
+        else
+            render json: @emailUser.errors.full_messages, status: 418
+        end
     end
 
     def destroy
