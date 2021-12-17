@@ -42,9 +42,18 @@ class User < ApplicationRecord
     end
 
     def new_session_token
+        # Creating a brand new session token that is randomized
+        SecureRandom.urlsafe_base64
     end
 
     def generate_distinct_session_token
+        # Makes a new session token
+        self.session_token = new_session_token
+        # Not sure what's going on here yet
+        while User.find_by(session_token: self.session_token)
+            self.session_token = new_session_token
+        end
+        self.session_token
     end
 
 end
