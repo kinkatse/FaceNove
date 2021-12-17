@@ -23,9 +23,14 @@ class User < ApplicationRecord
     end
 
     def password=(password)
+        @password = password
+        # Salting and other stuff to basically make the password harder to guess and make it the password_digest so we never actually know the user's password
+        self.password_digest = BCrypt::Password.create(password)
     end
 
     def is_password?(password)
+        # Creating a password_digest with the BCrypt which should see if it is == to the manual creation of the password_digest
+        BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
     def reset_session_token!
