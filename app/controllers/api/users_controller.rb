@@ -17,9 +17,19 @@ class Api::UsersController < ApplicationController
     end
 
     def index
+        @emailUsers = User.all
+        render "api/users/index"
     end
 
     def show
+        # Looking for specific user so we check params for that id, and so params[:id] evaluates
+        # to the User and then we make a key value pair of the id to the User we just accessed
+        @emailUser = User.find_by(id: params[:id])
+        if @emailUser
+            render "api/users/show"
+        else
+            render json: ["User does not exist"], status: 404
+        end
     end
 
     def update
