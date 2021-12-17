@@ -34,11 +34,17 @@ class User < ApplicationRecord
     end
 
     def reset_session_token!
+        generate_distinct_session_token
+        # Saving the new session token to the database so the old one is gone after a session is done
+        # Will this be nil on log out? So what happens when we save nil, this type of situation seems familiar
+        save!
+        self.session_token
     end
 
     private
 
     def ensure_session_token
+        generate_distinct_session_token if !self.session_token
     end
 
     def new_session_token
@@ -49,7 +55,8 @@ class User < ApplicationRecord
     def generate_distinct_session_token
         # Makes a new session token
         self.session_token = new_session_token
-        # Not sure what's going on here yet
+        # This is to make sure we create a new session token unique from others
+        # What's going on line by line?
         while User.find_by(session_token: self.session_token)
             self.session_token = new_session_token
         end
