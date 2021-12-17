@@ -11,6 +11,15 @@ class User < ApplicationRecord
     # has_one_attached :coverPicUrl
 
     def self.find_by_credentials(email, password)
+        # Class method which we get user where their email == the email param we got
+        @emailUser = User.find_by(email: email)
+        return nil if !@emailUser
+        # Pass in the password to see if their password is correct, if it is then return the User instance
+        if @emailUser.is_password?(password)
+            return @emailUser
+        else
+            return nil
+        end
     end
 
     def password=(password)
@@ -32,5 +41,5 @@ class User < ApplicationRecord
 
     def generate_distinct_session_token
     end
-    
+
 end
