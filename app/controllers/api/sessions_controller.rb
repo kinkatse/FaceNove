@@ -17,6 +17,15 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
+        # By doing this, we make sure a session can only be deleted when they are logged in
+        @emailUser = current_user
+        if @emailUser
+            log_out
+            # Why would we render show page if logged out?
+            render "api/users/show"
+        else
+            render json: ["No one is currently signed in"], status: 404
+        end
     end
 
 end
