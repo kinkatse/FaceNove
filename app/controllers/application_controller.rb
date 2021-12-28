@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
     def require_logged_in
         # If no logged in user, give an error
-        # What is base?
+        # What is base? Base is just a key we set for the error I think
         if !current_user
             render json: { base: ['Invalid credentials'] }, status: 401
         end

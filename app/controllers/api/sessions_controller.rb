@@ -1,7 +1,7 @@
 class Api::SessionsController < ApplicationController
 
     def create
-        # Grabbing the email and password of the user from the params.
+        # Grabbing the email and password of the user from the params. Where does params come from? Seems like AJAX Requests
         # Need to key in through user and then we can key in to the specific attribute we want
         @emailUser = User.find_by_credentials(
             params[:user][:email]
