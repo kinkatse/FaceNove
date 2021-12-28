@@ -10,7 +10,6 @@ class Api::UsersController < ApplicationController
             # We then render the users show page to indicate they have logged in
             render "api/users/show"
         else
-            # Not sure where this is coming from
             render json: @emailUser.errors.full_messages, status: 422
         end
 
