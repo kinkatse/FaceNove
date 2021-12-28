@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def log_in(email)
+        # debugger
         # Upon successful log in with email, we reset session token so each time a user logs in, its a new session token
         # Why bang (!)?
         email.reset_session_token!

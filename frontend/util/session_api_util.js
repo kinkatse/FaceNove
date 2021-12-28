@@ -1,4 +1,5 @@
 export const signUp = (user) => {
+    debugger
     return $.ajax({
         url: '/api/users',
         // This is signing up a user so we do to users page
@@ -9,8 +10,9 @@ export const signUp = (user) => {
 }
 
 export const logIn = (user) => {
+    debugger
     return $.ajax({
-        url: '/api/sessions',
+        url: '/api/session',
         // Post to Sessions because we want to log in a new session
         method: 'POST',
         // Data being sent to check credentials
@@ -19,8 +21,9 @@ export const logIn = (user) => {
 }
 
 export const logOut = () => {
+    debugger
     return $.ajax({
-        url: '/api/sessions',
+        url: '/api/session',
         method: 'DELETE'
     })
 }

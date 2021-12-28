@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
     
     def create
+        debugger
         # Making instance variable of the new User we are passing in strong params for
         @emailUser = User.new(email_user_params)
         # Then we save it to the database with .save! which gives loud errors if something went wrong
