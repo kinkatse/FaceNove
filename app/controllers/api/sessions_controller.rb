@@ -7,6 +7,8 @@ class Api::SessionsController < ApplicationController
             params[:user][:email],
             params[:user][:password]
         )
+        # For testing the log in until we have hashrouter
+        console.log("Logged in!")
         # Upon successful email and password, we log in and go to users show page, else show errors
         if @emailUser
             log_in(@emailUser)
@@ -19,6 +21,8 @@ class Api::SessionsController < ApplicationController
     def destroy
         # By doing this, we make sure a session can only be deleted when they are logged in
         @emailUser = current_user
+        # For testing the log out until we have hashrouter
+        console.log("Logged out!")
         if @emailUser
             log_out
             # Why would we render show page if logged out?
