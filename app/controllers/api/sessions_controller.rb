@@ -8,11 +8,8 @@ class Api::SessionsController < ApplicationController
             params[:user][:password]
         )
         # Upon successful email and password, we log in and go to users show page, else show errors
-        debugger
         if @emailUser
-            debugger
             log_in(@emailUser)
-            debugger
             render "api/users/show"
         else
             render json: ["Invalid username or password"], status: 401
@@ -20,7 +17,6 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
-        debugger
         # By doing this, we make sure a session can only be deleted when they are logged in
         @emailUser = current_user
         if @emailUser
