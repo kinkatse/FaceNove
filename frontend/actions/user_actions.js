@@ -9,9 +9,9 @@ const allUsers = (users) => ({
     users
 })
 
-const getUser = (users) => ({
+const getUser = (user) => ({
     type: GET_USER,
-    users
+    user
 })
 
 // indexUsers
