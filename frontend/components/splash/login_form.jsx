@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Login extends React.Component {
+class LoginForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,7 +17,7 @@ class Login extends React.Component {
                         className="login"
                         type="text"
                         placeholder="Email"
-                        // value={this.state.email}
+                        value={this.state.email}
                     />
                 </label>
                 <label className="logpass">
@@ -25,14 +25,14 @@ class Login extends React.Component {
                         className="login"
                         type="password"
                         placeholder="Password"
-                        // value={this.state.password}
+                        value={this.state.password}
                     />
                 </label>
                 <div className="logbutton">
                     <input
                         className="logbuttontext"
                         type="submit"
-                        // value={this.props.formType}
+                        value={this.props.formType}
                     />
                 </div>
                 <p className="forgot-pass">Forgot password?</p>
@@ -41,4 +41,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default LoginForm;

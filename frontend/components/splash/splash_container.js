@@ -12,9 +12,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    updateColor: () => dispatch(toggleColor())
-})
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateColor: () => dispatch(toggleColor())
+    }
+}
 // putting ; after line 12 or 8 here breaks, why?
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
