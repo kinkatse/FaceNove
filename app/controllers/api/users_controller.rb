@@ -1,14 +1,14 @@
 class Api::UsersController < ApplicationController
     
     def create
-        # For testing the sign up until we have hashrouter
-        console.log("Signed up!")
         # Making instance variable of the new User we are passing in strong params for
         @emailUser = User.new(email_user_params)
         # Then we save it to the database with .save! which gives loud errors if something went wrong
         if @emailUser.save!
             # log_in comes from ApplicationController which we inherit
             log_in(@emailUser)
+            # For testing the sign up until we have hashrouter
+            puts "Signed up!"
             # We then render the users show page to indicate they have logged in
             render "api/users/show"
         else
