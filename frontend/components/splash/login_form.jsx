@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
         // debugger
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleSubmit(e) {
@@ -25,7 +26,13 @@ class LoginForm extends React.Component {
         })
     }
 
-    render() {
+    handleDemo(e) {
+        e.preventDefault();
+        const user = { email: 'demo@mail.com', password: 'password' }
+        this.props.processForm(user)
+    }
+
+    rendersLogin() {
         return (
             <div className="loginform">
                 <label className="logemail">
@@ -51,10 +58,21 @@ class LoginForm extends React.Component {
                         className="logbuttontext"
                         type="submit"
                         value={this.props.formType}
-                        onClick={this.handleSubmit}
                     />
                 </div>
                 <p className="forgot-pass">Forgot password?</p>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div className="">
+                <form onSubmit={this.handleSubmit}>
+                    {this.rendersLogin()}
+                </form>
+                <div className="SignUp"></div>
+                <button onClick={this.handleDemo}>Demo Login</button>
             </div>
         )
     }
