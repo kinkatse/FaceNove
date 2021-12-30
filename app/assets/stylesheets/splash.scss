@@ -1,3 +1,25 @@
+@keyframes login_pulsing {
+    from, to {
+        height: 40px;
+        width: 280px;
+    }
+    50% {
+        height: 40.9px;
+        width: 288px;
+    }
+}
+
+@keyframes splashbuttons_pulsing {
+    from, to {
+        height: 38px;
+        width: 200px;
+    }
+    50% {
+        height: 38.9px;
+        width: 208px;
+    }
+}
+
 // Dont want the scroll bar on the outside
 .splash {
     overflow-x: hidden;
@@ -26,11 +48,11 @@
     position: relative;
     top: -20px;
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     // flex-wrap: wrap;
     height: 90vh;
     // width: 70vw;
-    justify-content: space-evenly;
-    align-items: center;
 }
 
 .logo-section {
@@ -64,18 +86,22 @@
 }
 
 .loginform {
-    margin-top: 15px;
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 2px solid rgba(206, 206, 206, 0.5);
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(175, 175, 175, 0.5);
 }
 
 .login {
-    margin: 7px;
+    font-size: 14px;
     height: 40px;
-    width: 300px;
+    width: 280px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 7px;
+    border: 1.5px solid rgb(165, 165, 165);
     border-radius: 5px;
 }
 
@@ -83,10 +109,30 @@
     margin-bottom: 8px;
 }
 
+.login:hover {
+    animation-duration: 2s;
+    animation-name: login_pulsing;
+    animation-iteration-count: infinite;
+}
+
+.login:focus {
+    outline: none;
+    border-color: #b5f4f8;
+    box-shadow: 0 0 5px rgba(52, 173, 243, 0.4);
+}
+
+.login::placeholder {
+    color: rgba(153, 153, 153, 0.85);
+}
+
+.login:focus::placeholder {
+    color: rgba(180, 180, 180, 0.5);
+}
+
 .signupform {
 }
 
-.authformv2 {
+.authform * {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,17 +142,24 @@
 .splashbutton {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
-    text-align: center;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-    border-radius: 8px;
-    display: block;
-    background-color: #558cd8;
     font-weight: bold;
-    color: white;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
     border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: #558cd8;
     cursor: pointer;
+}
+
+.splashbutton:hover {
+    border-color: #b5f4f8;
+    box-shadow: 0 0 5px rgba(52, 173, 243, 0.4);
+    background-color: #739cd4;
+    animation-duration: 2s;
+    animation-name: splashbuttons_pulsing;
+    animation-iteration-count: infinite;
 }
 
 .demo {
@@ -115,29 +168,28 @@
 
 .footer {
     // border: 4px solid rgba(255, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
     position: relative;
     left: -10px;
     bottom: -10px;
-    display: flex;
     height: 15vh;
     width: 100vw;
-    
-    flex-direction: column;
     background-color: rgb(255, 255, 255);
 }
 
 .footer-info {
     // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
-    height: 6vh;
     justify-content: space-around;
     align-items: center;
+    height: 6vh;
 }
 
 .footer-links {
     // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
-    height: 6vh;
     justify-content: space-evenly;
     align-items: center;
+    height: 6vh;
 }
