@@ -9,7 +9,6 @@ class LoginForm extends React.Component {
             email: "",
             password: ""
         }
-        // debugger
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
@@ -34,12 +33,21 @@ class LoginForm extends React.Component {
         this.props.processForm(user)
     }
 
-    rendersLogin() {
+    rendersLogin(color, colorSplash) {
+        // First argument is for login class color change, the colorSplash only changed for splashbuttons
+        let colorInput;
+        if (color === 'blue') {
+            colorInput = 'bluelogin';
+        } else if (color === 'green') {
+            colorInput = 'greenlogin'
+        } else if (color === 'red') {
+            colorInput = 'redlogin'
+        }
         return (
             <div className="loginform">
                 <label className="loginemail">
                     <input
-                        className="login"
+                        className={'login ' + colorInput}
                         type="text"
                         placeholder="Email"
                         value={this.state.email}
@@ -48,7 +56,7 @@ class LoginForm extends React.Component {
                 </label>
                 <label className="loginpass">
                     <input
-                        className="login"
+                        className={'login ' + colorInput}
                         type="password"
                         placeholder="Password"
                         value={this.state.password}
@@ -57,7 +65,7 @@ class LoginForm extends React.Component {
                 </label>
                 <div className="logbutton">
                     <input
-                        className="logbuttontext splashbutton"
+                        className={'logbuttontext splashbutton ' + colorSplash}
                         type="submit"
                         value={this.props.formType}
                     />
@@ -67,15 +75,23 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        let colorSplash;
+        if (this.props.color === 'blue') {
+            colorSplash = 'bluesplash';
+        } else if (this.props.color === 'green') {
+            colorSplash = 'greensplash'
+        } else if (this.props.color === 'red') {
+            colorSplash = 'redsplash'
+        }
         return (
             <div className="">
                 <form onSubmit={this.handleSubmit}>
-                    {this.rendersLogin()}
+                    {this.rendersLogin(this.props.color, colorSplash)}
                 </form>
-                <div className="signup">
-                    <SignupForm />
-                </div>
-                <button className="demo splashbutton" onClick={this.handleDemo}>Demo Login</button>
+                <SignupForm colorSplash={colorSplash}/>
+                <button
+                    className={'demo splashbutton ' + colorSplash}
+                    onClick={this.handleDemo}>Demo Login</button>
             </div>
         )
     }
