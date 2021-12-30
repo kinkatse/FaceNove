@@ -11,9 +11,10 @@ class SignupForm extends React.Component {
                 {/* <div>Modal for signup goes here</div> */}
                 <div className="signupbutton">
                     <input
-                        className="signupbuttontext"
+                        className="signupbuttontext splashbutton"
                         type="submit"
                         // value={this.props.formType}
+                        value="Create A New Account"
                     />
                 </div>
             </div>

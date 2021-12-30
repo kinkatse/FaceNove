@@ -1,5 +1,7 @@
 import React from 'react';
 
+import SignupForm from './signup_form';
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props)
@@ -35,7 +37,7 @@ class LoginForm extends React.Component {
     rendersLogin() {
         return (
             <div className="loginform">
-                <label className="logemail">
+                <label className="loginemail">
                     <input
                         className="login"
                         type="text"
@@ -44,7 +46,7 @@ class LoginForm extends React.Component {
                         onChange={this.handleUpdate('email')}
                     />
                 </label>
-                <label className="logpass">
+                <label className="loginpass">
                     <input
                         className="login"
                         type="password"
@@ -55,24 +57,25 @@ class LoginForm extends React.Component {
                 </label>
                 <div className="logbutton">
                     <input
-                        className="logbuttontext"
+                        className="logbuttontext splashbutton"
                         type="submit"
                         value={this.props.formType}
                     />
                 </div>
-                <p className="forgot-pass">Forgot password?</p>
             </div>
         )
     }
 
     render() {
         return (
-            <div className="">
+            <div className="authformv2">
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin()}
                 </form>
-                <div className="SignUp"></div>
-                <button onClick={this.handleDemo}>Demo Login</button>
+                <div className="signup">
+                    <SignupForm />
+                </div>
+                <button className="demo splashbutton" onClick={this.handleDemo}>Demo Login</button>
             </div>
         )
     }
