@@ -1,10 +1,9 @@
 export const OPEN_SIGNUP_MODAL = 'OPEN_SIGNUP_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-export const openSignupModal = (modalType) => {
+export const openSignupModal = () => {
     return {
-        type: OPEN_SIGNUP_MODAL,
-        modalType
+        type: OPEN_SIGNUP_MODAL
     }
 }
 
