@@ -1,6 +1,6 @@
 import { OPEN_SIGNUP_MODAL, CLOSE_MODAL } from "../actions/modal_actions";
 
-export const modalReducer = (state = {type: ''}, action) => {
+const modalReducer = (state = {type: ''}, action) => {
     Object.freeze(state);
     switch(action.type) {
         case OPEN_SIGNUP_MODAL:
@@ -11,3 +11,5 @@ export const modalReducer = (state = {type: ''}, action) => {
             return state;
     }
 }
+
+export default modalReducer;

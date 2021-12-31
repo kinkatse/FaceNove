@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SignupModalForm from 'modal_signup';
+import SignupModalForm from './modal_signup';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -11,7 +11,8 @@ class Modal extends React.Component {
     }
 
     selectModal() {
-        switch(this.props.modal.show) {
+        debugger
+        switch(this.props.modalRed.type) {
             case 'signup':
                 return <SignupModalForm color={this.props.color} />
             case '':

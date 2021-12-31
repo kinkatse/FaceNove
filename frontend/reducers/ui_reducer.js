@@ -3,8 +3,8 @@ import colorReducer from './color_reducer';
 import modalReducer from './modal_reducer';
 
 const uiReducer = combineReducers({
-    colorRed: colorReducer,
-    modal: modalReducer
+    modalRed: modalReducer,
+    colorRed: colorReducer
 })
 
 export default uiReducer;

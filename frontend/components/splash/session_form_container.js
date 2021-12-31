@@ -4,9 +4,10 @@ import { login } from '../../actions/session_actions';
 import SessionForm from './login_form';
 
 const mapStateToProps = (state) => {
+    debugger
     return {
         formType: 'Log In',
-        modal: state.ui.modal
+        modal: state.ui.modalRed
     }
 }
 
