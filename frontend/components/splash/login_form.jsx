@@ -90,7 +90,9 @@ class LoginForm extends React.Component {
                 </form>
                 {/* <SignupForm colorSplash={colorSplash}/> */}
                 <button
+                    className={'signupbuttontext splashbutton ' + colorSplash}
                     onClick={this.props.openSignupModal}>
+                        Create New Account
                 </button>
                 <button
                     className={'demo splashbutton ' + colorSplash}
