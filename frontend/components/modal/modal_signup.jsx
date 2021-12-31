@@ -6,16 +6,18 @@ class ModalSignup extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className="signupform">
                 {/* <div>Modal for signup goes here</div> */}
-                <div className="signupbutton">
+                {/* <div className="signupbutton">
                     <input
                         type="submit"
                         // value={this.props.formType}
                         value="Create A New Account"
                     />
-                </div>
+                </div> */}
+                <h1>Modal Open</h1>
             </div>
         )
     }

@@ -24,6 +24,7 @@ class Modal extends React.Component {
 
     render() {
         let component = this.selectModal();
+        debugger
         return (
             <div className="">
                 {component}
