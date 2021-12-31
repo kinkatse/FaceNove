@@ -12,7 +12,7 @@ class Modal extends React.Component {
 
     selectModal() {
         debugger
-        switch(this.props.modalRed.type) {
+        switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm color={this.props.color} />
             case '':
