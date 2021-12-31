@@ -1,25 +1,25 @@
-import React from 'react';
+// import React from 'react';
 
-class SignupForm extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+// class SignupForm extends React.Component {
+//     constructor(props) {
+//         super(props)
+//     }
 
-    render() {
-        return (
-            <div className="signupform">
-                {/* <div>Modal for signup goes here</div> */}
-                <div className="signupbutton">
-                    <input
-                        className={'signupbuttontext splashbutton ' + this.props.colorSplash}
-                        type="submit"
-                        // value={this.props.formType}
-                        value="Create A New Account"
-                    />
-                </div>
-            </div>
-        )
-    }
-}
+//     render() {
+//         return (
+//             <div className="signupform">
+//                 {/* <div>Modal for signup goes here</div> */}
+//                 <div className="signupbutton">
+//                     <input
+//                         className={'signupbuttontext splashbutton ' + this.props.colorSplash}
+//                         type="submit"
+//                         // value={this.props.formType}
+//                         value="Create A New Account"
+//                     />
+//                 </div>
+//             </div>
+//         )
+//     }
+// }
 
-export default SignupForm;
+// export default SignupForm;

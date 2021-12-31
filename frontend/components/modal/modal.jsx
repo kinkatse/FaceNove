@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Signup from 'modal_signup';
+import SignupModalForm from 'modal_signup';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class Modal extends React.Component {
     selectModal() {
         switch(this.props.modal.show) {
             case 'signup':
-                return <Signup />
+                return <SignupModalForm color={this.props.color} />
             case '':
                 return null;
             default:

@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.login(user);
     }
 
     handleUpdate(field) {
@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
     handleDemo(e) {
         e.preventDefault();
         const user = { email: 'demo@mail.com', password: 'password' }
-        this.props.processForm(user)
+        this.props.login(user)
     }
 
     rendersLogin(color, colorSplash) {
@@ -88,10 +88,15 @@ class LoginForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin(this.props.color, colorSplash)}
                 </form>
-                <SignupForm colorSplash={colorSplash}/>
+                {/* <SignupForm colorSplash={colorSplash}/> */}
+                <button
+                    onClick={this.props.openSignupModal()}>
+                </button>
                 <button
                     className={'demo splashbutton ' + colorSplash}
-                    onClick={this.handleDemo}>Demo Login</button>
+                    onClick={this.handleDemo}>
+                        Demo Login
+                </button>
             </div>
         )
     }

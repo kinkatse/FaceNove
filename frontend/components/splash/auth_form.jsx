@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import LoginForm from './login_form';
-import LoginFormContainer from './login_form_container';
+import LoginFormContainer from './session_form_container';
 // import SignupForm from './signup_form';
 
 class AuthForm extends React.Component {

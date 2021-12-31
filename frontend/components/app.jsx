@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from './modal/modal';
 
 import SplashContainer from './splash/splash_container'
 
@@ -11,6 +12,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <Modal />
                 <SplashContainer />
             </div>
         )
