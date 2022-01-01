@@ -80,6 +80,7 @@ class SessionForm extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
+
         return (
             <div className="">
                 <form onSubmit={this.handleSubmit}>

@@ -23,7 +23,7 @@ class ModalSignup extends React.Component {
             birthdate: "1-1-2000",
             gender: ""
         }
-        this.props.closeModal();
+        this.props.closeModal;
     }
 
     handleSubmit(e) {
@@ -103,7 +103,7 @@ class ModalSignup extends React.Component {
                 <div className="signup_modal-background">
                     <div className="signup_modal-child">
                         <h1>Sign Up!</h1>
-                        <span onClick={this.props.closeModal()}>X</span>
+                        <span onClick={this.props.closeModal}>X</span>
                     </div>
                 </div>
             </form>
