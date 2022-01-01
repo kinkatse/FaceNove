@@ -138,19 +138,19 @@ class ModalSignup extends React.Component {
                         />
                         <br/>
                         <label className="signupinfo">Birthday</label>
-                            <div className="signupbirthdaydrop">
-                            <select className="drop" name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
-                                <option value='0' disabled >Month</option>
-                                {monthsList()}
-                            </select>
-                            <select className="drop" name='day' onChange={this.updateBirthday('day')} required defaultValue='0'>
-                                <option value='0' disabled >Day</option>
-                                {daysList()}
-                            </select>
-                            <select className="drop" name='year' onChange={this.updateBirthday('year')} required defaultValue='0'>
-                                <option value='0' disabled >Year</option>
-                                {yearsList()}
-                            </select>
+                            <div className="signupdrop">
+                                <select name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
+                                    <option value='0' disabled >Month</option>
+                                    {monthsList()}
+                                </select>
+                                <select name='day' onChange={this.updateBirthday('day')} required defaultValue='0'>
+                                    <option value='0' disabled >Day</option>
+                                    {daysList()}
+                                </select>
+                                <select name='year' onChange={this.updateBirthday('year')} required defaultValue='0'>
+                                    <option value='0' disabled >Year</option>
+                                    {yearsList()}
+                                </select>
                             </div>
                         <br/>
                         <label className="signupinfo">Gender</label> 
