@@ -42,7 +42,6 @@ class SessionForm extends React.Component {
         }
         return (
             <div className="loginform">
-                <label className="loginemail">
                     <input
                         className={'login ' + colorInput}
                         type="text"
@@ -50,8 +49,6 @@ class SessionForm extends React.Component {
                         value={this.state.email}
                         onChange={this.update('email')}
                     />
-                </label>
-                <label className="loginpass">
                     <input
                         className={'login ' + colorInput}
                         type="password"
@@ -59,7 +56,6 @@ class SessionForm extends React.Component {
                         value={this.state.password}
                         onChange={this.update('password')}
                     />
-                </label>
                 <div className="logbutton">
                     <input
                         className={'logbuttontext splashbutton ' + colorSplash}

@@ -107,43 +107,35 @@ class ModalSignup extends React.Component {
                         <p className="signupheader">It's fast and convenient!</p>
                         <div className="signuplinediv"></div>
                         <div className="signupname">
-                            <label className="input">
-                                <input
-                                    className="signupfirstname"
-                                    type="text"
-                                    value={this.state.firstName}
-                                    placeholder="First Name"
-                                    onChange={this.update('firstName')}
-                                />
-                            </label>
-                            <label className="input">
-                                <input
-                                    className="signuplastname"
-                                    type="text"
-                                    value={this.state.lastName}
-                                    placeholder="Last Name"
-                                    onChange={this.update('lastName')}
-                                />
-                            </label>
-                        </div>
-                        <label className="input">
                             <input
-                                className="signupemail"
+                                className="signupfirstname input"
                                 type="text"
-                                value={this.state.email}
-                                placeholder="Email"
-                                onChange={this.update('email')}
+                                value={this.state.firstName}
+                                placeholder="First Name"
+                                onChange={this.update('firstName')}
                             />
-                        </label>
-                        <label className="input">
                             <input
-                                className="signuppassword"
-                                type="password"
-                                value={this.state.password}
-                                placeholder="Password"
-                                onChange={this.update('password')}
+                                className="signuplastname input"
+                                type="text"
+                                value={this.state.lastName}
+                                placeholder="Last Name"
+                                onChange={this.update('lastName')}
                             />
-                        </label>
+                        </div>
+                        <input
+                            className="signupemail input"
+                            type="text"
+                            value={this.state.email}
+                            placeholder="Email"
+                            onChange={this.update('email')}
+                        />
+                        <input
+                            className="signuppassword input"
+                            type="password"
+                            value={this.state.password}
+                            placeholder="Password"
+                            onChange={this.update('password')}
+                        />
                         <br/>
                         <label className="signupinfo">Birthday</label>
                             <div className="signupbirthdaydrop">
