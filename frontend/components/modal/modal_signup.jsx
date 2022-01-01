@@ -38,6 +38,23 @@ class ModalSignup extends React.Component {
         })
     }
 
+    updateBirthday(datetype) {
+        let birthday = this.state.birthdate.split('-');
+        let idxToUpdate;
+        if (datetype === 'month') {
+            idxToUpdate = 0;
+        } else if (datetype === 'day') {
+            idxToUpdate = 1;
+        } else if (datetype === 'year') {
+            idxToUpdate = 2;
+        }
+        
+        return e => {
+          birthday[idxToUpdate] = e.target.value;
+          this.setState({birthdate: birthday.join('-')})
+        }
+    }
+
     render() {
         const monthsObj = {
             1: "January",
