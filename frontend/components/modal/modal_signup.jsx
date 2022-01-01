@@ -14,10 +14,28 @@ class ModalSignup extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    resetState() {
+        this.setState = {
+            email: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            birthdate: "1-1-2000",
+            gender: ""
+        }
+        this.props.closeModal();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user);
+        this.props.signup(user).then(() => {this.resetState()})
+    }
+
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        })
     }
 
     render() {
