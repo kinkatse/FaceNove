@@ -3,6 +3,21 @@ import React from 'react';
 class ModalSignup extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            email: "",
+            password: "",
+            firstName: "",
+            lastName: "",
+            birthdate: "1-1-2000",
+            gender: ""
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = Object.assign({}, this.state);
+        this.props.signup(user);
     }
 
     render() {
@@ -19,6 +34,30 @@ class ModalSignup extends React.Component {
             10: "October",
             11: "November",
             12: "December"
+        }
+
+        const monthsList = () => {
+            monthsArr = [];
+            for (let i = 1; i <= 12; i++) {
+                monthsArr.push(<option value={i} key={`month-${i}`}>{monthsObj[i]}</option>)
+            }
+            return monthsArr;
+        }
+
+        const daysList = () => {
+            daysArr = [];
+            for (let i = 1; i <= 31; i++) {
+                daysArr.push(<option value={i} key={`day-${i}`}>{i}</option>)
+            }
+            return daysArr;
+        }
+
+        const yearsList = () => {
+            yearsArr = [];
+            for (let i = 1900; i <= 2022; i++) {
+                yearsArr.unshift(<option value={i} key={`year-${i}`}>{i}</option>)
+            }
+            return yearsArr;
         }
 
         return (

@@ -64,7 +64,7 @@ class SessionForm extends React.Component {
                     <input
                         className={'logbuttontext splashbutton ' + colorSplash}
                         type="submit"
-                        value={this.props.formType}
+                        value="Log In"
                     />
                 </div>
             </div>

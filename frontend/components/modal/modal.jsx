@@ -14,6 +14,7 @@ class Modal extends React.Component {
         switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm
+                    signup={this.props.signup}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />

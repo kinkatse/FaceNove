@@ -5,14 +5,12 @@ import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
     return {
-        formType: 'Log In',
         modal: state.ui.modalRed
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signup: user => dispatch(signup(user)),
         login: user => dispatch(login(user)),
         openSignupModal: () => dispatch(openSignupModal())
     }
