@@ -19,3 +19,8 @@
  @import "./signup_modal.scss";
 
  // These imports are so that we only need to read one scss file
+
+ h1 {
+    font-size: 32px;
+    font-weight: bold;
+ }

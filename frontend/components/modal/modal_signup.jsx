@@ -104,24 +104,28 @@ class ModalSignup extends React.Component {
                             <h1>Sign Up!</h1>
                             <span className="X" onClick={this.props.closeModal}>X</span>
                         </div>
-                        <label className="input">
-                            <input
-                                className="signupfirstname"
-                                type="text"
-                                value={this.state.firstName}
-                                placeholder="First Name"
-                                onChange={this.update('firstName')}
-                            />
-                        </label>
-                        <label className="input">
-                            <input
-                                className="signuplastname"
-                                type="text"
-                                value={this.state.lastName}
-                                placeholder="Last Name"
-                                onChange={this.update('lastName')}
-                            />
-                        </label>
+                        <p className="signupheader">It's fast and convenient!</p>
+                        <div className="signuplinediv"></div>
+                        <div className="signupname">
+                            <label className="input">
+                                <input
+                                    className="signupfirstname"
+                                    type="text"
+                                    value={this.state.firstName}
+                                    placeholder="First Name"
+                                    onChange={this.update('firstName')}
+                                />
+                            </label>
+                            <label className="input">
+                                <input
+                                    className="signuplastname"
+                                    type="text"
+                                    value={this.state.lastName}
+                                    placeholder="Last Name"
+                                    onChange={this.update('lastName')}
+                                />
+                            </label>
+                        </div>
                         <label className="input">
                             <input
                                 className="signupemail"
@@ -140,7 +144,8 @@ class ModalSignup extends React.Component {
                                 onChange={this.update('password')}
                             />
                         </label>
-                        <label className="signupbirthdaygender">Birthday</label>
+                        <br/>
+                        <label className="signupinfo">Birthday</label>
                             <div className="signupbirthdaydrop">
                             <select className="drop" name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
                                 <option value='0' disabled >Month</option>
@@ -156,7 +161,7 @@ class ModalSignup extends React.Component {
                             </select>
                             </div>
                         <br/>
-                        <label className="signupbirthdaygender">Gender</label> 
+                        <label className="signupinfo">Gender</label> 
                             <div className="signupgenderradio">
                                 <div className="radio">
                                     <label>Male
