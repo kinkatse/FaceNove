@@ -96,9 +96,17 @@ class ModalSignup extends React.Component {
         }
 
         return (
-            <div className="signupform">
-                <h1>Modal Open</h1>
-            </div>
+            // <div className="signupform">
+            //     <h1>Modal Open</h1>
+            // </div>
+            <form onSubmit={this.handleSubmit}>
+                <div className="signup_modal-background">
+                    <div className="signup_modal-child">
+                        <h1>Sign Up!</h1>
+                        <span onClick={this.props.closeModal()}>X</span>
+                    </div>
+                </div>
+            </form>
         )
     }
 }
