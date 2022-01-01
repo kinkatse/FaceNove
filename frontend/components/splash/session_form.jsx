@@ -42,20 +42,20 @@ class SessionForm extends React.Component {
         }
         return (
             <div className="loginform">
-                    <input
-                        className={'login ' + colorInput}
-                        type="text"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.update('email')}
-                    />
-                    <input
-                        className={'login ' + colorInput}
-                        type="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.update('password')}
-                    />
+                <input
+                    className={'login ' + colorInput}
+                    type="text"
+                    placeholder="Email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                />
+                <input
+                    className={'login ' + colorInput}
+                    type="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                />
                 <div className="logbutton">
                     <input
                         className={'logbuttontext splashbutton ' + colorSplash}
