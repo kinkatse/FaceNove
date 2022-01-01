@@ -154,22 +154,16 @@ class ModalSignup extends React.Component {
                             </div>
                         <br/>
                         <label className="signupinfo">Gender</label> 
-                            <div className="signupgenderradio">
-                                <div className="radio">
-                                    <label>Male
-                                    <input className="radiobutmale" type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
-                                    </label>     
-                                </div>
-                                <div className="radio">
-                                    <label>Female
-                                    <input className="radiobutfemale" type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
-                                    </label>
-                                </div>
-                                <div className="radio">
-                                    <label>Other
-                                    <input className="radiobutother" type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
-                                    </label>
-                                </div>
+                            <div className="signupradio">
+                                <label>
+                                    Male<input className="radio" type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
+                                </label>     
+                                <label>
+                                    Female<input className="radio" type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
+                                </label>
+                                <label>
+                                    Other<input className="radio" type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
+                                </label>
                             </div>
                         <div className="submit">
                             <input className="submitbutton" type="submit" value="Submit"/>
