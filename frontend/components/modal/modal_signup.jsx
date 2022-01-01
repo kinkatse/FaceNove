@@ -97,35 +97,32 @@ class ModalSignup extends React.Component {
         }
 
         return (
-            // <div className="signupform">
-            //     <h1>Modal Open</h1>
-            // </div>
             <form onSubmit={this.handleSubmit}>
                 <div className="signup_modal-background">
                     <div className="signup_modal-child">
                         <div className="signuptop">
                             <h1>Sign Up!</h1>
-                            <span onClick={this.props.closeModal}>X</span>
+                            <span className="X" onClick={this.props.closeModal}>X</span>
                         </div>
-                        <label className="signupinput">
+                        <label className="input">
                             <input
                                 className="signupfirstname"
-                                type="firstName"
+                                type="text"
                                 value={this.state.firstName}
                                 placeholder="First Name"
                                 onChange={this.update('firstName')}
                             />
                         </label>
-                        <label className="signupinput">
+                        <label className="input">
                             <input
                                 className="signuplastname"
-                                type="lastName"
+                                type="text"
                                 value={this.state.lastName}
                                 placeholder="Last Name"
                                 onChange={this.update('lastName')}
                             />
                         </label>
-                        <label className="signupinput">
+                        <label className="input">
                             <input
                                 className="signupemail"
                                 type="text"
@@ -134,7 +131,7 @@ class ModalSignup extends React.Component {
                                 onChange={this.update('email')}
                             />
                         </label>
-                        <label className="signupinput">
+                        <label className="input">
                             <input
                                 className="signuppassword"
                                 type="password"
@@ -159,7 +156,6 @@ class ModalSignup extends React.Component {
                             </select>
                             </div>
                         <br/>
-                        <div className="gender">
                         <label className="signupbirthdaygender">Gender</label> 
                             <div className="signupgenderradio">
                                 <div className="radio">
@@ -178,9 +174,8 @@ class ModalSignup extends React.Component {
                                     </label>
                                 </div>
                             </div>
-                        </div>
                         <div className="submit">
-                            <input className="submitbutton" type="submit" value={this.props.formType}/>
+                            <input className="submitbutton" type="submit" value="Submit"/>
                         </div>
                     </div>
                 </div>

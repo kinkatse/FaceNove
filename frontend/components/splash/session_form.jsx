@@ -18,7 +18,7 @@ class SessionForm extends React.Component {
         this.props.login(user);
     }
 
-    handleUpdate(field) {
+    update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
         })
@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
                         type="text"
                         placeholder="Email"
                         value={this.state.email}
-                        onChange={this.handleUpdate('email')}
+                        onChange={this.update('email')}
                     />
                 </label>
                 <label className="loginpass">
@@ -57,7 +57,7 @@ class SessionForm extends React.Component {
                         type="password"
                         placeholder="Password"
                         value={this.state.password}
-                        onChange={this.handleUpdate('password')}
+                        onChange={this.update('password')}
                     />
                 </label>
                 <div className="logbutton">
