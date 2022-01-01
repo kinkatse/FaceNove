@@ -1,8 +1,6 @@
 import React from 'react';
 
-import SignupForm from './signup_form';
-
-class LoginForm extends React.Component {
+class SessionForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -87,7 +85,6 @@ class LoginForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin(this.props.color, colorSplash)}
                 </form>
-                {/* <SignupForm colorSplash={colorSplash}/> */}
                 <button
                     className={'signupbuttontext splashbutton ' + colorSplash}
                     onClick={this.props.openSignupModal}>
@@ -103,4 +100,4 @@ class LoginForm extends React.Component {
     }
 }
 
-export default LoginForm;
+export default SessionForm;
