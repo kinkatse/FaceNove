@@ -9,8 +9,11 @@ class Footer extends React.Component {
         return (
             <div className="footer">
                 <div className="footer-info">
-                    <span className="footer-message">Kin Ka Tse</span>
-                    <span className="footer-message">Clone of Facebook</span>
+                    <p>Kin Ka Tse</p>
+                    <p>Clone of Facebook</p>
+                    <p>App Academy</p>
+                    <p>Programming Rules</p>
+                    <p>2022</p>
                 </div>
                 <div className="footer-links">
                     <a href="https://github.com/kinkatse" className="footer-link">Github</a>

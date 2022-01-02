@@ -246,20 +246,35 @@
     width: 100vw;
     background-color: rgb(255, 255, 255);
     color: rgb(63, 63, 63);
+    animation: 0.3s hoveroff forwards;
 }
 
 .footer-info {
     // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
-    justify-content: space-around;
+    justify-content: start;
     align-items: center;
-    height: 6vh;
+    padding-top: 28px;
+    padding-bottom: 8px;
+    margin-left: 21%;
+    margin-right: 23%;
+    margin-bottom: 8px;
+    height: 20px;
+    border-bottom: 1px solid lightgrey;
 }
 
+.footer-info * {
+    margin-right: 20px;
+}
 .footer-links {
     // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
-    height: 6vh;
+    margin-left: 21%;
+    height: 20px;
+}
+
+.footer-links * {
+    margin-right: 20px;
 }

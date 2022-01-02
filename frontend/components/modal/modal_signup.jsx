@@ -65,7 +65,7 @@ class ModalSignup extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
-        
+
         const monthsObj = {
             1: "January",
             2: "February",
