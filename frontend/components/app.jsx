@@ -1,23 +1,17 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import ModalContainer from './modal/modal_container';
-import SplashContainer from './splash/splash_container'
+import SplashContainer from './splash/splash_container';
 
-// Possibly put background here?
-class App extends React.Component {
-    constructor(props){
-        super(props)
-    }
 
-    render() {
-        return (
-            <div>
-                <ModalContainer />
-                <SplashContainer />
-            </div>
-        )
-    }
-    
-}
+const App = () => (
+    <div className="page">
+        <ModalContainer />
+        <Switch>
+            <SplashContainer />
+        </Switch>
+    </div>
+)
 
 export default App;
