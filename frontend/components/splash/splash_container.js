@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
     // This went through the root reducer which is why we need to key into
     // ui, colorRed and then color since that is the particular slice
     // of state we want
-    debugger
     return {
         currentUser: state.session,
         color: state.ui.colorRed.color

@@ -78,7 +78,7 @@ class SessionForm extends React.Component {
         }
 
         return (
-            <div className="">
+            <div>
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin(this.props.color, colorSplash)}
                 </form>

@@ -40,6 +40,7 @@ class ModalSignup extends React.Component {
     }
 
     updateBirthday(datetype) {
+        debugger
         let birthday = this.state.birthdate.split('-');
         let idxToUpdate;
         if (datetype === 'month') {
@@ -50,6 +51,7 @@ class ModalSignup extends React.Component {
             idxToUpdate = 2;
         }
         
+        debugger
         return e => {
           birthday[idxToUpdate] = e.target.value;
           this.setState({birthdate: birthday.join('-')})
