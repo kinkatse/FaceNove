@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.delete_all
-User.create!(email: 'demo@mail.com', password: 'password', firstName: 'Demo', lastName: 'User', birthdate: '1-1-2000', gender: 'Male', bio: '', hometown: '', education: '', work: '', relationship: '', website: '')
-User.create!(email: 'coder123@gmail.com', password: '123123', firstName: 'Kin Ka', lastName: 'Tse', birthdate: '1-1-2000', gender: 'Male', bio: 'I like tennis!', hometown: 'Brooklyn', education: 'Tennis University', work: 'Halo Agency Employee', relationship: 'Dating', website: 'https://github.com/kinkatse')
-User.create!(email: 'BobJason@gmail.com', password: '123123', firstName: 'Bob', lastName: 'Jason', birthdate: '11-11-2011', gender: 'Male', bio: 'I like skiing!', hometown: 'Queens', education: 'Skiing University', work: 'Tutoring', relationship: 'Single', website: 'None')
-User.create!(email: 'Haha@gmail.com', password: '123123', firstName: 'Carly', lastName: 'Lau', birthdate: '3-3-2003', gender: 'Female', bio: 'I like dancing!', hometown: 'Manhattan', education: 'Dancing University', work: 'Waitress', relationship: 'Dating', website: 'None')
+User.create!(email: 'demo@mail.com', password: 'password', firstName: 'Demo', lastName: 'User', birthdate: '2000-1-1', gender: 'Male', bio: '', hometown: '', education: '', work: '', relationship: '', website: '')
+User.create!(email: 'coder123@gmail.com', password: '123123', firstName: 'Kin Ka', lastName: 'Tse', birthdate: '2000-1-1', gender: 'Male', bio: 'I like tennis!', hometown: 'Brooklyn', education: 'Tennis University', work: 'Halo Agency Employee', relationship: 'Dating', website: 'https://github.com/kinkatse')
+User.create!(email: 'BobJason@gmail.com', password: '123123', firstName: 'Bob', lastName: 'Jason', birthdate: '2011-11-11', gender: 'Male', bio: 'I like skiing!', hometown: 'Queens', education: 'Skiing University', work: 'Tutoring', relationship: 'Single', website: 'None')
+User.create!(email: 'Haha@gmail.com', password: '123123', firstName: 'Carly', lastName: 'Lau', birthdate: '1999-12-31', gender: 'Female', bio: 'I like dancing!', hometown: 'Manhattan', education: 'Dancing University', work: 'Waitress', relationship: 'Dating', website: 'None')
 
 demo = User.find_by(email: 'demo@mail.com')
 kinka = User.find_by(email: 'coder123@gmail.com')

@@ -13,7 +13,6 @@ export const getUser = (userId) => {
 }
 
 export const signUp = (user) => {
-    debugger
     return $.ajax({
         url: '/api/users',
         // This is signing up a user so we do to users page
