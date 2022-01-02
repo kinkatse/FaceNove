@@ -8,7 +8,7 @@ class ModalSignup extends React.Component {
             password: "",
             firstName: "",
             lastName: "",
-            birthdate: "1-1-2000",
+            birthdate: "2000-01-01",
             gender: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,7 +20,7 @@ class ModalSignup extends React.Component {
             password: "",
             firstName: "",
             lastName: "",
-            birthdate: "1-1-2000",
+            birthdate: "2000-01-01",
             gender: ""
         }
         this.props.closeModal();
@@ -40,18 +40,16 @@ class ModalSignup extends React.Component {
     }
 
     updateBirthday(datetype) {
-        debugger
         let birthday = this.state.birthdate.split('-');
         let idxToUpdate;
-        if (datetype === 'month') {
+        if (datetype === 'year') {
             idxToUpdate = 0;
-        } else if (datetype === 'day') {
+        } else if (datetype === 'month') {
             idxToUpdate = 1;
-        } else if (datetype === 'year') {
+        } else if (datetype === 'day') {
             idxToUpdate = 2;
         }
         
-        debugger
         return e => {
           birthday[idxToUpdate] = e.target.value;
           this.setState({birthdate: birthday.join('-')})

@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
     
     def create
+        debugger
         # Making instance variable of the new User we are passing in strong params for
         @emailUser = User.new(email_user_params)
         debugger
@@ -50,6 +51,7 @@ class Api::UsersController < ApplicationController
     end
 
     def email_user_params
+        debugger
         params.require(:user).permit(
             :email,
             :password,
