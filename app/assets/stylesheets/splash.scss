@@ -1,4 +1,3 @@
-// Dont want the scroll bar on the outside
 .splash {
     overflow-x: hidden;
     overflow-y: hidden;
@@ -8,20 +7,9 @@
     position: fixed;
     height: 100%;
     width: 110%;
-    // left: -5px;
-    // top: -5px;
     z-index: -1;
     background-color: rgb(240, 242, 243);
 }
-
-// No need for wrap since we made the logosection and authform
-// in one div so the footer will always be placed after
-// and since we made the height 80vh (viewport), it will be
-// placed pretty far to the bottom since 80vh is around 80% of
-// the browser height. So the footer only has that other ~20%
-// after this div. We also shouldn't have it for the splash-core
-// since then when we adjust the border dimensions, the authform
-// will move to the next line if the vw is too small
 
 .splash-top {
     padding-top: 72px;
@@ -29,22 +17,13 @@
 }
 
 .splash-core {
-    // position: relative;
-    // top: -20px;
     display: flex;
-    // flex-wrap: wrap;
     justify-content: space-evenly;
-    // align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    // flex-wrap: wrap;
-    // height: 90vh;
-    // width: 70vw;
 }
 
 .logo-section {
-    // border: 4px solid rgba(255, 0, 0, 0.5);
-    // top: 10px;
     margin-top: -5px;
     margin-left: 15.5%;
     padding-top: 112px;
@@ -55,6 +34,12 @@
 .front-logo {
     font-family: Arial, Helvetica, sans-serif;
     font: bold 60px Helvetica;
+    animation: 0.3s hoveroff forwards;
+}
+
+.front-logo:hover {
+    cursor: pointer;
+    animation: 0.3s hoverover forwards;
 }
 
 .under-logo-message {
@@ -66,7 +51,6 @@
 }
 
 .authform {
-    // border: 4px solid rgba(255, 0, 0, 0.5);
     margin-right: 18%;
     margin-top: 40px;
     animation: 0.3s hoveroff forwards;
@@ -82,10 +66,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     background-color: rgb(255, 255, 255);
 }
-
-// .authform-core * {
-//     // margin: 2px;
-// }
 
 .authform-note {
     font-family: Arial, Helvetica, sans-serif;
@@ -150,14 +130,10 @@
     color: rgba(180, 180, 180, 0.5);
 }
 
-// .signupform {
-// }
-
 .authform * {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .splashbutton {
@@ -225,20 +201,6 @@
     margin-bottom: 15px;
 }
 
-// .footer {
-//     font-family: Arial, Helvetica, sans-serif;
-//     font-size: 14px;
-//     display: flex;
-//     flex-direction: column;
-//     position: relative;
-//     left: -10px;
-//     bottom: -10px;
-//     height: 15vh;
-//     width: 100vw;
-//     background-color: rgb(255, 255, 255);
-//     color: rgb(63, 63, 63);
-// }
-
 .footer {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -250,7 +212,6 @@
 }
 
 .footer-info {
-    // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
     justify-content: start;
     align-items: center;
@@ -267,7 +228,6 @@
     margin-right: 20px;
 }
 .footer-links {
-    // border: 4px solid rgba(255, 0, 0, 0.5);
     display: flex;
     justify-content: start;
     align-items: center;

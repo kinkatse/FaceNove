@@ -26,13 +26,13 @@
  }
 
  @keyframes hoverover {
-    from { transform: translateY(0px) scale(1); }
-    to { transform: translateY(-0.5px) scale(1.02); }
+    from { transform: scale(1); }
+    to { transform: scale(1.02); }
   }
   
  @keyframes hoveroff {
-    from { transform: translateY(-0.5px) scale(1.02); }
-    to { transform: translateY(0px) scale(1); }
+    from { transform: scale(1.02); }
+    to { transform: scale(1); }
   }
   
   @keyframes modal_hoveroff {
