@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import App from './app';
 
-console.log("React is Working!")
+// console.log("React is Working!")
 
 const Root = ({store}) => (
     <Provider store={store}>
