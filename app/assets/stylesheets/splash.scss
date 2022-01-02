@@ -8,8 +8,8 @@
     position: fixed;
     height: 100%;
     width: 110%;
-    left: -5px;
-    top: -5px;
+    // left: -5px;
+    // top: -5px;
     z-index: -1;
     background-color: rgb(240, 242, 243);
 }
@@ -22,35 +22,52 @@
 // after this div. We also shouldn't have it for the splash-core
 // since then when we adjust the border dimensions, the authform
 // will move to the next line if the vw is too small
+
+.splash-top {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
 .splash-core {
-    position: relative;
-    top: -20px;
+    // position: relative;
+    // top: -20px;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    // align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
     // flex-wrap: wrap;
-    height: 90vh;
+    // height: 90vh;
     // width: 70vw;
 }
 
 .logo-section {
     // border: 4px solid rgba(255, 0, 0, 0.5);
-    position: relative;
-    top: -40px;
-    margin-left: 20px;
+    // top: 10px;
+    margin-top: -5px;
+    margin-left: 300px;
+    padding-top: 112px;
+    padding-bottom: 16px;
     animation: 0.3s hoveroff forwards;
+}
+
+.front-logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font: bold 60px Helvetica;
 }
 
 .under-logo-message {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
+    font-size: 27px;
+    margin-top: 10px;
     width: 425px;
     color: rgb(63, 63, 63);
 }
 
 .authform {
     // border: 4px solid rgba(255, 0, 0, 0.5);
-    margin-right: 20px;
+    margin-right: 350px;
+    margin-top: 40px;
     animation: 0.3s hoveroff forwards;
 }
 
@@ -206,15 +223,23 @@
     margin-bottom: 15px;
 }
 
+// .footer {
+//     font-family: Arial, Helvetica, sans-serif;
+//     font-size: 14px;
+//     display: flex;
+//     flex-direction: column;
+//     position: relative;
+//     left: -10px;
+//     bottom: -10px;
+//     height: 15vh;
+//     width: 100vw;
+//     background-color: rgb(255, 255, 255);
+//     color: rgb(63, 63, 63);
+// }
+
 .footer {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left: -10px;
-    bottom: 30px;
-    // height: 15vh;
     width: 100vw;
     background-color: rgb(255, 255, 255);
     color: rgb(63, 63, 63);

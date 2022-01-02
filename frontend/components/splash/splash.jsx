@@ -13,9 +13,11 @@ class Splash extends React.Component {
         return (
             <div className="splash">
                 <div className="splash-background"></div>
-                <div className="splash-core">
-                    <LogoSection color={this.props.color} updateColor={this.props.updateColor}/>
-                    <AuthForm color={this.props.color}/>
+                <div className="splash-top">
+                    <div className="splash-core">
+                        <LogoSection color={this.props.color} updateColor={this.props.updateColor}/>
+                        <AuthForm color={this.props.color}/>
+                    </div>
                 </div>
                 <Footer />
             </div>
