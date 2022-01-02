@@ -9,7 +9,9 @@ const sessionReducer = (sessionState = _nullUser, action) => {
     Object.freeze(sessionState)
     switch(action.type) {
         // For login dispatch
-        // We don't want to give whole user when we log in? Only Id?
+        // This is to replace the state and only want the id given here
+        // Because then we can pass the id elsewhere and grab all it's data
+        // since its data is all stored in the entities.users
         case RECEIVE_CURRENT_USER:
             console.log("Logged in!");
             return { id: action.currentUser.id }

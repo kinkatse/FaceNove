@@ -10,8 +10,15 @@ class Splash extends React.Component {
     }
 
     render() {
-        return (
-            <div className="splash">
+        let splashComponent = '';
+        if (this.props.currentUser.id) {
+            splashComponent =
+                <div className="splash">
+                <div className="splash-background"></div>
+                </div>
+        } else {
+            splashComponent =
+                <div className="splash">
                 <div className="splash-background"></div>
                 <div className="splash-top">
                     <div className="splash-core">
@@ -21,6 +28,20 @@ class Splash extends React.Component {
                 </div>
                 <Footer />
             </div>
+        }
+
+        return (
+            splashComponent
+            // <div className="splash">
+            //     <div className="splash-background"></div>
+            //     <div className="splash-top">
+            //         <div className="splash-core">
+            //             <LogoSection color={this.props.color} updateColor={this.props.updateColor}/>
+            //             <AuthForm color={this.props.color}/>
+            //         </div>
+            //     </div>
+            //     <Footer />
+            // </div>
         )
     }
 }
