@@ -30,15 +30,24 @@
       transform: translateY(0px) scale(1);
     }
     to {
-      transform: translateY(-1px) scale(1.05);
+      transform: translateY(-0.5px) scale(1.02);
     }
   }
   
-  @keyframes hoveroff {
+ @keyframes hoveroff {
     from {
-      transform: translateY(-1px) scale(1.05);
+      transform: translateY(-0.5px) scale(1.02);
     }
     to {
       transform: translateY(0px) scale(1);
+    }
+  }
+  
+  @keyframes modal_hoveroff {
+    from {
+      transform: translate(-50%, -50%) scale(1.02);
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1);
     }
   }
