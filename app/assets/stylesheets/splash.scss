@@ -1,25 +1,3 @@
-@keyframes login_pulsing {
-    from, to {
-        // height: 40px;
-        width: 280px;
-    }
-    50% {
-        // height: 40.9px;
-        width: 288px;
-    }
-}
-
-@keyframes splashbuttons_pulsing {
-    from, to {
-        // height: 38px;
-        width: 200px;
-    }
-    50% {
-        // height: 38.9px;
-        width: 208px;
-    }
-}
-
 // Dont want the scroll bar on the outside
 .splash {
     overflow-x: hidden;
@@ -77,9 +55,9 @@
     background-color: rgb(255, 255, 255);
 }
 
-.authform-core * {
-    // margin: 2px;
-}
+// .authform-core * {
+//     // margin: 2px;
+// }
 
 .authform-note {
     margin-top: 15px;
@@ -102,7 +80,8 @@
     padding-right: 15px;
     margin: 7px;
     border: 1.5px solid rgb(165, 165, 165);
-    border-radius: 5px;
+    border-radius: 6px;
+    animation: 0.3s hoveroff forwards;
 }
 
 .logbutton {
@@ -110,9 +89,7 @@
 }
 
 .login:hover {
-    animation-duration: 2s;
-    animation-name: login_pulsing;
-    animation-iteration-count: infinite;
+    animation: 0.3s hoverover forwards;
 }
 
 .login:focus {
@@ -142,8 +119,8 @@
     color: rgba(180, 180, 180, 0.5);
 }
 
-.signupform {
-}
+// .signupform {
+// }
 
 .authform * {
     display: flex;
@@ -156,20 +133,16 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     font-weight: bold;
-    width: 200px;
-    padding: 10px;
-    margin: 10px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
     background-color: #558cd8;
     cursor: pointer;
+    animation: 0.3s hoveroff forwards;
 }
 
 .splashbutton:hover {
-    animation-duration: 2s;
-    animation-name: splashbuttons_pulsing;
-    animation-iteration-count: infinite;
+    animation: 0.3s hoverover forwards;
 }
 
 .bluesplash {
@@ -202,8 +175,23 @@
     background-color: #e25d5d;
 }
 
-.demo {
-    margin-bottom: 20px;
+.logbuttontext {
+    padding: 13px;
+    margin: 8px;
+    width: 313.5px;
+}
+
+.signupbuttontext {
+    padding: 10px;
+    margin: 8px;
+    width: 215px;
+}
+
+.demobuttontext {
+    padding: 10px;
+    margin: 8px;
+    width: 215px;
+    margin-bottom: 15px;
 }
 
 .footer {

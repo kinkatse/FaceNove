@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
                         Create New Account
                 </button>
                 <button
-                    className={'demo splashbutton ' + colorSplash}
+                    className={'demobuttontext splashbutton ' + colorSplash}
                     onClick={this.handleDemo}>
                         Demo Login
                 </button>

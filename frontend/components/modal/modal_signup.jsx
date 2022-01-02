@@ -57,6 +57,15 @@ class ModalSignup extends React.Component {
     }
 
     render() {
+        let colorSplash;
+        if (this.props.color === 'blue') {
+            colorSplash = 'bluesplash';
+        } else if (this.props.color === 'green') {
+            colorSplash = 'greensplash'
+        } else if (this.props.color === 'red') {
+            colorSplash = 'redsplash'
+        }
+        
         const monthsObj = {
             1: "January",
             2: "February",
@@ -152,21 +161,20 @@ class ModalSignup extends React.Component {
                                     {yearsList()}
                                 </select>
                             </div>
-                        <br/>
                         <label className="signupinfo">Gender</label> 
                             <div className="signupradio">
-                                <label>
-                                    Male<input className="radio" type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
+                                <label className="radio">
+                                    Male<input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
                                 </label>     
-                                <label>
-                                    Female<input className="radio" type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
+                                <label className="radio">
+                                    Female<input type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
                                 </label>
-                                <label>
-                                    Other<input className="radio" type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
+                                <label className="radio">
+                                    Other<input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
                                 </label>
                             </div>
                         <div className="submit">
-                            <input className="submitbutton" type="submit" value="Submit"/>
+                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Submit"/>
                         </div>
                     </div>
                 </div>

@@ -24,3 +24,21 @@
     font-size: 32px;
     font-weight: bold;
  }
+
+ @keyframes hoverover {
+    from {
+      transform: translateY(0px) scale(1);
+    }
+    to {
+      transform: translateY(-1px) scale(1.05);
+    }
+  }
+  
+  @keyframes hoveroff {
+    from {
+      transform: translateY(-1px) scale(1.05);
+    }
+    to {
+      transform: translateY(0px) scale(1);
+    }
+  }
