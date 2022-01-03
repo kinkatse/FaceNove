@@ -7,9 +7,9 @@ const NavBarLeft = ({ currentUser }) => {
     return (
         <div className="navbar_left">
             <h1>This is left of navbar</h1>
-            <img src={window.logo_blue_url} />
-            <img src={window.logo_green_url} />
-            <img src={window.logo_red_url} />
+            <img className="logo" src={window.logo_blue_url} />
+            <img className="logo" src={window.logo_green_url} />
+            <img className="logo" src={window.logo_red_url} />
         </div>
     )
 }
