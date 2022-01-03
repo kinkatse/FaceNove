@@ -3,11 +3,11 @@ import NavBarLeft from './navbar_left'
 import NavBarMiddle from './navbar_middle'
 import NavBarRight from './navbar_right'
 
-const NavBar = ({ currentUser, firstName, lastName, email, logout }) => {
+const NavBar = ({ currentUser, firstName, lastName, logout }) => {
     return (
         <div className="navbar_whole">
             <NavBarLeft currentUser={currentUser} />
-            <NavBarMiddle firstName={firstName} lastName={lastName} email={email} />
+            <NavBarMiddle firstName={firstName} lastName={lastName} />
             <NavBarRight logout={logout} />
         </div>
     )

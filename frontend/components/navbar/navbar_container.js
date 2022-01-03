@@ -11,8 +11,7 @@ const mapStateToProps = ({session, entities: { users }}) => {
     return {
         currentUser: users[session.id],
         firstName: users[session.id].firstName,
-        lastName: users[session.id].lastName,
-        email: users[session.id].email
+        lastName: users[session.id].lastName
     }
 }
 
