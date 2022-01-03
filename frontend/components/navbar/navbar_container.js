@@ -7,11 +7,12 @@ import NavBar from './navbar';
 // that user. That's why we decontruct the state to session slice of
 // state and entities into users slice of state. Now calling
 // users[session.id] is calling users[1] for example
-const mapStateToProps = ({session, entities: { users }}) => {
+const mapStateToProps = ({session, entities: { users }, ui}) => {
     return {
         currentUser: users[session.id],
         firstName: users[session.id].firstName,
-        lastName: users[session.id].lastName
+        lastName: users[session.id].lastName,
+        color: ui.colorRed.color
     }
 }
 

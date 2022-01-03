@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Show search bar eventually, but for now show greeting for user
 
-const NavBarMiddle = ({ firstName, lastName }) => {
+const NavBarMiddle = ({ firstName, lastName, color }) => {
     return (
         <div className="navbar_middle">
             <h1>This is middle of navbar</h1>

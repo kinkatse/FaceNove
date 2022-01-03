@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Show about links and log out
 
-const NavBarRight = ({ logout }) => {
+const NavBarRight = ({ logout, color }) => {
     return (
         <div className="navbar_right">
             <h1>This is right of navbar</h1>

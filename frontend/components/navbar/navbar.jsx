@@ -3,12 +3,12 @@ import NavBarLeft from './navbar_left'
 import NavBarMiddle from './navbar_middle'
 import NavBarRight from './navbar_right'
 
-const NavBar = ({ currentUser, firstName, lastName, logout }) => {
+const NavBar = ({ currentUser, firstName, lastName, logout, color }) => {
     return (
         <div className="navbar_whole">
-            <NavBarLeft currentUser={currentUser} />
-            <NavBarMiddle firstName={firstName} lastName={lastName} />
-            <NavBarRight logout={logout} />
+            <NavBarLeft currentUser={currentUser} color={color} />
+            <NavBarMiddle firstName={firstName} lastName={lastName} color={color} />
+            <NavBarRight logout={logout} color={color} />
         </div>
     )
 }

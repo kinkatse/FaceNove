@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Show logo and profile user with their prof pic
 
-const NavBarLeft = ({ currentUser }) => {
+const NavBarLeft = ({ currentUser, color }) => {
+    let logo = null;
+
     return (
         <div className="navbar_left">
             <h1>This is left of navbar</h1>
