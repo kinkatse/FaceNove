@@ -5,13 +5,18 @@ import { Link } from 'react-router-dom';
 
 const NavBarLeft = ({ currentUser, color }) => {
     let logo = null;
+    if (color === "blue") {
+        logo = window.logo_blue_url
+    } else if (color === "green") {
+        logo = window.logo_green_url
+    } else if (color === "red") {
+        logo = window.logo_red_url
+    }
 
     return (
         <div className="navbar_left">
             <h1>This is left of navbar</h1>
-            <img className="logo" src={window.logo_blue_url} />
-            <img className="logo" src={window.logo_green_url} />
-            <img className="logo" src={window.logo_red_url} />
+            <img className="logo" src={logo} />
         </div>
     )
 }
