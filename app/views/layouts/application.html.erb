@@ -6,6 +6,11 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <script type="text/javascript">
+      window.logo_blue_url = "<%= image_url('Logo_Blue.png') %>";
+      window.logo_green_url = "<%= image_url('Logo_Green.png') %>";
+      window.logo_red_url = "<%= image_url('Logo_Red.png') %>";
+    </script>
     <%= javascript_include_tag 'application' %>
   </head>
 
