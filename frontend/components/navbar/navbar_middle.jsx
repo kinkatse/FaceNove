@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 const NavBarMiddle = ({ firstName, lastName, color }) => {
     return (
         <div className="navbar_middle">
-            Welcome, {`${firstName} ${lastName}`}
+            <div className="greeting">
+                Welcome, {`${firstName} ${lastName}`}
+            </div>
         </div>
     )
 }
