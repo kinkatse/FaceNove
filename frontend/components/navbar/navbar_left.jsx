@@ -15,9 +15,9 @@ const NavBarLeft = ({ currentUser, color, colorSplash, updateColor }) => {
 
     return (
         <div className="navbar_left">
-            <div className="logobutton">
+            <div className="logo">
                 <Link to="/">
-                    <img className="logo" src={logo} />
+                    <img src={logo} />
                 </Link>
             </div>
             <button
