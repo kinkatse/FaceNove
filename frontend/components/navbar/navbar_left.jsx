@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Show logo and profile user with their prof pic
 
-const NavBarLeft = ({ currentUser, color, updateColor }) => {
+const NavBarLeft = ({ currentUser, color, colorSplash, updateColor }) => {
     let logo = null;
     if (color === "blue") {
         logo = window.logo_blue_url
@@ -19,7 +19,11 @@ const NavBarLeft = ({ currentUser, color, updateColor }) => {
             <Link to="/">
                 <img className="logo" src={logo} />
             </Link>
-            <button className={color} onClick={updateColor}>Color</button>
+            <button
+                className={'colorbuttontext splashbutton ' + colorSplash}
+                onClick={updateColor}>
+                    Color
+            </button>
         </div>
     )
 }
