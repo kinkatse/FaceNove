@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const NavBarRight = ({ logout, colorSplash }) => {
     return (
         <div className="navbar_right">
-            <h1>This is right of navbar</h1>
             <button
                 className={'logoutbuttontext splashbutton ' + colorSplash}
                 onClick={logout}>

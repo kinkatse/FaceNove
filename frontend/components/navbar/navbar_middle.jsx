@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const NavBarMiddle = ({ firstName, lastName, color }) => {
     return (
         <div className="navbar_middle">
-            <h1>This is middle of navbar</h1>
             Welcome, {`${firstName} ${lastName}`}
         </div>
     )
