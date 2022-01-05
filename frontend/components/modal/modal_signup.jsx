@@ -10,7 +10,11 @@ class ModalSignup extends React.Component {
             firstName: "",
             lastName: "",
             birthdate: "2000-01-01",
-            gender: ""
+            gender: "",
+            activeEmailError: false,
+            activeFirstNameError: false,
+            activeLastNameError: false,
+            activePasswordError: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -63,45 +67,96 @@ class ModalSignup extends React.Component {
         }
     }
 
-    renderErrors() {
-        // responseJSON because the backend (users controller) returns
-        // error messages so there is an extra key to grab all errors
+    // renderErrors() {
+    //     // responseJSON because the backend (users controller) returns
+    //     // error messages so there is an extra key to grab all errors
+    //     if (this.props.errors.responseJSON) {
+    //         let errors = this.props.errors.responseJSON;
+    //         // return (<p className="signup_error">{errors[0]}</p>)
+    //         // This is an array of all the errors, we should loop through
+    //         // and print each one
+
+    //         if (errors.includes("Email can't be blank")) {
+    //             this.setState({activeEmailError: 'true'})
+    //         }
+    //         if (errors.includes("Firstname can't be blank")) {
+    //             this.setState({activeFirstNameError: 'true'})
+    //         }
+    //         if (errors.includes("Lastname can't be blank")) {
+    //             this.setState({activeLastNameError: 'true'})
+    //         }
+    //         if (errors.includes("Password is too short (minimum is 6 characters)")) {
+    //             this.setState({activePasswordError: 'true'})
+    //         }
+            
+    //         return (
+    //             <p className="signup_error">Seems like there are some errors</p>
+    //         )
+    //         // return (
+    //         //     <div className="signup_errors">
+    //         //         <p className="signup_error">{errors[0]}</p>
+    //         //         <p className="signup_error">{errors[1]}</p>
+    //         //         <p className="signup_error">{errors[2]}</p>
+    //         //         <p className="signup_error">{errors[3]}</p>
+    //         //     </div>
+    //         // )
+    //     } else {
+    //         return (
+    //             <p className="signupheader">It's fast and convenient!</p>
+    //         )
+    //     }
+    // }
+
+    renderError(type) {
+        let emailErrorActive = null;
+        let firstnameErrorActive = null;
+        let lastnameErrorActive = null;
+        let passwordErrorActive = null;
         if (this.props.errors.responseJSON) {
             let errors = this.props.errors.responseJSON;
-            // let activeEmailError = false;
-            // let activeFirstNameError = false;
-            // let activeLastNameError = false;
-            // let activePasswordError = false;
-            // let errorComponent = null;
-            // return (<p className="signup_error">{errors[0]}</p>)
-            // This is an array of all the errors, we should loop through
-            // and print each one
-            // errors.forEach((error) => {
-            //     debugger
-            //     if (error.includes('Email')) {
-            //         activeEmailError = 'true'
-            //     }
-            //     if (error.includes('Firstname')) {
-            //         activeFirstNameError = 'true'
-            //     }
-            //     if (error.includes('Lastname')) {
-            //         activeLastNameError = 'true'
-            //     }
-            //     if (error.includes('Password')) {
-            //         activePasswordError = 'true'
-            //     }
-            // })
+            if (errors.includes("Email can't be blank")) {
+                emailErrorActive = 'emailErrorActive'
+            }
+            if (errors.includes("Firstname can't be blank")) {
+                firstnameErrorActive = 'firstnameErrorActive'
+            }
+            if (errors.includes("Lastname can't be blank")) {
+                lastnameErrorActive = 'lastnameErrorActive'
+            }
+            if (errors.includes("Password is too short (minimum is 6 characters)")) {
+                passwordErrorActive = 'passwordErrorActive'
+            }
+        }
+        if (emailErrorActive && type === 'email') {
             return (
-                <div className="signup_errors">
-                    <p className="signup_error">{errors[0]}</p>
-                    <p className="signup_error">{errors[1]}</p>
-                    <p className="signup_error">{errors[2]}</p>
-                    <p className="signup_error">{errors[3]}</p>
+                <div>
+                    <p className={emailErrorActive}>Please Enter an Email</p>
+                    {/* <img></img> */}
                 </div>
             )
-        } else {
+        }
+        if (firstnameErrorActive && type === 'firstname') {
             return (
-                <p className="signupheader">It's fast and convenient!</p>
+                <div>
+                    <p className={firstnameErrorActive}>Please Enter a First Name</p>
+                    {/* <img></img> */}
+                </div>
+            )
+        }
+        if (lastnameErrorActive && type === 'lastname') {
+            return (
+                <div>
+                    <p className={lastnameErrorActive}>Please Enter a Last Name</p>
+                    {/* <img></img> */}
+                </div>
+            )
+        }
+        if (passwordErrorActive && type === 'password') {
+            return (
+                <div>
+                    <p className={passwordErrorActive}>Password needs at least 6 characters</p>
+                    {/* <img></img> */}
+                </div>
             )
         }
     }
@@ -115,6 +170,25 @@ class ModalSignup extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
+
+        let errorActive = 'errorActive'
+
+        // let emailErrorActive = null;
+        // let firstnameErrorActive = null;
+        // let lastnameErrorActive = null;
+        // let passwordErrorActive = null;
+        // if (this.state.activeEmailError === true) {
+        //     emailErrorActive = 'emailErrorActive';
+        // }
+        // if (this.state.activeFirstNameError === true) {
+        //     firstnameErrorActive = 'firstnameErrorActive';
+        // }
+        // if (this.state.activeLastNameError === true) {
+        //     lastnameErrorActive = 'lastnameErrorActive';
+        // }
+        // if (this.state.activePasswordError === true) {
+        //     passwordErrorActive = 'passwordErrorActive';
+        // }
 
         const monthsObj = {
             1: "January",
@@ -163,11 +237,12 @@ class ModalSignup extends React.Component {
                             <h1>Sign Up!</h1>
                             <span className="X" onClick={this.props.closeModal}>X</span>
                         </div>
-                        {this.renderErrors()}
+                        <p className="signupheader">It's fast and convenient!</p>
                         <div className="signuplinediv"></div>
                         <div className="signupname">
+                            {this.renderError('firstname')}
                             <input
-                                className="signupfirstname input"
+                                className={'signupfirstname input ' + errorActive}
                                 type="text"
                                 value={this.state.firstName}
                                 placeholder="First Name"
