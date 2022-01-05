@@ -38,6 +38,7 @@ export const login = (user) => (dispatch) => {
 }
 
 export const signup = (user) => (dispatch) => {
+    debugger
     return (
         UserApiUtil.signUp(user)
         .then(user => dispatch(receiveCurrentUser(user)),

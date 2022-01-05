@@ -27,6 +27,7 @@ class ModalSignup extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.signup(user);
