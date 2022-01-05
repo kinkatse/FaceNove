@@ -65,17 +65,21 @@ class ModalSignup extends React.Component {
     }
 
     renderErrors() {
+        debugger
         // responseJSON because the backend (users controller) returns
         // error messages so there is an extra key to grab all errors
-        if (this.props.errors.responseJSON.length > 0) {
+        if (this.props.errors.responseJSON) {
             let errors = this.props.errors.responseJSON;
+            let errorComponent = null;
+            return (<p className="signup_error">{errors[0]}</p>)
             // This is an array of all the errors, we should loop through
             // and print each one
-            errors.forEach((error) => {
-                return (
-                    <p className="signup_error">{error}</p>
-                )
-            })
+            // errors.forEach((error) => {
+            //     debugger
+            //     return (
+            //         <p className="signup_error">{error}</p>
+            //     )
+            // })
         } else {
             return (
                 <p className="signupheader">It's fast and convenient!</p>
@@ -141,7 +145,7 @@ class ModalSignup extends React.Component {
                             <h1>Sign Up!</h1>
                             <span className="X" onClick={this.props.closeModal}>X</span>
                         </div>
-                        <p className="signupheader">It's fast and convenient!</p>
+                        {this.renderErrors()}
                         <div className="signuplinediv"></div>
                         <div className="signupname">
                             <input
