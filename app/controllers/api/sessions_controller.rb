@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
             params[:user][:email],
             params[:user][:password]
         )
-        # debugger
+        debugger
         # Upon successful email and password, we log in and go to users show page, else show errors
         if @emailUser
             log_in(@emailUser)
@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
             puts "Logged in!"
             render "api/users/show"
         else
-            # debugger
+            debugger
             render json: ["Invalid username or password"], status: 401
         end
     end

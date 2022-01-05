@@ -14,16 +14,22 @@ const logoutCurentUser = () => ({
     type: REMOVE_CURRENT_USER
 })
 
-const receiveSessionErrors = (errors) => ({
+const receiveSessionErrors = (errors) => {
+    debugger
+    return {
     type: RECEIVE_SESSION_ERRORS,
     errors
-})
+    }
+}
 
-export const login = (user) => (dispatch) => (
-    SessionApiUtil.logIn(user)
-    .then(user => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveSessionErrors(err.responseJSON)))
-)
+export const login = (user) => (dispatch) => {
+    debugger
+    return (
+        SessionApiUtil.logIn(user)
+        .then(user => dispatch(receiveCurrentUser(user)),
+        (err) => dispatch(receiveSessionErrors(err.responseJSON)))
+    )
+}
 
 export const signup = (user) => (dispatch) => (
     UserApiUtil.signUp(user)
