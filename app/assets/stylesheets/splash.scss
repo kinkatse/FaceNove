@@ -119,17 +119,17 @@
     outline: none;
 }
 
-.bluelogin:focus {
+.blueinput:focus {
     border-color: #63adf1;
     box-shadow: 0 0 5px rgba(52, 173, 243, 0.4);
 }
 
-.greenlogin:focus {
+.greeninput:focus {
     border-color: rgb(102, 245, 150);
     box-shadow: 0 0 5px rgba(32, 226, 135, 0.4);
 }
 
-.redlogin:focus {
+.redinput:focus {
     border-color: #b46153;
     box-shadow: 0 0 5px rgba(189, 62, 53, 0.4);
 }
@@ -198,6 +198,18 @@
     padding: 13px;
     margin: 8px;
     width: 313.5px;
+}
+
+.bluelogin {
+    background-color: #20e288;
+}
+
+.greenlogin {
+    background-color: #cf34ee;
+}
+
+.redlogin {
+    background-color: #5d4b7e;
 }
 
 .log_errors {

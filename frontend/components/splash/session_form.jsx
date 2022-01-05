@@ -43,15 +43,19 @@ class SessionForm extends React.Component {
         }
     }
 
-    rendersLogin(color, colorSplash) {
+    rendersLogin(color) {
         // First argument is for login class color change, the colorSplash only changed for splashbuttons
         let colorInput;
+        let colorLogin;
         if (color === 'blue') {
-            colorInput = 'bluelogin';
+            colorInput = 'blueinput';
+            colorLogin = 'bluelogin';
         } else if (color === 'green') {
-            colorInput = 'greenlogin'
+            colorInput = 'greeninput';
+            colorLogin = 'greenlogin';
         } else if (color === 'red') {
-            colorInput = 'redlogin'
+            colorInput = 'redinput';
+            colorLogin = 'redlogin';
         }
         return (
             <div className="loginform">
@@ -71,7 +75,7 @@ class SessionForm extends React.Component {
                 />
                 <div className="logbutton">
                     <input
-                        className={'logbuttontext splashbutton ' + colorSplash}
+                        className={'logbuttontext splashbutton ' + colorLogin}
                         type="submit"
                         value="Log In"
                     />
@@ -94,7 +98,7 @@ class SessionForm extends React.Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    {this.rendersLogin(this.props.color, colorSplash)}
+                    {this.rendersLogin(this.props.color)}
                 </form>
                 <button
                     className={'signupbuttontext splashbutton ' + colorSplash}
