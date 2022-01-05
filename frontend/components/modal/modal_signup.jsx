@@ -28,7 +28,6 @@ class ModalSignup extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const user = Object.assign({}, this.state);
         // If signup action returns an error, this will check the type and
@@ -65,7 +64,6 @@ class ModalSignup extends React.Component {
     }
 
     renderErrors() {
-        debugger
         // responseJSON because the backend (users controller) returns
         // error messages so there is an extra key to grab all errors
         if (this.props.errors.responseJSON) {
@@ -88,7 +86,6 @@ class ModalSignup extends React.Component {
     }
 
     render() {
-        debugger
         let colorSplash;
         if (this.props.color === 'blue') {
             colorSplash = 'bluesplash';

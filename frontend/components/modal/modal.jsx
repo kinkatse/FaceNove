@@ -11,7 +11,6 @@ class Modal extends React.Component {
     }
 
     selectModal() {
-        debugger
         switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm
