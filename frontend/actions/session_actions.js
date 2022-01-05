@@ -3,6 +3,7 @@ import * as UserApiUtil from '../util/user_api_util'
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const REMOVE_CURRENT_USER = 'REMOVE_CURRENT_USER';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 const receiveCurrentUser = (currentUser) => ({
     type: RECEIVE_CURRENT_USER,
@@ -13,9 +14,15 @@ const logoutCurentUser = () => ({
     type: REMOVE_CURRENT_USER
 })
 
+const receiveSessionErrors = (errors) => ({
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+})
+
 export const login = (user) => (dispatch) => (
     SessionApiUtil.logIn(user)
-    .then(user => dispatch(receiveCurrentUser(user)))
+    .then(user => dispatch(receiveCurrentUser(user))),
+    (err) => dispatch(receiveSessionErrors(err.responseJSON))
 )
 
 export const signup = (user) => (dispatch) => (

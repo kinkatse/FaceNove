@@ -1,8 +1,7 @@
-// import { combineReducers } from 'redux';
-// // Probably import errors reducers
+import { combineReducers } from 'redux';
 
-// const errorsReducer = combineReducers({
+const errorsReducer = combineReducers({
 
-// })
+})
 
-// export default errorsReducer;
+export default errorsReducer;
