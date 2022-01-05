@@ -36,6 +36,10 @@ class SessionForm extends React.Component {
             return (
                 <p className="log_errors">{err}</p>
             )            
+        } else {
+            return (
+                <p className="log_errors"></p>
+            )
         }
     }
 
@@ -72,6 +76,7 @@ class SessionForm extends React.Component {
                         value="Log In"
                     />
                 </div>
+                {this.rendersErrors()}
             </div>
         )
     }
@@ -88,7 +93,6 @@ class SessionForm extends React.Component {
 
         return (
             <div>
-                {this.rendersErrors()}
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin(this.props.color, colorSplash)}
                 </form>

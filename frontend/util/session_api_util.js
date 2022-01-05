@@ -1,5 +1,4 @@
 export const logIn = (user) => {
-    debugger
     return $.ajax({
         url: '/api/session',
         // Post to Sessions because we want to log in a new session
