@@ -10,11 +10,7 @@ class ModalSignup extends React.Component {
             firstName: "",
             lastName: "",
             birthdate: "2000-01-01",
-            gender: "",
-            activeEmailError: false,
-            activeFirstNameError: false,
-            activeLastNameError: false,
-            activePasswordError: false
+            gender: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -67,70 +63,31 @@ class ModalSignup extends React.Component {
         }
     }
 
-    // renderErrors() {
-    //     // responseJSON because the backend (users controller) returns
-    //     // error messages so there is an extra key to grab all errors
-    //     if (this.props.errors.responseJSON) {
-    //         let errors = this.props.errors.responseJSON;
-    //         // return (<p className="signup_error">{errors[0]}</p>)
-    //         // This is an array of all the errors, we should loop through
-    //         // and print each one
-
-    //         if (errors.includes("Email can't be blank")) {
-    //             this.setState({activeEmailError: 'true'})
-    //         }
-    //         if (errors.includes("Firstname can't be blank")) {
-    //             this.setState({activeFirstNameError: 'true'})
-    //         }
-    //         if (errors.includes("Lastname can't be blank")) {
-    //             this.setState({activeLastNameError: 'true'})
-    //         }
-    //         if (errors.includes("Password is too short (minimum is 6 characters)")) {
-    //             this.setState({activePasswordError: 'true'})
-    //         }
-            
-    //         return (
-    //             <p className="signup_error">Seems like there are some errors</p>
-    //         )
-    //         // return (
-    //         //     <div className="signup_errors">
-    //         //         <p className="signup_error">{errors[0]}</p>
-    //         //         <p className="signup_error">{errors[1]}</p>
-    //         //         <p className="signup_error">{errors[2]}</p>
-    //         //         <p className="signup_error">{errors[3]}</p>
-    //         //     </div>
-    //         // )
-    //     } else {
-    //         return (
-    //             <p className="signupheader">It's fast and convenient!</p>
-    //         )
-    //     }
-    // }
-
     renderError(type) {
-        let emailErrorActive = null;
-        let firstnameErrorActive = null;
-        let lastnameErrorActive = null;
-        let passwordErrorActive = null;
+        let errorActive = 'errorActive'
+        let emailErrorActive = false;
+        let firstnameErrorActive = false;
+        let lastnameErrorActive = false;
+        let passwordErrorActive = false;
         if (this.props.errors.responseJSON) {
             let errors = this.props.errors.responseJSON;
             if (errors.includes("Email can't be blank")) {
-                emailErrorActive = 'emailErrorActive'
+                emailErrorActive = true
             }
             if (errors.includes("Firstname can't be blank")) {
-                firstnameErrorActive = 'firstnameErrorActive'
+                firstnameErrorActive = true
             }
             if (errors.includes("Lastname can't be blank")) {
-                lastnameErrorActive = 'lastnameErrorActive'
+                lastnameErrorActive = true
             }
             if (errors.includes("Password is too short (minimum is 6 characters)")) {
-                passwordErrorActive = 'passwordErrorActive'
+                passwordErrorActive = true
             }
         }
         if (emailErrorActive && type === 'email') {
             return (
                 <div>
-                    <p className={emailErrorActive}>Please Enter an Email</p>
+                    <p className={errorActive}>Please Enter an Email</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -138,7 +95,7 @@ class ModalSignup extends React.Component {
         if (firstnameErrorActive && type === 'firstname') {
             return (
                 <div>
-                    <p className={firstnameErrorActive}>Please Enter a First Name</p>
+                    <p className={errorActive}>Please Enter a First Name</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -146,7 +103,7 @@ class ModalSignup extends React.Component {
         if (lastnameErrorActive && type === 'lastname') {
             return (
                 <div>
-                    <p className={lastnameErrorActive}>Please Enter a Last Name</p>
+                    <p className={errorActive}>Please Enter a Last Name</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -154,7 +111,7 @@ class ModalSignup extends React.Component {
         if (passwordErrorActive && type === 'password') {
             return (
                 <div>
-                    <p className={passwordErrorActive}>Password needs at least 6 characters</p>
+                    <p className={errorActive}>Password needs at least 6 characters</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -170,25 +127,6 @@ class ModalSignup extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
-
-        let errorActive = 'errorActive'
-
-        // let emailErrorActive = null;
-        // let firstnameErrorActive = null;
-        // let lastnameErrorActive = null;
-        // let passwordErrorActive = null;
-        // if (this.state.activeEmailError === true) {
-        //     emailErrorActive = 'emailErrorActive';
-        // }
-        // if (this.state.activeFirstNameError === true) {
-        //     firstnameErrorActive = 'firstnameErrorActive';
-        // }
-        // if (this.state.activeLastNameError === true) {
-        //     lastnameErrorActive = 'lastnameErrorActive';
-        // }
-        // if (this.state.activePasswordError === true) {
-        //     passwordErrorActive = 'passwordErrorActive';
-        // }
 
         const monthsObj = {
             1: "January",
@@ -242,12 +180,13 @@ class ModalSignup extends React.Component {
                         <div className="signupname">
                             {this.renderError('firstname')}
                             <input
-                                className={'signupfirstname input ' + errorActive}
+                                className="signupfirstname input"
                                 type="text"
                                 value={this.state.firstName}
                                 placeholder="First Name"
                                 onChange={this.update('firstName')}
                             />
+                            {this.renderError('lastname')}
                             <input
                                 className="signuplastname input"
                                 type="text"
@@ -256,6 +195,7 @@ class ModalSignup extends React.Component {
                                 onChange={this.update('lastName')}
                             />
                         </div>
+                        {this.renderError('email')}
                         <input
                             className="signupemail input"
                             type="text"
@@ -263,6 +203,7 @@ class ModalSignup extends React.Component {
                             placeholder="Email"
                             onChange={this.update('email')}
                         />
+                        {this.renderError('password')}
                         <input
                             className="signuppassword input"
                             type="password"
