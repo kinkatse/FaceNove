@@ -68,16 +68,37 @@ class ModalSignup extends React.Component {
         // error messages so there is an extra key to grab all errors
         if (this.props.errors.responseJSON) {
             let errors = this.props.errors.responseJSON;
-            let errorComponent = null;
-            return (<p className="signup_error">{errors[0]}</p>)
+            // let activeEmailError = false;
+            // let activeFirstNameError = false;
+            // let activeLastNameError = false;
+            // let activePasswordError = false;
+            // let errorComponent = null;
+            // return (<p className="signup_error">{errors[0]}</p>)
             // This is an array of all the errors, we should loop through
             // and print each one
             // errors.forEach((error) => {
             //     debugger
-            //     return (
-            //         <p className="signup_error">{error}</p>
-            //     )
+            //     if (error.includes('Email')) {
+            //         activeEmailError = 'true'
+            //     }
+            //     if (error.includes('Firstname')) {
+            //         activeFirstNameError = 'true'
+            //     }
+            //     if (error.includes('Lastname')) {
+            //         activeLastNameError = 'true'
+            //     }
+            //     if (error.includes('Password')) {
+            //         activePasswordError = 'true'
+            //     }
             // })
+            return (
+                <div className="signup_errors">
+                    <p className="signup_error">{errors[0]}</p>
+                    <p className="signup_error">{errors[1]}</p>
+                    <p className="signup_error">{errors[2]}</p>
+                    <p className="signup_error">{errors[3]}</p>
+                </div>
+            )
         } else {
             return (
                 <p className="signupheader">It's fast and convenient!</p>
