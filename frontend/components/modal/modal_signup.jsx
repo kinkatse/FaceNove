@@ -64,6 +64,25 @@ class ModalSignup extends React.Component {
         }
     }
 
+    renderErrors() {
+        // responseJSON because the backend (users controller) returns
+        // error messages so there is an extra key to grab all errors
+        if (this.props.errors.responseJSON.length > 0) {
+            let errors = this.props.errors.responseJSON;
+            // This is an array of all the errors, we should loop through
+            // and print each one
+            errors.forEach((error) => {
+                return (
+                    <p className="signup_error">{error}</p>
+                )
+            })
+        } else {
+            return (
+                <p className="signupheader">It's fast and convenient!</p>
+            )
+        }
+    }
+
     render() {
         debugger
         let colorSplash;
