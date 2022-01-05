@@ -57,6 +57,7 @@ class ModalSignup extends React.Component {
     }
 
     render() {
+        debugger
         let colorSplash;
         if (this.props.color === 'blue') {
             colorSplash = 'bluesplash';

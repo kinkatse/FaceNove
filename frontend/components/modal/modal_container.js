@@ -4,9 +4,11 @@ import { closeModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/session_actions'
 
 const mapStateToProps = (state) => {
+    debugger
     return {
         modal: state.ui.modalRed,
-        color: state.ui.colorRed.color
+        color: state.ui.colorRed.color,
+        errors: state.errors.session
     }
 }
 
