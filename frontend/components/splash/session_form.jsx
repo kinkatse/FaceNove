@@ -30,6 +30,15 @@ class SessionForm extends React.Component {
         this.props.login(user)
     }
 
+    rendersErrors() {
+        if (this.props.errors.length > 0) {
+            let err = this.props.errors[0]
+            return (
+                <p className="log_errors">{err}</p>
+            )            
+        }
+    }
+
     rendersLogin(color, colorSplash) {
         // First argument is for login class color change, the colorSplash only changed for splashbuttons
         let colorInput;
@@ -79,6 +88,7 @@ class SessionForm extends React.Component {
 
         return (
             <div>
+                {this.rendersErrors()}
                 <form onSubmit={this.handleSubmit}>
                     {this.rendersLogin(this.props.color, colorSplash)}
                 </form>

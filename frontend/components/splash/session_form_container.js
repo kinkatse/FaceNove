@@ -4,8 +4,10 @@ import { login } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 const mapStateToProps = (state) => {
+    debugger
     return {
-        modal: state.ui.modalRed
+        modal: state.ui.modalRed,
+        errors: state.errors.session
     }
 }
 
