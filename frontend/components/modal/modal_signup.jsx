@@ -1,4 +1,5 @@
 import React from 'react';
+import { RECEIVE_SIGNUP_ERRORS } from '../../actions/session_actions';
 
 class ModalSignup extends React.Component {
     constructor(props) {
@@ -30,8 +31,14 @@ class ModalSignup extends React.Component {
         debugger
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.signup(user);
-        this.resetState();
+        // If signup action returns an error, this will check the type and
+        // then if it is an error then it wont close modal or reset state
+        // but it no error, then it will reset state and close modal
+        this.props.signup(user).then(err => {
+            if (err.type !== RECEIVE_SIGNUP_ERRORS) {
+                this.resetState();
+            }
+        })
     }
 
     update(field) {
