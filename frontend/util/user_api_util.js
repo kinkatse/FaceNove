@@ -6,6 +6,7 @@ export const getAllUsers = () => {
 }
 
 export const getUser = (userId) => {
+    debugger
     return $.ajax({
         url: `/api/users/${userId}`,
         method: 'GET'

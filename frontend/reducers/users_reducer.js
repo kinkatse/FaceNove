@@ -10,6 +10,7 @@ const usersReducer = (usersState = {}, action) => {
             return Object.assign({}, usersState, { [action.currentUser.id]: action.currentUser })
         // For showUser dispatch
         case GET_USER:
+            debugger
             return Object.assign({}, usersState, { [action.user.id]: action.user })
         default:
             return usersState;

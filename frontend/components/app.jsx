@@ -13,12 +13,14 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 import ModalContainer from './modal/modal_container';
 import SplashContainer from './splash/splash_container';
+import ProfileContainer from './profile/profile_container';
 
 const App = () => (
     <div className="page">
         <ModalContainer />
         <Switch>
             <Route exact path="/" component={SplashContainer}/>
+            <ProtectedRoute path="/user/:userId" component={ProfileContainer}/>
         </Switch>
     </div>
 )
