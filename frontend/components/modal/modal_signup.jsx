@@ -65,29 +65,29 @@ class ModalSignup extends React.Component {
 
     renderError(type) {
         let errorActive = 'errorActive'
-        let emailErrorActive = false;
-        let firstnameErrorActive = false;
-        let lastnameErrorActive = false;
-        let passwordErrorActive = false;
+        let emailErrorActive = null;
+        let firstnameErrorActive = null;
+        let lastnameErrorActive = null;
+        let passwordErrorActive = null;
         if (this.props.errors.responseJSON) {
             let errors = this.props.errors.responseJSON;
             if (errors.includes("Email can't be blank")) {
-                emailErrorActive = true
+                emailErrorActive = 'emailErrorActive'
             }
             if (errors.includes("Firstname can't be blank")) {
-                firstnameErrorActive = true
+                firstnameErrorActive = 'firstnameErrorActive'
             }
             if (errors.includes("Lastname can't be blank")) {
-                lastnameErrorActive = true
+                lastnameErrorActive = 'lastnameErrorActive'
             }
             if (errors.includes("Password is too short (minimum is 6 characters)")) {
-                passwordErrorActive = true
+                passwordErrorActive = 'passwordErrorActive'
             }
         }
         if (emailErrorActive && type === 'email') {
             return (
                 <div>
-                    <p className={errorActive}>Please Enter an Email</p>
+                    <p className={emailErrorActive}>Please Enter an Email</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -95,7 +95,7 @@ class ModalSignup extends React.Component {
         if (firstnameErrorActive && type === 'firstname') {
             return (
                 <div>
-                    <p className={errorActive}>Please Enter a First Name</p>
+                    <p className={firstnameErrorActive}>Please Enter a First Name</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -103,7 +103,7 @@ class ModalSignup extends React.Component {
         if (lastnameErrorActive && type === 'lastname') {
             return (
                 <div>
-                    <p className={errorActive}>Please Enter a Last Name</p>
+                    <p className={lastnameErrorActive}>Please Enter a Last Name</p>
                     {/* <img></img> */}
                 </div>
             )
@@ -111,7 +111,7 @@ class ModalSignup extends React.Component {
         if (passwordErrorActive && type === 'password') {
             return (
                 <div>
-                    <p className={errorActive}>Password needs at least 6 characters</p>
+                    <p className={passwordErrorActive}>Password needs at least 6 characters</p>
                     {/* <img></img> */}
                 </div>
             )

@@ -68,18 +68,66 @@
     width: 402px;
 }
 
+// .emailErrorActive {
+//     font-family: Arial, Helvetica, sans-serif;
+//     position: relative;
+//     color: rgb(212, 56, 56);
+//     z-index: 2;
+//     animation: 0.3s hoveroff forwards;
+// }
+
 .emailErrorActive {
     font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    color: rgb(212, 56, 56);
+    position: absolute;
+    top: 161.95px;
+    left: -160px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 56, 56);
+    opacity: 100%;
     z-index: 2;
     animation: 0.3s hoveroff forwards;
 }
 
-.errorActive {
+.firstnameErrorActive {
     font-family: Arial, Helvetica, sans-serif;
-    position: relative;
-    color: rgb(212, 56, 56);
+    position: absolute;
+    top: 112.4px;
+    left: -186.1px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 56, 56);
+    opacity: 100%;
+    z-index: 2;
+    animation: 0.3s hoveroff forwards;
+}
+
+.lastnameErrorActive {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 112.4px;
+    right: -186.1px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 56, 56);
+    opacity: 100%;
+    z-index: 2;
+    animation: 0.3s hoveroff forwards;
+}
+
+.passwordErrorActive {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 210.6px;
+    left: -257.4px;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(212, 56, 56);
+    opacity: 100%;
     z-index: 2;
     animation: 0.3s hoveroff forwards;
 }
