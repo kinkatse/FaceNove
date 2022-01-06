@@ -30,12 +30,10 @@
 }
 
 .X {
+    height: 20px;
+    width: 20px;
+    margin-top: 5px;
     cursor: pointer;
-    animation: 0.3s hoveroff forwards;
-}
-
-.X:hover {
-    animation: 0.3s hoverover forwards;
 }
 
 .signupheader {
