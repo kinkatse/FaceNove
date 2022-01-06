@@ -65,12 +65,14 @@
 
 .signupname {
     display: flex;
-    width: 402px;
+    width: 404.5px;
 }
 
 .errorActive {
-    height: 25px;
-    width: 25px;
+    position: absolute;
+    height: 19px;
+    width: 18px;
+    z-index: 2;
 }
 
 .emailErrorActive {
@@ -87,6 +89,11 @@
     animation: 0.3s hoveroff forwards;
 }
 
+.emailError {
+    top: 169px;
+    left: 380px;
+}
+
 .firstnameErrorActive {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -99,6 +106,11 @@
     opacity: 100%;
     z-index: 2;
     animation: 0.3s hoveroff forwards;
+}
+
+.firstnameError {
+    top: 121px;
+    left: 177px;
 }
 
 .lastnameErrorActive {
@@ -115,6 +127,11 @@
     animation: 0.3s hoveroff forwards;
 }
 
+.lastnameError {
+    top: 121px;
+    left: 380px;
+}
+
 .passwordErrorActive {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
@@ -127,6 +144,11 @@
     opacity: 100%;
     z-index: 2;
     animation: 0.3s hoveroff forwards;
+}
+
+.passwordError {
+    top: 218.5px;
+    left: 380px;
 }
 
 .input {
