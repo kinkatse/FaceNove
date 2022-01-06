@@ -68,13 +68,10 @@
     width: 402px;
 }
 
-// .emailErrorActive {
-//     font-family: Arial, Helvetica, sans-serif;
-//     position: relative;
-//     color: rgb(212, 56, 56);
-//     z-index: 2;
-//     animation: 0.3s hoveroff forwards;
-// }
+.errorActive {
+    height: 25px;
+    width: 25px;
+}
 
 .emailErrorActive {
     font-family: Arial, Helvetica, sans-serif;

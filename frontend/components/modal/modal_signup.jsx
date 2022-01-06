@@ -88,7 +88,7 @@ class ModalSignup extends React.Component {
             return (
                 <div>
                     <p className={emailErrorActive}>Please Enter an Email</p>
-                    {/* <img></img> */}
+                    <img className="errorActive emailError" src={error_url} />
                 </div>
             )
         }
@@ -96,7 +96,7 @@ class ModalSignup extends React.Component {
             return (
                 <div>
                     <p className={firstnameErrorActive}>Please Enter a First Name</p>
-                    {/* <img></img> */}
+                    <img className="errorActive firstnameError" src={error_url} />
                 </div>
             )
         }
@@ -104,7 +104,7 @@ class ModalSignup extends React.Component {
             return (
                 <div>
                     <p className={lastnameErrorActive}>Please Enter a Last Name</p>
-                    {/* <img></img> */}
+                    <img className="errorActive lastnameError" src={error_url} />
                 </div>
             )
         }
@@ -112,7 +112,7 @@ class ModalSignup extends React.Component {
             return (
                 <div>
                     <p className={passwordErrorActive}>Password needs at least 6 characters</p>
-                    {/* <img></img> */}
+                    <img className="errorActive passwordError" src={error_url} />
                 </div>
             )
         }
