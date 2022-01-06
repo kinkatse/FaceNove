@@ -173,7 +173,6 @@ class ModalSignup extends React.Component {
                     <div className="signup_modal-child">
                         <div className="signuptop">
                             <h1>Sign Up!</h1>
-                            {/* <span className="X" onClick={this.props.closeModal}>X</span> */}
                             <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
                         <p className="signupheader">It's fast and convenient!</p>
