@@ -5,7 +5,11 @@ import NavBar from '../navbar/navbar';
 class Profile extends React.Component {
     componentDidMount() {
         debugger
-        this.props.showUser(this.props.user.id)
+        // Can't do this.props.user.id because then the user would be
+        // undefined without grabbing the user first. Need just the
+        // userId so we can pass that in showUser and then the
+        // container will properly assign the right user
+        this.props.showUser(this.props.userId)
     }
 
     constructor(props) {
@@ -16,6 +20,10 @@ class Profile extends React.Component {
     }
 
     render() {
+        // Necessary for when there is no user with that wildcard
+        if (!this.props.user) {
+            return null;
+        }
         return (
             <div>
                 <NavBar />
