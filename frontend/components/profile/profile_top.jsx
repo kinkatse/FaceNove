@@ -10,9 +10,11 @@ class ProfileTop extends React.Component {
     }
 
     render() {
+        let first = this.props.user.firstName;
+        let last = this.props.user.lastName;
         return (
             <div>
-                <h1>This is ProfileTop</h1>
+                <h1>Welcome to {first} {last}'s Profile Page</h1>
                 <ProfileTabs />
             </div>
         )

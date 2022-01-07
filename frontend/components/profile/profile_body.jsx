@@ -12,8 +12,9 @@ class ProfileBody extends React.Component {
     render() {
         return (
             <div>
-                <h1>This is ProfileBody</h1>
-                <ProfileIntro />
+                <h1>------------</h1>
+                <ProfileIntro user={this.props.user}/>
+                {/* Posts/Photos/Friends */}
             </div>
         )
     }

@@ -32,9 +32,8 @@ class Profile extends React.Component {
                 <br />
                 <br />
                 <br />
-                <h1>User {this.props.user.id}'s Profile Page</h1>
-                <ProfileTop />
-                <ProfileBody />
+                <ProfileTop user={this.props.user}/>
+                <ProfileBody user={this.props.user}/>
             </div>
         )
     }
