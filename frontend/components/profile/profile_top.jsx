@@ -13,7 +13,7 @@ class ProfileTop extends React.Component {
         let first = this.props.user.firstName;
         let last = this.props.user.lastName;
         return (
-            <div>
+            <div className="profile_top">
                 <h1>Welcome to {first} {last}'s Profile Page</h1>
                 <ProfileTabs />
             </div>

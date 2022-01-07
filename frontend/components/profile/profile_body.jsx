@@ -1,5 +1,8 @@
 import React from 'react';
+import ProfileFriends from './profile_friends';
 import ProfileIntro from './profile_intro';
+import ProfilePhotos from './profile_photos';
+import ProfilePosts from './profile_posts';
 
 class ProfileBody extends React.Component {
     constructor(props) {
@@ -11,10 +14,11 @@ class ProfileBody extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>------------</h1>
+            <div className="profile_body">
                 <ProfileIntro user={this.props.user}/>
-                {/* Posts/Photos/Friends */}
+                <ProfilePosts />
+                <ProfilePhotos />
+                <ProfileFriends />
             </div>
         )
     }
