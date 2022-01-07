@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
-    # has_one_attached :profilePicUrl
-    # has_one_attached :coverPicUrl
+    has_one_attached :profilePicUrl
+    has_one_attached :coverPicUrl
 
     def self.find_by_credentials(email, password)
         # Class method which we get user where their email == the email param we got
