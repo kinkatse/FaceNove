@@ -1,6 +1,7 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import NavBar from '../navbar/navbar';
+import NavBarContainer from '../navbar/navbar_container';
+import ProfileBody from './profile_body';
+import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
     componentDidMount() {
@@ -26,12 +27,14 @@ class Profile extends React.Component {
         }
         return (
             <div>
-                <NavBar />
+                <NavBarContainer />
                 <br />
                 <br />
                 <br />
                 <br />
                 <h1>User {this.props.user.id}'s Profile Page</h1>
+                <ProfileTop />
+                <ProfileBody />
             </div>
         )
     }
