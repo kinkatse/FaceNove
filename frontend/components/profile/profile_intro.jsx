@@ -14,15 +14,15 @@ class ProfileIntro extends React.Component {
         let birthdayFormatted = birthday.reverse().join('/');
         // debugger
         return (
-            <div>
+            <div className="profile_intro">
                 <h1>Intro</h1>
-                <p className="profile_intro">Bio: {user.bio}</p>
-                <p className="profile_intro">Birthday: {birthdayFormatted}</p>
-                <p className="profile_intro">Education: {user.education}</p>
-                <p className="profile_intro">Hometown: {user.hometown}</p>
-                <p className="profile_intro">Work: {user.work}</p>
-                <p className="profile_intro">Relationship: {user.relationship}</p>
-                <p className="profile_intro">Website: {user.website}</p>
+                <p className="profile_bio">Bio: {user.bio}</p>
+                <p className="profile_info">Birthday: {birthdayFormatted}</p>
+                <p className="profile_info">Education: {user.education}</p>
+                <p className="profile_info">Hometown: {user.hometown}</p>
+                <p className="profile_info">Work: {user.work}</p>
+                <p className="profile_info">Relationship: {user.relationship}</p>
+                <p className="profile_info">Website: {user.website}</p>
             </div>
         )
     }
