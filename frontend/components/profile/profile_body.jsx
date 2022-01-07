@@ -1,27 +1,14 @@
 import React from 'react';
-import ProfileFriends from './profile_friends';
-import ProfileIntro from './profile_intro';
-import ProfilePhotos from './profile_photos';
-import ProfilePosts from './profile_posts';
+import ProfileLeft from './profile_left';
+import ProfileRight from './profile_right';
 
-class ProfileBody extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
-    render() {
-        return (
-            <div className="profile_body">
-                <ProfileIntro user={this.props.user}/>
-                <ProfilePosts />
-                <ProfilePhotos />
-                <ProfileFriends />
-            </div>
-        )
-    }
+const ProfileBody = (props) => {
+    return (
+        <div className="profile_body">
+            <ProfileLeft user={props.user} />
+            <ProfileRight />
+        </div>
+    )
 }
 
 export default ProfileBody;

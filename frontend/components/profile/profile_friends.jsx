@@ -12,9 +12,16 @@ class ProfileFriends extends React.Component {
         return (
             <div className="profile_friends">
                 <h1>Friends</h1>
-                <p>Tom</p>
-                <p>Jerry</p>
-                <p>Mob</p>
+                <div className="friends_wall">
+                    <p>Tom</p>
+                    <p>Jerry</p>
+                    <p>Mob</p>
+                    <p>Carly Lau</p>
+                    <p>Mochi</p>
+                    <p>Luffy</p>
+                    <p>Mario</p>
+                    <p>Pikachu</p>
+                </div>
             </div>
         )
     }

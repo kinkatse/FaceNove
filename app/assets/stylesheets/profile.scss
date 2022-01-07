@@ -50,6 +50,11 @@
     border: 4px solid rgba(0, 255, 106, 0.5);
 }
 
+.profile_left * {
+    margin: 10px;
+    padding: 5px;
+}
+
 .profile_intro {
     display: flex;
     flex-direction: column;
@@ -63,4 +68,104 @@
     margin: 5px;
     padding: 5px;
     color: rgba(34, 34, 34, 0.85);
+}
+
+.profile_intro p {
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_photos {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 400px;
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_photos * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    margin: 5px;
+    padding: 5px;
+    color: rgba(34, 34, 34, 0.85);
+}
+
+.photos_album {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile_photos p {
+    margin: 5px;
+    padding: 10px;
+    height: 85px;
+    width: 85px;
+    color: rgba(34, 34, 34, 0.85);
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_friends {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_friends * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    margin: 5px;
+    padding: 5px;
+    color: rgba(34, 34, 34, 0.85);
+}
+
+.friends_wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile_friends p {
+    margin: 5px;
+    padding: 10px;
+    height: 85px;
+    width: 85px;
+    color: rgba(34, 34, 34, 0.85);
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_right * {
+    margin: 10px;
+    padding: 5px;
+}
+
+.profile_posts {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border: 4px solid rgba(255, 0, 0, 0.5);
+}
+
+.profile_posts * {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    margin: 5px;
+    padding: 5px;
+    color: rgba(34, 34, 34, 0.85);
+}
+
+.posts_wall {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile_posts p {
+    margin: 5px;
+    padding: 10px;
+    height: 70px;
+    width: 350px;
+    color: rgba(34, 34, 34, 0.85);
+    border: 4px solid rgba(255, 0, 0, 0.5);
 }
