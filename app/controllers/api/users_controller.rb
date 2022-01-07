@@ -23,12 +23,16 @@ class Api::UsersController < ApplicationController
     end
 
     def show
+        debugger
         # Looking for specific user so we check params for that id, and so params[:id] evaluates
         # to the User and then we make a key value pair of the id to the User we just accessed
         @emailUser = User.find_by(id: params[:id])
+        debugger
         if @emailUser
+            debugger
             render "api/users/show"
         else
+            debugger
             render json: ["User does not exist"], status: 404
         end
     end

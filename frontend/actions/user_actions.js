@@ -23,10 +23,10 @@ export const indexUsers = (userId) => (dispatch) => (
 )
 
 // showUser
-export const showUser = () => (dispatch) => {
+export const showUser = (userId) => (dispatch) => {
     debugger
     return (
-        UsersApiUtil.getUser()
+        UsersApiUtil.getUser(userId)
         .then(user => dispatch(getUser(user)))
     )
 }
