@@ -5,7 +5,7 @@ import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
     componentDidMount() {
-        debugger
+        // debugger
         // Can't do this.props.user.id because then the user would be
         // undefined without grabbing the user first. Need just the
         // userId so we can pass that in showUser and then the

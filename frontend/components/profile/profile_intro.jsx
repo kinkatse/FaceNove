@@ -12,7 +12,7 @@ class ProfileIntro extends React.Component {
         let user = this.props.user;
         let birthday = user.birthdate.split('-');
         let birthdayFormatted = birthday.reverse().join('/');
-        debugger
+        // debugger
         return (
             <div>
                 <h1>Intro</h1>

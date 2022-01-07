@@ -24,7 +24,7 @@ export const indexUsers = (userId) => (dispatch) => (
 
 // showUser
 export const showUser = (userId) => (dispatch) => {
-    debugger
+    // debugger
     return (
         UsersApiUtil.getUser(userId)
         .then(user => dispatch(getUser(user)))
