@@ -24,11 +24,11 @@ class ProfileTop extends React.Component {
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
-                <p className="profile_title">Welcome to {first} {last}'s Profile Page</p>
                 <img className="coverpic" src={this.props.user.coverPicUrl} />
                 <div className={'profilepic ' + profpicColor}>
                     <img src={this.props.user.profilePicUrl} />
                 </div>
+                <p className="profile_title">Welcome to {first} {last}'s Profile Page</p>
                 <ProfileTabs />
             </div>
         )
