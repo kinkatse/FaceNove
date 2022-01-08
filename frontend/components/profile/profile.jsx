@@ -39,10 +39,6 @@ class Profile extends React.Component {
             <div>
                 <NavBarContainer />
                 <img className="gradient" src={window.page_gradient_url} />
-                <br />
-                <br />
-                <br />
-                <br />
                 <div className="profile_page">
                     <ProfileTop
                         currentUser={this.props.currentUser}
