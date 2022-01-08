@@ -15,6 +15,7 @@ import ModalContainer from './modal/modal_container';
 import SplashContainer from './splash/splash_container';
 import ProfileContainer from './profile/profile_container';
 
+// Need a route for when no routes matches, forgot how to have the 'default'
 const App = () => (
     <div className="page">
         <ModalContainer />
