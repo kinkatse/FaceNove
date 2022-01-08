@@ -178,11 +178,11 @@
     justify-content: center;
 }
 
-.profile_photos p {
+.photos_album p {
     margin: 5px;
     padding: 10px;
-    height: 85px;
-    width: 85px;
+    height: 95px;
+    width: 95px;
     color: rgba(34, 34, 34, 0.85);
     border: 4px solid rgba(255, 0, 0, 0.5);
 }
@@ -208,11 +208,11 @@
     justify-content: center;
 }
 
-.profile_friends p {
+.friends_wall p {
     margin: 5px;
     padding: 10px;
-    height: 85px;
-    width: 85px;
+    height: 95px;
+    width: 95px;
     color: rgba(34, 34, 34, 0.85);
     border: 4px solid rgba(255, 0, 0, 0.5);
 }
@@ -247,7 +247,7 @@
     margin: 5px;
     padding: 10px;
     height: 70px;
-    width: 350px;
+    width: 450px;
     color: rgba(34, 34, 34, 0.85);
     border: 4px solid rgba(255, 0, 0, 0.5);
 }
