@@ -43,8 +43,14 @@ class Profile extends React.Component {
                 <br />
                 <br />
                 <div className="profile_page">
-                    <ProfileTop user={this.props.user}/>
-                    <ProfileBody user={this.props.user}/>
+                    <ProfileTop
+                        currentUser={this.props.currentUser}
+                        user={this.props.user}
+                    />
+                    <ProfileBody
+                        currentUser={this.props.currentUser}
+                        user={this.props.user}
+                    />
                 </div>
             </div>
         )
