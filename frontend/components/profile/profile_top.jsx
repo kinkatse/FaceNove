@@ -10,13 +10,25 @@ class ProfileTop extends React.Component {
     }
 
     render() {
+        // debugger
+        let profpicColor;
+        if (this.props.color === "blue") {
+            profpicColor = "profpicbluebig"
+        } else if (this.props.color === "green") {
+            profpicColor = "profpicgreenbig"
+        } else if (this.props.color === "red") {
+            profpicColor = "profpicredbig"
+        }
+        
         let first = this.props.user.firstName;
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
                 <p className="profile_title">Welcome to {first} {last}'s Profile Page</p>
                 <img className="coverpic" src={this.props.user.coverPicUrl} />
-                <img className="profilepic" src={this.props.user.profilePicUrl} />
+                <div className={'profilepic ' + profpicColor}>
+                    <img src={this.props.user.profilePicUrl} />
+                </div>
                 <ProfileTabs />
             </div>
         )

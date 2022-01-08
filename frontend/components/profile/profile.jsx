@@ -47,6 +47,7 @@ class Profile extends React.Component {
                     <ProfileTop
                         currentUser={this.props.currentUser}
                         user={this.props.user}
+                        color={this.props.color}
                     />
                     <ProfileBody
                         currentUser={this.props.currentUser}

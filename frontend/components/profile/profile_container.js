@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
         userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
         currentUserId: state.session.id,
-        modal: state.ui.modalRed
+        modal: state.ui.modalRed,
+        color: state.ui.colorRed.color
     }
 }
 

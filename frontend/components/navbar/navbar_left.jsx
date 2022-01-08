@@ -5,12 +5,16 @@ import { Link } from 'react-router-dom';
 
 const NavBarLeft = ({ currentUser, color, colorSplash, updateColor }) => {
     let logo = null;
+    let profpicColor;
     if (color === "blue") {
         logo = window.logo_blue_url
+        profpicColor = "profpicblue"
     } else if (color === "green") {
         logo = window.logo_green_url
+        profpicColor = "profpicgreen"
     } else if (color === "red") {
         logo = window.logo_red_url
+        profpicColor = "profpicred"
     }
 
     return (
@@ -20,7 +24,7 @@ const NavBarLeft = ({ currentUser, color, colorSplash, updateColor }) => {
                     <img src={logo} />
                 </Link>
             </div>
-            <div className="navprofpic">
+            <div className={'navprofpic ' + profpicColor}>
                     <Link to={`/user/${currentUser.id}`}>
                         <img src={currentUser.profilePicUrl}/>
                     </Link>

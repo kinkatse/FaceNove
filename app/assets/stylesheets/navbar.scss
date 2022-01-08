@@ -38,9 +38,20 @@
     margin-right: 5px;
     height: 46px;
     width: 46px;
-    border: 2px solid #20e288;
     border-radius: 100px;
     animation: 0.3s hoveroff forwards;
+}
+
+.profpicblue img {
+    border: 2px solid rgba(24, 119, 242, 1);
+}
+
+.profpicgreen img {
+    border: 2px solid rgba(32, 226, 136, 1);
+}
+
+.profpicred img {
+    border: 2px solid rgba(240, 47, 47, 1);
 }
 
 .navprofpic:hover {
