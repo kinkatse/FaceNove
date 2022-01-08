@@ -15,7 +15,8 @@ class ProfileTop extends React.Component {
         return (
             <div className="profile_top">
                 <p className="profile_title">Welcome to {first} {last}'s Profile Page</p>
-                    <img className="profilepic" src={this.props.user.profilePicUrl} />
+                <img className="coverpic" src={this.props.user.coverPicUrl} />
+                <img className="profilepic" src={this.props.user.profilePicUrl} />
                 <ProfileTabs />
             </div>
         )
