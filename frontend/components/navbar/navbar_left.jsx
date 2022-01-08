@@ -20,6 +20,11 @@ const NavBarLeft = ({ currentUser, color, colorSplash, updateColor }) => {
                     <img src={logo} />
                 </Link>
             </div>
+            <div className="navprofpic">
+                    <Link to={`/user/${currentUser.id}`}>
+                        <img src={currentUser.profilePicUrl}/>
+                    </Link>
+                </div>
             <button
                 className={'colorbuttontext splashbutton ' + colorSplash}
                 onClick={updateColor}>

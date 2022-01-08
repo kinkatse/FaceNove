@@ -21,13 +21,31 @@
 }
 
 .logo img {
+    margin-left: 5px;
+    margin-right: 5px;
     width: 50px;
     height: 50px;
     animation: 0.3s hoveroff forwards;
 }
 
 .logo:hover {
-    opacity: 80%;
+    opacity: 85%;
+    animation: 0.3s hoverover forwards;
+}
+
+.navprofpic img {
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 46px;
+    width: 46px;
+    border: 2px solid #20e288;
+    border-radius: 100px;
+    animation: 0.3s hoveroff forwards;
+}
+
+.navprofpic:hover {
+    cursor: pointer;
+    opacity: 85%;
     animation: 0.3s hoverover forwards;
 }
 
