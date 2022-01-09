@@ -8,6 +8,19 @@ class ProfileTabs extends React.Component {
         }
     }
 
+    rendersEdit() {
+        // debugger
+        if (this.props.currentUserId === parseInt(this.props.userId)) {
+            return (
+                <div
+                    className="edit_profile"
+                    onClick={this.props.openEditModal}>
+                        Edit Profile
+                </div>
+            )
+        }
+    }
+
     render() {
         // When I get to this, should be conditionally rendered components by clicked on
         // which a variable like active will decide to render it or not
@@ -20,11 +33,7 @@ class ProfileTabs extends React.Component {
                     <div className="photosTab">Photos</div>
                     <div className="hobbiesTab">Hobbies</div>
                 </div>
-                <div
-                    className="edit_profile"
-                    onClick={this.props.openEditModal}>
-                        Edit Profile
-                </div>
+                {this.rendersEdit()}
             </div>
         )
     }
