@@ -149,7 +149,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Bio</label>
                             <textarea
-                                className="input"
+                                className="editbio input"
                                 type="text"
                                 placeholder={`${this.state.bio}`}
                                 value={this.state.bio}
@@ -175,15 +175,18 @@ class ModalEdit extends React.Component {
                         </div>
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Gender</label>
-                            <div className="editradio">
-                                <label className="radio">
-                                    Male<input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
+                            <div className="editradios">
+                                <label className="editradio">
+                                    Male
+                                    <input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
                                 </label>     
-                                <label className="radio">
-                                    Female<input type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
+                                <label className="editradio">
+                                    Female
+                                    <input type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
                                 </label>
-                                <label className="radio">
-                                    Other<input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
+                                <label className="editradio">
+                                    Other
+                                    <input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
                                 </label>
                             </div>
                         </div>
