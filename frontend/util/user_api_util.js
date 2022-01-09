@@ -22,3 +22,11 @@ export const signUp = (user) => {
         data: { user }
     })
 }
+
+export const editUser = (user, userId) => {
+    return $.ajax({
+        url: `/api/users/${userId}`,
+        method: 'PATCH',
+        data: { user }
+    })
+}

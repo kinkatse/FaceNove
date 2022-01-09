@@ -32,6 +32,12 @@ export const showUser = (userId) => (dispatch) => {
 }
 
 // updateUser
+export const updateUser = (user, userId) => (dispatch) => {
+    return (
+        UsersApiUtil.editUser(user, userId)
+        .then(user => dispatch(getUser(user)))
+    )
+}
 
 // updateProfilePic
 

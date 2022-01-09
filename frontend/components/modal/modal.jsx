@@ -23,11 +23,20 @@ class Modal extends React.Component {
                     errors={this.props.errors}
                 />
             case 'edit':
-                return <EditModalForm />
+                return <EditModalForm
+                    closeModal={this.props.closeModal}
+                    color={this.props.color}
+                />
             case 'profilepic':
-                return <ProfPicModalForm />
+                return <ProfPicModalForm
+                    closeModal={this.props.closeModal}
+                    color={this.props.color}
+                />
             case 'coverpic':
-                return <CovPicModalForm />
+                return <CovPicModalForm
+                    closeModal={this.props.closeModal}
+                    color={this.props.color}
+                />
             case '':
                 return null;
             default:
