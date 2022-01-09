@@ -43,6 +43,7 @@ class Profile extends React.Component {
                     <ProfileTop
                         currentUser={this.props.currentUser}
                         user={this.props.user}
+                        openEditModal={this.props.openEditModal}
                         color={this.props.color}
                     />
                     <ProfileBody

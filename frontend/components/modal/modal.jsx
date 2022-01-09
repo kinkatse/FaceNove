@@ -24,6 +24,8 @@ class Modal extends React.Component {
                 />
             case 'edit':
                 return <EditModalForm
+                    user={this.props.user}
+                    updateUser={this.props.updateUser}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />

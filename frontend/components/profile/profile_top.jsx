@@ -29,7 +29,7 @@ class ProfileTop extends React.Component {
                     <img src={this.props.user.profilePicUrl} />
                 </div>
                 <p className="profile_title">{first} {last}</p>
-                <ProfileTabs />
+                <ProfileTabs openEditModal={this.props.openEditModal} />
             </div>
         )
     }

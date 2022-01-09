@@ -20,7 +20,11 @@ class ProfileTabs extends React.Component {
                     <div className="photosTab">Photos</div>
                     <div className="hobbiesTab">Hobbies</div>
                 </div>
-                <div className="edit_profile">Edit Profile</div>
+                <div
+                    className="edit_profile"
+                    onClick={this.props.openEditModal}>
+                        Edit Profile
+                </div>
             </div>
         )
     }
