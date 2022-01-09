@@ -11,7 +11,7 @@ class ProfileFriends extends React.Component {
     render() {
         return (
             <div className="profile_friends">
-                <h1>Friends</h1>
+                <h2 className="profbodytitle">Friends</h2>
                 <div className="friends_wall">
                     <p>Tom</p>
                     <p>Jerry</p>

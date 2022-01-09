@@ -11,7 +11,7 @@ class ProfilePhotos extends React.Component {
     render() {
         return (
             <div className="profile_photos">
-                <h1>Photos</h1>
+                <h2 className="profbodytitle">Photos</h2>
                 <div className="photos_album">
                     <p>Image1</p>
                     <p>Image2</p>

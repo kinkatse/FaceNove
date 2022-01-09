@@ -11,7 +11,7 @@ class ProfilePosts extends React.Component {
     render() {
         return (
             <div className="profile_posts">
-                <h1>Posts</h1>
+                <h2 className="profbodytitle">Posts</h2>
                 <p>Whats on your mind today?</p>
                 <div className="posts_wall">
                     <p>Today I am sick</p>

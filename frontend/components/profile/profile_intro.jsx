@@ -44,7 +44,7 @@ class ProfileIntro extends React.Component {
 
         return (
             <div className="profile_intro">
-                <h1>Intro</h1>
+                <h2 className="profbodytitle">Intro</h2>
                 <p className="profile_bio">{bio}</p>
                 <p className="profile_info">Email me at {user.email}</p>
                 <p className="profile_info">{birthdayFormatted}</p>
