@@ -24,9 +24,18 @@ class ProfileTop extends React.Component {
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
-                <img className="coverpic" src={this.props.user.coverPicUrl} />
+                <img
+                    className="coverpic"
+                    onClick={this.props.openCovPicModal}
+                    src={this.props.user.coverPicUrl}
+                />
+                <h2 onClick={this.props.openCovPicModal}>Change Cov Pic</h2>
                 <div className={'profilepic ' + profpicColor}>
-                    <img src={this.props.user.profilePicUrl} />
+                    <img
+                        onClick={this.props.openProfPicModal}
+                        src={this.props.user.profilePicUrl}
+                    />
+                    <h2 onClick={this.props.openProfPicModal}>Change Prof Pic</h2>
                 </div>
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
