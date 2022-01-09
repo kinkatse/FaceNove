@@ -29,11 +29,11 @@ class ProfileIntro extends React.Component {
         if (user.gender) { gender = "Identify as " + user.gender }
         else { gender = "Gender not registered" }
 
-        if (user.education) { education = "Studied at " + user.education }
-        else { education = "Education not registered" }
-
         if (user.hometown) { hometown = "Lives in " + user.hometown }
         else { hometown = "Hometown not registered" }
+
+        if (user.education) { education = "Studied at " + user.education }
+        else { education = "Education not registered" }
 
         if (user.work) { work = "Works as " + user.work }
         else { work = "Work not registered" }
@@ -51,8 +51,8 @@ class ProfileIntro extends React.Component {
                 <p className="profile_info">Email me at {user.email}</p>
                 <p className="profile_info">{birthdayFormatted}</p>
                 <p className="profile_info">{gender}</p>
-                <p className="profile_info">{education}</p>
                 <p className="profile_info">{hometown}</p>
+                <p className="profile_info">{education}</p>
                 <p className="profile_info">{work}</p>
                 <p className="profile_info">{relationship}</p>
                 <p className="profile_info">{website}</p>

@@ -36,7 +36,7 @@ class Profile extends React.Component {
             return null;
         }
         return (
-            <div>
+            <div className="wholeprofilepage">
                 <NavBarContainer />
                 <img className="gradient" src={window.page_gradient_url} />
                 <div className="profile_page">
