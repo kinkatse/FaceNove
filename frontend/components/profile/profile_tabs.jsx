@@ -26,6 +26,15 @@ class ProfileTabs extends React.Component {
     }
 
     rendersTabs() {
+        let tabcolor;
+        if (this.props.color === "blue") {
+            tabcolor = "tabblue"
+        } else if (this.props.color === "green") {
+            tabcolor = "tabgreen"
+        } else if (this.props.color === "red") {
+            tabcolor = "tabred"
+        }
+
         const tabs = [
             "Posts",
             "About",
@@ -36,7 +45,7 @@ class ProfileTabs extends React.Component {
         ]
         let active = this.state.activeTab;
         let tabline = tabs.map((tab, idx) => {
-            let tabclassname = idx === active ? 'tab_active' : 'tab_inactive';
+            let tabclassname = idx === active ? 'tab_active ' + tabcolor : 'tab_inactive';
             return (
                 <li
                     key={idx}
@@ -55,33 +64,6 @@ class ProfileTabs extends React.Component {
         return (
             <div className="profile_tabs_whole">
                 {this.rendersTabs()}
-                {/* <ul className="profile_tabs">
-                    <li
-                        className={tabclassname}
-                        onClick={this.changeActiveTab}>
-                            Posts
-                    </li>    
-                    <li
-                        className={tabclassname}
-                        onClick={this.changeActiveTab}>
-                            About
-                    </li>
-                    <li
-                        className={tabclassname}
-                        onClick={this.changeActiveTab}>
-                            Friends
-                    </li>
-                    <li
-                        className={tabclassname}
-                        onClick={this.changeActiveTab}>
-                            Photos
-                    </li>
-                    <li
-                        className={tabclassname}
-                        onClick={this.changeActiveTab}>
-                            Hobbies
-                    </li>
-                </ul> */}
                 {this.rendersEdit()}
             </div>
         )

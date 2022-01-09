@@ -33,6 +33,7 @@ class ProfileTop extends React.Component {
                     currentUserId={this.props.currentUserId}
                     userId={this.props.userId}
                     openEditModal={this.props.openEditModal}
+                    color={this.props.color}
                 />
             </div>
         )

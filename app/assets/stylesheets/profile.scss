@@ -113,12 +113,22 @@
     margin: 5px;
     margin-bottom: 0;
     padding: 19px;
-    border-bottom: 3.5px solid rgba(24, 119, 242, 1);;
-    color: rgba(24, 119, 242, 1);
+    cursor: pointer;
 }
 
-.tab_active {
-    cursor: pointer;
+.tabblue {
+    color: #558cd8;
+    border-bottom: 3.5px solid #558cd8;
+}
+
+.tabgreen {
+    color: #53e7a2;
+    border-bottom: 3.5px solid #53e7a2;
+}
+
+.tabred {
+    color: #e25d5d;
+    border-bottom: 3.5px solid #e25d5d;
 }
 
 .edit_profile {
