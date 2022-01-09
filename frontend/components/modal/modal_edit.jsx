@@ -193,7 +193,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Hometown</label>
                             <input
-                                className="input"
+                                className="edithometown input"
                                 type="text"
                                 placeholder={`${this.state.hometown}`}
                                 value={this.state.hometown}
@@ -203,7 +203,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Education</label>
                             <input
-                                className="input"
+                                className="editeducation input"
                                 type="text"
                                 placeholder={`${this.state.education}`}
                                 value={this.state.education}
@@ -213,7 +213,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Work</label>
                             <input
-                                className="input"
+                                className="editwork input"
                                 type="text"
                                 placeholder={`${this.state.work}`}
                                 value={this.state.work}
@@ -223,7 +223,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Relationship</label>
                             <input
-                                className="input"
+                                className="editrelationship input"
                                 type="text"
                                 placeholder={`${this.state.relationship}`}
                                 value={this.state.relationship}
@@ -233,7 +233,7 @@ class ModalEdit extends React.Component {
                         <div className="editfieldwhole">
                             <label className="editlabelfields">Website</label>
                             <input
-                                className="input"
+                                className="editwebsite input"
                                 type="text"
                                 placeholder={`${this.state.website}`}
                                 value={this.state.website}
