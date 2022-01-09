@@ -3,18 +3,21 @@ import React from 'react';
 class ModalEdit extends React.Component {
     constructor(props) {
         super(props)
+        debugger
         this.state = {
             firstName: props.user.firstName,
             lastName: props.user.lastName,
             birthdate: props.user.birthdate,
-            gender: props.user.gender,
-            bio: props.user.bio,
-            hometown: props.user.hometown,
-            education: props.user.education,
-            work: props.user.work,
-            relationship: props.user.relationship,
-            website: props.user.website
+            gender: props.user.gender || "",
+            bio: props.user.bio || "",
+            hometown: props.user.hometown || "",
+            education: props.user.education || "",
+            work: props.user.work || "",
+            relationship: props.user.relationship || "",
+            website: props.user.website || ""
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
     }
 
     update(field) {
@@ -42,6 +45,7 @@ class ModalEdit extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         const userData = Object.assign({}, this.state);
         this.props.updateUser(userData, this.props.user.id)
         .then(this.resetState())
@@ -121,38 +125,31 @@ class ModalEdit extends React.Component {
                             <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
                         <div className="signuplinediv"></div>
-                        <div className="signupname">
+                        <label className="editlabelfields">First Name</label>
                             <input
                                 className="signupfirstname input"
                                 type="text"
                                 value={this.state.firstName}
-                                placeholder="First Name"
+                                placeholder={`${this.state.firstName}`}
                                 onChange={this.update('firstName')}
                             />
+                        <label className="editlabelfields">Last Name</label>
                             <input
-                                className="signuplastname input"
+                                className="signupfirstname input"
                                 type="text"
                                 value={this.state.lastName}
-                                placeholder="Last Name"
+                                placeholder={`${this.state.lastName}`}
                                 onChange={this.update('lastName')}
                             />
-                        </div>
-                        <input
-                            className="signupemail input"
-                            type="text"
-                            value={this.state.email}
-                            placeholder="Email"
-                            onChange={this.update('email')}
-                        />
-                        <input
-                            className="signuppassword input"
-                            type="password"
-                            value={this.state.password}
-                            placeholder="Password"
-                            onChange={this.update('password')}
-                        />
-                        <br/>
-                        <label className="signupinfo">Birthday</label>
+                        <label className="editlabelfields">Bio</label>
+                            <textarea
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.bio}`}
+                                value={this.state.bio}
+                                onChange={this.update('bio')}
+                            ></textarea>
+                        <label className="editlabelfields">Birthday</label>
                             <div className="signupdrop">
                                 <select name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
                                     <option value='0' disabled >Month</option>
@@ -167,7 +164,7 @@ class ModalEdit extends React.Component {
                                     {yearsList()}
                                 </select>
                             </div>
-                        <label className="signupinfo">Gender</label> 
+                        <label className="editlabelfields">Gender</label>
                             <div className="signupradio">
                                 <label className="radio">
                                     Male<input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
@@ -179,8 +176,48 @@ class ModalEdit extends React.Component {
                                     Other<input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
                                 </label>
                             </div>
-                        <div className="submit">
-                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Submit"/>
+                        <label className="editlabelfields">Hometown</label>
+                            <input
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.hometown}`}
+                                value={this.state.hometown}
+                                onChange={this.update('hometown')}
+                            />
+                        <label className="editlabelfields">Education</label>
+                            <input
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.education}`}
+                                value={this.state.education}
+                                onChange={this.update('education')}
+                            />
+                        <label className="editlabelfields">Work</label>
+                            <input
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.work}`}
+                                value={this.state.work}
+                                onChange={this.update('work')}
+                            />
+                        <label className="editlabelfields">Relationship</label>
+                            <input
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.relationship}`}
+                                value={this.state.relationship}
+                                onChange={this.update('relationship')}
+                            />
+                        <label className="editlabelfields">Website</label>
+                            <input
+                                className="editfields"
+                                type="text"
+                                placeholder={`${this.state.website}`}
+                                value={this.state.website}
+                                onChange={this.update('website')}
+                            />
+                        <div className="editsubmit">
+                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                         </div>
                     </div>
                 </div>
