@@ -3,7 +3,7 @@ import React from 'react';
 class ModalEdit extends React.Component {
     constructor(props) {
         super(props)
-        debugger
+        // debugger
         this.state = {
             firstName: props.user.firstName,
             lastName: props.user.lastName,
@@ -45,7 +45,7 @@ class ModalEdit extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        // debugger
         const userData = Object.assign({}, this.state);
         this.props.updateUser(userData, this.props.user.id)
         .then(this.resetState())
@@ -118,13 +118,13 @@ class ModalEdit extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="signup_modal-background">
-                    <div className="signup_modal-child">
-                        <div className="signuptop">
+                <div className="edit_modal-background">
+                    <div className="edit_modal-child">
+                        <div className="edittop">
                             <h1>Edit Profile!</h1>
                             <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
-                        <div className="signuplinediv"></div>
+                        <div className="editlinediv"></div>
                         <label className="editlabelfields">First Name</label>
                             <input
                                 className="signupfirstname input"
@@ -143,7 +143,7 @@ class ModalEdit extends React.Component {
                             />
                         <label className="editlabelfields">Bio</label>
                             <textarea
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.bio}`}
                                 value={this.state.bio}
@@ -178,7 +178,7 @@ class ModalEdit extends React.Component {
                             </div>
                         <label className="editlabelfields">Hometown</label>
                             <input
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.hometown}`}
                                 value={this.state.hometown}
@@ -186,7 +186,7 @@ class ModalEdit extends React.Component {
                             />
                         <label className="editlabelfields">Education</label>
                             <input
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.education}`}
                                 value={this.state.education}
@@ -194,7 +194,7 @@ class ModalEdit extends React.Component {
                             />
                         <label className="editlabelfields">Work</label>
                             <input
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.work}`}
                                 value={this.state.work}
@@ -202,7 +202,7 @@ class ModalEdit extends React.Component {
                             />
                         <label className="editlabelfields">Relationship</label>
                             <input
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.relationship}`}
                                 value={this.state.relationship}
@@ -210,7 +210,7 @@ class ModalEdit extends React.Component {
                             />
                         <label className="editlabelfields">Website</label>
                             <input
-                                className="editfields"
+                                className="editfields input"
                                 type="text"
                                 placeholder={`${this.state.website}`}
                                 value={this.state.website}

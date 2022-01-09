@@ -21,7 +21,9 @@ class ProfileIntro extends React.Component {
         if (user.birthdate) { birthday = user.birthdate.split('-') }
         else { birthday = "Birthday not registered" }
         if (user.birthdate !== "Birthday not registered") {
-            birthdayFormatted = "Born on " + birthday.reverse().join('/')
+            let year = birthday.shift()
+            birthday.push(year)
+            birthdayFormatted = "Born on " + birthday.join('/')
         } else { "Something unexpected happened" }
 
         if (user.gender) { gender = "Identify as " + user.gender }
