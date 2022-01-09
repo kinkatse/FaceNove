@@ -30,3 +30,23 @@ export const editUser = (user, userId) => {
         data: { user }
     })
 }
+
+export const changeProfPic = (user, userId) => {
+    return $.ajax({
+        url: `/api/users/${userId}`,
+        method: 'PATCH',
+        data: { user },
+        contentType: false,
+        processData: false
+    })
+}
+
+export const changeCovPic = (user, userId) => {
+    return $.ajax({
+        url: `/api/users/${userId}`,
+        method: 'PATCH',
+        data: { user },
+        contentType: false,
+        processData: false
+    })
+}

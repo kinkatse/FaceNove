@@ -40,5 +40,17 @@ export const updateUser = (user, userId) => (dispatch) => {
 }
 
 // updateProfilePic
+export const updateProfPic = (user, userId) => (dispatch) => {
+    return (
+        UsersApiUtil.changeProfPic(user, userId)
+        .then(user => dispatch(getUser(user)))
+    )
+}
 
 // updateCoverPic
+export const updateCovPic = (user, userId) => (dispatch) => {
+    return (
+        UsersApiUtil.changeCovPic(user, userId)
+        .then(user => dispatch(getUser(user)))
+    )
+}
