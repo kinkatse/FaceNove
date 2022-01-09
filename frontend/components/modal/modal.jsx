@@ -23,6 +23,7 @@ class Modal extends React.Component {
                     errors={this.props.errors}
                 />
             case 'edit':
+                
                 return <EditModalForm
                     user={this.props.user}
                     updateUser={this.props.updateUser}

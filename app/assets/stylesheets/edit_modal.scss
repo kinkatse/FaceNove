@@ -1,4 +1,4 @@
-.edit_modal-background {
+.edit_modal_background {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -8,10 +8,10 @@
     z-index: 5;
 }
 
-.edit_modal-child {
+.edit_modal_child {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 90%;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     padding: 10px;

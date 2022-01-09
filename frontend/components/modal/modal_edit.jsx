@@ -118,107 +118,106 @@ class ModalEdit extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="edit_modal-background">
-                    <div className="edit_modal-child">
-                        <div className="edittop">
-                            <h1>Edit Profile!</h1>
-                            <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
+                <div className="edit_modal_background" onClick={this.props.closeModal}></div>
+                <div className="edit_modal_child">
+                    <div className="edittop">
+                        <h1>Edit Profile!</h1>
+                        <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
+                    </div>
+                    <div className="editlinediv"></div>
+                    <label className="editlabelfields">First Name</label>
+                        <input
+                            className="input"
+                            type="text"
+                            value={this.state.firstName}
+                            placeholder={`${this.state.firstName}`}
+                            onChange={this.update('firstName')}
+                        />
+                    <label className="editlabelfields">Last Name</label>
+                        <input
+                            className="input"
+                            type="text"
+                            value={this.state.lastName}
+                            placeholder={`${this.state.lastName}`}
+                            onChange={this.update('lastName')}
+                        />
+                    <label className="editlabelfields">Bio</label>
+                        <textarea
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.bio}`}
+                            value={this.state.bio}
+                            onChange={this.update('bio')}
+                        ></textarea>
+                    <label className="editlabelfields">Birthday</label>
+                        <div className="editdrop">
+                            <select name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
+                                <option value='0' disabled >Month</option>
+                                {monthsList()}
+                            </select>
+                            <select name='day' onChange={this.updateBirthday('day')} required defaultValue='0'>
+                                <option value='0' disabled >Day</option>
+                                {daysList()}
+                            </select>
+                            <select name='year' onChange={this.updateBirthday('year')} required defaultValue='0'>
+                                <option value='0' disabled >Year</option>
+                                {yearsList()}
+                            </select>
                         </div>
-                        <div className="editlinediv"></div>
-                        <label className="editlabelfields">First Name</label>
-                            <input
-                                className="input"
-                                type="text"
-                                value={this.state.firstName}
-                                placeholder={`${this.state.firstName}`}
-                                onChange={this.update('firstName')}
-                            />
-                        <label className="editlabelfields">Last Name</label>
-                            <input
-                                className="input"
-                                type="text"
-                                value={this.state.lastName}
-                                placeholder={`${this.state.lastName}`}
-                                onChange={this.update('lastName')}
-                            />
-                        <label className="editlabelfields">Bio</label>
-                            <textarea
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.bio}`}
-                                value={this.state.bio}
-                                onChange={this.update('bio')}
-                            ></textarea>
-                        <label className="editlabelfields">Birthday</label>
-                            <div className="editdrop">
-                                <select name='month' onChange={this.updateBirthday('month')} required defaultValue='0'>
-                                    <option value='0' disabled >Month</option>
-                                    {monthsList()}
-                                </select>
-                                <select name='day' onChange={this.updateBirthday('day')} required defaultValue='0'>
-                                    <option value='0' disabled >Day</option>
-                                    {daysList()}
-                                </select>
-                                <select name='year' onChange={this.updateBirthday('year')} required defaultValue='0'>
-                                    <option value='0' disabled >Year</option>
-                                    {yearsList()}
-                                </select>
-                            </div>
-                        <label className="editlabelfields">Gender</label>
-                            <div className="editradio">
-                                <label className="radio">
-                                    Male<input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
-                                </label>     
-                                <label className="radio">
-                                    Female<input type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
-                                </label>
-                                <label className="radio">
-                                    Other<input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
-                                </label>
-                            </div>
-                        <label className="editlabelfields">Hometown</label>
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.hometown}`}
-                                value={this.state.hometown}
-                                onChange={this.update('hometown')}
-                            />
-                        <label className="editlabelfields">Education</label>
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.education}`}
-                                value={this.state.education}
-                                onChange={this.update('education')}
-                            />
-                        <label className="editlabelfields">Work</label>
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.work}`}
-                                value={this.state.work}
-                                onChange={this.update('work')}
-                            />
-                        <label className="editlabelfields">Relationship</label>
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.relationship}`}
-                                value={this.state.relationship}
-                                onChange={this.update('relationship')}
-                            />
-                        <label className="editlabelfields">Website</label>
-                            <input
-                                className="input"
-                                type="text"
-                                placeholder={`${this.state.website}`}
-                                value={this.state.website}
-                                onChange={this.update('website')}
-                            />
-                        <div className="editsubmit">
-                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
+                    <label className="editlabelfields">Gender</label>
+                        <div className="editradio">
+                            <label className="radio">
+                                Male<input type='radio' name='gender' value='Male' onChange={this.update('gender')}></input>
+                            </label>     
+                            <label className="radio">
+                                Female<input type='radio' name='gender' value='Female' onChange={this.update('gender')}></input>
+                            </label>
+                            <label className="radio">
+                                Other<input type='radio' name='gender' value='Other' onChange={this.update('gender')}></input>
+                            </label>
                         </div>
+                    <label className="editlabelfields">Hometown</label>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.hometown}`}
+                            value={this.state.hometown}
+                            onChange={this.update('hometown')}
+                        />
+                    <label className="editlabelfields">Education</label>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.education}`}
+                            value={this.state.education}
+                            onChange={this.update('education')}
+                        />
+                    <label className="editlabelfields">Work</label>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.work}`}
+                            value={this.state.work}
+                            onChange={this.update('work')}
+                        />
+                    <label className="editlabelfields">Relationship</label>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.relationship}`}
+                            value={this.state.relationship}
+                            onChange={this.update('relationship')}
+                        />
+                    <label className="editlabelfields">Website</label>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder={`${this.state.website}`}
+                            value={this.state.website}
+                            onChange={this.update('website')}
+                        />
+                    <div className="editsubmit">
+                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
                 </div>
             </form>

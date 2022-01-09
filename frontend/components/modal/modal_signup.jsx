@@ -169,8 +169,8 @@ class ModalSignup extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <div className="signup_modal-background">
-                    <div className="signup_modal-child">
+                <div className="signup_modal_background">
+                    <div className="signup_modal_child">
                         <div className="signuptop">
                             <h1>Sign Up!</h1>
                             <img className="X" src={window.x_url} onClick={this.props.closeModal}/>

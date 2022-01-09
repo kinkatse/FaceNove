@@ -26,13 +26,13 @@ class ProfileTabs extends React.Component {
         // which a variable like active will decide to render it or not
         return (
             <div className="profile_tabs_whole">
-                <div className="profile_tabs">
-                    <div className="postTab tab_active">Posts</div>    
-                    <div className="aboutTab">About</div>
-                    <div className="friendsTab">Friends</div>
-                    <div className="photosTab">Photos</div>
-                    <div className="hobbiesTab">Hobbies</div>
-                </div>
+                <ul className="profile_tabs">
+                    <li className="postTab tab_active">Posts</li>    
+                    <li className="aboutTab">About</li>
+                    <li className="friendsTab">Friends</li>
+                    <li className="photosTab">Photos</li>
+                    <li className="hobbiesTab">Hobbies</li>
+                </ul>
                 {this.rendersEdit()}
             </div>
         )
