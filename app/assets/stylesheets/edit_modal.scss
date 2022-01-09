@@ -15,13 +15,13 @@
     top: 50%;
     left: 50%;
     padding: 10px;
-    width: 420px;
+    width: 700px;
     height: 600px;
     background: white;
     border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    overflow: scroll;
-    overflow-x: hidden;
+    // overflow: scroll;
+    // overflow-x: hidden;
     z-index: 6;
     animation: 0.3s modal_hoveroff forwards;
 }
@@ -32,13 +32,28 @@
     margin: 12px;
 }
 
+.edittitle {
+    margin-left: 250px;
+}
+
 .editlinediv {
     position: relative;
     right: 10px;
     padding-bottom: 12px;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 12px;
-    width: 420px;
+    width: 720px;
+}
+
+.editbody {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.editfieldwhole {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2px;
 }
 
 .editlabelfields {
@@ -46,6 +61,14 @@
     font-weight: bold;
     margin-left: 10px;
     color: rgba(34, 34, 34, 0.90);
+}
+
+.editfirstname {
+    width: 300px;
+}
+
+.editlastname {
+    width: 300px;
 }
 
 .editdrop {
