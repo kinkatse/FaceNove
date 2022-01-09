@@ -91,11 +91,13 @@
 }
 
 .color_button {
-    margin-top: 4px;
     margin-left: 5px;
     margin-right: 5px;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid #ccc;
+    background: rgba(221, 221, 221, 0.25);
+    border-radius: 100px;
     animation: 0.3s hoveroff forwards;
 }
 
@@ -105,8 +107,25 @@
     animation: 0.3s hoverover forwards;
 }
 
-.logoutbuttontext {
-    padding: 8px;
-    margin: 8px;
-    width: 100px;
+// .logoutbuttontext {
+//     padding: 8px;
+//     margin: 8px;
+//     width: 100px;
+// }
+
+.logout_button {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid #ccc;
+    background: rgba(221, 221, 221, 0.25);
+    border-radius: 100px;
+    animation: 0.3s hoveroff forwards;
+}
+
+.logout_button:hover {
+    cursor: pointer;
+    opacity: 85%;
+    animation: 0.3s hoverover forwards;
 }

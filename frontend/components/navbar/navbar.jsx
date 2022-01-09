@@ -17,7 +17,7 @@ const NavBar = ({ currentUser, firstName, lastName, logout, color, updateColor }
         <div className="navbar_whole">
             <NavBarLeft currentUser={currentUser} color={color} />
             <NavBarMiddle firstName={firstName} lastName={lastName} color={color} />
-            <NavBarRight logout={logout} colorSplash={colorSplash} updateColor={updateColor} />
+            <NavBarRight logout={logout} color={color} updateColor={updateColor} />
         </div>
     )
 }
