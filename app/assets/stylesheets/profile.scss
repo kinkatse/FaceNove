@@ -96,8 +96,10 @@
 .tab_inactive {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    margin: 5px;
-    padding: 19px;
+    margin: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 14px;
     color: rgb(100, 100, 100);
 }
 
@@ -110,9 +112,11 @@
 .tab_active {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    margin: 5px;
+    margin: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
     margin-bottom: 0;
-    padding: 19px;
+    padding: 14px;
     cursor: pointer;
 }
 
@@ -132,17 +136,30 @@
 }
 
 .edit_profile {
+    display: flex;
+    align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    margin-top: 24px;
-    padding-left: 17px;
-    padding-right: 17px;
-    padding-bottom: 19px;
+    margin: 10px;
+    padding: 4.5px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: rgb(100, 100, 100);
+    background-color: rgba(229, 231, 235, 0.7);
+    border-radius: 7px;
+    // animation: 0.5s hoveroff forwards;
+}
+
+.editicon {
+    width: 27px;
+    height: 27px;
+    margin-right: 8px;
 }
 
 .edit_profile:hover {
+    opacity: 80%;
     cursor: pointer;
+    animation: 0.5s hoverover forwards;
 }
 
 .profile_body {

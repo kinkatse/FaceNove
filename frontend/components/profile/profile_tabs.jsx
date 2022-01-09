@@ -12,19 +12,6 @@ class ProfileTabs extends React.Component {
         this.setState({activeTab: num})
     }
 
-    rendersEdit() {
-        // debugger
-        if (this.props.currentUserId === parseInt(this.props.userId)) {
-            return (
-                <div
-                    className="edit_profile"
-                    onClick={this.props.openEditModal}>
-                        Edit Profile
-                </div>
-            )
-        }
-    }
-
     rendersTabs() {
         let tabcolor;
         if (this.props.color === "blue") {
@@ -58,6 +45,28 @@ class ProfileTabs extends React.Component {
         return (
         <ul className="profile_tabs">{tabline}</ul>
         )
+    }
+
+    rendersEdit() {
+        let editcolor;
+        if (this.props.color === "blue") {
+            editcolor = window.edit_blue_url
+        } else if (this.props.color === "green") {
+            editcolor = window.edit_green_url
+        } else if (this.props.color === "red") {
+            editcolor = window.edit_red_url
+        }
+
+        if (this.props.currentUserId === parseInt(this.props.userId)) {
+            return (
+                <div
+                    className="edit_profile"
+                    onClick={this.props.openEditModal}>
+                        <img className="editicon" src={editcolor} />
+                        Edit Profile
+                </div>
+            )
+        }
     }
 
     render() {
