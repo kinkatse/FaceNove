@@ -60,19 +60,11 @@
     animation: 0.3s hoverover forwards;
 }
 
-// .colorbuttontext {
-//     padding: 8px;
-//     margin: 8px;
-//     width: 70px;
-//     border-radius: 10px;
-// }
-
 .navbar_middle {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 100%;
-    margin-right: 90px;
     // border: 4px solid rgba(5, 71, 146, 0.5);
 }
 
@@ -87,6 +79,7 @@
     display: flex;
     flex-direction: row;
     height: 100%;
+    margin-right: 5px;
     // border: 4px solid rgba(141, 5, 146, 0.5);
 }
 
@@ -106,12 +99,6 @@
     opacity: 85%;
     animation: 0.3s hoverover forwards;
 }
-
-// .logoutbuttontext {
-//     padding: 8px;
-//     margin: 8px;
-//     width: 100px;
-// }
 
 .logout_button {
     margin-left: 5px;
