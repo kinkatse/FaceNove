@@ -51,7 +51,12 @@
     // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
-.profilepic img {
+.profilepicbuttonadjustment {
+    position: relative;
+    left: 21px;
+}
+
+.profilepic {
     position: relative;
     margin-top: 375px;
     height: 170px;
@@ -62,20 +67,40 @@
     animation: 0.5s hoveroff forwards;
 }
 
-.profilepic img:hover {
+.profilepic:hover {
     cursor: pointer;
     animation: 0.5s hoverover forwards;
 }
 
-.profpicbluebig img {
+.profpicbutton {
+    position: relative;
+    right: 32px;
+    bottom: 4px;
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+    border: 3px solid rgba(237, 237, 237, 0.7);
+    background: rgba(237, 237, 237, 0.85);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 4;
+}
+
+.profpicbutton:hover {
+    border: 3px solid rgba(237, 237, 237, 0.95);
+    background: rgba(237, 237, 237, 1);
+    cursor: pointer;
+    animation: 0.5s hoverover forwards;
+}
+
+.profpicbluebig {
     border: 6px solid #558cd8;
 }
 
-.profpicgreenbig img {
+.profpicgreenbig {
     border: 6px solid #53e7a2;
 }
 
-.profpicredbig img {
+.profpicredbig {
     border: 6px solid #e25d5d;
 }
 
