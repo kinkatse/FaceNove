@@ -139,14 +139,14 @@
 }
 
 .profile_left * {
-    margin: 5px;
-    padding: 5px;
+    margin: 6px;
+    padding: 6px;
 }
 
 .profile_intro {
     display: flex;
     flex-direction: column;
-    width: 495px;
+    width: 415px;
     margin: 9px;
     margin-bottom: 18px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
@@ -157,8 +157,6 @@
 
 .profile_intro * {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 5px;
-    padding: 5px;
 }
 
 .profile_intro p {
@@ -169,7 +167,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 495px;
+    width: 415px;
     margin: 9px;
     margin-bottom: 18px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
@@ -180,8 +178,6 @@
 
 .profile_photos * {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 5px;
-    padding: 5px;
 }
 
 .photos_album {
@@ -203,7 +199,7 @@
 .profile_friends {
     display: flex;
     flex-direction: column;
-    width: 495px;
+    width: 415px;
     margin: 9px;
     margin-bottom: 18px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
@@ -214,8 +210,6 @@
 
 .profile_friends * {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 5px;
-    padding: 5px;
 }
 
 .friends_wall {
@@ -235,14 +229,14 @@
 }
 
 .profile_right * {
-    margin: 5px;
-    padding: 5px;
+    margin: 6px;
+    padding: 6px;
 }
 
 .profile_posts {
     display: flex;
     flex-direction: column;
-    width: 495px;
+    width: 575px;
     margin: 9px;
     margin-bottom: 18px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
@@ -253,8 +247,6 @@
 
 .profile_posts * {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 5px;
-    padding: 5px;
 }
 
 .posts_wall {
@@ -267,7 +259,7 @@
     margin: 5px;
     padding: 10px;
     height: 70px;
-    width: 425px;
+    width: 500px;
     color: rgba(34, 34, 34, 0.85);
     border-radius: 5px;
     border: 2px solid rgba(34, 34, 34, 0.20);
