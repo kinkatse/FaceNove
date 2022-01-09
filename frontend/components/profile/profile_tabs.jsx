@@ -27,11 +27,11 @@ class ProfileTabs extends React.Component {
         return (
             <div className="profile_tabs_whole">
                 <ul className="profile_tabs">
-                    <li className="postTab tab_active">Posts</li>    
-                    <li className="aboutTab">About</li>
-                    <li className="friendsTab">Friends</li>
-                    <li className="photosTab">Photos</li>
-                    <li className="hobbiesTab">Hobbies</li>
+                    <li className="tab_active">Posts</li>    
+                    <li className="tab_inactive">About</li>
+                    <li className="tab_inactive">Friends</li>
+                    <li className="tab_inactive">Photos</li>
+                    <li className="tab_inactive">Hobbies</li>
                 </ul>
                 {this.rendersEdit()}
             </div>
