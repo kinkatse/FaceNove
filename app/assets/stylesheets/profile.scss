@@ -32,7 +32,7 @@
 
 .profile_title {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     z-index: 2;
 }
@@ -50,7 +50,7 @@
 
 .profilepic img {
     position: relative;
-    margin-top: 350px;
+    margin-top: 375px;
     height: 170px;
     width: 170px;
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
@@ -128,8 +128,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 1050px;
-    border-top: 2px solid rgba(85, 85, 85, 0.5);
-    border: 4px solid rgba(0, 255, 106, 0.5);
+    // border: 4px solid rgba(0, 255, 106, 0.5);
 }
 
 .profile_left * {
@@ -141,7 +140,12 @@
     display: flex;
     flex-direction: column;
     width: 495px;
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    margin: 9px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 5px;
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_intro * {
@@ -153,7 +157,7 @@
 }
 
 .profile_intro p {
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_photos {
@@ -161,7 +165,12 @@
     flex-wrap: wrap;
     flex-direction: column;
     width: 495px;
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    margin: 9px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 5px;
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_photos * {
@@ -184,14 +193,19 @@
     height: 95px;
     width: 95px;
     color: rgba(34, 34, 34, 0.85);
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_friends {
     display: flex;
     flex-direction: column;
     width: 495px;
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    margin: 9px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 5px;
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_friends * {
@@ -214,7 +228,7 @@
     height: 95px;
     width: 95px;
     color: rgba(34, 34, 34, 0.85);
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_right * {
@@ -226,7 +240,12 @@
     display: flex;
     flex-direction: column;
     width: 495px;
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    margin: 9px;
+    margin-bottom: 18px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 5px;
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_posts * {
@@ -249,5 +268,5 @@
     height: 70px;
     width: 450px;
     color: rgba(34, 34, 34, 0.85);
-    border: 4px solid rgba(255, 0, 0, 0.5);
+    // border: 4px solid rgba(255, 0, 0, 0.5);
 }

@@ -28,7 +28,7 @@ class ProfileTop extends React.Component {
                 <div className={'profilepic ' + profpicColor}>
                     <img src={this.props.user.profilePicUrl} />
                 </div>
-                <p className="profile_title">Welcome to {first} {last}'s Profile Page</p>
+                <p className="profile_title">{first} {last}</p>
                 <ProfileTabs />
             </div>
         )

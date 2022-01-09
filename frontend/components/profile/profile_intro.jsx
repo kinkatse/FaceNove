@@ -11,7 +11,8 @@ class ProfileIntro extends React.Component {
     render() {
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
-        let bio, birthday, birthdayFormatted, gender, education, hometown, work, relationship, website;
+        let bio, birthday, birthdayFormatted, gender, education,
+        hometown, work, relationship, website, time;
         
         // Conditionals to make the info be default if no value
         if (user.bio) { bio = "Bio: " + user.bio }
