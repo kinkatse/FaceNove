@@ -9,20 +9,7 @@ class ProfileTop extends React.Component {
         }
     }
     
-    rendersProfilePic() {
-        let profpicColor;
-        let profpicImage;
-        if (this.props.color === "blue") {
-            profpicColor = "profpicbluebig"
-            profpicImage = window.image_blue_url
-        } else if (this.props.color === "green") {
-            profpicColor = "profpicgreenbig"
-            profpicImage = window.image_green_url
-        } else if (this.props.color === "red") {
-            profpicColor = "profpicredbig"
-            profpicImage = window.image_red_url
-        }
-
+    rendersProfilePic(profpicColor, profpicImageButton) {
         let eventlistener;
         let profpicbutton;
         let picbuttonactive;
@@ -32,14 +19,14 @@ class ProfileTop extends React.Component {
                 <img
                     className="profpicbutton"
                     onClick={eventlistener}
-                    src={profpicImage}
+                    src={profpicImageButton}
                 />
             )
-            picbuttonactive = "profilepicbuttonadjustment";
+            picbuttonactive = "profilepicwholeadjustment";
         } else {
             eventlistener = null;
             profpicbutton = null;
-            picbuttonactive = "";
+            picbuttonactive = "profilepicwhole";
         }
 
         return (
@@ -54,39 +41,64 @@ class ProfileTop extends React.Component {
         )
     }
 
-    rendersCoverPic() {
+    rendersCoverPic(covpicImageButton) {
         let eventlistener;
+        let covpicbutton;
+        let picbuttonactive;
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             eventlistener = this.props.openCovPicModal;
+            covpicbutton = (
+                <div className="">
+                    <img
+                        className="covpicbutton"
+                        onClick={eventlistener}
+                        src={covpicImageButton}
+                    />
+                    Edit Cover Picture
+                </div>
+            )
+            picbuttonactive = "coverpicbuttonadjustment";
         } else {
             eventlistener = null;
+            covpicbutton = null;
+            picbuttonactive = "";
         }
 
         return (
-            <>
                 <img
                     className="coverpic"
                     onClick={eventlistener}
                     src={this.props.user.coverPicUrl}
                 />
-                {/* <h2 onClick={eventlistener}>Change Cov Pic</h2> */}
-            </>
         )
     }
 
     render() {
+        let profpicColor;
+        let picImageButton;
+        if (this.props.color === "blue") {
+            profpicColor = "profpicbluebig"
+            picImageButton = window.image_blue_url
+        } else if (this.props.color === "green") {
+            profpicColor = "profpicgreenbig"
+            picImageButton = window.image_green_url
+        } else if (this.props.color === "red") {
+            profpicColor = "profpicredbig"
+            picImageButton = window.image_red_url
+        }
+
         let first = this.props.user.firstName;
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
-                {this.rendersCoverPic()}
+                {this.rendersCoverPic(picImageButton)}
                 {/* <img
                     className="coverpic"
                     onClick={this.props.openCovPicModal}
                     src={this.props.user.coverPicUrl}
                 />
                 <h2 onClick={this.props.openCovPicModal}>Change Cov Pic</h2> */}
-                {this.rendersProfilePic()}
+                {this.rendersProfilePic(profpicColor, picImageButton)}
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
                     currentUserId={this.props.currentUserId}
