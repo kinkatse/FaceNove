@@ -4,7 +4,29 @@ class ModalProfPic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            photoFile: null
         }
+        this.handleProfSubmit = this.handleProfSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+    }
+
+    handleFile(e) {
+        this.setState({photoFile: e.currentTarget.files[0]})
+    }
+
+    handleProfSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('user[profilePicUrl]', this.state.photoFile);
+        this.props.updateProfPic(formData, this.props.currentUser.id)
+        .then(this.resetState())
+    }
+
+    resetState() {
+        this.setState({
+            photoFile: null
+        })
+        this.props.closeModal()
     }
 
     render() {
@@ -18,7 +40,7 @@ class ModalProfPic extends React.Component {
         }
         
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleProfSubmit}>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
                 <div className="profpic_modal_child">
                     <div className="profpictop">
@@ -27,6 +49,8 @@ class ModalProfPic extends React.Component {
                     </div>
                     <div className="profpiclinediv"></div>
                     <div className="profpicbody">
+                        <input type="file" onChange={this.handleFile}/>
+                        Choose A File
                     </div>
                     <div className="profpicsubmit">
                         <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>

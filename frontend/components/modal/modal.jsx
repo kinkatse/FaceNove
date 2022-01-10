@@ -24,18 +24,21 @@ class Modal extends React.Component {
                 />
             case 'edit':
                 return <EditModalForm
-                    user={this.props.user}
+                    currentUser={this.props.currentUser}
                     updateUser={this.props.updateUser}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />
             case 'profilepic':
                 return <ProfPicModalForm
+                    currentUser={this.props.currentUser}
+                    updateProfPic={this.props.updateProfPic}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />
             case 'coverpic':
                 return <CovPicModalForm
+                    updateCovPic={this.props.updateCovPic}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />

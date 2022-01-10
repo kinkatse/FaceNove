@@ -47,22 +47,22 @@ class ModalEdit extends React.Component {
         e.preventDefault();
         // debugger
         const userData = Object.assign({}, this.state);
-        this.props.updateUser(userData, this.props.user.id)
+        this.props.updateUser(userData, this.props.currentUser.id)
         .then(this.resetState())
     }
 
     resetState() {
         this.setState({
-            firstName: this.props.user.firstName,
-            lastName: this.props.user.lastName,
-            birthdate: this.props.user.birthdate,
-            gender: this.props.user.gender,
-            bio: this.props.user.bio,
-            hometown: this.props.user.hometown,
-            education: this.props.user.education,
-            work: this.props.user.work,
-            relationship: this.props.user.relationship,
-            website: this.props.user.website
+            firstName: this.props.currentUser.firstName,
+            lastName: this.props.currentUser.lastName,
+            birthdate: this.props.currentUser.birthdate,
+            gender: this.props.currentUser.gender,
+            bio: this.props.currentUser.bio,
+            hometown: this.props.currentUser.hometown,
+            education: this.props.currentUser.education,
+            work: this.props.currentUser.work,
+            relationship: this.props.currentUser.relationship,
+            website: this.props.currentUser.website
         })
         this.props.closeModal()
     }
