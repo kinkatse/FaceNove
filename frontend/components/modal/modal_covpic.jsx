@@ -4,7 +4,29 @@ class ModalCovPic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            photoFile: null
         }
+        this.handleCovSubmit = this.handleCovSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
+    }
+
+    handleFile(e) {
+        this.setState({photoFile: e.currentTarget.files[0]})
+    }
+
+    handleCovSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('user[coverPicUrl]', this.state.photoFile);
+        this.props.updateCovPic(formData, this.props.currentUser.id)
+        .then(this.resetState())
+    }
+
+    resetState() {
+        this.setState({
+            photoFile: null
+        })
+        this.props.closeModal()
     }
 
     render() {
@@ -16,9 +38,9 @@ class ModalCovPic extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
-        
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleCovSubmit}>
                 <div className="covpic_modal_background" onClick={this.props.closeModal}></div>
                 <div className="covpic_modal_child">
                     <div className="covpictop">
@@ -26,8 +48,10 @@ class ModalCovPic extends React.Component {
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
                     <div className="covpiclinediv"></div>
-                    <div className="covpicbody">
-                    </div>
+                    <label className="choose">
+                        <input type="file" onChange={this.handleFile}/>
+                        Choose A File
+                    </label>
                     <div className="covpicsubmit">
                         <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>

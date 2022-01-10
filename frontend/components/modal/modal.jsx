@@ -38,6 +38,7 @@ class Modal extends React.Component {
                 />
             case 'coverpic':
                 return <CovPicModalForm
+                    currentUser={this.props.currentUser}
                     updateCovPic={this.props.updateCovPic}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
