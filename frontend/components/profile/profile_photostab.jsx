@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfilePhotosTab = (props) => {
     return (
-        <div className="">
+        <div className="tabbody">
             <h1>This is Photos</h1>
         </div>
     )

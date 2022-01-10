@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProfileHobbiesTab = (props) => {
     return (
-        <div className="">
+        <div className="tabbody">
             <h1>This is Hobbies</h1>
         </div>
     )
