@@ -52,6 +52,7 @@ class ModalCovPic extends React.Component {
                         <input type="file" onChange={this.handleFile}/>
                         Choose A File
                     </label>
+                    
                     <div className="covpicsubmit">
                         <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
