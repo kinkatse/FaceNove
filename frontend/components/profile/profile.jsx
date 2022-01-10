@@ -38,6 +38,7 @@ class Profile extends React.Component {
         return (
             <div className="wholeprofilepage">
                 <NavBarContainer />
+                <div className="pagebackground"></div>
                 <img className="gradient" src={window.page_gradient_url} />
                 <div className="profile_page">
                     <ProfileTop

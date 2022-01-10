@@ -27,14 +27,6 @@ class ProfileTabs extends React.Component {
             tabcolor = "tabred"
         }
 
-        // const tabs = [
-        //     "Posts",
-        //     "About",
-        //     "Friends",
-        //     "Photos",
-        //     "Hobbies"
-        // ]
-
         let active = this.state.activeTab;
         let tabline = tabs.map((tab, idx) => {
             let tabclassname = idx === active ? 'tab_active ' + tabcolor : 'tab_inactive';
