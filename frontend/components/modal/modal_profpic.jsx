@@ -11,7 +11,14 @@ class ModalProfPic extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]})
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleProfSubmit(e) {
@@ -29,6 +36,31 @@ class ModalProfPic extends React.Component {
         this.props.closeModal()
     }
 
+    rendersPreview() {
+        let preview;
+        if (this.state.photoUrl) {
+            preview = (
+                <img
+                    className="oldprofpic"
+                    src={this.state.photoUrl}
+                />
+            )
+        } else {
+            preview = (
+                <img
+                    className="oldprofpic"
+                    src={this.props.currentUser.profilePicUrl}
+                />
+            )
+        }
+
+        return (
+            <div>
+                {preview}
+            </div>
+        )
+    }
+
     render() {
         let colorSplash;
         if (this.props.color === 'blue') {
@@ -38,7 +70,7 @@ class ModalProfPic extends React.Component {
         } else if (this.props.color === 'red') {
             colorSplash = 'redsplash'
         }
-        
+
         return (
             <form onSubmit={this.handleProfSubmit}>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
@@ -53,10 +85,7 @@ class ModalProfPic extends React.Component {
                             <input type="file" onChange={this.handleFile}/>
                             Choose A File
                         </label>
-                        <img
-                            className="oldprofpic"
-                            src={this.props.currentUser.profilePicUrl}
-                        />
+                        {this.rendersPreview()}
                         <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
                 </div>
