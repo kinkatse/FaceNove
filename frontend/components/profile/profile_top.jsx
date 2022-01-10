@@ -41,35 +41,51 @@ class ProfileTop extends React.Component {
         )
     }
 
-    rendersCoverPic(covpicImageButton) {
+    rendersCoverPic() {
+        let eventlistener;
+        if (this.props.currentUserId === parseInt(this.props.userId)) {
+            eventlistener = this.props.openCovPicModal;
+        } else {
+            eventlistener = null;
+        }
+
+        return (
+            <img
+                className="coverpic"
+                onClick={eventlistener}
+                src={this.props.user.coverPicUrl}
+            />
+        )
+    }
+
+    rendersCoverPicButton(covpicImageButton) {
         let eventlistener;
         let covpicbutton;
         let picbuttonactive;
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             eventlistener = this.props.openCovPicModal;
             covpicbutton = (
-                <div className="">
+                <div className="covpicbuttonwhole" onClick={eventlistener}>
                     <img
                         className="covpicbutton"
-                        onClick={eventlistener}
                         src={covpicImageButton}
                     />
-                    Edit Cover Picture
+                    <div className="editcoverpic">
+                        Edit Cover Picture
+                    </div>
                 </div>
             )
             picbuttonactive = "coverpicbuttonadjustment";
         } else {
             eventlistener = null;
             covpicbutton = null;
-            picbuttonactive = "";
+            picbuttonactive = "coverpicbuttonadjustment";
         }
 
         return (
-                <img
-                    className="coverpic"
-                    onClick={eventlistener}
-                    src={this.props.user.coverPicUrl}
-                />
+            <div className={picbuttonactive}>
+                {covpicbutton}
+            </div>
         )
     }
 
@@ -91,13 +107,8 @@ class ProfileTop extends React.Component {
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
-                {this.rendersCoverPic(picImageButton)}
-                {/* <img
-                    className="coverpic"
-                    onClick={this.props.openCovPicModal}
-                    src={this.props.user.coverPicUrl}
-                />
-                <h2 onClick={this.props.openCovPicModal}>Change Cov Pic</h2> */}
+                {this.rendersCoverPic()}
+                {this.rendersCoverPicButton(picImageButton)}
                 {this.rendersProfilePic(profpicColor, picImageButton)}
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
