@@ -1,4 +1,9 @@
 import React from 'react';
+import ProfileBody from './profile_body';
+import About from './profile_abouttab';
+import Friends from './profile_friendstab';
+import Photos from './profile_photostab';
+import Hobbies from './profile_hobbiestab';
 
 class ProfileTabs extends React.Component {
     constructor(props) {
@@ -12,7 +17,7 @@ class ProfileTabs extends React.Component {
         this.setState({activeTab: num})
     }
 
-    rendersTabs() {
+    rendersTabs(tabs) {
         let tabcolor;
         if (this.props.color === "blue") {
             tabcolor = "tabblue"
@@ -22,13 +27,14 @@ class ProfileTabs extends React.Component {
             tabcolor = "tabred"
         }
 
-        const tabs = [
-            "Posts",
-            "About",
-            "Friends",
-            "Photos",
-            "Hobbies"
-        ]
+        // const tabs = [
+        //     "Posts",
+        //     "About",
+        //     "Friends",
+        //     "Photos",
+        //     "Hobbies"
+        // ]
+
         let active = this.state.activeTab;
         let tabline = tabs.map((tab, idx) => {
             let tabclassname = idx === active ? 'tab_active ' + tabcolor : 'tab_inactive';
@@ -37,7 +43,7 @@ class ProfileTabs extends React.Component {
                     key={idx}
                     className={tabclassname}
                     onClick={ () => {this.changeActiveTab(idx)} }>
-                        {tab}
+                        {tab.name}
                 </li>
             )
         })
@@ -69,10 +75,41 @@ class ProfileTabs extends React.Component {
     }
 
     render() {
+        const tabs = [
+            { title: "Posts",
+              content: <ProfileBody
+                    currentUser={this.props.currentUser}
+                    user={this.props.user}
+                />
+            }, 
+
+            { title: "About",
+              content: <About
+                />
+            },
+
+            { title: "Friends",
+              content: <Friends
+                />
+            },
+
+            { title: "Photos",
+              content: <Photos
+                />
+            },
+
+            { title: "Hobbies",
+              content: <Hobbies
+                />
+            }
+        ]
+
+        let tab = tabs[this.state.activeTab]
         return (
             <div className="profile_tabs_whole">
-                {this.rendersTabs()}
+                {this.rendersTabs(tabs)}
                 {this.rendersEdit()}
+                {tab.content}
             </div>
         )
     }

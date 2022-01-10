@@ -4,6 +4,7 @@ class ModalProfPic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            photoUrl: null,
             photoFile: null
         }
         this.handleProfSubmit = this.handleProfSubmit.bind(this);

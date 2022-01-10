@@ -50,10 +50,10 @@ class Profile extends React.Component {
                         openCovPicModal={this.props.openCovPicModal}
                         color={this.props.color}
                     />
-                    <ProfileBody
+                    {/* <ProfileBody
                         currentUser={this.props.currentUser}
                         user={this.props.user}
-                    />
+                    /> */}
                 </div>
             </div>
         )

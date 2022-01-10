@@ -112,7 +112,9 @@ class ProfileTop extends React.Component {
                 {this.rendersProfilePic(profpicColor, picImageButton)}
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
+                    currentUser={this.props.currentUser}
                     currentUserId={this.props.currentUserId}
+                    user={this.props.user}
                     userId={this.props.userId}
                     openEditModal={this.props.openEditModal}
                     color={this.props.color}

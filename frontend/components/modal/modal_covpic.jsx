@@ -4,6 +4,7 @@ class ModalCovPic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            photoUrl: null,
             photoFile: null
         }
         this.handleCovSubmit = this.handleCovSubmit.bind(this);
