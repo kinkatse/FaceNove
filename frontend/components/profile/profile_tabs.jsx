@@ -43,7 +43,7 @@ class ProfileTabs extends React.Component {
                     key={idx}
                     className={tabclassname}
                     onClick={ () => {this.changeActiveTab(idx)} }>
-                        {tab.name}
+                        {tab.title}
                 </li>
             )
         })
@@ -106,9 +106,11 @@ class ProfileTabs extends React.Component {
 
         let tab = tabs[this.state.activeTab]
         return (
-            <div className="profile_tabs_whole">
-                {this.rendersTabs(tabs)}
-                {this.rendersEdit()}
+            <div>
+                <div className="profile_tabs_whole">
+                    {this.rendersTabs(tabs)}
+                    {this.rendersEdit()}
+                </div>
                 {tab.content}
             </div>
         )
