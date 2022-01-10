@@ -11,7 +11,14 @@ class ModalCovPic extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]})
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleCovSubmit(e) {
@@ -27,6 +34,31 @@ class ModalCovPic extends React.Component {
             photoFile: null
         })
         this.props.closeModal()
+    }
+
+    rendersPreview() {
+        let preview;
+        if (this.state.photoUrl) {
+            preview = (
+                <img
+                    className="oldcovpic"
+                    src={this.state.photoUrl}
+                />
+            )
+        } else {
+            preview = (
+                <img
+                    className="oldcovpic"
+                    src={this.props.currentUser.coverPicUrl}
+                />
+            )
+        }
+
+        return (
+            <div>
+                {preview}
+            </div>
+        )
     }
 
     render() {
@@ -53,10 +85,7 @@ class ModalCovPic extends React.Component {
                             <input type="file" onChange={this.handleFile}/>
                             Choose A File
                         </label>
-                        <img
-                            className="oldcovpic"
-                            src={this.props.currentUser.coverPicUrl}
-                        />
+                        {this.rendersPreview()}
                         <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
                 </div>
