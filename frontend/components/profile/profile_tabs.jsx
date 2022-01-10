@@ -27,8 +27,7 @@ class ProfileTabs extends React.Component {
             "About",
             "Friends",
             "Photos",
-            "Hobbies",
-            "Settings"
+            "Hobbies"
         ]
         let active = this.state.activeTab;
         let tabline = tabs.map((tab, idx) => {
