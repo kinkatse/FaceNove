@@ -57,9 +57,7 @@ class ModalProfPic extends React.Component {
                             className="oldprofpic"
                             src={this.props.currentUser.profilePicUrl}
                         />
-                        <div className="profpicsubmit">
-                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
-                        </div>
+                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
                 </div>
             </form>
