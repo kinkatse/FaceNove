@@ -5,16 +5,16 @@ class ModalEdit extends React.Component {
         super(props)
         // debugger
         this.state = {
-            firstName: props.user.firstName,
-            lastName: props.user.lastName,
-            birthdate: props.user.birthdate,
-            gender: props.user.gender,
-            bio: props.user.bio,
-            hometown: props.user.hometown,
-            education: props.user.education,
-            work: props.user.work,
-            relationship: props.user.relationship,
-            website: props.user.website
+            firstName: props.currentUser.firstName,
+            lastName: props.currentUser.lastName,
+            birthdate: props.currentUser.birthdate,
+            gender: props.currentUser.gender,
+            bio: props.currentUser.bio,
+            hometown: props.currentUser.hometown,
+            education: props.currentUser.education,
+            work: props.currentUser.work,
+            relationship: props.currentUser.relationship,
+            website: props.currentUser.website
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
