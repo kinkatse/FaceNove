@@ -16,7 +16,7 @@
     left: 50%;
     padding: 10px;
     width: 700px;
-    height: 620px;
+    height: 550px;
     background: white;
     border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -44,10 +44,19 @@
     width: 720px;
 }
 
-.covpicbody {
+.covchoose {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    margin: 5px;
+    margin-left: 230px;
+}
+
+.covchoose:hover {
+    background-color: #739cd4;
+}
+
+.covchoose input[type="file"] {
+    display: none;
 }
 
 .covpicsubmit {

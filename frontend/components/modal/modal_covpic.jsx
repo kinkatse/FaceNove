@@ -48,7 +48,7 @@ class ModalCovPic extends React.Component {
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
                     <div className="covpiclinediv"></div>
-                    <label className="choose">
+                    <label className={'submitbutton splashbutton covchoose ' + colorSplash}>
                         <input type="file" onChange={this.handleFile}/>
                         Choose A File
                     </label>
