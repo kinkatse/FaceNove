@@ -14,3 +14,9 @@ const getPost = (post) => {
         post
     }
 }
+
+// export const recievePost = (postId) => (dispatch) => {
+//     return (
+
+//     )
+// }
