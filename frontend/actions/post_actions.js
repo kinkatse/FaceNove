@@ -47,6 +47,13 @@ export const showPost = (postId) => (dispatch) => {
     )
 }
 
+export const createPost = (post) => (dispatch) => {
+    return (
+        PostApiUtil.createPost(post)
+        .then(post => dispatch(receivePost(post)))
+    )
+}
+
 export const updatePost = (post, postId) => (dispatch) => {
     return (
         PostApiUtil.editPost(post, postId)
@@ -61,7 +68,7 @@ export const destroyPost = (postId) => (dispatch) => {
     )
 }
 
-export const showPostPhoto = (post, postId) => (dispatch) => {
+export const addPostPhoto = (post, postId) => (dispatch) => {
     return (
         PostApiUtil.addPostPhoto(post, postId)
         .then(post => dispatch(receivePost(post)))
