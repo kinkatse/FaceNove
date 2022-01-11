@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { showUser } from '../../actions/user_actions';
 import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/modal_actions';
 
-import Profile from './profile.jsx';
+import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
     // debugger

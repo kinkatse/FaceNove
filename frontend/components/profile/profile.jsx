@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
-import ProfileBody from './profile_body';
 import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
@@ -51,10 +50,6 @@ class Profile extends React.Component {
                         openCovPicModal={this.props.openCovPicModal}
                         color={this.props.color}
                     />
-                    {/* <ProfileBody
-                        currentUser={this.props.currentUser}
-                        user={this.props.user}
-                    /> */}
                 </div>
             </div>
         )
