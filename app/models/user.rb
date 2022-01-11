@@ -7,6 +7,11 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token
 
+    has_many: :posts,
+        primary_key: :id,
+        foreign_key: :user_id,
+        classname: :Post
+
     has_one_attached :profilePicUrl
     has_one_attached :coverPicUrl
 
