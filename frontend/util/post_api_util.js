@@ -28,6 +28,13 @@ export const editPost = (post, postId) => {
     })
 }
 
+export const deletePost = (postId) => {
+    return $.ajax({
+        url: `/api/posts/${postId}`,
+        method: 'DELETE',
+    })
+}
+
 export const addPostPhoto = (post, postId) => {
     return $.ajax({
         url: `/api/posts/${postId}`,

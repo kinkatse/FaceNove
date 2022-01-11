@@ -2,6 +2,8 @@ import * as PostApiUtil from '../util/post_api_util'
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
+export const REMOVE_POST = 'REMOVE_POST';
+// export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
 
 const receiveAllPosts = (posts) => {
     return {
@@ -16,6 +18,20 @@ const receivePost = (post) => {
         post
     }
 }
+
+const removePost = (postId) => {
+    return {
+        type: RECEIVE_POST,
+        postId
+    }
+}
+
+// const receivePostErrors = (errors) => {
+//     return {
+//         type: RECEIVE_POST_ERRORS,
+//         errors
+//     }
+// }
 
 export const indexPosts = () => (dispatch) => {
     return (
@@ -35,6 +51,13 @@ export const updatePost = (post, postId) => (dispatch) => {
     return (
         PostApiUtil.editPost(post, postId)
         .then(post => dispatch(receivePost(post)))
+    )
+}
+
+export const destroyPost = (postId) => (dispatch) => {
+    return (
+        PostApiUtil.destroyPost(postId)
+        .then(() => dispatch(removePost(postId)))
     )
 }
 
