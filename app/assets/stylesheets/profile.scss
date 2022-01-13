@@ -351,15 +351,15 @@
 
 .profile_right {
     // margin: 5px;
+    display: flex;
 }
 
 .profile_posts {
     display: flex;
     flex-direction: column;
     width: 575px;
-    padding: 6px;
+    padding: 15px;
     margin: 9px;
-    margin-bottom: 18px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: white;
     border-radius: 5px;

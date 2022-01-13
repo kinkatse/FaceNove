@@ -1,17 +1,21 @@
 .post_whole {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 9px;
+    margin-top: 18px;
     padding: 6px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: white;
     border-radius: 5px;
 }
 
-.post_whole * {
-    padding: 2px;
-}
-
 .post_top a {
     text-decoration: none;
+}
+
+.post_top {
+    display: flex;
+    flex-direction: row;
+    padding: 9px;
 }
 
 .post_profile_pic {
@@ -20,14 +24,20 @@
 }
 
 .post_name {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
+    padding-top: 2px;
+    padding-left: 9px;
+    color: rgba(34, 34, 34, 0.85);
 }
 
 .post_body {
-    font-size: 15px;
+    font-size: 20px;
+    padding: 5px;
+    padding-top: 0px;
 }
 
 .post_placeholder {
     font-size: 12px;
+    padding: 5px;
 }
