@@ -2,5 +2,10 @@
 # json.partial! 'api/posts/post', post: @post
 
 @posts.each do |post|
-    json.partial! 'api/posts/post', post: post
+    debugger
+    json.posts do
+        json.set! post.id do
+            json.partial! 'api/posts/post', post: post
+        end
+    end
 end

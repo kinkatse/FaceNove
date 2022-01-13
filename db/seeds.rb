@@ -13,6 +13,7 @@ User.create!(email: 'BobJason@gmail.com', password: '123123', firstName: 'Bob', 
 User.create!(email: 'Haha@gmail.com', password: '123123', firstName: 'Carly', lastName: 'Lau', birthdate: '1999-12-31', gender: 'Female', bio: 'I like dancing!', hometown: 'Manhattan', education: 'Dancing University', work: 'Waitress', relationship: 'Dating', website: 'None')
 
 Post.create!(post: "Hello, this is Demo's first post", user_id: 1)
+Post.create!(post: "Oh my god, this is my second post!", user_id: 1)
 Post.create!(post: "I like to play tennis, does anyone want to play?", user_id: 2)
 
 demo = User.find_by(email: 'demo@mail.com')
