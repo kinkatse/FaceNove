@@ -29,18 +29,41 @@ class Post extends React.Component {
         }
 
         debugger
-        let postObj = this.props.userPosts
+        let postComponent = [];
+        let postArr = this.props.userPosts
+        // postArr.forEach(post => {
+        //     postComponent.push(
+        //         <div>
+        //             {post.id}
+        //             {post.post}
+        //             {post.firstName}
+        //             {post.lastName}
+        //             {post.created_at}
+        //             <img src={post.profilePicUrl} />
+        //         </div>
+        //     )
+        // })
+        debugger
+
         return (
             <div className="">
                 <UserInfo />
                 <UserText />
                 <UserAction />
-                {postObj.id}
-                {postObj.post}
-                {postObj.firstName}
-                {postObj.lastName}
-                {postObj.created_at}
-                <img src={postObj.profilePicUrl} />
+                {
+                    postArr.forEach(post => {
+                        return(
+                            <div>
+                                {post.id}
+                                {post.post}
+                                {post.firstName}
+                                {post.lastName}
+                                {post.created_at}
+                                <img src={post.profilePicUrl} />
+                            </div>
+                        )
+                    })
+                }
             </div>
         )
     }
