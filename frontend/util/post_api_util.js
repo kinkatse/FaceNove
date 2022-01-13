@@ -5,9 +5,10 @@ export const getAllPosts = () => {
     })
 }
 
-export const getPost = (postId) => {
+export const getPost = (userId) => {
+    debugger
     return $.ajax({
-        url: `/api/posts/${postId}`,
+        url: `/api/posts/${userId}`,
         method: 'GET'
     })
 }

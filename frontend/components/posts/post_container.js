@@ -6,7 +6,7 @@ import {
     showPost,
     createPost,
     updatePost,
-    deletePost
+    destroyPost
 } from '../../actions/post_actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch) => {
         showPost: (postId => dispatch(showPost(postId))),
         createPost: (post => dispatch(createPost(post))),
         updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
-        deletePost: (postId => dispatch(deletePost(postId))),
+        destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
         // openPostModal: () => dispatch(openPostModal())
     }

@@ -18,9 +18,16 @@ class Api::PostsController < ApplicationController
     end
 
     def show
+        # This show is showing all posts for a user. May need to refactor if we
+        # need to have a show for a single post but I don't think we will need to
+        # since we need show for user's posts for profile page and index will
+        # cover the get for all posts for the feed
         debugger
-        @post = Post.find_by(id: params[:id])
-        if @post
+        @user = User.find_by(id: params[:id])
+        @posts = @user.posts
+        debugger
+        if @posts
+            debugger
             render :show
         else
             render json: ["Post does not exist"], status: 404

@@ -40,10 +40,11 @@ export const indexPosts = () => (dispatch) => {
     )
 }
 
-export const showPost = (postId) => (dispatch) => {
+export const showPost = (userId) => (dispatch) => {
+    debugger
     return (
-        PostApiUtil.getPost(postId)
-        .then(post => dispatch(receivePost(post)))
+        PostApiUtil.getPost(userId)
+        .then(posts => dispatch(receivePost(posts)))
     )
 }
 

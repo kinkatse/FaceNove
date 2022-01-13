@@ -29,13 +29,18 @@ class Post extends React.Component {
         }
 
         debugger
-        let post = this.props.userPosts
+        let postObj = this.props.userPosts
         return (
             <div className="">
                 <UserInfo />
                 <UserText />
                 <UserAction />
-                {post}
+                {postObj.id}
+                {postObj.post}
+                {postObj.firstName}
+                {postObj.lastName}
+                {postObj.created_at}
+                <img src={postObj.profilePicUrl} />
             </div>
         )
     }

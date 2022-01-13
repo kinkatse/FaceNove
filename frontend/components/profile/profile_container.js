@@ -5,7 +5,6 @@ import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         // ownProps is from Routes built in and we access path wildcard of 'userId'
         // (from our route path in app.jsx) to key into which user of our state entities
