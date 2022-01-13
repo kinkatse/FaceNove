@@ -1,7 +1,5 @@
 import React from 'react';
-import UserText from './post_text';
-import UserAction from './post_useraction';
-import UserInfo from './post_userinfo';
+import UserPost from './user_post';
 
 class Post extends React.Component {
     componentDidMount() {
@@ -28,27 +26,23 @@ class Post extends React.Component {
             return null;
         }
 
-        let postArr = Object.values(this.props.posts)
+        let postArr = Object.values(this.props.posts).reverse()
         debugger
 
         return (
             <div className="">
-                <UserInfo />
-                <UserText />
-                <UserAction />
                 {
-                    postArr.map(post => {
-                        return(
-                            <div key={post.id}>
-                                {post.id}
-                                {post.post}
-                                {post.firstName}
-                                {post.lastName}
-                                {post.created_at}
-                                <img src={post.profilePicUrl} />
-                            </div>
-                        )
-                    })
+                    postArr.map(post => (
+                        <UserPost
+                            key={post.id}
+                            postBody={post.post}
+                            userId={this.props.userId}
+                            firstName={post.firstName}
+                            lastName={post.lastName}
+                            created_at={post.created_at}
+                            profilePicUrl={post.profilePicUrl}
+                        /> )
+                    )
                 }
             </div>
         )
