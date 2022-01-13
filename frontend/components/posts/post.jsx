@@ -27,6 +27,7 @@ class Post extends React.Component {
 
         let postArr = Object.values(this.props.posts).reverse()
 
+        // Woops made the wrong commit message
         let profpicColor;
         if (this.props.color === "blue") {
             profpicColor = "postprofpicblue"
