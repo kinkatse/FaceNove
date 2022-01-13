@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PostUserInfo extends React.Component {
+class PostDrop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,11 +10,11 @@ class PostUserInfo extends React.Component {
 
     render() {
         return (
-            <div className="">
-                <h1>User Info</h1>
+            <div className="postdropdown">
+                <h2>...</h2>
             </div>
         )
     }
 }
 
-export default PostUserInfo;
+export default PostDrop;

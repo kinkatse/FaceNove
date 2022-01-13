@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PostDrop from './post_drop'
 
 class UserPost extends React.Component {
     constructor(props) {
@@ -14,17 +15,22 @@ class UserPost extends React.Component {
         return (
             <div className="post_whole">
                 <div className="post_top">
-                    <Link to={`/user/${this.props.userId}`}>
-                        <img
-                            className="post_profile_pic"
-                            src={this.props.profilePicUrl}
-                        />
-                    </Link>
-                    <Link to={`/user/${this.props.userId}`}>
-                        <h2 className="post_name">
-                            {this.props.firstName} {this.props.lastName}
-                        </h2>
-                    </Link>
+                    <div className="post_top_left">
+                        <Link to={`/user/${this.props.userId}`}>
+                            <img
+                                className="post_profile_pic"
+                                src={this.props.profilePicUrl}
+                            />
+                        </Link>
+                        <Link to={`/user/${this.props.userId}`}>
+                            <h2 className="post_name">
+                                {this.props.firstName} {this.props.lastName}
+                            </h2>
+                        </Link>
+                    </div>
+                    <div className="post_top_right">
+                        <PostDrop />
+                    </div>
                 </div>
                 <div className="post_middle">
                     <p className="post_body">

@@ -15,7 +15,35 @@
 .post_top {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.post_top_left {
+    display: flex;
+    flex-direction: row;
     padding: 9px;
+}
+
+.post_top_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    padding: 9px;
+    padding-top: 0px;
+}
+
+.post_top_right:hover {
+    background: rgba(229, 231, 235, 0.6);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.postdropdown {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .post_profile_pic {
