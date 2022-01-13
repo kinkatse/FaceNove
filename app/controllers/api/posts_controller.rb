@@ -22,12 +22,9 @@ class Api::PostsController < ApplicationController
         # need to have a show for a single post but I don't think we will need to
         # since we need show for user's posts for profile page and index will
         # cover the get for all posts for the feed
-        debugger
         @user = User.find_by(id: params[:id])
         @posts = @user.posts
-        debugger
         if @posts
-            debugger
             render :show
         else
             render json: ["Post does not exist"], status: 404
