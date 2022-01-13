@@ -1,7 +1,13 @@
 .post_whole {
-    width: 200px;
     margin: 9px;
     padding: 6px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    border-radius: 5px;
+}
+
+.post_whole * {
+    padding: 2px;
 }
 
 .post_top a {
@@ -20,4 +26,8 @@
 
 .post_body {
     font-size: 15px;
+}
+
+.post_placeholder {
+    font-size: 12px;
 }

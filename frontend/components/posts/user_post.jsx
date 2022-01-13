@@ -25,9 +25,14 @@ class UserPost extends React.Component {
                             {this.props.firstName} {this.props.lastName}
                         </h2>
                     </Link>
+                </div>
+                <div className="post_middle">
                     <p className="post_body">
                         {this.props.postBody}
                     </p>
+                    <h2 className="post_placeholder">Picture?</h2>
+                    <h2 className="post_placeholder">Comment?</h2>
+                    <h2 className="post_placeholder">Like?</h2>
                 </div>
             </div>
         )
