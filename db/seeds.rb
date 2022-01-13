@@ -12,6 +12,9 @@ User.create!(email: 'coder123@gmail.com', password: '123123', firstName: 'Kin Ka
 User.create!(email: 'BobJason@gmail.com', password: '123123', firstName: 'Bob', lastName: 'Jason', birthdate: '2011-11-11', gender: 'Male', bio: 'I like skiing!', hometown: 'Queens', education: 'Skiing University', work: 'Tutoring', relationship: 'Single', website: 'None')
 User.create!(email: 'Haha@gmail.com', password: '123123', firstName: 'Carly', lastName: 'Lau', birthdate: '1999-12-31', gender: 'Female', bio: 'I like dancing!', hometown: 'Manhattan', education: 'Dancing University', work: 'Waitress', relationship: 'Dating', website: 'None')
 
+Post.create!(post: "Hello, this is Demo's first post", user_id: 1)
+Post.create!(post: "I like to play tennis, does anyone want to play?", user_id: 2)
+
 demo = User.find_by(email: 'demo@mail.com')
 kinka = User.find_by(email: 'coder123@gmail.com')
 bob = User.find_by(email: 'BobJason@gmail.com')

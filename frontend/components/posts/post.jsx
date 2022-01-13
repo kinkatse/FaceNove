@@ -4,9 +4,10 @@ import UserAction from './post_useraction';
 import UserInfo from './post_userinfo';
 
 class Post extends React.Component {
-    // componentDidMount() {
-    //     this.props.showUser(this.props.userId)
-    // }
+    componentDidMount() {
+        debugger
+        this.props.showPost(this.props.userId)
+    }
 
     // componentDidUpdate(oldProps) {
     //     if (this.props.userId !== oldProps.userId) {
@@ -22,17 +23,19 @@ class Post extends React.Component {
     }
 
     render() {
-        // if (!this.props.user) {
-        //     return null;
-        // }
+        debugger
+        if (!this.props.userPosts) {
+            return null;
+        }
 
         debugger
-        console.log("hi")
+        let post = this.props.userPosts
         return (
             <div className="">
                 <UserInfo />
                 <UserText />
                 <UserAction />
+                {post}
             </div>
         )
     }

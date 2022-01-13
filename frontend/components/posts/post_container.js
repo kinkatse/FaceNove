@@ -1,12 +1,20 @@
 import { connect } from 'react-redux';
 
 import Post from './post'
+import {
+    indexPosts,
+    showPost,
+    createPost,
+    updatePost,
+    deletePost
+} from '../../actions/post_actions'
 
 const mapStateToProps = (state, ownProps) => {
     debugger
     return {
         posts: state.entities.posts,
         userPosts: state.entities.posts[ownProps.match.params.userId],
+        userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
         modal: state.ui.modalRed,
         color: state.ui.colorRed.color
