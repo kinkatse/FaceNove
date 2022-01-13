@@ -26,6 +26,8 @@ class Post extends React.Component {
         //     return null;
         // }
 
+        debugger
+        console.log("hi")
         return (
             <div className="">
                 <UserInfo />

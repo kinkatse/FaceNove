@@ -4,6 +4,7 @@ import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
     componentDidMount() {
+        debugger
         // Can't do this.props.user.id because then the user would be
         // undefined without grabbing the user first. Need just the
         // userId so we can pass that in showUser and then the
@@ -29,11 +30,12 @@ class Profile extends React.Component {
     }
 
     render() {
-        // debugger
+        debugger
         // Necessary for when there is no user with that wildcard
         if (!this.props.user) {
             return null;
         }
+        debugger
         return (
             <div className="wholeprofilepage">
                 <NavBarContainer />

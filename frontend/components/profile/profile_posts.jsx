@@ -1,4 +1,6 @@
 import React from 'react';
+import PostContainer from '../posts/post_container';
+import { ProtectedRoute } from '../../util/route_util';
 
 class ProfilePosts extends React.Component {
     constructor(props) {
@@ -13,7 +15,8 @@ class ProfilePosts extends React.Component {
             <div className="profile_posts">
                 <h2 className="profbodytitle">Posts</h2>
                 <div className="posts_wall">
-                    <p>Whats on your mind today?</p>
+                    <ProtectedRoute path="/user/:userId" component={PostContainer}/>
+                    {/* <p>Whats on your mind today?</p>
                     <p>Today I am sick</p>
                     <p>I like One Piece</p>
                     <p>Tennis is my favorite sport</p>
@@ -24,7 +27,7 @@ class ProfilePosts extends React.Component {
                     <p>Anime is a great form of entertainment</p>
                     <p>Spiderman is my favorite superhero</p>
                     <p>My favorite color is green</p>
-                    <p>I like to draw</p>
+                    <p>I like to draw</p> */}
                 </div>
             </div>
         )

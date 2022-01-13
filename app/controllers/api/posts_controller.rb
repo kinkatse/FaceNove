@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
 
     def create
+        debugger
         @post = Post.new(post_params)
         if @post.save
             puts "Post saved!"
@@ -17,6 +18,7 @@ class Api::PostsController < ApplicationController
     end
 
     def show
+        debugger
         @post = Post.find_by(id: params[:id])
         if @post
             render :show

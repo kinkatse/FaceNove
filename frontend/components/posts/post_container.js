@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Post from './post'
 
 const mapStateToProps = (state, ownProps) => {
+    debugger
     return {
         posts: state.entities.posts,
         userPosts: state.entities.posts[ownProps.match.params.userId],

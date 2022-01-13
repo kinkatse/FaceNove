@@ -63,7 +63,7 @@ export const updatePost = (post, postId) => (dispatch) => {
 
 export const destroyPost = (postId) => (dispatch) => {
     return (
-        PostApiUtil.destroyPost(postId)
+        PostApiUtil.deletePost(postId)
         .then(() => dispatch(removePost(postId)))
     )
 }
