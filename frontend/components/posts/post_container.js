@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     debugger
     return {
         posts: state.entities.posts,
-        userPosts: state.entities.posts[ownProps.match.params.userId],
+        // userPosts: state.entities.posts[ownProps.match.params.userId],
         userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
         modal: state.ui.modalRed,

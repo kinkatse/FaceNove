@@ -24,25 +24,11 @@ class Post extends React.Component {
 
     render() {
         debugger
-        if (!this.props.userPosts) {
+        if (Object.keys(this.props.posts).length === 0) {
             return null;
         }
 
-        debugger
-        let postComponent = [];
-        let postArr = this.props.userPosts
-        // postArr.forEach(post => {
-        //     postComponent.push(
-        //         <div>
-        //             {post.id}
-        //             {post.post}
-        //             {post.firstName}
-        //             {post.lastName}
-        //             {post.created_at}
-        //             <img src={post.profilePicUrl} />
-        //         </div>
-        //     )
-        // })
+        let postArr = Object.values(this.props.posts)
         debugger
 
         return (
@@ -51,9 +37,9 @@ class Post extends React.Component {
                 <UserText />
                 <UserAction />
                 {
-                    postArr.forEach(post => {
+                    postArr.map(post => {
                         return(
-                            <div>
+                            <div key={post.id}>
                                 {post.id}
                                 {post.post}
                                 {post.firstName}
