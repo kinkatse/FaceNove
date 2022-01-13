@@ -11,7 +11,7 @@ class UserPost extends React.Component {
     }
 
     render() {
-        debugger
+        // debugger
         return (
             <div className="post_whole">
                 <div className="post_top">

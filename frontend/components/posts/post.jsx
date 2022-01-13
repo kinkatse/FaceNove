@@ -4,7 +4,10 @@ import UserPost from './user_post';
 class Post extends React.Component {
     componentDidMount() {
         debugger
-        this.props.showPost(this.props.userId)
+        this.props.clearPosts()
+        debugger
+        // this.props.showPost(this.props.userId)
+        // debugger
     }
 
     // componentDidUpdate(oldProps) {
@@ -12,6 +15,11 @@ class Post extends React.Component {
     //         this.props.showUser(this.props.userId);
     //     }
     // }
+
+    componentWillUnmount() {
+        debugger
+        this.props.clearPosts()
+    }
 
     constructor(props) {
         super(props);

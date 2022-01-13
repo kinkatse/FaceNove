@@ -6,7 +6,7 @@ export const getAllPosts = () => {
 }
 
 export const getPost = (userId) => {
-    debugger
+    // debugger
     return $.ajax({
         url: `/api/posts/${userId}`,
         method: 'GET'

@@ -6,11 +6,12 @@ import {
     showPost,
     createPost,
     updatePost,
-    destroyPost
+    destroyPost,
+    clearPosts
 } from '../../actions/post_actions'
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
+    // debugger
     return {
         posts: state.entities.posts,
         // userPosts: state.entities.posts[ownProps.match.params.userId],
@@ -29,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
         updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
+        clearPosts: (() => dispatch(clearPosts()))
         // openPostModal: () => dispatch(openPostModal())
     }
 }

@@ -1,7 +1,7 @@
 class Api::PostsController < ApplicationController
 
     def create
-        debugger
+        # debugger
         @post = Post.new(post_params)
         if @post.save
             puts "Post saved!"
