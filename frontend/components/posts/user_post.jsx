@@ -12,7 +12,7 @@ class UserPost extends React.Component {
     render() {
         debugger
         return (
-            <div className="">
+            <div className="post_whole">
                 <div className="post_top">
                     <Link to={`/user/${this.props.userId}`}>
                         <img
@@ -25,7 +25,9 @@ class UserPost extends React.Component {
                             {this.props.firstName} {this.props.lastName}
                         </h2>
                     </Link>
-                    
+                    <p className="post_body">
+                        {this.props.postBody}
+                    </p>
                 </div>
             </div>
         )

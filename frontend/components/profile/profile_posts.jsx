@@ -15,7 +15,7 @@ class ProfilePosts extends React.Component {
             <div>
                 <div className="profile_posts">
                     <h2 className="profbodytitle">Posts</h2>
-                    <div className="posts_wall">
+                    {/* <div className="posts_wall"> */}
                         {/* <ProtectedRoute path="/user/:userId" component={PostContainer}/> */}
                         {/* <p>Whats on your mind today?</p>
                         <p>Today I am sick</p>
@@ -29,7 +29,7 @@ class ProfilePosts extends React.Component {
                         <p>Spiderman is my favorite superhero</p>
                         <p>My favorite color is green</p>
                         <p>I like to draw</p> */}
-                    </div>
+                    {/* </div> */}
                     {/* <ProtectedRoute path="/user/:userId" component={PostContainer}/> */}
                 </div>
                 <ProtectedRoute path="/user/:userId" component={PostContainer}/>
