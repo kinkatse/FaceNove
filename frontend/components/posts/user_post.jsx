@@ -18,7 +18,7 @@ class UserPost extends React.Component {
                     <div className="post_top_left">
                         <Link to={`/user/${this.props.userId}`}>
                             <img
-                                className="post_profile_pic"
+                                className={'post_profile_pic ' + this.props.profpicColor}
                                 src={this.props.profilePicUrl}
                             />
                         </Link>

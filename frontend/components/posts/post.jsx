@@ -21,13 +21,20 @@ class Post extends React.Component {
     }
 
     render() {
-        debugger
         if (Object.keys(this.props.posts).length === 0) {
             return null;
         }
 
         let postArr = Object.values(this.props.posts).reverse()
-        debugger
+
+        let profpicColor;
+        if (this.props.color === "blue") {
+            profpicColor = "postprofpicblue"
+        } else if (this.props.color === "green") {
+            profpicColor = "postprofpicgreen"
+        } else if (this.props.color === "red") {
+            profpicColor = "postprofpicred"
+        }
 
         return (
             <div className="">
@@ -41,6 +48,7 @@ class Post extends React.Component {
                             lastName={post.lastName}
                             created_at={post.created_at}
                             profilePicUrl={post.profilePicUrl}
+                            profpicColor={profpicColor}
                         /> )
                     )
                 }
