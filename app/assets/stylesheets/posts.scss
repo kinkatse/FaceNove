@@ -44,6 +44,16 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 27px;
     font-weight: bold;
+    z-index: 5;
+}
+
+.post_dropclose {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
 }
 
 .post_profile_pic {
