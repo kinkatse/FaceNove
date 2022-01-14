@@ -12,8 +12,8 @@ class PostDrop extends React.Component {
         return (
             <div className="">
                 <h2 className="dropopentext">Drop Open</h2>
-                <div onClick={}></div>
-                <div onClick={}></div>
+                {/* <div onClick={}></div>
+                <div onClick={}></div> */}
             </div>
         )
     }

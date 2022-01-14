@@ -20,6 +20,32 @@ class UserPost extends React.Component {
         this.setState({ dropOpen: false })
     }
 
+    rendersPostTopRight() {
+        let component;
+        let dropclassname;
+        if (this.state.dropOpen) {
+            dropclassname = ""
+        } else {
+            dropclassname = "opendropbtn"
+        }
+        
+        if (this.props.currentUser.id === parseInt(this.props.userId)) {
+            component = (
+                <div className={'post_top_right ' + dropclassname}>
+                    {this.rendersPostDropClose()}
+                    <div className="post_dropdown" onClick={this.dropOpen}>
+                        {this.rendersPostDrop()}
+                    </div>
+                </div>
+            )
+        } else {
+            component = null;
+        }
+        return (
+            component
+        )
+    }
+
     rendersPostDropClose() {
         if (this.state.dropOpen) {
             return (
@@ -46,12 +72,6 @@ class UserPost extends React.Component {
     }
 
     render() {
-        let dropclassname;
-        if (this.state.dropOpen) {
-            dropclassname = ""
-        } else {
-            dropclassname = "opendropbtn"
-        }
         // debugger
         return (
             <div className="post_whole">
@@ -69,12 +89,7 @@ class UserPost extends React.Component {
                             </h2>
                         </Link>
                     </div>
-                    <div className={'post_top_right ' + dropclassname}>
-                    {this.rendersPostDropClose()}
-                        <div className="post_dropdown" onClick={this.dropOpen}>
-                            {this.rendersPostDrop()}
-                        </div>
-                    </div>
+                    {this.rendersPostTopRight()}
                 </div>
                 <div className="post_middle">
                     <p className="post_body">

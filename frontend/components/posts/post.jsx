@@ -53,6 +53,7 @@ class Post extends React.Component {
                         <UserPost
                             key={post.id}
                             postBody={post.post}
+                            currentUser={this.props.currentUser}
                             userId={this.props.userId}
                             firstName={post.firstName}
                             lastName={post.lastName}
