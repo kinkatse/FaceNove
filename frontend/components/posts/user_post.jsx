@@ -6,8 +6,30 @@ class UserPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            dropOpen: false
         }
+        this.dropOpen = this.dropOpen.bind(this);
+        this.dropClose = this.dropClose.bind(this);
+    }
+
+    dropOpen(e) {
+        debugger
+        this.setState({ dropOpen: true })
+    }
+
+    dropClose(e) {
+        debugger
+        this.setState({ dropOpen: false })
+    }
+
+    rendersPostDrop() {
+        let component;
+        if (this.state.dropOpen) {
+            component = <PostDrop />
+        } else {
+            component = null;
+        }
+        return component;
     }
 
     render() {
@@ -29,11 +51,14 @@ class UserPost extends React.Component {
                         </Link>
                     </div>
                     <div className="post_top_right">
-                        <PostDrop />
+                        <div className="post_dropdown" onClick={this.dropOpen}>
+                            <h2>...</h2>
+                            {this.rendersPostDrop()}
+                        </div>
                     </div>
                 </div>
                 <div className="post_middle">
-                    <p className="post_body">
+                    <p className="post_body" onClick={this.dropClose}>
                         {this.props.postBody}
                     </p>
                     <h2 className="post_placeholder">Picture?</h2>

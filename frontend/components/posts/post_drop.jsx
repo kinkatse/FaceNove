@@ -10,8 +10,8 @@ class PostDrop extends React.Component {
 
     render() {
         return (
-            <div className="postdropdown">
-                <h2>...</h2>
+            <div className="">
+                <h2>Drop Open</h2>
             </div>
         )
     }
