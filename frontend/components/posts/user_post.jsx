@@ -43,6 +43,12 @@ class UserPost extends React.Component {
     }
 
     render() {
+        let dropclassname;
+        if (this.state.dropOpen) {
+            dropclassname = ""
+        } else {
+            dropclassname = "dropopen"
+        }
         return (
             <div className="post_whole">
                 <div className="post_top">
@@ -59,7 +65,7 @@ class UserPost extends React.Component {
                             </h2>
                         </Link>
                     </div>
-                    <div className="post_top_right">
+                    <div className={'post_top_right ' + dropclassname}>
                     {this.rendersPostDropClose()}
                         <div className="post_dropdown" onClick={this.dropOpen}>
                             {this.rendersPostDrop()}
