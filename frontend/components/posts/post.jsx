@@ -57,6 +57,8 @@ class Post extends React.Component {
                             firstName={post.firstName}
                             lastName={post.lastName}
                             created_at={post.created_at}
+                            updatePost={this.props.updatePost}
+                            destroyPost={this.props.destroyPost}
                             profilePicUrl={post.profilePicUrl}
                             profpicColor={profpicColor}
                         /> )
