@@ -6,10 +6,14 @@ class UserPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dropOpen: false
+            dropOpen: false,
+            editPost: false,
+            postBody: this.props.postBody
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
+        this.openEdit = this.openEdit.bind(this);
+        this.closeEdit = this.closeEdit.bind(this);
     }
 
     dropOpen(e) {
@@ -20,6 +24,18 @@ class UserPost extends React.Component {
         this.setState({ dropOpen: false })
     }
 
+    openEdit(e) {
+        this.setState({ editPost: true })
+    }
+
+    closeEdit(e) {
+        this.setState({ editPost: false })
+    }
+
+    updatePostBody() {
+        this.setState({ postBody: e.currentTarget.value })
+    }
+
     rendersPostTopRight() {
         let component;
         let dropclassname;
@@ -28,7 +44,7 @@ class UserPost extends React.Component {
         } else {
             dropclassname = "opendropbtn"
         }
-        
+
         if (this.props.currentUser.id === parseInt(this.props.userId)) {
             component = (
                 <div className={'post_top_right ' + dropclassname}>
@@ -59,6 +75,7 @@ class UserPost extends React.Component {
         if (this.state.dropOpen) {
             component = (
                 <PostDrop
+                    openEdit={this.openEdit}
                     updatePost={this.props.updatePost}
                     destroyPost={this.props.destroyPost}
                 />
@@ -68,6 +85,29 @@ class UserPost extends React.Component {
                 <h1>...</h1>
             );
         }
+        return component;
+    }
+
+    rendersPostBody() {
+        let component;
+        if (!this.state.editPost) {
+            component = (
+                <p className="post_body">
+                    {this.props.postBody}
+                </p>
+            )
+        } else {
+            component = (
+                <textarea
+                    className="editbio input"
+                    type="text"
+                    placeholder={`${this.state.postBody}`}
+                    value={this.state.postBody}
+                    onChange={this.updatePostBody()}
+                ></textarea>
+            )
+        }
+
         return component;
     }
 
@@ -92,9 +132,7 @@ class UserPost extends React.Component {
                     {this.rendersPostTopRight()}
                 </div>
                 <div className="post_middle">
-                    <p className="post_body">
-                        {this.props.postBody}
-                    </p>
+                    {this.rendersPostBody()}
                     <h2 className="post_placeholder">Picture?</h2>
                     <h2 className="post_placeholder">Comment?</h2>
                     <h2 className="post_placeholder">Like?</h2>
