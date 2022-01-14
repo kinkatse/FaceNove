@@ -20,35 +20,42 @@ class UserPost extends React.Component {
         this.setState({ dropOpen: false })
     }
 
-    rendersPostDropClose() {
-        if (this.state.dropOpen) {
-            return (
-                <div className="post_dropclose" onClick={this.dropClose}></div>
-            )
-        }
-    }
+    // rendersPostDropClose() {
+    //     if (this.state.dropOpen) {
+    //         return (
+    //             <div className="post_dropclose" onClick={this.dropClose}></div>
+    //         )
+    //     }
+    // }
 
-    rendersPostDrop() {
-        let component;
-        if (this.state.dropOpen) {
-            component = (
-                <PostDrop />
-            )
-        } else {
-            component = (
-                <h1>...</h1>
-            );
-        }
-        return component;
-    }
+    // rendersPostDrop() {
+    //     let component;
+    //     if (this.state.dropOpen) {
+    //         component = (
+    //             <PostDrop />
+    //         )
+    //     } else {
+    //         component = (
+    //             <h1>...</h1>
+    //         );
+    //     }
+    //     return component;
+    // }
 
     render() {
         let dropclassname;
+        let dropclose;
+        let dropcomponent;
         if (this.state.dropOpen) {
             dropclassname = ""
+            dropclose = <div className="post_dropclose" onClick={this.dropClose}></div>
+            dropcomponent = (<PostDrop />)
         } else {
-            dropclassname = "dropopen"
+            dropclassname = "opendropbtn"
+            dropclose = null;
+            dropcomponent = (<h1>...</h1>)
         }
+        // debugger
         return (
             <div className="post_whole">
                 <div className="post_top">
@@ -66,9 +73,11 @@ class UserPost extends React.Component {
                         </Link>
                     </div>
                     <div className={'post_top_right ' + dropclassname}>
-                    {this.rendersPostDropClose()}
+                    {/* {this.rendersPostDropClose()} */}
+                    {dropclose}
                         <div className="post_dropdown" onClick={this.dropOpen}>
-                            {this.rendersPostDrop()}
+                            {/* {this.rendersPostDrop()} */}
+                            {dropcomponent}
                         </div>
                     </div>
                 </div>
