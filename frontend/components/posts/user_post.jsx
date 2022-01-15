@@ -75,11 +75,14 @@ class UserPost extends React.Component {
         let component;
         if (this.state.dropOpen) {
             component = (
-                <PostDrop
-                    openEdit={this.openEdit}
-                    updatePost={this.props.updatePost}
-                    destroyPost={this.props.destroyPost}
-                />
+                <div className="">
+                    <div className="post_dropdown">...</div>
+                    <PostDrop
+                        openEdit={this.openEdit}
+                        updatePost={this.props.updatePost}
+                        destroyPost={this.props.destroyPost}
+                    />
+                </div>
             )
         } else {
             component = (
