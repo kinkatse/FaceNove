@@ -15,15 +15,15 @@ class PostDrop extends React.Component {
     render() {
         return (
             <div className="dropopenabsolute">
-                <div
-                    className="dropopenbackground"
-                    onClick={() => this.props.openEdit()}>
-                        <p className="dropopentext">Edit</p>
-                </div>
-                <div
-                    className="dropopenbackground"
-                    onClick={() => this.deleteTemp()}>
-                        <p className="dropopentext">Delete</p>
+                <div className="dropopenbackground">
+                    <div
+                        onClick={() => this.props.openEdit()}>
+                            <p className="dropopentext">Edit</p>
+                    </div>
+                    <div
+                        onClick={() => this.deleteTemp()}>
+                            <p className="dropopentext">Delete</p>
+                    </div>
                 </div>
             </div>
         )
