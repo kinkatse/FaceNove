@@ -16,26 +16,26 @@ class UserPost extends React.Component {
         this.closeEdit = this.closeEdit.bind(this);
     }
 
-    dropOpen(e) {
+    dropOpen() {
         this.setState({ dropOpen: true })
     }
 
-    dropClose(e) {
+    dropClose() {
         this.setState({ dropOpen: false })
     }
 
-    openEdit(e) {
+    openEdit() {
         debugger
         this.setState({ editPost: true })
     }
 
-    closeEdit(e) {
+    closeEdit() {
         this.setState({ editPost: false })
     }
 
-    updatePostBody() {
-        this.setState({ postBody: e.currentTarget.value })
-    }
+    // updatePostBody() {
+    //     this.setState({ postBody: e.currentTarget.value })
+    // }
 
     rendersPostTopRight() {
         let component;
@@ -92,20 +92,23 @@ class UserPost extends React.Component {
     rendersPostBody() {
         let component;
         if (!this.state.editPost) {
+            debugger
             component = (
                 <p className="post_body">
                     {this.props.postBody}
                 </p>
             )
         } else {
+            debugger
             component = (
-                <textarea
-                    className="editbio input"
-                    type="text"
-                    placeholder={`${this.state.postBody}`}
-                    value={this.state.postBody}
-                    onChange={this.updatePostBody()}
-                ></textarea>
+                // <textarea
+                //     className="editbio input"
+                //     type="text"
+                //     placeholder={`${this.state.postBody}`}
+                //     value={this.state.postBody}
+                //     onChange={this.updatePostBody()}
+                // ></textarea>
+                <h1>Editing</h1>
             )
         }
 
@@ -113,7 +116,7 @@ class UserPost extends React.Component {
     }
 
     render() {
-        // debugger
+        debugger
         return (
             <div className="post_whole">
                 <div className="post_top">

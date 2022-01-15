@@ -11,10 +11,8 @@ class PostDrop extends React.Component {
     render() {
         return (
             <div className="">
-                {/* <h2 className="dropopentext">Drop Open</h2> */}
-                <div className="dropopentext" onClick={this.props.openEdit}>Edit</div>
-                {/* <div onClick={}></div>
-                <div onClick={}></div> */}
+                <div className="dropopentext" onClick={() => this.props.openEdit()}>Edit</div>
+
             </div>
         )
     }
