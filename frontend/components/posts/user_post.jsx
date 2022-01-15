@@ -25,6 +25,7 @@ class UserPost extends React.Component {
     }
 
     openEdit(e) {
+        debugger
         this.setState({ editPost: true })
     }
 
@@ -47,9 +48,9 @@ class UserPost extends React.Component {
 
         if (this.props.currentUser.id === parseInt(this.props.userId)) {
             component = (
-                <div className={'post_top_right ' + dropclassname}>
+                <div>
                     {this.rendersPostDropClose()}
-                    <div className="post_dropdown" onClick={this.dropOpen}>
+                    <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
                         {this.rendersPostDrop()}
                     </div>
                 </div>
@@ -82,7 +83,7 @@ class UserPost extends React.Component {
             )
         } else {
             component = (
-                <h1>...</h1>
+                <div className="post_dropdown">...</div>
             );
         }
         return component;
