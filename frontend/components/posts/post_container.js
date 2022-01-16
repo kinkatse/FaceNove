@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Post from './post'
+import Post from './post';
 import {
     indexPosts,
     showPost,
@@ -8,7 +8,8 @@ import {
     updatePost,
     destroyPost,
     clearPosts
-} from '../../actions/post_actions'
+} from '../../actions/post_actions';
+import { openEditPostModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     // debugger
@@ -27,9 +28,10 @@ const mapDispatchToProps = (dispatch) => {
         indexPosts: (() => dispatch(indexPosts())),
         showPost: (postId => dispatch(showPost(postId))),
         createPost: (post => dispatch(createPost(post))),
-        updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
+        // updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
+        openEditPostModal: () => dispatch(openEditPostModal()),
         clearPosts: (() => dispatch(clearPosts()))
         // openPostModal: () => dispatch(openPostModal())
     }

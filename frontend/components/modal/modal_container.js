@@ -3,6 +3,7 @@ import Modal from './modal';
 import { closeModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/session_actions'
 import { updateUser, updateProfPic, updateCovPic } from '../../actions/user_actions';
+import { updatePost } from '../../actions/post_actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -19,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
         updateUser: (user, userId) => dispatch(updateUser(user, userId)),
         updateProfPic: (user, userId) => dispatch(updateProfPic(user, userId)),
         updateCovPic: (user, userId) => dispatch(updateCovPic(user, userId)),
+        updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
         closeModal: () => dispatch(closeModal())
     }
 }
