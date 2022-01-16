@@ -13,11 +13,12 @@ class PostDrop extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <div className="dropopenabsolute">
                 <div className="dropopenbackground">
                     <div
-                        onClick={() => this.props.openEditPostModal()}>
+                        onClick={() => this.props.openEditPostModal(this.props.postId)}>
                             <p className="dropopentext">Edit</p>
                     </div>
                     <div

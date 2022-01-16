@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => {
         // updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
-        openEditPostModal: () => dispatch(openEditPostModal()),
+        openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         clearPosts: (() => dispatch(clearPosts()))
         // openPostModal: () => dispatch(openPostModal())
     }

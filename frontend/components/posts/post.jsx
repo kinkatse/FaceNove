@@ -52,6 +52,7 @@ class Post extends React.Component {
                     postArr.map(post => (
                         <UserPost
                             key={post.id}
+                            postId={post.id}
                             postBody={post.post}
                             currentUser={this.props.currentUser}
                             userId={this.props.userId}

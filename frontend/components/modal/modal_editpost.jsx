@@ -4,7 +4,7 @@ class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            postBody: this.props.postObj.post
         }
     }
 
@@ -12,7 +12,8 @@ class ModalEditPost extends React.Component {
         debugger
         return (
             <div className="testEdit">
-                <h1>Edit Modal Open</h1>
+                <h1>Edit</h1>
+                {this.props.postObj.post}
             </div>
         )
     }

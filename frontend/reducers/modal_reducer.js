@@ -20,7 +20,7 @@ const modalReducer = (state = {type: ''}, action) => {
             return Object.assign({}, state, {type: 'coverpic'})
         case OPEN_EDITPOST_MODAL:
             debugger
-            return Object.assign({}, state, {type: 'editpost'})
+            return Object.assign({}, state, {type: 'editpost', postId: action.postId})
         case CLOSE_MODAL:
             return Object.assign({}, state, {type: ''})
         default:

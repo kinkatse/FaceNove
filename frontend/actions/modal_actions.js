@@ -29,10 +29,11 @@ export const openCovPicModal = () => {
     }
 }
 
-export const openEditPostModal = () => {
+export const openEditPostModal = (postId) => {
     debugger
     return {
-        type: OPEN_EDITPOST_MODAL
+        type: OPEN_EDITPOST_MODAL,
+        postId
     }
 }
 

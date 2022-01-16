@@ -79,6 +79,7 @@ class UserPost extends React.Component {
                     <div className="post_dropdown">...</div>
                     <PostDrop
                         // openEdit={this.openEdit}
+                        postId={this.props.postId}
                         openEditPostModal={this.props.openEditPostModal}
                         updatePost={this.props.updatePost}
                         destroyPost={this.props.destroyPost}
@@ -94,14 +95,14 @@ class UserPost extends React.Component {
     }
 
     rendersPostBody() {
-        let component;
+        // let component;
         // if (!this.state.editPost) {
-            debugger
-            component = (
-                <p className="post_body">
-                    {this.props.postBody}
-                </p>
-            )
+            // debugger
+            // component = (
+            //     <p className="post_body">
+            //         {this.props.postBody}
+            //     </p>
+            // )
         // }
         // else {
         //     debugger
@@ -118,7 +119,7 @@ class UserPost extends React.Component {
             // )
         // }
 
-        return component;
+        // return component;
     }
 
     render() {
@@ -142,7 +143,10 @@ class UserPost extends React.Component {
                     {this.rendersPostTopRight()}
                 </div>
                 <div className="post_middle">
-                    {this.rendersPostBody()}
+                    {/* {this.rendersPostBody()} */}
+                    <p className="post_body">
+                        {this.props.postBody}
+                    </p>
                     <h2 className="post_placeholder">Picture?</h2>
                     <h2 className="post_placeholder">Comment?</h2>
                     <h2 className="post_placeholder">Like?</h2>
