@@ -60,6 +60,7 @@ class Post extends React.Component {
                             created_at={post.created_at}
                             updatePost={this.props.updatePost}
                             destroyPost={this.props.destroyPost}
+                            openEditPostModal={this.props.openEditPostModal}
                             profilePicUrl={post.profilePicUrl}
                             profpicColor={profpicColor}
                         /> )

@@ -9,9 +9,10 @@ class ModalEditPost extends React.Component {
     }
 
     render() {
+        debugger
         return (
-            <div>
-
+            <div className="testEdit">
+                <h1>Edit Modal Open</h1>
             </div>
         )
     }

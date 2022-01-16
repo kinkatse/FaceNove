@@ -17,7 +17,7 @@ class PostDrop extends React.Component {
             <div className="dropopenabsolute">
                 <div className="dropopenbackground">
                     <div
-                        onClick={() => this.props.openEdit()}>
+                        onClick={() => this.props.openEditPostModal()}>
                             <p className="dropopentext">Edit</p>
                     </div>
                     <div

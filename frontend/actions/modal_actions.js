@@ -30,6 +30,7 @@ export const openCovPicModal = () => {
 }
 
 export const openEditPostModal = () => {
+    debugger
     return {
         type: OPEN_EDITPOST_MODAL
     }

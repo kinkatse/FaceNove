@@ -7,13 +7,13 @@ class UserPost extends React.Component {
         super(props);
         this.state = {
             dropOpen: false,
-            editPost: false,
+            // editPost: false,
             postBody: this.props.postBody
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
-        this.openEdit = this.openEdit.bind(this);
-        this.closeEdit = this.closeEdit.bind(this);
+        // this.openEdit = this.openEdit.bind(this);
+        // this.closeEdit = this.closeEdit.bind(this);
     }
 
     dropOpen() {
@@ -24,14 +24,14 @@ class UserPost extends React.Component {
         this.setState({ dropOpen: false })
     }
 
-    openEdit() {
-        debugger
-        this.setState({ editPost: true })
-    }
+    // openEdit() {
+    //     debugger
+    //     this.setState({ editPost: true })
+    // }
 
-    closeEdit() {
-        this.setState({ editPost: false })
-    }
+    // closeEdit() {
+    //     this.setState({ editPost: false })
+    // }
 
     // updatePostBody() {
     //     this.setState({ postBody: e.currentTarget.value })
@@ -78,7 +78,8 @@ class UserPost extends React.Component {
                 <div className="">
                     <div className="post_dropdown">...</div>
                     <PostDrop
-                        openEdit={this.openEdit}
+                        // openEdit={this.openEdit}
+                        openEditPostModal={this.props.openEditPostModal}
                         updatePost={this.props.updatePost}
                         destroyPost={this.props.destroyPost}
                     />
@@ -94,16 +95,17 @@ class UserPost extends React.Component {
 
     rendersPostBody() {
         let component;
-        if (!this.state.editPost) {
+        // if (!this.state.editPost) {
             debugger
             component = (
                 <p className="post_body">
                     {this.props.postBody}
                 </p>
             )
-        } else {
-            debugger
-            component = (
+        // }
+        // else {
+        //     debugger
+            // component = (
                 // <textarea
                 //     className="editbio input"
                 //     type="text"
@@ -111,9 +113,10 @@ class UserPost extends React.Component {
                 //     value={this.state.postBody}
                 //     onChange={this.updatePostBody()}
                 // ></textarea>
-                <h1>Editing</h1>
-            )
-        }
+                // <h1>Editing</h1>
+                // this.props.openEditPostModal()
+            // )
+        // }
 
         return component;
     }
