@@ -82,12 +82,12 @@ class ModalProfPic extends React.Component {
                     </div>
                     <div className="profpiclinediv"></div>
                     <div className="profpic_components">
-                        <label className={'submitbutton splashbutton profchoose ' + colorSplash}>
+                        <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
                             <input type="file" onChange={this.handleFile}/>
                             Choose A File
                         </label>
                         {this.rendersPreview()}
-                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
+                        <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Update Profile Picture"/>
                     </div>
                 </div>
             </form>

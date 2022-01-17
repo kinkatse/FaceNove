@@ -242,7 +242,7 @@ class ModalEdit extends React.Component {
                         </div>
                     </div>
                     <div className="editsubmit">
-                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
+                        <input className={'editsubmitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
                     </div>
                 </div>
             </form>

@@ -78,7 +78,7 @@ class ModalEditPost extends React.Component {
                         {/* <p className="testEdit">Picture Edit Here</p> */}
                     </div>
                     <div className="editsubmit">
-                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Save"/>
+                        <input className={'editsubmitbutton splashbutton ' + colorSplash} type="submit" value="Save"/>
                     </div>
                 </div>
             </form>
