@@ -30,28 +30,20 @@ class ModalEditPost extends React.Component {
     render() {
         debugger
 
+        let colorSplash;
         let profpicColor;
         if (this.props.color === "blue") {
+            colorSplash = 'bluesplash';
             profpicColor = "postprofpicblue"
         } else if (this.props.color === "green") {
+            colorSplash = 'greensplash'
             profpicColor = "postprofpicgreen"
         } else if (this.props.color === "red") {
+            colorSplash = 'redsplash'
             profpicColor = "postprofpicred"
         }
 
-        // <textarea
-        //     className="editbio input"
-        //     type="text"
-        //     placeholder={`${this.state.postBody}`}
-        //     value={this.state.postBody}
-        //     onChange={this.updatePostBody()}
-        // ></textarea>
-
         return (
-            // <div className="testEdit">
-            //     <h1>Edit</h1>
-            //     {this.props.postObj.post}
-            // </div>
             <form onSubmit={this.handleSubmit}>
                 <div className="postedit_modal_background" onClick={this.props.closeModal}></div>
                 <div className="postedit_modal_child">
@@ -59,7 +51,7 @@ class ModalEditPost extends React.Component {
                         <h1 className="postedittitle">Edit Post!</h1>
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
-                    <div className="editlinediv"></div>
+                    <div className="posteditlinediv"></div>
                     <div className="posteditbody">
                         <div className="editpost_top">
                             <div className="editpost_top_left">
@@ -74,13 +66,19 @@ class ModalEditPost extends React.Component {
                         </div>
                         <div className="editpostbodywhole">
                             <textarea
-                                className="editpostbody editpost_input"
+                                className="editpost_input"
                                 type="text"
                                 placeholder={`${this.state.postBody}`}
                                 value={this.state.postBody}
                                 onChange={this.updatePostBody()}
                             ></textarea>
                         </div>
+                    </div>
+                    <div>
+                        {/* <p className="testEdit">Picture Edit Here</p> */}
+                    </div>
+                    <div className="editsubmit">
+                        <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Save"/>
                     </div>
                 </div>
             </form>
