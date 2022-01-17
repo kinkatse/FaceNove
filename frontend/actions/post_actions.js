@@ -54,7 +54,7 @@ export const showPost = (userId) => (dispatch) => {
 }
 
 export const createPost = (post) => (dispatch) => {
-    debugger
+    // debugger
     return (
         PostApiUtil.createPost(post)
         .then(post => dispatch(receivePost(post)))
@@ -62,6 +62,7 @@ export const createPost = (post) => (dispatch) => {
 }
 
 export const updatePost = (post, postId) => (dispatch) => {
+    debugger
     return (
         PostApiUtil.editPost(post, postId)
         .then(post => dispatch(receivePost(post)))

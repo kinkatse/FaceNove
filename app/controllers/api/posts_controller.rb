@@ -32,10 +32,14 @@ class Api::PostsController < ApplicationController
     end
 
     def update
+        debugger
         @post = Post.find_by(id: params[:id])
+        debugger
         if @post.update_attribute(post_params)
+            debugger
             render :show
         else
+            debugger
             render json: @post.errors.full_messages, status: 418
         end
     end

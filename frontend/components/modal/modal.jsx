@@ -45,7 +45,7 @@ class Modal extends React.Component {
                     color={this.props.color}
                 />
             case 'editpost':
-                debugger
+                // debugger
                 return <EditPostModalForm
                     currentUser={this.props.currentUser}
                     postObj={this.props.postObj}

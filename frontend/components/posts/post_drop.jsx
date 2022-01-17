@@ -9,11 +9,11 @@ class PostDrop extends React.Component {
     }
 
     deleteTemp() {
-        debugger
+        // debugger
     }
 
     render() {
-        debugger
+        // debugger
         return (
             <div className="dropopenabsolute">
                 <div className="dropopenbackground">
