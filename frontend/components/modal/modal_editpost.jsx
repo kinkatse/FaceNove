@@ -30,14 +30,14 @@ class ModalEditPost extends React.Component {
     render() {
         debugger
 
-        // let colorSplash;
-        // if (this.props.color === 'blue') {
-        //     colorSplash = 'bluesplash';
-        // } else if (this.props.color === 'green') {
-        //     colorSplash = 'greensplash'
-        // } else if (this.props.color === 'red') {
-        //     colorSplash = 'redsplash'
-        // }
+        let profpicColor;
+        if (this.props.color === "blue") {
+            profpicColor = "postprofpicblue"
+        } else if (this.props.color === "green") {
+            profpicColor = "postprofpicgreen"
+        } else if (this.props.color === "red") {
+            profpicColor = "postprofpicred"
+        }
 
         // <textarea
         //     className="editbio input"
@@ -56,12 +56,31 @@ class ModalEditPost extends React.Component {
                 <div className="postedit_modal_background" onClick={this.props.closeModal}></div>
                 <div className="postedit_modal_child">
                     <div className="postedittop">
-                        <h1 className="edittitle">Edit Post!</h1>
+                        <h1 className="postedittitle">Edit Post!</h1>
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
                     <div className="editlinediv"></div>
                     <div className="posteditbody">
-                        {this.props.postObj.post}
+                        <div className="editpost_top">
+                            <div className="editpost_top_left">
+                                <img
+                                    className={'editpost_profile_pic ' + profpicColor}
+                                    src={this.props.postObj.profilePicUrl}
+                                />
+                                <h2 className="editpost_name">
+                                    {this.props.postObj.firstName} {this.props.postObj.lastName}
+                                </h2>
+                            </div>
+                        </div>
+                        <div className="editpostbodywhole">
+                            <textarea
+                                className="editpostbody editpost_input"
+                                type="text"
+                                placeholder={`${this.state.postBody}`}
+                                value={this.state.postBody}
+                                onChange={this.updatePostBody()}
+                            ></textarea>
+                        </div>
                     </div>
                 </div>
             </form>
