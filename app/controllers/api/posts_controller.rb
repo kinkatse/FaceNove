@@ -22,6 +22,7 @@ class Api::PostsController < ApplicationController
         # need to have a show for a single post but I don't think we will need to
         # since we need show for user's posts for profile page and index will
         # cover the get for all posts for the feed
+        # debugger
         @user = User.find_by(id: params[:id])
         @posts = @user.posts
         if @posts
@@ -35,8 +36,18 @@ class Api::PostsController < ApplicationController
         debugger
         @post = Post.find_by(id: params[:id])
         debugger
-        if @post.update_attribute(post_params)
+        # I need User and user.posts so that show can run since I have
+        # @posts in there rendering. This means I need to basically
+        # redo the logic of the show here which needs the user_id from
+        # the post_params (and needs to be an integer). May need to
+        # refactor so that we can just render the show
+        @user = User.find_by(id: post_params[:user_id].to_i)
+        debugger
+        @posts = @user.posts
+        debugger
+        if @post.update_attributes(post_params)
             debugger
+            # render self.show
             render :show
         else
             debugger
@@ -55,7 +66,9 @@ class Api::PostsController < ApplicationController
     end
 
     def post_params
-        params.require(:post).permit(
+        debugger
+        params.require(:postData).permit(
+            :id,
             :post,
             :user_id,
             :postPhotoUrl

@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
         updateUser: (user, userId) => dispatch(updateUser(user, userId)),
         updateProfPic: (user, userId) => dispatch(updateProfPic(user, userId)),
         updateCovPic: (user, userId) => dispatch(updateCovPic(user, userId)),
-        updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
+        updatePost: ((postData, postId) => dispatch(updatePost(postData, postId))),
         closeModal: () => dispatch(closeModal())
     }
 }

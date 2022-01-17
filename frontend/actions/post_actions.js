@@ -61,10 +61,10 @@ export const createPost = (post) => (dispatch) => {
     )
 }
 
-export const updatePost = (post, postId) => (dispatch) => {
+export const updatePost = (postData, postId) => (dispatch) => {
     debugger
     return (
-        PostApiUtil.editPost(post, postId)
+        PostApiUtil.editPost(postData, postId)
         .then(post => dispatch(receivePost(post)))
     )
 }

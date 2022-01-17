@@ -21,11 +21,12 @@ export const createPost = (post) => {
     })
 }
 
-export const editPost = (post, postId) => {
+export const editPost = (postData, postId) => {
+    debugger
     return $.ajax({
         url: `/api/posts/${postId}`,
         method: 'PATCH',
-        data: { post }
+        data: { postData }
     })
 }
 

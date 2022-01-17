@@ -4,25 +4,28 @@ class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            postBody: this.props.postObj.post
+            post: this.props.postObj.post,
+            user_id: this.props.postObj.user_id
         }
         this.updatePostBody = this.updatePostBody.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     updatePostBody() {
-        return e => this.setState({ postBody: e.currentTarget.value })
+        return e => this.setState({ post: e.currentTarget.value })
     }
 
-    handleSubmit() {
+    handleSubmit(e) {
         e.preventDefault();
         const postData = Object.assign({}, this.state);
+        debugger
         this.props.updatePost(postData, this.props.postObj.id)
         .then(this.resetState())
     }
 
     resetState() {
         this.setState({
-            postBody: this.props.postObj.post
+            post: this.props.postObj.post
         })
         this.props.closeModal()
     }
@@ -68,8 +71,8 @@ class ModalEditPost extends React.Component {
                             <textarea
                                 className="editpost_input"
                                 type="text"
-                                placeholder={`${this.state.postBody}`}
-                                value={this.state.postBody}
+                                placeholder={`${this.state.post}`}
+                                value={this.state.post}
                                 onChange={this.updatePostBody()}
                             ></textarea>
                         </div>
