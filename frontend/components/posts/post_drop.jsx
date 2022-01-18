@@ -13,7 +13,6 @@ class PostDrop extends React.Component {
     }
 
     render() {
-        // debugger
         return (
             <div className="dropopenabsolute">
                 <div className="dropopenbackground">

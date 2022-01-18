@@ -46,7 +46,6 @@ export const indexPosts = () => (dispatch) => {
 }
 
 export const showPost = (userId) => (dispatch) => {
-    // debugger
     return (
         PostApiUtil.getPost(userId)
         .then(posts => dispatch(receivePost(posts)))
@@ -54,7 +53,6 @@ export const showPost = (userId) => (dispatch) => {
 }
 
 export const createPost = (post) => (dispatch) => {
-    // debugger
     return (
         PostApiUtil.createPost(post)
         .then(post => dispatch(receivePost(post)))
@@ -62,7 +60,6 @@ export const createPost = (post) => (dispatch) => {
 }
 
 export const updatePost = (postData, postId) => (dispatch) => {
-    debugger
     return (
         PostApiUtil.editPost(postData, postId)
         .then(post => dispatch(receivePost(post)))

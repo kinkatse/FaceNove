@@ -1,11 +1,9 @@
 class Api::PostsController < ApplicationController
 
     def create
-        # debugger
         @post = Post.new(post_params)
         if @post.save
             puts "Post saved!"
-            # render "api/posts/show"
             render :show
         else
             render json: @post.errors.full_messages, status: 422
@@ -22,18 +20,13 @@ class Api::PostsController < ApplicationController
         # need to have a show for a single post but I don't think we will need to
         # since we need show for user's posts for profile page and index will
         # cover the get for all posts for the feed
-        # debugger
-        # @user
-        # if params[:postData]
-        # if @post
+
+        # Originally was params[:postData] but harder to read
+        # if @user exists, it is likely from the update action
+        # since we create a user there
         if !@user
-            debugger
-            # @user = User.find_by(id: post_params[:user_id].to_i)
-        # else
-            # debugger
             @user = User.find_by(id: params[:id])
         end
-        debugger
         @posts = @user.posts
         if @posts
             render :show
@@ -43,22 +36,20 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        # debugger
         @post = Post.find_by(id: params[:id])
-        # debugger
         # I need User and user.posts so that show can run since I have
         # @posts in there rendering. This means I need to basically
         # redo the logic of the show here which needs the user_id from
-        # the post_params (and needs to be an integer). May need to
-        # refactor so that we can just render the show
+        # the post_params (and needs to be an integer)
         @user = User.find_by(id: post_params[:user_id].to_i)
-        # debugger
-        # @posts = @user.posts
-        # debugger
         if @post.update_attributes(post_params)
+            # Cant put render here or I get double render error
+            # I tried redirect_to as well but the url is a built in
+            # path to /posts/4 but since I don't have my backend
+            # built in the typical manner, I have to use this work
+            # around which is just calling the show method when updating
             self.show
         else
-            # debugger
             render json: @post.errors.full_messages, status: 418
         end
     end
@@ -74,7 +65,6 @@ class Api::PostsController < ApplicationController
     end
 
     def post_params
-        # debugger
         params.require(:postData).permit(
             :id,
             :post,

@@ -12,7 +12,6 @@ import {
 import { openEditPostModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger
     return {
         posts: state.entities.posts,
         // userPosts: state.entities.posts[ownProps.match.params.userId],
@@ -24,7 +23,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    // debugger
     return {
         indexPosts: (() => dispatch(indexPosts())),
         showPost: (postId => dispatch(showPost(postId))),

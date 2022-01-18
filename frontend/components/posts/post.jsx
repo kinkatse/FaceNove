@@ -3,11 +3,8 @@ import UserPost from './user_post';
 
 class Post extends React.Component {
     componentDidMount() {
-        // debugger
         // this.props.clearPosts()
-        // debugger
         this.props.showPost(this.props.userId)
-        // debugger
     }
 
     // componentDidUpdate(oldProps) {
@@ -17,7 +14,6 @@ class Post extends React.Component {
     // }
 
     componentWillUnmount() {
-        // debugger
         this.props.clearPosts()
     }
 
@@ -29,11 +25,9 @@ class Post extends React.Component {
     }
 
     render() {
-        // debugger
         if (Object.keys(this.props.posts).length === 0) {
             return null;
         }
-        // debugger
 
         let postArr = Object.values(this.props.posts).reverse()
 

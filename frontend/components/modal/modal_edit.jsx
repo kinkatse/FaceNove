@@ -3,7 +3,6 @@ import React from 'react';
 class ModalEdit extends React.Component {
     constructor(props) {
         super(props)
-        // debugger
         this.state = {
             firstName: props.currentUser.firstName,
             lastName: props.currentUser.lastName,
@@ -45,7 +44,6 @@ class ModalEdit extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // debugger
         const userData = Object.assign({}, this.state);
         this.props.updateUser(userData, this.props.currentUser.id)
         .then(this.resetState())

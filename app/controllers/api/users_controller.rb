@@ -23,30 +23,22 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        # debugger
         # Looking for specific user so we check params for that id, and so params[:id] evaluates
         # to the User and then we make a key value pair of the id to the User we just accessed
         @emailUser = User.find_by(id: params[:id])
-        # debugger
         if @emailUser
-            # debugger
             render "api/users/show"
         else
-            # debugger
             render json: ["User does not exist"], status: 404
         end
     end
 
     def update
-        debugger
         @emailUser = User.find_by(id: params[:id])
-        debugger
         # .update_attribute is a rails built in method and takes in params to update all info passed in
         if @emailUser.update_attributes(email_user_params)
-            # debugger
             render "api/users/show"
         else
-            # debugger
             render json: @emailUser.errors.full_messages, status: 418
         end
     end
@@ -55,7 +47,6 @@ class Api::UsersController < ApplicationController
     end
 
     def email_user_params
-        debugger
         params.require(:user).permit(
             :email,
             :password,

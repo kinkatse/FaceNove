@@ -14,7 +14,6 @@ const getUser = (user) => ({
     user
 })
 
-// indexUsers
 // This is a thunk action creator which is a function that when dispatched, will call the AJAX request to get all the users which has a promise that
 // once we grab all the users, we will then make it an action with the above action creators and then pass that into the store through dispatch once again, this time its not a function so it make it to the reducer
 export const indexUsers = () => (dispatch) => (
@@ -22,16 +21,13 @@ export const indexUsers = () => (dispatch) => (
     .then(users => dispatch(allUsers(users)))
 )
 
-// showUser
 export const showUser = (userId) => (dispatch) => {
-    // debugger
     return (
         UsersApiUtil.getUser(userId)
         .then(user => dispatch(getUser(user)))
     )
 }
 
-// updateUser
 export const updateUser = (user, userId) => (dispatch) => {
     return (
         UsersApiUtil.editUser(user, userId)

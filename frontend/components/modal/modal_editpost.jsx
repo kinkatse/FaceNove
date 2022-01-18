@@ -18,7 +18,6 @@ class ModalEditPost extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const postData = Object.assign({}, this.state);
-        debugger
         this.props.updatePost(postData, this.props.postObj.id)
         .then(this.resetState())
     }
@@ -31,8 +30,6 @@ class ModalEditPost extends React.Component {
     }
 
     render() {
-        debugger
-
         let colorSplash;
         let profpicColor;
         if (this.props.color === "blue") {

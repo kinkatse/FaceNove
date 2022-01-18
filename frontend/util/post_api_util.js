@@ -6,7 +6,6 @@ export const getAllPosts = () => {
 }
 
 export const getPost = (userId) => {
-    // debugger
     return $.ajax({
         url: `/api/posts/${userId}`,
         method: 'GET'
@@ -22,7 +21,6 @@ export const createPost = (post) => {
 }
 
 export const editPost = (postData, postId) => {
-    debugger
     return $.ajax({
         url: `/api/posts/${postId}`,
         method: 'PATCH',

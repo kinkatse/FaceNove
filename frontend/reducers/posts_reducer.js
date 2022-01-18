@@ -12,7 +12,6 @@ const postsReducer = (postState = {}, action) => {
             delete newState[action.post.id];
             return newState;
         case REMOVE_ALL_POSTS:
-            // debugger
             return {}
         default:
             return postState;
