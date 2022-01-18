@@ -42,6 +42,17 @@ class Post extends React.Component {
 
         return (
             <div className="">
+                <div className="profile_posts">
+                    <h2
+                        className="profbodytitle"
+                        onClick={this.props.openCreatePostModal}>
+                            Create Post
+                    </h2>
+                </div>
+                <div className="profile_posts">
+                    <h2 className="profbodytitle">Posts</h2>
+                    {/* <div className="posts_wall"></div> */}
+                </div>
                 {
                     postArr.map(post => (
                         <UserPost

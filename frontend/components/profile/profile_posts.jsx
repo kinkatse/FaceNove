@@ -12,13 +12,7 @@ class ProfilePosts extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="profile_posts">
-                    <h2 className="profbodytitle">Posts</h2>
-                    {/* <div className="posts_wall"></div> */}
-                </div>
-                <ProtectedRoute path="/user/:userId" component={PostContainer}/>
-            </div>
+            <ProtectedRoute path="/user/:userId" component={PostContainer}/>
         )
     }
 }
