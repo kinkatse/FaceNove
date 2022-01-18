@@ -4,6 +4,7 @@ import SignupModalForm from './modal_signup';
 import EditModalForm from './modal_edit';
 import ProfPicModalForm from './modal_profpic';
 import CovPicModalForm from './modal_covpic';
+import CreatePostModalForm from './modal_createpost';
 import EditPostModalForm from './modal_editpost';
 
 class Modal extends React.Component {
@@ -41,6 +42,14 @@ class Modal extends React.Component {
                 return <CovPicModalForm
                     currentUser={this.props.currentUser}
                     updateCovPic={this.props.updateCovPic}
+                    closeModal={this.props.closeModal}
+                    color={this.props.color}
+                />
+            case 'createpost':
+                return <CreatePostModalForm
+                    currentUser={this.props.currentUser}
+                    postObj={this.props.postObj}
+                    updatePost={this.props.updatePost}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />

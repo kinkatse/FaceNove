@@ -52,9 +52,9 @@ export const showPost = (userId) => (dispatch) => {
     )
 }
 
-export const createPost = (post) => (dispatch) => {
+export const createPost = (postData) => (dispatch) => {
     return (
-        PostApiUtil.createPost(post)
+        PostApiUtil.createPost(postData)
         .then(post => dispatch(receivePost(post)))
     )
 }

@@ -12,11 +12,11 @@ export const getPost = (userId) => {
     })
 }
 
-export const createPost = (post) => {
+export const createPost = (postData) => {
     return $.ajax({
         url: `/api/posts`,
         method: 'POST',
-        data: { post }
+        data: { postData }
     })
 }
 
