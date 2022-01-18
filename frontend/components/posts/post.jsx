@@ -1,5 +1,6 @@
 import React from 'react';
 import UserPost from './user_post';
+import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
     componentDidMount() {
@@ -43,15 +44,21 @@ class Post extends React.Component {
         return (
             <div className="">
                 <div className="profile_posts">
-                    <h2
-                        className="profbodytitle"
+                    <Link to={`/user/${this.props.currentUser.id}`}>
+                        <img
+                            className={'post_profile_pic ' + profpicColor}
+                            src={this.props.currentUser.profilePicUrl}
+                        />
+                    </Link>
+                    <div
+                        className="createpost"
                         onClick={this.props.openCreatePostModal}>
-                            Create Post
-                    </h2>
+                            What's on your mind?
+                    </div>
+                    <div className="signuplinediv"></div>
                 </div>
                 <div className="profile_posts">
                     <h2 className="profbodytitle">Posts</h2>
-                    {/* <div className="posts_wall"></div> */}
                 </div>
                 {
                     postArr.map(post => (
