@@ -10,6 +10,7 @@ class ProfileIntro extends React.Component {
     }
 
     openBioEdit() {
+        debugger
         this.setState({ openBio: true })
     }
 
@@ -37,6 +38,7 @@ class ProfileIntro extends React.Component {
     }
 
     render() {
+        debugger
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
         let bioEmpty = "";
@@ -51,21 +53,33 @@ class ProfileIntro extends React.Component {
         
         // Conditionals to make the info be default if no value
         // Should make a button to make bio just like Facebook, with better formatting too***
-        if (user.bio) {
-            bioEmpty = "profile_bio"
-            bio = <div className="profile_bio_div">
-                {user.bio}
-                <div className="profilebiobutton" onClick={this.openBioEdit()}>
-                    Edit Bio
-                </div>
-            </div>
-        } else {
-            bioEmpty = "profile_bio_empty"
-            if (user.id === this.props.currentUser) {
-                bio = <div className="profilebiobutton">
+
+        let addBio;
+        let editBio;
+        if (user.id === this.props.currentUser.id) {
+            addBio = (
+                <div className="profilebiobutton">
                     Add Bio
                 </div>
-            }
+            )
+            editBio = (
+                <div className="profilebiobutton editbiomargin" onClick={() => this.openBioEdit()}>
+                    Edit Bio
+                </div>
+            )
+        }
+
+        if (user.bio) {
+            bioEmpty = "profile_bio"
+            bio = (
+                <div className="profile_bio_div">
+                    {user.bio}
+                    {editBio}
+                </div>
+            )
+        } else {
+            bioEmpty = "profile_bio_empty"
+            bio = addBio
         }
 
         const monthsObj = {

@@ -332,7 +332,7 @@ p em {
     justify-content: center;
     margin: 0;
     padding: 12px;
-    width: 90%;
+    width: 367px;
     border: none;
     border-radius: 6px;
     color: rgb(55, 55, 55);
@@ -343,6 +343,10 @@ p em {
 .profilebiobutton:hover {
     cursor: pointer;
     animation: 0.3s hoverover forwards;
+}
+
+.editbiomargin {
+    margin-top: 10px;
 }
 
 .profile_info_empty {
