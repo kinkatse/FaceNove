@@ -12,7 +12,6 @@ class ProfileIntro extends React.Component {
     }
 
     openBioEdit() {
-        debugger
         this.setState({ openBio: true })
     }
 
@@ -22,19 +21,13 @@ class ProfileIntro extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // This would return the entire user to be updated but since
-        // only the bio is changed here, we want to send back everything
-        // in the Object.assign but include the state's bio so that it
-        // updates the bio in that Object.assign
-        const userData = Object.assign({}, this.props.currentUser, { bio: this.state.bio });
-        debugger
+        const userData = Object.assign({}, { bio: this.state.bio });
         this.props.updateUser(userData, this.props.currentUser.id)
         .then(this.resetState())
     }
 
     resetState() {
         this.setState({
-            bio: this.props.currentUser.bio || "",
             openBio: false
         })
     }
@@ -49,7 +42,6 @@ class ProfileIntro extends React.Component {
             colorSplash = 'redsplash'
         }
 
-        debugger
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
         let bioEmpty = "";
