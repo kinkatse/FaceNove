@@ -47,7 +47,7 @@
 .editbody {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .editfieldwhole {
@@ -80,7 +80,7 @@
 .editdrop {
     display: flex;
     // justify-content: space-between;
-    margin: 5px;
+    margin-top: 5px;
 }
 
 .editdrop * {
@@ -93,7 +93,7 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 3px;
-    width: 102px;
+    width: 106px;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: rgba(110, 110, 110, 1);
@@ -118,7 +118,7 @@
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 3px;
-    width: 90px;
+    width: 91px;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: rgba(110, 110, 110, 1);
