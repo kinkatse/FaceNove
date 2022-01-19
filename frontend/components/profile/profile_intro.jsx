@@ -23,11 +23,18 @@ class ProfileIntro extends React.Component {
         e.preventDefault();
         const userData = Object.assign({}, { bio: this.state.bio });
         this.props.updateUser(userData, this.props.currentUser.id)
-        .then(this.resetState())
+        .then(this.closeBio())
+    }
+
+    closeBio() {
+        this.setState({
+            openBio: false
+        })
     }
 
     resetState() {
         this.setState({
+            bio: this.props.currentUser.bio || "",
             openBio: false
         })
     }
