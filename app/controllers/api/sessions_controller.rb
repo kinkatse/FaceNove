@@ -10,8 +10,6 @@ class Api::SessionsController < ApplicationController
         # Upon successful email and password, we log in and go to users show page, else show errors
         if @emailUser
             log_in(@emailUser)
-            # For testing the log in until we have hashrouter
-            puts "Logged in!"
             render "api/users/show"
         else
             render json: ["Invalid username or password"], status: 401

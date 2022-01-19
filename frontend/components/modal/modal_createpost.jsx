@@ -4,9 +4,8 @@ class ModalCreatePost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            post: ""
-            // post: this.props.currentUser.post,
-            // user_id: this.props.currentUser.user_id
+            post: "",
+            user_id: this.props.currentUser.id
         }
         this.updatePostBody = this.updatePostBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

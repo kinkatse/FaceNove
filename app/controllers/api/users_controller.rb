@@ -7,8 +7,6 @@ class Api::UsersController < ApplicationController
         if @emailUser.save
             # log_in comes from ApplicationController which we inherit
             log_in(@emailUser)
-            # For testing the sign up until we have hashrouter
-            puts "Signed up!"
             # We then render the users show page to indicate they have logged in
             render "api/users/show"
         else
