@@ -33,23 +33,7 @@ class ProfileIntro extends React.Component {
             12: "December"
         }
 
-        const monthsFormat = (monthNum) => {
-            // debugger
-            // let monthsArr = [];
-            // for (let i = 1; i <= 12; i++) {
-            //     monthsArr.push(<option value={i} key={`month-${i}`}>{monthsObj[i]}</option>)
-            // }
-            // return monthsArr;
-            return monthsObj[parseInt(monthNum)]
-        }
-
         const daysFormat = (dayNum) => {
-            // let daysArr = [];
-            // for (let i = 1; i <= 31; i++) {
-            //     daysArr.push(<option value={i} key={`day-${i}`}>{i}</option>)
-            // }
-            // return daysArr;
-            // debugger
             let dayInt = parseInt(dayNum)
             if (dayNum.slice(-1) === "1" && dayNum !== "11") {
                 return `${dayInt}st,`
@@ -57,14 +41,6 @@ class ProfileIntro extends React.Component {
                 return `${dayInt}nd,`
             } else if (dayNum.slice(-1) === "3" && dayNum !== "13") {
                 return `${dayInt}rd,`
-            // } else if (dayNum === "21") {
-            //     return "-21st,-"
-            // } else if (dayNum === "22") {
-            //     return "-22nd,-"
-            // } else if (dayNum === "23") {
-            //     return "-23rd,-"
-            // } else if (dayNum === "31") {
-            //     return "-31st,-"
             } else {
                 return `${dayInt}th,`
             }
@@ -72,42 +48,45 @@ class ProfileIntro extends React.Component {
 
         // Should format birthday in English***
         if (user.birthdate) { birthday = user.birthdate.split('-') }
-        else { birthday = "Birthday not registered" }
+        else { birthday = null }
+        // else { birthday = "Birthday not registered" }
         if (user.birthdate !== "Birthday not registered") {
-            // let year = birthday.shift()
-            // birthday.push(year)
-            debugger
             let day = daysFormat(birthday.pop())
-            let month = monthsFormat(birthday.pop())
+            let month = monthsObj[parseInt(birthday.pop())]
             birthday.unshift(day)
             birthday.unshift(month)
-            debugger
-            birthdayFormatted = "Born on " + birthday.join(' ')
+            birthdayFormatted = ["Born on ", <strong key={month}>{birthday.join(' ')}</strong>]
         } else { "Something unexpected happened" }
 
         if (user.gender) {
             gender = ["Identify as ", <strong key={user.gender}>{user.gender}</strong>]
-        } else { gender = <em>Gender not registered</em> }
+        } else { gender = null }
+        // } else { gender = <em>Gender not registered</em> }
 
         if (user.hometown) {
             hometown = ["Lives in ", <strong key={user.hometown}>{user.hometown}</strong>]
-        } else { hometown = <em>Hometown not registered</em> }
+        } else { hometown = null }
+        // } else { hometown = <em>Hometown not registered</em> }
 
         if (user.education) {
             education = ["Studied at ", <strong key={user.education}>{user.education}</strong>]
-        } else { education = <em>Education not registered</em> }
+        } else { education = null }
+        // } else { education = <em>Education not registered</em> }
 
         if (user.work) {
             work = ["Works as ", <strong key={user.work}>{user.work}</strong>]
-        } else { work = <em>Work not registered</em> }
+        } else { work = null }
+        // } else { work = <em>Work not registered</em> }
 
         if (user.relationship) {
             relationship = ["Currently ", <strong key={user.relationship}>{user.relationship}</strong>]
-        } else { relationship = <em>Relationship not registered</em> }
+        } else { relationship = null }
+        // } else { relationship = <em>Relationship not registered</em> }
 
         if (user.website) {
             website = ["Website: ", <strong key={user.website}>{user.website}</strong>]
-        } else { website = <em>Website not registered</em> }
+        } else { website = null }
+        // } else { website = <em>Website not registered</em> }
 
         return (
             <div className="profile_intro">
