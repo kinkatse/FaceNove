@@ -22,7 +22,7 @@ class ProfileIntro extends React.Component {
         // Conditionals to make the info be default if no value
         // Should make a button to make bio just like Facebook, with better formatting too***
         if (user.bio) { bio = "Bio: " + user.bio }
-        else { bio = <em>No Bio</em> }
+        else { bio = <div className="submitbutton splashbutton">Add Bio</div> }
 
         const monthsObj = {
             1: "January",
