@@ -1,8 +1,8 @@
 json.extract! post, :id, :post, :user_id, :postPhotoUrl, :created_at, :updated_at
-json.extract! post.author, :firstName, :lastName, :profilePicUrl
+json.extract! post.writer, :firstName, :lastName, :profilePicUrl
 
-if post.author.profilePicUrl.attached?
-    json.profilePicUrl url_for(post.author.profilePicUrl)
+if post.writer.profilePicUrl.attached?
+    json.profilePicUrl url_for(post.writer.profilePicUrl)
 else
     json.profilePicUrl image_url('Facenove_Demo_ProfPic.png')
 end
