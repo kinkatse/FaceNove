@@ -9,26 +9,28 @@ class ModalCreatePost extends React.Component {
             // user_id: this.props.currentUser.user_id
         }
         this.updatePostBody = this.updatePostBody.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     updatePostBody() {
         return e => this.setState({ post: e.currentTarget.value })
     }
 
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const postData = Object.assign({}, this.state);
-    //     this.props.updatePost(postData, this.props.currentUser.id)
-    //     .then(this.resetState())
-    // }
+    handleSubmit(e) {
+        debugger
+        e.preventDefault();
+        const postData = Object.assign({}, this.state);
+        this.props.createPost(postData, this.props.currentUser.id)
+        .then(this.resetState())
+    }
 
-    // resetState() {
-    //     this.setState({
-    //         post: this.props.currentUser.post
-    //     })
-    //     this.props.closeModal()
-    // }
+    resetState() {
+        debugger
+        this.setState({
+            post: ""
+        })
+        this.props.closeModal()
+    }
 
     render() {
         let colorSplash;
@@ -46,7 +48,7 @@ class ModalCreatePost extends React.Component {
 
         return (
             <div>
-            {/* <form onSubmit={this.handleSubmit}> */}
+            <form onSubmit={this.handleSubmit}>
                 <div className="postedit_modal_background" onClick={this.props.closeModal}></div>
                 <div className="postedit_modal_child">
                     <div className="postedittop">
@@ -83,7 +85,7 @@ class ModalCreatePost extends React.Component {
                         <input className={'editsubmitbutton splashbutton createpostposition ' + colorSplash} type="submit" value="Make Post"/>
                     </div>
                 </div>
-            {/* </form> */}
+            </form>
             </div>
         )
     }

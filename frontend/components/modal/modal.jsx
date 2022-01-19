@@ -48,8 +48,7 @@ class Modal extends React.Component {
             case 'createpost':
                 return <CreatePostModalForm
                     currentUser={this.props.currentUser}
-                    postObj={this.props.postObj}
-                    updatePost={this.props.updatePost}
+                    createPost={this.props.createPost}
                     closeModal={this.props.closeModal}
                     color={this.props.color}
                 />
