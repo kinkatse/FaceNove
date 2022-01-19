@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
     componentDidMount() {
+        // debugger
         // this.props.clearPosts()
         this.props.showPost(this.props.userId)
     }
@@ -56,12 +57,6 @@ class Post extends React.Component {
     }
 
     render() {
-        if (Object.keys(this.props.posts).length === 0) {
-            return this.rendersCreatePost()
-        }
-
-        let postArr = Object.values(this.props.posts).reverse()
-
         let profpicColor;
         if (this.props.color === "blue") {
             profpicColor = "postprofpicblue"
@@ -71,37 +66,21 @@ class Post extends React.Component {
             profpicColor = "postprofpicred"
         }
 
+        if (Object.keys(this.props.posts).length === 0) {
+            return this.rendersCreatePost(profpicColor)
+        }
+
+        let postArr = Object.values(this.props.posts).reverse()
+
         return (
             <div>
-                {/* <div className="profile_posts createpost">
-                    <div className="createpost_profpic">
-                        <Link to={`/user/${this.props.currentUser.id}`}>
-                            <img
-                                className={'createpost_profile_pic ' + profpicColor}
-                                src={this.props.currentUser.profilePicUrl}
-                            />
-                        </Link>
-                    </div>
-                    <div
-                        className="createpost_modalopen"
-                        onClick={this.props.openCreatePostModal}>
-                            What's on your mind?
-                    </div>
-                    <div className="createpostlinediv"></div>
-                    <div className="post_buttons">
-                        <h2 className="post_placeholder">Photo?</h2>
-                        <h2 className="post_placeholder">Other</h2>
-                    </div>
-                </div>
-                <div className="profile_posts">
-                    <h2 className="profbodytitle">Posts</h2>
-                </div> */}
                 {this.rendersCreatePost(profpicColor)}
                 {
                     postArr.map(post => (
                         <UserPost
                             key={post.id}
                             postId={post.id}
+                            postUserId={post.user_id}
                             postBody={post.post}
                             currentUser={this.props.currentUser}
                             userId={this.props.userId}

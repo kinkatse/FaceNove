@@ -77,6 +77,12 @@ class UserPost extends React.Component {
     }
 
     render() {
+        // This is to prevent the posts made by the user on a different
+        // user's page from showing up on that page
+        if (this.props.postUserId !== parseInt(this.props.userId)) {
+            return null;
+        }
+
         return (
             <div className="post_whole">
                 <div className="post_top">
