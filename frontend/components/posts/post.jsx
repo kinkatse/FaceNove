@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
     componentDidMount() {
-        // debugger
         // this.props.clearPosts()
         this.props.showPost(this.props.userId)
     }

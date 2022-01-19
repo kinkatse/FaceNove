@@ -6,7 +6,7 @@ import ProfilePhotos from './profile_photos';
 const ProfileLeft = (props) => {
     return (
         <div className="profile_left">
-            <ProfileIntro user={props.user}/>
+            <ProfileIntro currentUser={props.currentUser} user={props.user}/>
             <ProfilePhotos />
             <ProfileFriends />
         </div>

@@ -10,6 +10,7 @@ class ProfileIntro extends React.Component {
     render() {
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
+        let bioEmpty = "";
         let genderEmpty = "";
         let educationEmpty = "";
         let hometownEmpty = "";
@@ -21,11 +22,18 @@ class ProfileIntro extends React.Component {
         
         // Conditionals to make the info be default if no value
         // Should make a button to make bio just like Facebook, with better formatting too***
-        if (user.bio) { bio = "Bio: " + user.bio }
-        else {
-            bio = <div className="profilebiobutton">
-                Add Bio
+        if (user.bio) {
+            bioEmpty = "profile_bio"
+            bio = <div className="profile_bio_div">
+                {user.bio}
             </div>
+        } else {
+            bioEmpty = "profile_bio_empty"
+            if (user.id === this.props.currentUser) {
+                bio = <div className="profilebiobutton">
+                    Add Bio
+                </div>
+            }
         }
 
         const monthsObj = {
@@ -100,7 +108,7 @@ class ProfileIntro extends React.Component {
         return (
             <div className="profile_intro">
                 <h2 className="profbodytitle">Intro</h2>
-                <div className="profile_bio">{bio}</div>
+                <div className={bioEmpty}>{bio}</div>
                 <p className="">Email me at <strong>{user.email}</strong></p>
                 <p className="">{birthdayFormatted}</p>
                 <p className={genderEmpty}>{gender}</p>
