@@ -4,27 +4,28 @@ class ModalCreatePost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            // post: this.props.postObj.post,
-            // user_id: this.props.postObj.user_id
+            post: ""
+            // post: this.props.currentUser.post,
+            // user_id: this.props.currentUser.user_id
         }
-        // this.updatePostBody = this.updatePostBody.bind(this);
+        this.updatePostBody = this.updatePostBody.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // updatePostBody() {
-    //     return e => this.setState({ post: e.currentTarget.value })
-    // }
+    updatePostBody() {
+        return e => this.setState({ post: e.currentTarget.value })
+    }
 
     // handleSubmit(e) {
     //     e.preventDefault();
     //     const postData = Object.assign({}, this.state);
-    //     this.props.updatePost(postData, this.props.postObj.id)
+    //     this.props.updatePost(postData, this.props.currentUser.id)
     //     .then(this.resetState())
     // }
 
     // resetState() {
     //     this.setState({
-    //         post: this.props.postObj.post
+    //         post: this.props.currentUser.post
     //     })
     //     this.props.closeModal()
     // }
@@ -54,14 +55,14 @@ class ModalCreatePost extends React.Component {
                     </div>
                     <div className="posteditlinediv"></div>
                     <div className="posteditbody">
-                        {/* <div className="editpost_top">
+                        <div className="editpost_top">
                             <div className="editpost_top_left">
                                 <img
                                     className={'editpost_profile_pic ' + profpicColor}
-                                    src={this.props.postObj.profilePicUrl}
+                                    src={this.props.currentUser.profilePicUrl}
                                 />
                                 <h2 className="editpost_name">
-                                    {this.props.postObj.firstName} {this.props.postObj.lastName}
+                                    {this.props.currentUser.firstName} {this.props.currentUser.lastName}
                                 </h2>
                             </div>
                         </div>
@@ -69,11 +70,11 @@ class ModalCreatePost extends React.Component {
                             <textarea
                                 className="editpost_input"
                                 type="text"
-                                placeholder={`${this.state.post}`}
+                                placeholder="What's on your mind?"
                                 value={this.state.post}
                                 onChange={this.updatePostBody()}
                             ></textarea>
-                        </div> */}
+                        </div>
                     </div>
                     <div>
                         {/* <p className="testEdit">Picture Edit Here</p> */}
