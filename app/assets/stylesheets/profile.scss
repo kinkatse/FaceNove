@@ -266,6 +266,13 @@
     padding: 6px;
 }
 
+// Necessary to make the strong element not
+// margins and padding from the above
+.profile_left strong {
+    margin: 0;
+    padding: 0;
+}
+
 .profile_intro {
     display: flex;
     flex-direction: column;
@@ -280,6 +287,10 @@
 
 .profile_intro * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+p strong {
+    font-weight: bold;
 }
 
 // .profile_intro p {
