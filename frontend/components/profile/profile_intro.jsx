@@ -10,6 +10,12 @@ class ProfileIntro extends React.Component {
     render() {
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
+        let genderEmpty = "";
+        let educationEmpty = "";
+        let hometownEmpty = "";
+        let workEmpty = "";
+        let relationshipEmpty = "";
+        let websiteEmpty = "";
         let bio, birthday, birthdayFormatted, gender, education,
         hometown, work, relationship, website, time;
         
@@ -46,7 +52,6 @@ class ProfileIntro extends React.Component {
             }
         }
 
-        // Should format birthday in English***
         if (user.birthdate) { birthday = user.birthdate.split('-') }
         else { birthday = null }
         // else { birthday = "Birthday not registered" }
@@ -60,46 +65,46 @@ class ProfileIntro extends React.Component {
 
         if (user.gender) {
             gender = ["Identify as ", <strong key={user.gender}>{user.gender}</strong>]
-        } else { gender = null }
+        } else { genderEmpty = "profile_info_empty" }
         // } else { gender = <em>Gender not registered</em> }
-
+        
         if (user.hometown) {
             hometown = ["Lives in ", <strong key={user.hometown}>{user.hometown}</strong>]
-        } else { hometown = null }
+        } else { hometownEmpty = "profile_info_empty" }
         // } else { hometown = <em>Hometown not registered</em> }
-
+        
         if (user.education) {
             education = ["Studied at ", <strong key={user.education}>{user.education}</strong>]
-        } else { education = null }
+        } else { educationEmpty = "profile_info_empty" }
         // } else { education = <em>Education not registered</em> }
-
+        
         if (user.work) {
             work = ["Works as ", <strong key={user.work}>{user.work}</strong>]
-        } else { work = null }
+        } else { workEmpty = "profile_info_empty" }
         // } else { work = <em>Work not registered</em> }
-
+        
         if (user.relationship) {
             relationship = ["Currently ", <strong key={user.relationship}>{user.relationship}</strong>]
-        } else { relationship = null }
+        } else { relationshipEmpty = "profile_info_empty" }
         // } else { relationship = <em>Relationship not registered</em> }
-
+        
         if (user.website) {
             website = ["Website: ", <strong key={user.website}>{user.website}</strong>]
-        } else { website = null }
+        } else { websiteEmpty = "profile_info_empty" }
         // } else { website = <em>Website not registered</em> }
 
         return (
             <div className="profile_intro">
                 <h2 className="profbodytitle">Intro</h2>
                 <p className="profile_bio">{bio}</p>
-                <p className="profile_info">Email me at <strong>{user.email}</strong></p>
-                <p className="profile_info">{birthdayFormatted}</p>
-                <p className="profile_info">{gender}</p>
-                <p className="profile_info">{hometown}</p>
-                <p className="profile_info">{education}</p>
-                <p className="profile_info">{work}</p>
-                <p className="profile_info">{relationship}</p>
-                <p className="profile_info">{website}</p>
+                <p className="">Email me at <strong>{user.email}</strong></p>
+                <p className="">{birthdayFormatted}</p>
+                <p className={genderEmpty}>{gender}</p>
+                <p className={hometownEmpty}>{hometown}</p>
+                <p className={educationEmpty}>{education}</p>
+                <p className={workEmpty}>{work}</p>
+                <p className={relationshipEmpty}>{relationship}</p>
+                <p className={websiteEmpty}>{website}</p>
             </div>
         )
     }
