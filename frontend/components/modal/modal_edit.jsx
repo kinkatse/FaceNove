@@ -54,13 +54,13 @@ class ModalEdit extends React.Component {
             firstName: this.props.currentUser.firstName,
             lastName: this.props.currentUser.lastName,
             birthdate: this.props.currentUser.birthdate,
-            gender: this.props.currentUser.gender,
-            bio: this.props.currentUser.bio,
-            hometown: this.props.currentUser.hometown,
-            education: this.props.currentUser.education,
-            work: this.props.currentUser.work,
-            relationship: this.props.currentUser.relationship,
-            website: this.props.currentUser.website
+            gender: this.props.currentUser.gender || "",
+            bio: this.props.currentUser.bio || "",
+            hometown: this.props.currentUser.hometown || "",
+            education: this.props.currentUser.education || "",
+            work: this.props.currentUser.work || "",
+            relationship: this.props.currentUser.relationship || "",
+            website: this.props.currentUser.website || ""
         })
         this.props.closeModal()
     }

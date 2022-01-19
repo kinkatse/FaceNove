@@ -4,7 +4,36 @@ class ProfileIntro extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            bio: props.currentUser.bio || "",
+            openBio: false
         }
+    }
+
+    openBioEdit() {
+        this.setState({ openBio: true })
+    }
+
+    update() {
+        return e => this.setState({ bio: e.currentTarget.value })
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        // This would return the entire user to be updated but since
+        // only the bio is changed here, we want to send back everything
+        // in the Object.assign but include the state's bio so that it
+        // updates the bio in that Object.assign
+        const userData = Object.assign({}, this.props.currentUser, this.state);
+        debugger
+        this.props.updateUser(userData, this.props.currentUser.id)
+        .then(this.resetState())
+    }
+
+    resetState() {
+        this.setState({
+            bio: props.currentUser.bio || "",
+            openBio: false
+        })
     }
 
     render() {
@@ -26,6 +55,9 @@ class ProfileIntro extends React.Component {
             bioEmpty = "profile_bio"
             bio = <div className="profile_bio_div">
                 {user.bio}
+                <div className="profilebiobutton" onClick={this.openBioEdit()}>
+                    Edit Bio
+                </div>
             </div>
         } else {
             bioEmpty = "profile_bio_empty"
@@ -105,6 +137,7 @@ class ProfileIntro extends React.Component {
         } else { websiteEmpty = "profile_info_empty" }
         // } else { website = <em>Website not registered</em> }
 
+        // Cancel edit button should just be onclick to resetState()***
         return (
             <div className="profile_intro">
                 <h2 className="profbodytitle">Intro</h2>
