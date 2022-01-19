@@ -32,9 +32,12 @@ class Api::UsersController < ApplicationController
     end
 
     def update
+        debugger
         @emailUser = User.find_by(id: params[:id])
+        debugger
         # .update_attribute is a rails built in method and takes in params to update all info passed in
         if @emailUser.update_attributes(email_user_params)
+            debugger
             render "api/users/show"
         else
             render json: @emailUser.errors.full_messages, status: 418

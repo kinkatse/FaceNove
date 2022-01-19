@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { showUser } from '../../actions/user_actions';
+import { showUser, updateUser } from '../../actions/user_actions';
 import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/modal_actions';
 
 import Profile from './profile';
@@ -20,6 +20,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         showUser: (userId => dispatch(showUser(userId))),
+        updateUser: (user, userId) => dispatch(updateUser(user, userId)),
         openEditModal: () => dispatch(openEditModal()),
         openProfPicModal: () => dispatch(openProfPicModal()),
         openCovPicModal: () => dispatch(openCovPicModal())

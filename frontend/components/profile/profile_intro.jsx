@@ -7,6 +7,8 @@ class ProfileIntro extends React.Component {
             bio: props.currentUser.bio || "",
             openBio: false
         }
+        // this.updateBio = this.updateBio.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     openBioEdit() {
@@ -14,7 +16,7 @@ class ProfileIntro extends React.Component {
         this.setState({ openBio: true })
     }
 
-    update() {
+    updateBio() {
         return e => this.setState({ bio: e.currentTarget.value })
     }
 
@@ -24,7 +26,7 @@ class ProfileIntro extends React.Component {
         // only the bio is changed here, we want to send back everything
         // in the Object.assign but include the state's bio so that it
         // updates the bio in that Object.assign
-        const userData = Object.assign({}, this.props.currentUser, this.state);
+        const userData = Object.assign({}, this.props.currentUser, { bio: this.state.bio });
         debugger
         this.props.updateUser(userData, this.props.currentUser.id)
         .then(this.resetState())
@@ -32,12 +34,21 @@ class ProfileIntro extends React.Component {
 
     resetState() {
         this.setState({
-            bio: props.currentUser.bio || "",
+            bio: this.props.currentUser.bio || "",
             openBio: false
         })
     }
 
     render() {
+        let colorSplash;
+        if (this.props.color === "blue") {
+            colorSplash = 'bluesplash';
+        } else if (this.props.color === "green") {
+            colorSplash = 'greensplash'
+        } else if (this.props.color === "red") {
+            colorSplash = 'redsplash'
+        }
+
         debugger
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
@@ -69,11 +80,29 @@ class ProfileIntro extends React.Component {
             )
         }
 
-        if (user.bio) {
+        if (user.bio && this.state.openBio) {
+            bio = (
+                <form onSubmit={this.handleSubmit}>
+                    <textarea
+                        className=""
+                        type="text"
+                        placeholder={`${this.state.bio}`}
+                        value={this.state.bio}
+                        onChange={this.updateBio()}
+                    ></textarea>
+                    <div className="editsubmit" onClick={() => this.resetState()}>
+                        Cancel
+                    </div>
+                    <div className="editsubmit">
+                        <input className={'editsubmitbutton splashbutton editpostposition ' + colorSplash} type="submit" value="Save"/>
+                    </div>
+                </form>
+            )
+        } else if (user.bio) {
             bioEmpty = "profile_bio"
             bio = (
                 <div className="profile_bio_div">
-                    {user.bio}
+                    {this.state.bio}
                     {editBio}
                 </div>
             )

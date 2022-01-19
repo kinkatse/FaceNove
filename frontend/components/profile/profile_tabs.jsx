@@ -72,6 +72,7 @@ class ProfileTabs extends React.Component {
               content: <ProfileBody
                     currentUser={this.props.currentUser}
                     user={this.props.user}
+                    updateUser={this.props.updateUser}
                 />
             }, 
 

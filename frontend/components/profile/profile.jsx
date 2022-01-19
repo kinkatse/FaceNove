@@ -44,6 +44,7 @@ class Profile extends React.Component {
                         currentUserId={this.props.currentUserId}
                         user={this.props.user}
                         userId={this.props.userId}
+                        updateUser={this.props.updateUser}
                         openEditModal={this.props.openEditModal}
                         openProfPicModal={this.props.openProfPicModal}
                         openCovPicModal={this.props.openCovPicModal}
