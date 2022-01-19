@@ -17,7 +17,7 @@ class ProfileIntro extends React.Component {
         // Conditionals to make the info be default if no value
         // Should make a button to make bio just like Facebook***
         if (user.bio) { bio = "Bio: " + user.bio }
-        else { bio = "No Bio" }
+        else { bio = <em>No Bio</em> }
 
         // Should format birthday in English***
         if (user.birthdate) { birthday = user.birthdate.split('-') }
@@ -30,27 +30,27 @@ class ProfileIntro extends React.Component {
 
         if (user.gender) {
             gender = ["Identify as ", <strong key={user.gender}>{user.gender}</strong>]
-        } else { gender = "Gender not registered" }
+        } else { gender = <em>Gender not registered</em> }
 
         if (user.hometown) {
             hometown = ["Lives in ", <strong key={user.hometown}>{user.hometown}</strong>]
-        } else { hometown = "Hometown not registered" }
+        } else { hometown = <em>Hometown not registered</em> }
 
         if (user.education) {
             education = ["Studied at ", <strong key={user.education}>{user.education}</strong>]
-        } else { education = "Education not registered" }
+        } else { education = <em>Education not registered</em> }
 
         if (user.work) {
             work = ["Works as ", <strong key={user.work}>{user.work}</strong>]
-        } else { work = "Work not registered" }
+        } else { work = <em>Work not registered</em> }
 
         if (user.relationship) {
             relationship = ["Currently ", <strong key={user.relationship}>{user.relationship}</strong>]
-        } else { relationship = "Relationship not registered" }
+        } else { relationship = <em>Relationship not registered</em> }
 
         if (user.website) {
             website = ["Website: ", <strong key={user.website}>{user.website}</strong>]
-        } else { website = "Website not registered" }
+        } else { website = <em>Website not registered</em> }
 
         return (
             <div className="profile_intro">

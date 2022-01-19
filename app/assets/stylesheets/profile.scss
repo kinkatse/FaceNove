@@ -273,6 +273,11 @@
     padding: 0;
 }
 
+.profile_left em {
+    margin: 0;
+    padding: 0;
+}
+
 .profile_intro {
     display: flex;
     flex-direction: column;
@@ -291,6 +296,10 @@
 
 p strong {
     font-weight: bold;
+}
+
+p em {
+    font-style: italic;
 }
 
 // .profile_intro p {
