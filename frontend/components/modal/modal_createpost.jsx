@@ -49,7 +49,7 @@ class ModalCreatePost extends React.Component {
                 <div className="postedit_modal_background" onClick={this.props.closeModal}></div>
                 <div className="postedit_modal_child">
                     <div className="postedittop">
-                        <h1 className="postedittitle">Create Post!</h1>
+                        <h1 className="createpostedittitle">Create Post!</h1>
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
                     <div className="posteditlinediv"></div>
