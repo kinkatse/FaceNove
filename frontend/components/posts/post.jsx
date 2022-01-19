@@ -43,19 +43,21 @@ class Post extends React.Component {
 
         return (
             <div className="">
-                <div className="profile_posts">
-                    <Link to={`/user/${this.props.currentUser.id}`}>
-                        <img
-                            className={'post_profile_pic ' + profpicColor}
-                            src={this.props.currentUser.profilePicUrl}
-                        />
-                    </Link>
+                <div className="profile_posts createpost">
+                    <div className="createpost_profpic">
+                        <Link to={`/user/${this.props.currentUser.id}`}>
+                            <img
+                                className={'createpost_profile_pic ' + profpicColor}
+                                src={this.props.currentUser.profilePicUrl}
+                            />
+                        </Link>
+                    </div>
                     <div
-                        className="createpost"
+                        className="createpost_modalopen"
                         onClick={this.props.openCreatePostModal}>
                             What's on your mind?
                     </div>
-                    <div className="signuplinediv"></div>
+                    <div className="createpostlinediv"></div>
                 </div>
                 <div className="profile_posts">
                     <h2 className="profbodytitle">Posts</h2>
