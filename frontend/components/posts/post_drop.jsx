@@ -8,10 +8,6 @@ class PostDrop extends React.Component {
         }
     }
 
-    deleteTemp() {
-        // debugger
-    }
-
     render() {
         return (
             <div className="dropopenabsolute">
@@ -21,7 +17,7 @@ class PostDrop extends React.Component {
                             <p className="dropopentext">Edit</p>
                     </div>
                     <div
-                        onClick={() => this.deleteTemp()}>
+                        onClick={() => this.props.destroyPost(this.props.postId)}>
                             <p className="dropopentext">Delete</p>
                     </div>
                 </div>

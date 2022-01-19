@@ -16,7 +16,6 @@ class ModalCreatePost extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const postData = Object.assign({}, this.state);
         this.props.createPost(postData, this.props.currentUser.id)
@@ -24,7 +23,6 @@ class ModalCreatePost extends React.Component {
     }
 
     resetState() {
-        debugger
         this.setState({
             post: ""
         })

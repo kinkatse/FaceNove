@@ -9,7 +9,7 @@ const postsReducer = (postState = {}, action) => {
             return Object.assign({}, postState, action.post);
         case REMOVE_POST:
             let newState = Object.assign({}, postState);
-            delete newState[action.post.id];
+            delete newState[action.postId];
             return newState;
         case REMOVE_ALL_POSTS:
             return {}

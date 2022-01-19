@@ -22,10 +22,18 @@ class Api::PostsController < ApplicationController
         # Originally was @user but it made it less dry since both
         # create and update needed to fetch the user so I made it
         # just do it in the show instead
-        if !params[:postData]
-            @user = User.find_by(id: params[:id])
-        else
+        # Then I made a conditional based on params[:postData] but
+        # that proved less dynamic depending which action and what
+        # information is being passed in so we needed to rely on
+        # something more concrete which a good way to tell is with
+        # params[:action]. Then make a conditional on how to find
+        # each user based on the data passed in by each action
+        if params[:action] == "update" || params[:action] == "create"
             @user = User.find_by(id: post_params[:user_id].to_i)
+        elsif params[:action] == "destroy"
+            @user = User.find_by(id: @post.user_id)
+        else
+            @user = User.find_by(id: params[:id])
         end
 
         @posts = @user.posts
