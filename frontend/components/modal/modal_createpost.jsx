@@ -79,7 +79,7 @@ class ModalCreatePost extends React.Component {
                         {/* <p className="testEdit">Picture Edit Here</p> */}
                     </div>
                     <div className="editsubmit">
-                        <input className={'editsubmitbutton splashbutton ' + colorSplash} type="submit" value="Make Post"/>
+                        <input className={'editsubmitbutton splashbutton createpostposition ' + colorSplash} type="submit" value="Make Post"/>
                     </div>
                 </div>
             {/* </form> */}

@@ -100,8 +100,13 @@ class UserPost extends React.Component {
                         {this.props.postBody}
                     </p>
                     <h2 className="post_placeholder">Picture?</h2>
-                    <h2 className="post_placeholder">Comment?</h2>
-                    <h2 className="post_placeholder">Like?</h2>
+                    <div className="postlinediv"></div>
+                    <div className="post_buttons">
+                        <h2 className="post_placeholder">Comment?</h2>
+                        <h2 className="post_placeholder">Like?</h2>
+                    </div>
+                    <div className="postlinediv"></div>
+                    <h2 className="post_placeholder">Write a comment</h2>
                 </div>
             </div>
         )

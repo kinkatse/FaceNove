@@ -58,6 +58,10 @@ class Post extends React.Component {
                             What's on your mind?
                     </div>
                     <div className="createpostlinediv"></div>
+                    <div className="post_buttons">
+                        <h2 className="post_placeholder">Photo?</h2>
+                        <h2 className="post_placeholder">Other</h2>
+                    </div>
                 </div>
                 <div className="profile_posts">
                     <h2 className="profbodytitle">Posts</h2>

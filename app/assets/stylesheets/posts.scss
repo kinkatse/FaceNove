@@ -103,15 +103,32 @@
     animation: 0.5s hoverover forwards;
 }
 
+.postlinediv {
+    position: relative;
+    left: 4px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 8px;
+    width: 583px;
+}
+
 .post_body {
     font-size: 20px;
     padding: 5px;
     padding-top: 0px;
+    margin-bottom: 8px;
+}
+
+.post_buttons {
+    display: flex;
+    flex-direction: row;
 }
 
 .post_placeholder {
-    font-size: 12px;
-    padding: 5px;
+    font-size: 15px;
+    padding: 4px;
+    margin: 2px;
+    opacity: 50%;
 }
 
 .dropopenabsolute {
