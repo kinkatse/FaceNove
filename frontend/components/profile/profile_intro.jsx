@@ -89,11 +89,11 @@ class ProfileIntro extends React.Component {
                         value={this.state.bio}
                         onChange={this.updateBio()}
                     ></textarea>
-                    <div className="editsubmit" onClick={() => this.resetState()}>
-                        Cancel
-                    </div>
-                    <div className="editsubmit">
-                        <input className={'editsubmitbutton splashbutton editpostposition ' + colorSplash} type="submit" value="Save"/>
+                    <div className="editbio_whole">
+                        <div className="prof_openbiobutton edit_bio_cancel" onClick={() => this.resetState()}>
+                            Cancel
+                        </div>
+                        <input className={'prof_openbiobutton edit_bio_submit ' + colorSplash} type="submit" value="Save"/>
                     </div>
                 </form>
             )

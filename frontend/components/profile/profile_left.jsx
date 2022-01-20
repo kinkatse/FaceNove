@@ -10,6 +10,7 @@ const ProfileLeft = (props) => {
                 currentUser={props.currentUser}
                 user={props.user}
                 updateUser={props.updateUser}
+                color={props.color}
             />
             <ProfilePhotos />
             <ProfileFriends />

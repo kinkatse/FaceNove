@@ -345,6 +345,43 @@ p em {
     animation: 0.3s hoverover forwards;
 }
 
+.editbio_whole {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.prof_openbiobutton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    // color: rgb(55, 55, 55);
+    // background-color: rgba(229, 231, 235, 0.9);
+    animation: 0.3s hoveroff forwards;
+}
+
+.prof_openbiobutton:hover {
+    cursor: pointer;
+    animation: 0.3s hoverover forwards;
+}
+
+.edit_bio_cancel {
+    width: 100px;
+    color: rgb(55, 55, 55);
+    background-color: rgba(229, 231, 235, 0.9);
+}
+
+.edit_bio_submit {
+    width: 115px;
+    color: white;
+}
+
 .editbiomargin {
     margin-top: 12px;
 }

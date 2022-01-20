@@ -9,6 +9,7 @@ const ProfileBody = (props) => {
                 currentUser={props.currentUser}
                 user={props.user}
                 updateUser={props.updateUser}
+                color={props.color}
             />
             <ProfileRight />
         </div>
