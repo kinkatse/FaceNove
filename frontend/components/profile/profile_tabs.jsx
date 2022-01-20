@@ -73,6 +73,7 @@ class ProfileTabs extends React.Component {
                     currentUser={this.props.currentUser}
                     user={this.props.user}
                     updateUser={this.props.updateUser}
+                    openEditModal={this.props.openEditModal}
                     color={this.props.color}
                 />
             }, 

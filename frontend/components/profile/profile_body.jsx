@@ -9,6 +9,7 @@ const ProfileBody = (props) => {
                 currentUser={props.currentUser}
                 user={props.user}
                 updateUser={props.updateUser}
+                openEditModal={props.openEditModal}
                 color={props.color}
             />
             <ProfileRight />

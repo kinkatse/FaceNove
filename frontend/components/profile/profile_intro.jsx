@@ -32,6 +32,27 @@ class ProfileIntro extends React.Component {
         })
     }
 
+    rendersEdit() {
+        let editcolor;
+        if (this.props.color === "blue") {
+            editcolor = window.edit_blue_url
+        } else if (this.props.color === "green") {
+            editcolor = window.edit_green_url
+        } else if (this.props.color === "red") {
+            editcolor = window.edit_red_url
+        }
+
+        if (this.props.currentUser.id === this.props.user.id) {
+            return (
+                <div
+                    className="editprofbutton"
+                    onClick={this.props.openEditModal}>
+                        Edit Details
+                </div>
+            )
+        }
+    }
+
     resetState() {
         this.setState({
             bio: this.props.currentUser.bio || "",
@@ -101,7 +122,7 @@ class ProfileIntro extends React.Component {
             bioEmpty = "profile_bio"
             bio = (
                 <div className="profile_bio_div">
-                    {this.state.bio}
+                    {user.bio}
                     {editBio}
                 </div>
             )
@@ -192,6 +213,7 @@ class ProfileIntro extends React.Component {
                 <p className={workEmpty}>{work}</p>
                 <p className={relationshipEmpty}>{relationship}</p>
                 <p className={websiteEmpty}>{website}</p>
+                <div className="edit_prof_intro">{this.rendersEdit()}</div>
             </div>
         )
     }

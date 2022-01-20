@@ -341,6 +341,7 @@ p em {
 }
 
 .profilebiobutton:hover {
+    opacity: 80%;
     cursor: pointer;
     animation: 0.3s hoverover forwards;
 }
@@ -400,6 +401,7 @@ p em {
 }
 
 .prof_openbiobutton:hover {
+    opacity: 70%;
     cursor: pointer;
     animation: 0.3s hoverover forwards;
 }
@@ -422,6 +424,36 @@ p em {
 .profile_info_empty {
     margin: 0;
     padding: 0;
+}
+
+.edit_prof_intro {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.editprofbutton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 12px;
+    width: 367px;
+    border: none;
+    border-radius: 6px;
+    color: rgb(55, 55, 55);
+    background-color: rgba(229, 231, 235, 0.9);
+    animation: 0.3s hoveroff forwards;
+}
+
+.editprofbutton:hover {
+    opacity: 80%;
+    cursor: pointer;
+    animation: 0.3s hoverover forwards;
 }
 
 .profile_photos {
