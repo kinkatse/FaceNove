@@ -9,6 +9,8 @@ const ProfileBody = (props) => {
                 currentUser={props.currentUser}
                 user={props.user}
                 updateUser={props.updateUser}
+                showPost={props.showPost}
+                    clearPosts={props.clearPosts}
                 openEditModal={props.openEditModal}
                 color={props.color}
             />

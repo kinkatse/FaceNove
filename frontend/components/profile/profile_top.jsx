@@ -117,6 +117,8 @@ class ProfileTop extends React.Component {
                     user={this.props.user}
                     userId={this.props.userId}
                     updateUser={this.props.updateUser}
+                    showPost={this.props.showPost}
+                    clearPosts={this.props.clearPosts}
                     openEditModal={this.props.openEditModal}
                     color={this.props.color}
                 />

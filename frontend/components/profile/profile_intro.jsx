@@ -12,7 +12,12 @@ class ProfileIntro extends React.Component {
     }
 
     openBioEdit() {
-        this.setState({ openBio: true })
+        // Need to set state for bio again since the state.bio
+        // will still be the old one until it is updated.
+        this.setState({
+            bio: this.props.currentUser.bio || "",
+            openBio: true
+        })
     }
 
     updateBio() {
@@ -31,17 +36,15 @@ class ProfileIntro extends React.Component {
             openBio: false
         })
     }
-
+    
+    resetState() {
+        this.setState({
+            bio: this.props.currentUser.bio || "",
+            openBio: false
+        })
+    }
+    
     rendersEdit() {
-        let editcolor;
-        if (this.props.color === "blue") {
-            editcolor = window.edit_blue_url
-        } else if (this.props.color === "green") {
-            editcolor = window.edit_green_url
-        } else if (this.props.color === "red") {
-            editcolor = window.edit_red_url
-        }
-
         if (this.props.currentUser.id === this.props.user.id) {
             return (
                 <div
@@ -51,13 +54,6 @@ class ProfileIntro extends React.Component {
                 </div>
             )
         }
-    }
-
-    resetState() {
-        this.setState({
-            bio: this.props.currentUser.bio || "",
-            openBio: false
-        })
     }
 
     render() {
@@ -89,7 +85,7 @@ class ProfileIntro extends React.Component {
         let editBio;
         if (user.id === this.props.currentUser.id) {
             addBio = (
-                <div className="profilebiobutton">
+                <div className="profilebiobutton" onClick={() => this.openBioEdit()}>
                     Add Bio
                 </div>
             )
@@ -100,7 +96,7 @@ class ProfileIntro extends React.Component {
             )
         }
 
-        if (user.bio && this.state.openBio) {
+        if (this.state.openBio) {
             bio = (
                 <form className="openedit_form" onSubmit={this.handleSubmit}>
                     <textarea
