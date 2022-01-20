@@ -67,7 +67,7 @@ class Post extends React.Component {
         }
 
         let postArr = Object.values(this.props.posts).reverse()
-
+        
         return (
             <div>
                 {this.rendersCreatePost(profpicColor)}
@@ -83,6 +83,7 @@ class Post extends React.Component {
                             firstName={post.firstName}
                             lastName={post.lastName}
                             created_at={post.created_at}
+                            updated_at={post.updated_at}
                             updatePost={this.props.updatePost}
                             destroyPost={this.props.destroyPost}
                             openEditPostModal={this.props.openEditPostModal}

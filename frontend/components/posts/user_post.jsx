@@ -83,6 +83,11 @@ class UserPost extends React.Component {
             return null;
         }
 
+        debugger
+        let time_created = new Date(this.props.created_at)
+        let time_formatted = time_created.toDateString() + " " + time_created.toLocaleTimeString()
+        debugger
+
         return (
             <div className="post_whole">
                 <div className="post_top">
@@ -93,11 +98,15 @@ class UserPost extends React.Component {
                                 src={this.props.profilePicUrl}
                             />
                         </Link>
-                        <Link to={`/user/${this.props.userId}`}>
-                            <h2 className="post_name">
-                                {this.props.firstName} {this.props.lastName}
-                            </h2>
-                        </Link>
+                        <div className="name_and_time">
+                            <Link to={`/user/${this.props.userId}`}>
+                                <h2 className="post_name">
+                                    {this.props.firstName} {this.props.lastName}
+                                </h2>
+                            </Link>
+                            {/* <div className="post_timestamp">{this.props.updated_at}</div> */}
+                            <div className="post_timestamp">{time_formatted}</div>
+                        </div>
                     </div>
                     {this.rendersPostTopRight()}
                 </div>
@@ -107,7 +116,7 @@ class UserPost extends React.Component {
                     </p>
                 </div>
                 <div className="post_bottom">
-                    <h2 className="post_placeholder">Picture?</h2>
+                    {/* <h2 className="post_placeholder">Picture?</h2> */}
                     <div className="postlinediv"></div>
                     <div className="post_buttons">
                         <h2 className="post_placeholder">Comment?</h2>
