@@ -353,7 +353,6 @@ p em {
 .openedit_form {
     display: flex;
     flex-direction: column;
-    // align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -366,6 +365,7 @@ p em {
     margin-bottom: 10px;
     min-height: 70px;
     width: 380px;
+    resize: none;
     border-radius: 5px;
     border: 1px solid rgba(134, 134, 134, 0.4);
     background-color: rgba(229, 231, 235, 0.9);
