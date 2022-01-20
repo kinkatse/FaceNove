@@ -4,18 +4,15 @@ import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
     componentDidMount() {
-        // this.props.clearPosts()
+        this.props.clearPosts()
         this.props.showPost(this.props.userId)
     }
 
-    // componentDidUpdate(oldProps) {
-    //     if (this.props.userId !== oldProps.userId) {
-    //         this.props.showUser(this.props.userId);
-    //     }
-    // }
-
-    componentWillUnmount() {
-        this.props.clearPosts()
+    componentDidUpdate(oldProps) {
+        if (this.props.userId !== oldProps.userId) {
+            this.props.clearPosts()
+            this.props.showPost(this.props.userId);
+        }
     }
 
     constructor(props) {
