@@ -345,24 +345,57 @@ p em {
     animation: 0.3s hoverover forwards;
 }
 
+.openedit_whole {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.openedit_form {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.openedit_textarea {
+    font-size: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 10px;
+    min-height: 70px;
+    width: 380px;
+    border-radius: 5px;
+    border: 1px solid rgba(134, 134, 134, 0.4);
+    background-color: rgba(229, 231, 235, 0.9);
+}
+
+.openedit_textarea:focus {
+    outline: none;
+    border: 1px solid rgba(70, 70, 70, 0.8);
+    background-color: rgba(229, 231, 235, 0.4);
+}
+
 .editbio_whole {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
 }
 
 .prof_openbiobutton {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 12px;
+    margin-left: 8px;
+    padding: 10px;
     border: none;
     border-radius: 6px;
-    // color: rgb(55, 55, 55);
-    // background-color: rgba(229, 231, 235, 0.9);
     animation: 0.3s hoveroff forwards;
 }
 
@@ -372,13 +405,13 @@ p em {
 }
 
 .edit_bio_cancel {
-    width: 100px;
+    width: 80px;
     color: rgb(55, 55, 55);
     background-color: rgba(229, 231, 235, 0.9);
 }
 
 .edit_bio_submit {
-    width: 115px;
+    width: 95px;
     color: white;
 }
 

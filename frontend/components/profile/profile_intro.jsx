@@ -51,7 +51,7 @@ class ProfileIntro extends React.Component {
 
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
-        let bioEmpty = "";
+        let bioEmpty = "openedit_whole";
         let genderEmpty = "";
         let educationEmpty = "";
         let hometownEmpty = "";
@@ -81,9 +81,9 @@ class ProfileIntro extends React.Component {
 
         if (user.bio && this.state.openBio) {
             bio = (
-                <form onSubmit={this.handleSubmit}>
+                <form className="openedit_form" onSubmit={this.handleSubmit}>
                     <textarea
-                        className=""
+                        className="openedit_textarea"
                         type="text"
                         placeholder={`${this.state.bio}`}
                         value={this.state.bio}
