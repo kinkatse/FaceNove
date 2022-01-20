@@ -365,8 +365,9 @@ p em {
     margin: 0;
     margin-bottom: 10px;
     min-height: 70px;
+    max-height: 150px;
     width: 380px;
-    resize: none;
+    resize: vertical;
     border-radius: 5px;
     border: 1px solid rgba(134, 134, 134, 0.4);
     background-color: rgba(229, 231, 235, 0.9);
