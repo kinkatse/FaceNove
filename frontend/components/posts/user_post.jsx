@@ -85,7 +85,44 @@ class UserPost extends React.Component {
 
         debugger
         let time_created = new Date(this.props.created_at)
-        let time_formatted = time_created.toDateString() + " " + time_created.toLocaleTimeString()
+        // Making arrays of the individual date info to adjust them for formatting
+        let date = time_created.toDateString().split(" ")
+        let time = time_created.toLocaleTimeString().split(" ")
+
+        switch(date[0]) {
+            case 'Mon': date[0] = 'Monday,'
+            case 'Tue': date[0] = 'Tuesday,'
+            case 'Wed': date[0] = 'Wednesday,'
+            case 'Thu': date[0] = 'Thursday,'
+            case 'Fri': date[0] = 'Friday,'
+            case 'Sat': date[0] = 'Saturday,'
+            case 'Sun': date[0] = 'Sunday,'
+            default: date[0] = 'Day'
+        }
+        switch(date[1]) {
+            case 'Jan': date[1] = 'January'
+            case 'Feb': date[1] = 'February'
+            case 'Mar': date[1] = 'March'
+            case 'Apr': date[1] = 'April'
+            case 'May': date[1] = 'May'
+            case 'Jun': date[1] = 'June'
+            case 'Jul': date[1] = 'July'
+            case 'Aug': date[1] = 'August'
+            case 'Sep': date[1] = 'September'
+            case 'Oct': date[1] = 'October'
+            case 'Nov': date[1] = 'November'
+            case 'Dec': date[1] = 'December'
+            default: date[1] = 'Month'
+        }
+        date[3] + ','
+
+        debugger
+
+        // time.s
+
+
+        let date_formatted = date.join(" ")
+
         debugger
 
         return (
