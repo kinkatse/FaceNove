@@ -83,46 +83,44 @@ class UserPost extends React.Component {
             return null;
         }
 
-        debugger
         let time_created = new Date(this.props.created_at)
         // Making arrays of the individual date info to adjust them for formatting
         let date = time_created.toDateString().split(" ")
         let time = time_created.toLocaleTimeString().split(" ")
 
+        // Making date of week full date with comma
         switch(date[0]) {
-            case 'Mon': date[0] = 'Monday,'
-            case 'Tue': date[0] = 'Tuesday,'
-            case 'Wed': date[0] = 'Wednesday,'
-            case 'Thu': date[0] = 'Thursday,'
-            case 'Fri': date[0] = 'Friday,'
-            case 'Sat': date[0] = 'Saturday,'
-            case 'Sun': date[0] = 'Sunday,'
-            default: date[0] = 'Day'
+            case 'Mon': date[0] = 'Monday,'; break
+            case 'Tue': date[0] = 'Tuesday,'; break
+            case 'Wed': date[0] = 'Wednesday,'; break
+            case 'Thu': date[0] = 'Thursday,'; break
+            case 'Fri': date[0] = 'Friday,'; break
+            case 'Sat': date[0] = 'Saturday,'; break
+            case 'Sun': date[0] = 'Sunday,'; break
+            default: date[0] = 'Day'; break
         }
+        // Making month the full month
         switch(date[1]) {
-            case 'Jan': date[1] = 'January'
-            case 'Feb': date[1] = 'February'
-            case 'Mar': date[1] = 'March'
-            case 'Apr': date[1] = 'April'
-            case 'May': date[1] = 'May'
-            case 'Jun': date[1] = 'June'
-            case 'Jul': date[1] = 'July'
-            case 'Aug': date[1] = 'August'
-            case 'Sep': date[1] = 'September'
-            case 'Oct': date[1] = 'October'
-            case 'Nov': date[1] = 'November'
-            case 'Dec': date[1] = 'December'
-            default: date[1] = 'Month'
+            case 'Jan': date[1] = 'January'; break
+            case 'Feb': date[1] = 'February'; break
+            case 'Mar': date[1] = 'March'; break
+            case 'Apr': date[1] = 'April'; break
+            case 'May': date[1] = 'May'; break
+            case 'Jun': date[1] = 'June'; break
+            case 'Jul': date[1] = 'July'; break
+            case 'Aug': date[1] = 'August'; break
+            case 'Sep': date[1] = 'September'; break
+            case 'Oct': date[1] = 'October'; break
+            case 'Nov': date[1] = 'November'; break
+            case 'Dec': date[1] = 'December'; break
+            default: date[1] = 'Month'; break
         }
-        date[3] + ','
-
-        debugger
-
-        // time.s
-
-
-        let date_formatted = date.join(" ")
-
+        // Adding comma
+        date[2] += ','
+        // Removing seconds
+        time[0] = time[0].split(":").slice(0, 2).join(":")
+        // Joining all of the date and time info into one string
+        let time_formatted = date.join(" ") + " at " + time.join(" ")
         debugger
 
         return (
