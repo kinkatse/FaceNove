@@ -125,6 +125,7 @@ class UserPost extends React.Component {
         }
 
         let datetime_created = new Date(this.props.created_at)
+        // let created_simple = this.rendersTime(datetime_created, "created_simple")
         let created = this.rendersTime(datetime_created, "created_hover")
         debugger
         let datetime_updated = new Date(this.props.created_at)
@@ -133,6 +134,28 @@ class UserPost extends React.Component {
             updated = this.rendersTime(datetime_updated, "edited_hover")
         }
         debugger
+
+        let created_milli = Date.parse(datetime_created)
+        let now_milli = Date.parse(Date.now())
+        // Grabbing time now and time posted and subtracting their time in
+        // in milliseconds (with the Math.abs to make sure no negative)
+        let time_diff = Math.abs(now_milli - created_milli)
+        // Math.ceil is just to round number, we divide the time in milliseconds
+        // by milliseconds per second, seconds per minute and minutes per hour
+        // to get time in hours. Did that for seconds and minutes too
+        let time_diff_seconds = Math.ceil(time_diff / (1000))
+        let time_diff_minutes = Math.ceil(time_diff / (1000 * 60))
+        let time_diff_hours = Math.ceil(time_diff / (1000 * 60 * 60))
+        let time_posted;
+        if (time_diff_seconds < 60) {
+            time_posted = (time_diff_seconds.toString() + "s")
+        } else if (time_diff_minutes < 60) {
+            time_posted = (time_diff_minutes.toString() + "m")
+        } else if (time_diff_hours < 24) {
+            time_posted = (time_diff_hours.toString() + "h")
+        } else {
+            time_posted
+        }
 
         // // Making arrays of the individual date info to adjust them for formatting
         // let date = time_created.toDateString().split(" ")
