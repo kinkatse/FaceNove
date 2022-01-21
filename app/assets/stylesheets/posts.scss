@@ -89,9 +89,9 @@
 
 .post_name {
     position: relative;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
-    padding-top: 8px;
+    padding-top: 4px;
     padding-left: 15px;
     color: rgba(34, 34, 34, 0.85);
     z-index: 2;
@@ -103,25 +103,17 @@
     animation: 0.5s hoverover forwards;
 }
 
-.name_and_time {
-    margin: 5px;
-}
+// .name_and_time {
+//     margin: 5px;
+// }
 
 .post_timestamp {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     margin: 5px;
+    margin-left: 15px;
+    color: rgba(80, 80, 80, 1);
 }
-
-// .post_timestamp_hover {
-//     visibility: hidden;
-// }
-
-// .post_timestamp_hover:hover {
-//     // visibility: visible;
-//     font-size: 12px;
-//     display: flex;
-//     flex-direction: column;
-// }
 
 .post_timestamp_hover {
     font-size: 12px;
@@ -135,8 +127,21 @@
     position: absolute;
 }
 
-.post_timestamp_hover * {
-    padding: 5px;
+.post_timestamp_hover div {
+    position: relative;
+    top: 5px;
+    left: -130px;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    background: rgba(50, 50, 50, 0.8);
+    // animation: 0.5s hoverover forwards;
+}
+
+.created_and_updated {
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .postlinediv {

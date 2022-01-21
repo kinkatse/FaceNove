@@ -147,6 +147,18 @@ class UserPost extends React.Component {
             updated = this.rendersTime(datetime_updated, "edited_hover")
         }
 
+        // This is to prevent showing the null updated if no updated
+        // which will have a padding and ruin the css of the hover
+        let timestamp_hover;
+        if (updated) {
+            timestamp_hover = ( <div>
+                    <p className="created_and_updated">{created}</p>
+                    <p className="created_and_updated">{updated}</p>
+                </div> )
+        } else {
+            timestamp_hover = <div>{created}</div>
+        }
+
         // Formating time for when a post is under 1 day old
         let created_milli = Date.parse(datetime_created)
         let now_milli = Date.now()
@@ -192,8 +204,7 @@ class UserPost extends React.Component {
                             <div className="post_timestamp">
                                 {time_posted}
                                 <div className="post_timestamp_hover">
-                                    <p>{created}</p>
-                                    <p>{updated}</p>
+                                    {timestamp_hover}
                                 </div>
                             </div>
                         </div>
