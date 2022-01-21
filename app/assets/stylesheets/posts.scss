@@ -112,10 +112,27 @@
     margin: 5px;
 }
 
+// .post_timestamp_hover {
+//     visibility: hidden;
+// }
+
+// .post_timestamp_hover:hover {
+//     // visibility: visible;
+//     font-size: 12px;
+//     display: flex;
+//     flex-direction: column;
+// }
+
 .post_timestamp_hover {
     font-size: 12px;
-    display: flex;
-    flex-direction: column;
+    display: none;
+}
+
+.post_timestamp:hover .post_timestamp_hover {
+    // display: flex;
+    // flex-direction: column;
+    display: block;
+    position: absolute;
 }
 
 .post_timestamp_hover * {

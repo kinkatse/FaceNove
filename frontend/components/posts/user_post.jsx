@@ -191,10 +191,10 @@ class UserPost extends React.Component {
                             </Link>
                             <div className="post_timestamp">
                                 {time_posted}
-                            </div>
-                            <div className="post_timestamp_hover">
-                                <p>{created}</p>
-                                <p>{updated}</p>
+                                <div className="post_timestamp_hover">
+                                    <p>{created}</p>
+                                    <p>{updated}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
