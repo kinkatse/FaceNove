@@ -95,12 +95,12 @@
     padding-left: 15px;
     color: rgba(34, 34, 34, 0.85);
     z-index: 2;
-    animation: 0.5s hoveroff forwards;
+    animation: 0.5s hoveroffsml forwards;
 }
 
 .post_name:hover {
     color: rgba(100, 100, 100, 0.85);
-    animation: 0.5s hoverover forwards;
+    animation: 0.5s hoveroversml forwards;
 }
 
 // .name_and_time {

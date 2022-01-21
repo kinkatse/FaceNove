@@ -32,13 +32,23 @@
     font-weight: bold;
  }
 
- @keyframes hoverover {
+  @keyframes hoveroversml {
     from { transform: scale(1); }
     to { transform: scale(1.02); }
   }
+
+  @keyframes hoverover {
+    from { transform: scale(1); }
+    to { transform: scale(1.04); }
+  }
   
- @keyframes hoveroff {
+  @keyframes hoveroffsml {
     from { transform: scale(1.02); }
+    to { transform: scale(1); }
+  }
+
+  @keyframes hoveroff {
+    from { transform: scale(1.04); }
     to { transform: scale(1); }
   }
   

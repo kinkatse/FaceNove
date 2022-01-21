@@ -34,12 +34,12 @@
 .front-logo {
     font-family: Arial, Helvetica, sans-serif;
     font: bold 60px Helvetica;
-    animation: 0.3s hoveroff forwards;
+    animation: 0.3s hoveroffsml forwards;
 }
 
 .front-logo:hover {
     cursor: pointer;
-    animation: 0.3s hoverover forwards;
+    animation: 0.3s hoveroversml forwards;
 }
 
 .under-logo-message {
@@ -157,11 +157,11 @@
     color: white;
     background-color: #558cd8;
     cursor: pointer;
-    animation: 0.3s hoveroff forwards;
+    animation: 0.3s hoveroffsml forwards;
 }
 
 .splashbutton:hover {
-    animation: 0.3s hoverover forwards;
+    animation: 0.3s hoveroversml forwards;
 }
 
 .bluesplash {
