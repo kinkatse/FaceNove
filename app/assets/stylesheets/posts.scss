@@ -103,6 +103,25 @@
     animation: 0.5s hoverover forwards;
 }
 
+.name_and_time {
+    margin: 5px;
+}
+
+.post_timestamp {
+    font-size: 12px;
+    margin: 5px;
+}
+
+.post_timestamp_hover {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post_timestamp_hover * {
+    padding: 5px;
+}
+
 .postlinediv {
     position: relative;
     left: 4px;

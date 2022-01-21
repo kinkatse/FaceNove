@@ -143,7 +143,11 @@ class UserPost extends React.Component {
         let datetime_updated = new Date(this.props.updated_at)
         let updated;
         debugger
-        if (datetime_created !== datetime_updated) {
+        // This is for when the post has never updated so we shouldn't
+        // give updated any info if the post created and post updated
+        // are the same. We need the conditional to have Date.parse since
+        // comparing strings will always be false so we numbers work
+        if (Date.parse(datetime_created) !== Date.parse(datetime_updated)) {
             debugger
             updated = this.rendersTime(datetime_updated, "edited_hover")
         }
@@ -233,8 +237,8 @@ class UserPost extends React.Component {
                                 {time_posted}
                             </div>
                             <div className="post_timestamp_hover">
-                                {created}
-                                {updated}
+                                <p>{created}</p>
+                                <p>{updated}</p>
                             </div>
                         </div>
                     </div>
