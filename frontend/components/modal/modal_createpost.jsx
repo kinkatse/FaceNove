@@ -5,15 +5,37 @@ class ModalCreatePost extends React.Component {
         super(props)
         this.state = {
             post: "",
-            user_id: this.props.currentUser.id
+            user_id: this.props.currentUser.id,
+            photoUrl: null,
+            photoFile: null
         }
         this.updatePostBody = this.updatePostBody.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleProfSubmit = this.handleProfSubmit.bind(this);
     }
 
     updatePostBody() {
         return e => this.setState({ post: e.currentTarget.value })
     }
+
+    handleFile(e) {
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        }
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
+    }
+
+    // handleProfSubmit(e) {
+    //     e.preventDefault();
+    //     const formData = new FormData();
+    //     formData.append('user[profilePicUrl]', this.state.photoFile);
+    //     this.props.updateProfPic(formData, this.props.currentUser.id)
+    //     .then(this.resetState())
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -24,9 +46,30 @@ class ModalCreatePost extends React.Component {
 
     resetState() {
         this.setState({
-            post: ""
+            post: "",
+            photoUrl: null,
+            photoFile: null
         })
         this.props.closeModal()
+    }
+
+    rendersPreview() {
+        let preview;
+        if (this.state.photoUrl) {
+            preview =
+                ( <img
+                    className="oldprofpic"
+                    src={this.state.photoUrl}
+                /> )
+        } else {
+            preview =
+                ( <img
+                    className="oldprofpic"
+                    src={this.props.currentUser.profilePicUrl}
+                /> )
+        }
+
+        return ( <div>{preview}</div> )
     }
 
     render() {
@@ -76,7 +119,14 @@ class ModalCreatePost extends React.Component {
                         </div>
                     </div>
                     <div>
-                        {/* <p className="testEdit">Picture Edit Here</p> */}
+                        <div className="profpic_components">
+                            <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                                <input type="file" onChange={this.handleFile}/>
+                                Add a Picture?
+                            </label>
+                            {this.rendersPreview()}
+                            <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Save Picture"/>
+                        </div>
                     </div>
                     <div className="editsubmit">
                         <input className={'editsubmitbutton splashbutton createpostposition ' + colorSplash} type="submit" value="Make Post"/>

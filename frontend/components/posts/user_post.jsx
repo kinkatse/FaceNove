@@ -128,6 +128,38 @@ class UserPost extends React.Component {
         return date.join(" ") + " at " + time.join(" ")
     }
 
+    rendersPicture() {
+        let eventlistener;
+        let profpicbutton;
+        let picbuttonactive;
+        if (this.props.currentUserId === parseInt(this.props.userId)) {
+            eventlistener = this.props.openProfPicModal;
+            profpicbutton = (
+                <img
+                    className="profpicbutton"
+                    onClick={eventlistener}
+                    src={profpicImageButton}
+                />
+            )
+            picbuttonactive = "profilepicwholeadjustment";
+        } else {
+            eventlistener = null;
+            profpicbutton = null;
+            picbuttonactive = "profilepicwhole";
+        }
+
+        return (
+            <div className={picbuttonactive}>
+                <img
+                    className={'profilepic ' + profpicColor}
+                    onClick={eventlistener}
+                    src={this.props.user.profilePicUrl}
+                />
+                {profpicbutton}
+            </div>
+        )
+    }
+
     render() {
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page

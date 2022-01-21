@@ -40,26 +40,20 @@ class ModalProfPic extends React.Component {
     rendersPreview() {
         let preview;
         if (this.state.photoUrl) {
-            preview = (
-                <img
+            preview =
+                ( <img
                     className="oldprofpic"
                     src={this.state.photoUrl}
-                />
-            )
+                /> )
         } else {
-            preview = (
-                <img
+            preview =
+                ( <img
                     className="oldprofpic"
                     src={this.props.currentUser.profilePicUrl}
-                />
-            )
+                /> )
         }
 
-        return (
-            <div>
-                {preview}
-            </div>
-        )
+        return ( <div>{preview}</div> )
     }
 
     render() {
