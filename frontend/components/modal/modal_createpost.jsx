@@ -10,8 +10,8 @@ class ModalCreatePost extends React.Component {
             photoFile: null
         }
         this.updatePostBody = this.updatePostBody.bind(this);
+        this.handleFile = this.handleFile.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.handleProfSubmit = this.handleProfSubmit.bind(this);
     }
 
     updatePostBody() {
@@ -24,7 +24,9 @@ class ModalCreatePost extends React.Component {
         fileReader.onloadend = () => {
             this.setState({photoFile: file, photoUrl: fileReader.result})
         }
+        debugger
         if (file) {
+            debugger
             fileReader.readAsDataURL(file);
         }
     }
@@ -39,8 +41,10 @@ class ModalCreatePost extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const formData = new FormData();
+        formData.append('post[postPhotoUrl]', this.state.photoFile);
         const postData = Object.assign({}, this.state);
-        this.props.createPost(postData, this.props.currentUser.id)
+        this.props.createPost(postData, formData)
         .then(this.resetState())
     }
 
@@ -63,16 +67,18 @@ class ModalCreatePost extends React.Component {
                 /> )
         } else {
             preview =
-                ( <img
-                    className="oldprofpic"
-                    src={this.props.currentUser.profilePicUrl}
-                /> )
+                // ( <img
+                //     className="oldprofpic"
+                    // src={this.props.currentUser.profilePicUrl}
+                // /> )
+                ( <div>hi no preview</div> )
         }
 
         return ( <div>{preview}</div> )
     }
 
     render() {
+        debugger
         let colorSplash;
         let profpicColor;
         if (this.props.color === "blue") {
