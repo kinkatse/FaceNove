@@ -112,8 +112,21 @@ class UserPost extends React.Component {
         date[2] += ','
         // Removing seconds
         time[0] = time[0].split(":").slice(0, 2).join(":")
+
+        // debugger
+        // This is for the simple show of time posted
+        if (type === "created_simple") {
+            date.shift()
+            return date.join(" ")
+        }
+
+        debugger
         // Joining all of the date and time info into one string
-        if (type === "edited_hover") { date.unshift("Edited on") } 
+        if (type === "edited_hover") {
+            date.unshift("Edited on")
+        } else {
+            date.unshift("Created on")
+        }
         return date.join(" ") + " at " + time.join(" ")
     }
 
@@ -125,16 +138,18 @@ class UserPost extends React.Component {
         }
 
         let datetime_created = new Date(this.props.created_at)
-        // let created_simple = this.rendersTime(datetime_created, "created_simple")
         let created = this.rendersTime(datetime_created, "created_hover")
         debugger
-        let datetime_updated = new Date(this.props.created_at)
+        let datetime_updated = new Date(this.props.updated_at)
         let updated;
-        if (datetime_created === datetime_updated) {
+        debugger
+        if (datetime_created !== datetime_updated) {
+            debugger
             updated = this.rendersTime(datetime_updated, "edited_hover")
         }
         debugger
 
+        // Formating time for when a post is under 1 day old
         let created_milli = Date.parse(datetime_created)
         let now_milli = Date.parse(Date.now())
         // Grabbing time now and time posted and subtracting their time in
@@ -154,8 +169,10 @@ class UserPost extends React.Component {
         } else if (time_diff_hours < 24) {
             time_posted = (time_diff_hours.toString() + "h")
         } else {
-            time_posted
+            time_posted = this.rendersTime(datetime_created, "created_simple")
         }
+
+        debugger
 
         // // Making arrays of the individual date info to adjust them for formatting
         // let date = time_created.toDateString().split(" ")
@@ -212,7 +229,13 @@ class UserPost extends React.Component {
                                 </h2>
                             </Link>
                             {/* <div className="post_timestamp">{this.props.updated_at}</div> */}
-                            <div className="post_timestamp">{time_formatted}</div>
+                            <div className="post_timestamp">
+                                {time_posted}
+                            </div>
+                            <div className="post_timestamp_hover">
+                                {created}
+                                {updated}
+                            </div>
                         </div>
                     </div>
                     {this.rendersPostTopRight()}
