@@ -161,14 +161,16 @@ class UserPost extends React.Component {
     // }
 
     rendersPostPhoto() {
-        if (this.props.postPicUrl) {
-            debugger
+        // Need to have this be typeof === string so that
+        // in the case that the postPicUrl comes in with some
+        // other data that isn't the data we want, then we
+        // put that into the else condition
+        if (typeof this.props.postPicUrl === 'string') {
             return ( <img
                 className="oldprofpic"
                 src={this.props.postPicUrl}
             /> )
         } else {
-            debugger
             return null;
         }
     }
@@ -230,7 +232,6 @@ class UserPost extends React.Component {
             time_posted = this.rendersTime(datetime_created, "created_simple")
         }
 
-        debugger
         return (
             <div className="post_whole">
                 <div className="post_top">
@@ -263,7 +264,6 @@ class UserPost extends React.Component {
                     </p>
                 </div>
                 <div className="post_bottom">
-                    {/* <h2 className="post_placeholder">Picture?</h2> */}
                     {this.rendersPostPhoto()}
                     <div className="postlinediv"></div>
                     <div className="post_buttons">

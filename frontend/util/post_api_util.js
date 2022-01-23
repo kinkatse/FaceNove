@@ -13,7 +13,6 @@ export const getPost = (userId) => {
 }
 
 export const createPost = (postData) => {
-    debugger
     return $.ajax({
         url: `/api/posts`,
         method: 'POST',

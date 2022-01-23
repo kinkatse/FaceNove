@@ -28,28 +28,7 @@ class ModalCreatePost extends React.Component {
             fileReader.readAsDataURL(file);
         }
     }
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('post[postPhotoUrl]', this.state.photoFile);
-    //     const postData = Object.assign({}, this.state);
-    //     this.props.createPost(postData, formData)
-    //     .then(this.resetState())
-    // }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     debugger
-    //     const postData = Object.assign({}, {
-    //         post: this.state.post,
-    //         user_id: this.state.user_id,
-    //         postPhotoUrl: this.state.photoUrl
-    //     });
-    //     // postData.append('post[postPhotoUrl]', this.state.photoFile);
-    //     this.props.createPost(postData)
-    //     .then(this.resetState())
-    // }
-
+    
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
@@ -58,7 +37,6 @@ class ModalCreatePost extends React.Component {
         if (this.state.photoFile) {
             postData.append('postData[postPhotoUrl]', this.state.photoFile);
         }
-        debugger
         this.props.createPost(postData)
         .then(this.resetState())
     }
