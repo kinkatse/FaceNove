@@ -41,6 +41,12 @@ class ModalCreatePost extends React.Component {
         .then(this.resetState())
     }
 
+    resetPreview() {
+        this.setState({
+            photoUrl: null
+        })
+    }
+
     resetState() {
         this.setState({
             post: "",
@@ -53,14 +59,15 @@ class ModalCreatePost extends React.Component {
     rendersPreview() {
         let preview;
         if (this.state.photoUrl) {
+            // Include delete preview/chosen file button, resetstate
             preview =
                 ( <img
                     className="postpic_modal"
                     src={this.state.photoUrl}
+                    onClick={() => this.resetPreview()}
                 /> )
         } else {
-            preview =
-                ( <div className="postpic_noimage"> No Image Selected </div> )
+            preview = ( <div className="postpic_noimage"> No Image Selected </div> )
         }
 
         return preview
