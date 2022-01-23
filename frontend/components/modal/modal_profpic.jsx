@@ -23,14 +23,16 @@ class ModalProfPic extends React.Component {
     }
 
     handleProfSubmit(e) {
+        debugger
         e.preventDefault();
         const formData = new FormData();
         formData.append('user[profilePicUrl]', this.state.photoFile);
         this.props.updateProfPic(formData, this.props.currentUser.id)
-        .then(this.resetState())
+        .then(() => this.resetState())
     }
 
     resetState() {
+        debugger
         this.setState({
             photoFile: null
         })

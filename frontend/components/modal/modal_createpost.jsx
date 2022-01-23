@@ -24,27 +24,39 @@ class ModalCreatePost extends React.Component {
         fileReader.onloadend = () => {
             this.setState({photoFile: file, photoUrl: fileReader.result})
         }
-        debugger
         if (file) {
-            debugger
             fileReader.readAsDataURL(file);
         }
     }
-
-    // handleProfSubmit(e) {
+    // handleSubmit(e) {
     //     e.preventDefault();
     //     const formData = new FormData();
-    //     formData.append('user[profilePicUrl]', this.state.photoFile);
-    //     this.props.updateProfPic(formData, this.props.currentUser.id)
+    //     formData.append('post[postPhotoUrl]', this.state.photoFile);
+    //     const postData = Object.assign({}, this.state);
+    //     this.props.createPost(postData, formData)
+    //     .then(this.resetState())
+    // }
+
+    // handleSubmit(e) {
+    //     e.preventDefault();
+    //     debugger
+    //     const postData = Object.assign({}, {
+    //         post: this.state.post,
+    //         user_id: this.state.user_id,
+    //         postPhotoUrl: this.state.photoUrl
+    //     });
+    //     // postData.append('post[postPhotoUrl]', this.state.photoFile);
+    //     this.props.createPost(postData)
     //     .then(this.resetState())
     // }
 
     handleSubmit(e) {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append('post[postPhotoUrl]', this.state.photoFile);
-        const postData = Object.assign({}, this.state);
-        this.props.createPost(postData, formData)
+        const postData = new FormData();
+        postData.append('postData[post]', this.state.post);
+        postData.append('postData[user_id]', this.state.user_id);
+        postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        this.props.createPost(postData)
         .then(this.resetState())
     }
 
@@ -78,7 +90,6 @@ class ModalCreatePost extends React.Component {
     }
 
     render() {
-        debugger
         let colorSplash;
         let profpicColor;
         if (this.props.color === "blue") {
