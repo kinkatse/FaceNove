@@ -31,7 +31,6 @@ class ModalProfPic extends React.Component {
     }
 
     resetState() {
-        debugger
         this.setState({
             photoFile: null
         })

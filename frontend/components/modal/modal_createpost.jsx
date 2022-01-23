@@ -56,6 +56,7 @@ class ModalCreatePost extends React.Component {
         postData.append('postData[post]', this.state.post);
         postData.append('postData[user_id]', this.state.user_id);
         postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        debugger
         this.props.createPost(postData)
         .then(this.resetState())
     }
