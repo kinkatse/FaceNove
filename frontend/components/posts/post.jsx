@@ -9,14 +9,13 @@ class Post extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
-        debugger
         if (this.props.userId !== oldProps.userId) {
             this.props.clearPosts()
             this.props.showPost(this.props.userId);
         }
-        debugger
+        // debugger
         if (Object.values(oldProps.posts).length !== 0 &&
-        Object.values(this.props.posts)[0].profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl) {
+        this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl) {
             this.props.clearPosts()
             this.props.showPost(this.props.userId);
         }
