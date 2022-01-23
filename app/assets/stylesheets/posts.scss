@@ -193,7 +193,37 @@
 }
 
 .postpic_noimage {
+    color: rgb(141, 141, 141);
     margin-bottom: 8px;
+}
+
+.photo_close {
+    // position: relative;
+    position: absolute;
+    bottom: 127px;
+    right: 19px;
+}
+
+.photo_X {
+    // position: absolute;
+    // bottom: 127px;
+    // right: 19px;
+    height: 15px;
+    width: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 100px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    z-index: 4;
+    opacity: 65%;
+    animation: 0.5s hoveroff forwards;
+}
+
+.photo_X:hover {
+    opacity: 80%;
+    cursor: pointer;
+    animation: 0.5s hoverover forwards;
 }
 
 .post_buttons {

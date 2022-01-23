@@ -32,7 +32,13 @@ class ModalCreatePost extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
-        postData.append('postData[post]', this.state.post);
+        if (this.state.post) {
+            postData.append('postData[post]', this.state.post);
+        } else {
+            // Need to have an error handler for when user doesn't
+            // give a post body. Otherwise we get 422 error from backend
+            alert("Post body needs a message")
+        }
         postData.append('postData[user_id]', this.state.user_id);
         if (this.state.photoFile) {
             postData.append('postData[postPhotoUrl]', this.state.photoFile);
@@ -59,13 +65,25 @@ class ModalCreatePost extends React.Component {
     rendersPreview() {
         let preview;
         if (this.state.photoUrl) {
-            // Include delete preview/chosen file button, resetstate
+            // Include delete preview/chosen file button, resetstate.
+            // This currently does NOT delete when submitting. The post
+            // will still save the image
             preview =
-                ( <img
-                    className="postpic_modal"
-                    src={this.state.photoUrl}
-                    onClick={() => this.resetPreview()}
-                /> )
+                ( 
+                <div className="postpic_whole">
+                    <img
+                        className="postpic_modal"
+                        src={this.state.photoUrl}
+                    />
+                    <div className="photo_close">
+                        <img
+                            className="photo_X"
+                            src={window.x_url}
+                            onClick={() => this.resetPreview()}
+                        />
+                    </div>
+                </div>
+                )
         } else {
             preview = ( <div className="postpic_noimage"> No Image Selected </div> )
         }
@@ -97,9 +115,9 @@ class ModalCreatePost extends React.Component {
         return (
             <div>
                 <div className="profpic_components">
-                    <div className="postpic_whole">
+                    {/* <div className="postpic_whole"> */}
                         {this.rendersPreview()}
-                    </div>
+                    {/* </div> */}
                     {photobutton}
                 </div>
             </div>
