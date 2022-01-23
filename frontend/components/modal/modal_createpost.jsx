@@ -60,10 +60,43 @@ class ModalCreatePost extends React.Component {
                 /> )
         } else {
             preview =
-                ( <div> No Image Selected </div> )
+                ( <div className="postpic_noimage"> No Image Selected </div> )
         }
 
         return preview
+    }
+
+    rendersPictureButton(colorSplash) {
+        let photobutton;
+        if (!this.state.photoUrl) {
+            photobutton = (
+                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                    <input type="file" onChange={this.handleFile}/>
+                    Add a Picture?
+                </label>
+            )
+        } else {
+            // photobutton = (
+            //     <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Save Picture"/>
+            // )
+            photobutton = (
+                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                    <input type="file" onChange={this.handleFile}/>
+                    Change Picture?
+                </label>
+            )
+        }
+
+        return (
+            <div>
+                <div className="profpic_components">
+                    <div className="postpic_whole">
+                        {this.rendersPreview()}
+                    </div>
+                    {photobutton}
+                </div>
+            </div>
+        )
     }
 
     render() {
@@ -112,18 +145,7 @@ class ModalCreatePost extends React.Component {
                             ></textarea>
                         </div>
                     </div>
-                    <div>
-                        <div className="profpic_components">
-                            <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
-                                <input type="file" onChange={this.handleFile}/>
-                                Add a Picture?
-                            </label>
-                            <div className="postpic_whole">
-                                {this.rendersPreview()}
-                            </div>
-                            <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Save Picture"/>
-                        </div>
-                    </div>
+                    {this.rendersPictureButton(colorSplash)}
                     <div className="editsubmit">
                         <input className={'editsubmitbutton splashbutton createpostposition ' + colorSplash} type="submit" value="Make Post"/>
                     </div>
