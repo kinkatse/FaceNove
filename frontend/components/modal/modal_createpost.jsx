@@ -28,7 +28,7 @@ class ModalCreatePost extends React.Component {
             fileReader.readAsDataURL(file);
         }
     }
-    
+
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
@@ -55,19 +55,15 @@ class ModalCreatePost extends React.Component {
         if (this.state.photoUrl) {
             preview =
                 ( <img
-                    className="oldprofpic"
+                    className="postpic_modal"
                     src={this.state.photoUrl}
                 /> )
         } else {
             preview =
-                // ( <img
-                //     className="oldprofpic"
-                //     src={this.props.currentUser.profilePicUrl}
-                // /> )
-                ( <div>hi no preview</div> )
+                ( <div> No Image Selected </div> )
         }
 
-        return ( <div>{preview}</div> )
+        return preview
     }
 
     render() {
@@ -122,7 +118,9 @@ class ModalCreatePost extends React.Component {
                                 <input type="file" onChange={this.handleFile}/>
                                 Add a Picture?
                             </label>
-                            {this.rendersPreview()}
+                            <div className="postpic_whole">
+                                {this.rendersPreview()}
+                            </div>
                             <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Save Picture"/>
                         </div>
                     </div>
