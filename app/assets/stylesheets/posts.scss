@@ -165,6 +165,26 @@
     width: 581px;
 }
 
+.postpic_whole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postpic {
+    // position: relative;
+    // height: 275px;
+    // width: 275px;
+    // display: block;
+    height: 100%;
+    width: 100%;
+    margin: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
 .post_buttons {
     display: flex;
     flex-direction: row;

@@ -167,7 +167,7 @@ class UserPost extends React.Component {
         // put that into the else condition
         if (typeof this.props.postPicUrl === 'string') {
             return ( <img
-                className="oldprofpic"
+                className="postpic"
                 src={this.props.postPicUrl}
             /> )
         } else {
@@ -263,8 +263,11 @@ class UserPost extends React.Component {
                         {this.props.postBody}
                     </p>
                 </div>
-                <div className="post_bottom">
+                {/* make an onclick to see picture enlarged */}
+                <div className="postpic_whole">
                     {this.rendersPostPhoto()}
+                </div>
+                <div className="post_bottom">
                     <div className="postlinediv"></div>
                     <div className="post_buttons">
                         <h2 className="post_placeholder">Comment?</h2>
