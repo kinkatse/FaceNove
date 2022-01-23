@@ -55,7 +55,9 @@ class ModalCreatePost extends React.Component {
         const postData = new FormData();
         postData.append('postData[post]', this.state.post);
         postData.append('postData[user_id]', this.state.user_id);
-        postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        if (this.state.photoFile) {
+            postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        }
         debugger
         this.props.createPost(postData)
         .then(this.resetState())
@@ -82,7 +84,7 @@ class ModalCreatePost extends React.Component {
             preview =
                 // ( <img
                 //     className="oldprofpic"
-                    // src={this.props.currentUser.profilePicUrl}
+                //     src={this.props.currentUser.profilePicUrl}
                 // /> )
                 ( <div>hi no preview</div> )
         }

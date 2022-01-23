@@ -8,5 +8,5 @@ else
 end
 
 if post.postPhotoUrl.attached?
-    json.postPhotoUrl url_for(post.profilePicUrl)
+    json.postPhotoUrl url_for(post.postPhotoUrl)
 end

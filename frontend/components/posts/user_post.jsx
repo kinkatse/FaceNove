@@ -128,36 +128,49 @@ class UserPost extends React.Component {
         return date.join(" ") + " at " + time.join(" ")
     }
 
-    rendersPicture() {
-        let eventlistener;
-        let profpicbutton;
-        let picbuttonactive;
-        if (this.props.currentUserId === parseInt(this.props.userId)) {
-            eventlistener = this.props.openProfPicModal;
-            profpicbutton = (
-                <img
-                    className="profpicbutton"
-                    onClick={eventlistener}
-                    src={profpicImageButton}
-                />
-            )
-            picbuttonactive = "profilepicwholeadjustment";
-        } else {
-            eventlistener = null;
-            profpicbutton = null;
-            picbuttonactive = "profilepicwhole";
-        }
+    // rendersPicture() {
+    //     let eventlistener;
+    //     let profpicbutton;
+    //     let picbuttonactive;
+    //     if (this.props.currentUserId === parseInt(this.props.userId)) {
+    //         eventlistener = this.props.openProfPicModal;
+    //         profpicbutton = (
+    //             <img
+    //                 className="profpicbutton"
+    //                 onClick={eventlistener}
+    //                 src={profpicImageButton}
+    //             />
+    //         )
+    //         picbuttonactive = "profilepicwholeadjustment";
+    //     } else {
+    //         eventlistener = null;
+    //         profpicbutton = null;
+    //         picbuttonactive = "profilepicwhole";
+    //     }
 
-        return (
-            <div className={picbuttonactive}>
-                <img
-                    className={'profilepic ' + profpicColor}
-                    onClick={eventlistener}
-                    src={this.props.user.profilePicUrl}
-                />
-                {profpicbutton}
-            </div>
-        )
+    //     return (
+    //         <div className={picbuttonactive}>
+    //             <img
+    //                 className={'profilepic ' + profpicColor}
+    //                 onClick={eventlistener}
+    //                 src={this.props.user.profilePicUrl}
+    //             />
+    //             {profpicbutton}
+    //         </div>
+    //     )
+    // }
+
+    rendersPostPhoto() {
+        if (this.props.postPicUrl) {
+            debugger
+            return ( <img
+                className="oldprofpic"
+                src={this.props.postPicUrl}
+            /> )
+        } else {
+            debugger
+            return null;
+        }
     }
 
     render() {
@@ -217,6 +230,7 @@ class UserPost extends React.Component {
             time_posted = this.rendersTime(datetime_created, "created_simple")
         }
 
+        debugger
         return (
             <div className="post_whole">
                 <div className="post_top">
@@ -250,6 +264,7 @@ class UserPost extends React.Component {
                 </div>
                 <div className="post_bottom">
                     {/* <h2 className="post_placeholder">Picture?</h2> */}
+                    {this.rendersPostPhoto()}
                     <div className="postlinediv"></div>
                     <div className="post_buttons">
                         <h2 className="post_placeholder">Comment?</h2>

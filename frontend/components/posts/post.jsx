@@ -93,6 +93,7 @@ class Post extends React.Component {
                             updatePost={this.props.updatePost}
                             destroyPost={this.props.destroyPost}
                             openEditPostModal={this.props.openEditPostModal}
+                            postPicUrl={post.postPhotoUrl}
                             profilePicUrl={post.profilePicUrl}
                             profpicColor={profpicColor}
                         /> )
