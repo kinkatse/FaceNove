@@ -32,24 +32,25 @@ class ModalCreatePost extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
+        postData.append('postData[post]', this.state.post);
+        postData.append('postData[user_id]', this.state.user_id);
+        if (this.state.photoFile) {
+            postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        }
         if (this.state.post) {
-            postData.append('postData[post]', this.state.post);
+            this.props.createPost(postData)
+            .then(this.resetState())
         } else {
             // Need to have an error handler for when user doesn't
             // give a post body. Otherwise we get 422 error from backend
             alert("Post body needs a message")
         }
-        postData.append('postData[user_id]', this.state.user_id);
-        if (this.state.photoFile) {
-            postData.append('postData[postPhotoUrl]', this.state.photoFile);
-        }
-        this.props.createPost(postData)
-        .then(this.resetState())
     }
 
     resetPreview() {
         this.setState({
-            photoUrl: null
+            photoUrl: null,
+            photoFile: null
         })
     }
 
@@ -101,9 +102,6 @@ class ModalCreatePost extends React.Component {
                 </label>
             )
         } else {
-            // photobutton = (
-            //     <input className={'profpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Save Picture"/>
-            // )
             photobutton = (
                 <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
                     <input type="file" onChange={this.handleFile}/>
@@ -115,9 +113,7 @@ class ModalCreatePost extends React.Component {
         return (
             <div>
                 <div className="profpic_components">
-                    {/* <div className="postpic_whole"> */}
-                        {this.rendersPreview()}
-                    {/* </div> */}
+                    {this.rendersPreview()}
                     {photobutton}
                 </div>
             </div>

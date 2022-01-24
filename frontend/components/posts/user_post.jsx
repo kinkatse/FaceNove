@@ -7,7 +7,8 @@ class UserPost extends React.Component {
         super(props);
         this.state = {
             dropOpen: false,
-            postBody: this.props.postBody
+            postBody: this.props.postBody,
+            enlarged: false
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
@@ -19,6 +20,14 @@ class UserPost extends React.Component {
 
     dropClose() {
         this.setState({ dropOpen: false })
+    }
+
+    enlargePic() {
+        this.setState({ enlarged: true })
+    }
+
+    closeEnlargedPic() {
+        this.setState({ enlarged: false })
     }
 
     rendersPostTopRight() {
@@ -127,16 +136,33 @@ class UserPost extends React.Component {
         }
         return date.join(" ") + " at " + time.join(" ")
     }
-    
+
     rendersPostPhoto() {
         // Need to have this be typeof === string so that
         // in the case that the postPicUrl comes in with some
         // other data that isn't the data we want, then we
         // put that into the else condition
-        if (typeof this.props.postPicUrl === 'string') {
+        if (typeof this.props.postPicUrl === 'string' && this.state.enlarged === true) {
+            return (
+            <>
+                <div className="enlarged_pic">
+                    <div className="edit_modal_background enlargedback" onClick={() => this.closeEnlargedPic()}></div>
+                    <img
+                        className="enlarged"
+                        src={this.props.postPicUrl}
+                    />
+                </div>
+                <img
+                    className="postpic"
+                    src={this.props.postPicUrl}
+                />
+            </> 
+            )
+        } else if (typeof this.props.postPicUrl === 'string') {
             return ( <img
                 className="postpic"
                 src={this.props.postPicUrl}
+                onClick={() => this.enlargePic()}
             /> )
         } else {
             return null;
