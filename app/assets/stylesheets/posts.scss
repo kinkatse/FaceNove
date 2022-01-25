@@ -190,7 +190,7 @@
 }
 
 .enlargedback {
-    z-index: 7;
+    z-index: 9;
 }
 
 .enlarged {
@@ -201,7 +201,7 @@
     max-height: 80%;
     max-width: 70%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    z-index: 8;
+    z-index: 10;
 }
 
 .postpic_modal {
@@ -268,7 +268,7 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
     background-color: white;
     border-radius: 5px;
-    z-index: 4;
+    z-index: 9;
 }
 
 .dropopentext {
