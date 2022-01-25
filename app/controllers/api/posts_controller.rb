@@ -45,7 +45,6 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        debugger
         @post = Post.find_by(id: params[:id])
         if @post.update_attributes(post_params)
             # Cant put render here or I get double render error
