@@ -145,13 +145,11 @@ class UserPost extends React.Component {
         if (typeof this.props.postPicUrl === 'string' && this.state.enlarged === true) {
             return (
             <>
-                <div className="enlarged_pic">
-                    <div className="edit_modal_background enlargedback" onClick={() => this.closeEnlargedPic()}></div>
-                    <img
-                        className="enlarged"
-                        src={this.props.postPicUrl}
-                    />
-                </div>
+                <div className="edit_modal_background enlargedback" onClick={() => this.closeEnlargedPic()}></div>
+                <img
+                    className="enlarged"
+                    src={this.props.postPicUrl}
+                />
                 <img
                     className="postpic"
                     src={this.props.postPicUrl}
