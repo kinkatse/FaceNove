@@ -3,11 +3,12 @@ import React from 'react';
 class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
-        // debugger
         this.state = {
             post: this.props.postObj.post,
             user_id: this.props.postObj.user_id,
-            photoUrl: this.props.postObj.postPhotoUrl || null,
+            photoUrl:
+            (typeof this.props.postObj.postPhotoUrl === "string" ?
+            this.props.postObj.postPhotoUrl : null),
             photoFile: null
         }
         this.updatePostBody = this.updatePostBody.bind(this);
@@ -29,13 +30,6 @@ class ModalEditPost extends React.Component {
             fileReader.readAsDataURL(file);
         }
     }
-
-    // handleSubmit(e) {
-    //     e.preventDefault();
-    //     const postData = Object.assign({}, this.state);
-    //     this.props.updatePost(postData, this.props.postObj.id)
-    //     .then(this.resetState())
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
