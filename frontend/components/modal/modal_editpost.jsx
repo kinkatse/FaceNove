@@ -42,11 +42,9 @@ class ModalEditPost extends React.Component {
         const postData = new FormData();
         postData.append('postData[post]', this.state.post);
         postData.append('postData[user_id]', this.state.user_id);
-        if (this.state.photoFile) {
-            postData.append('postData[postPhotoUrl]', this.state.photoFile);
-        }
+        postData.append('postData[postPhotoUrl]', this.state.photoFile);
         if (this.state.post) {
-            this.props.createPost(postData)
+            this.props.updatePost(postData, this.props.postObj.id)
             .then(this.resetState())
         } else {
             // Need to have an error handler for when user doesn't
