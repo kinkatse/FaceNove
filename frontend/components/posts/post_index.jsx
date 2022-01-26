@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
-class UserPost extends React.Component {
+class IndexPost extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -189,7 +189,6 @@ class UserPost extends React.Component {
     }
 
     render() {
-        debugger
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page
         if (this.props.userId && this.props.postUserId !== parseInt(this.props.userId)) {
@@ -294,4 +293,4 @@ class UserPost extends React.Component {
     }
 }
 
-export default UserPost;
+export default IndexPost;

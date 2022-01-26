@@ -1,5 +1,5 @@
 import React from 'react';
-import UserPost from './user_post';
+import PostIndex from './post_index';
 import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
@@ -89,7 +89,7 @@ class Post extends React.Component {
                 {this.rendersCreatePost(profpicColor)}
                 {
                     postArr.map(post => (
-                        <UserPost
+                        <PostIndex
                             key={post.id}
                             postId={post.id}
                             postUserId={post.user_id}

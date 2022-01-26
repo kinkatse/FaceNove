@@ -4,7 +4,6 @@ const postsReducer = (postState = {}, action) => {
     Object.freeze(postState);
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            debugger
             return Object.assign({}, postState, action.posts);
         case RECEIVE_POST:
             return Object.assign({}, postState, action.post);

@@ -1,6 +1,5 @@
 import React from 'react';
-import NavBarContainer from '../navbar/navbar_container';
-import UserPost from '../posts/user_post';
+import PostIndex from '../posts/post_index';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
@@ -50,9 +49,6 @@ class Home extends React.Component {
                         <h2 className="post_placeholder">Other</h2>
                     </div>
                 </div>
-                {/* <div className="profile_posts">
-                    <h2 className="profbodytitle">Posts</h2>
-                </div> */}
             </div>
         )
     }
@@ -67,23 +63,19 @@ class Home extends React.Component {
             profpicColor = "postprofpicred"
         }
 
-        debugger
         if (Object.keys(this.props.posts).length === 0) {
             return this.rendersCreatePost(profpicColor)
         }
-        debugger
 
         let postArr = Object.values(this.props.posts).reverse()
-        debugger
 
         return (
             <div className="home">
-                {/* <NavBarContainer /> */}
                 <div className="home_posts">
                     {this.rendersCreatePost(profpicColor)}
                     {
                         postArr.map(post => (
-                            <UserPost
+                            <PostIndex
                                 key={post.id}
                                 postId={post.id}
                                 postUserId={post.user_id}

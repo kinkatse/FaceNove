@@ -7,7 +7,6 @@ export const REMOVE_ALL_POSTS = 'REMOVE_ALL_POSTS';
 // export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
 
 const receiveAllPosts = (posts) => {
-    debugger
     return {
         type: RECEIVE_ALL_POSTS,
         posts
@@ -40,7 +39,6 @@ export const clearPosts = () => ({
 // }
 
 export const indexPosts = () => (dispatch) => {
-    debugger
     return (
         PostApiUtil.getAllPosts()
         .then(posts => dispatch(receiveAllPosts(posts)))
