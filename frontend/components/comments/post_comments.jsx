@@ -76,14 +76,14 @@ class PostComments extends React.Component {
             <div className="post_whole">
                 <div className="post_top">
                     <div className="post_top_left">
-                        <Link to={`/user/${this.props.authorUserId}`}>
+                        <Link to={`/user/${this.props.authorCommentId}`}>
                             <img
                                 className={'post_profile_pic ' + this.props.profpicColor}
                                 src={this.props.profilePicUrl}
                             />
                         </Link>
                         <div className="name_and_time">
-                            <Link to={`/user/${this.props.authorUserId}`}>
+                            <Link to={`/user/${this.props.authorCommentId}`}>
                                 <h2 className="post_name">
                                     {this.props.firstName} {this.props.lastName}
                                 </h2>
