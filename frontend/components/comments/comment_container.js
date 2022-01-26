@@ -16,11 +16,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         userId: ownProps.userId,
         postId: ownProps.postId,
-        indexComments: ownProps.indexComments,
-        createComment: ownProps.createComment,
-        // posts: state.entities.posts,
-        // userPosts: state.entities.posts[ownProps.match.params.userId],
-        // userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
         color: state.ui.colorRed.color
     }

@@ -39,8 +39,17 @@ class Comment extends React.Component {
         // }
 
         // let postArr = Object.values(this.props.posts).reverse()
-        
+        debugger
         return (
+            <div>
+                <PostComments
+                    userId={this.props.userId}
+                    postId={this.props.postId}
+                    indexComments={this.props.indexComments}
+                    createComment={this.props.createComment}
+                    currentUser={this.props.currentUser}
+                />
+            </div>
             // <div>
             //     {
             //         postArr.map(post => (
@@ -67,14 +76,6 @@ class Comment extends React.Component {
             //         )
             //     }
             // </div>
-            <div>
-                <PostComments
-                    userId={this.props.postUserId}
-                    postId={this.props.postId}
-                    indexComments={this.props.indexComments}
-                    createComment={this.props.createComment}
-                />
-            </div>
         )
     }
 }

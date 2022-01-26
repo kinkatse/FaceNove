@@ -175,14 +175,14 @@ class UserPost extends React.Component {
     }
 
     rendersComments() {
-        debugger
         if (this.state.commentsOpen) {
+            debugger
             return (
                 <CommentContainer
                     userId={this.props.postUserId}
                     postId={this.props.postId}
-                    indexComments={this.props.indexComments}
-                    createComment={this.props.createComment}
+                    // indexComments={this.props.indexComments}
+                    // createComment={this.props.createComment}
                 />
             )
         } else {

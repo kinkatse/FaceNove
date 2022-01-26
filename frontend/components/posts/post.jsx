@@ -102,8 +102,8 @@ class Post extends React.Component {
                             updated_at={post.updated_at}
                             updatePost={this.props.updatePost}
                             destroyPost={this.props.destroyPost}
-                            indexComments={this.props.indexComments}
-                            createComment={this.props.createComment}
+                            // indexComments={this.props.indexComments}
+                            // createComment={this.props.createComment}
                             openEditPostModal={this.props.openEditPostModal}
                             postPicUrl={post.postPhotoUrl}
                             profilePicUrl={post.profilePicUrl}
