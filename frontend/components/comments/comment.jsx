@@ -78,7 +78,7 @@ class Comment extends React.Component {
         }
 
         if (Object.keys(this.props.comments).length === 0) {
-            return null;
+            return this.rendersCreateComment()
         }
 
         let commentArr = Object.values(this.props.comments).reverse()
