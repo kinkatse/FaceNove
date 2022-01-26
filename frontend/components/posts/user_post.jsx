@@ -46,7 +46,7 @@ class UserPost extends React.Component {
             dropclassname = "opendropbtn"
         }
 
-        if (this.props.currentUser.id === parseInt(this.props.userId)) {
+        if (this.props.currentUser.id === parseInt(this.props.postUserId)) {
             component = (
                 <div>
                     {this.rendersPostDropClose()}
@@ -189,9 +189,10 @@ class UserPost extends React.Component {
     }
 
     render() {
+        debugger
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page
-        if (this.props.postUserId !== parseInt(this.props.userId)) {
+        if (this.props.userId && this.props.postUserId !== parseInt(this.props.userId)) {
             return null;
         }
 
@@ -249,14 +250,14 @@ class UserPost extends React.Component {
             <div className="post_whole">
                 <div className="post_top">
                     <div className="post_top_left">
-                        <Link to={`/user/${this.props.userId}`}>
+                        <Link to={`/user/${this.props.postUserId}`}>
                             <img
                                 className={'post_profile_pic ' + this.props.profpicColor}
                                 src={this.props.profilePicUrl}
                             />
                         </Link>
                         <div className="name_and_time">
-                            <Link to={`/user/${this.props.userId}`}>
+                            <Link to={`/user/${this.props.postUserId}`}>
                                 <h2 className="post_name">
                                     {this.props.firstName} {this.props.lastName}
                                 </h2>

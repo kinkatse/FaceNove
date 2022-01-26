@@ -1,4 +1,5 @@
 export const getAllPosts = () => {
+    debugger
     return $.ajax({
         url: '/api/posts',
         method: 'GET'
