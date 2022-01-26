@@ -1,20 +1,29 @@
-export const getAllPostComments = (postId) => {
+export const getAllComments = (relatedId) => {
     debugger
     return $.ajax({
         url: '/api/comments',
         method: 'GET',
-        data: postId
+        data: relatedId
     })
 }
 
-export const getAllUserComments = (commentId) => {
-    debugger
-    return $.ajax({
-        url: '/api/comments',
-        method: 'GET',
-        data: commentId
-    })
-}
+// export const getAllPostComments = (postId) => {
+//     debugger
+//     return $.ajax({
+//         url: '/api/comments',
+//         method: 'GET',
+//         data: postId
+//     })
+// }
+
+// export const getAllUserComments = (userId) => {
+//     debugger
+//     return $.ajax({
+//         url: '/api/comments',
+//         method: 'GET',
+//         data: userId
+//     })
+// }
 
 // export const getComment = (commentId) => {
 //     return $.ajax({

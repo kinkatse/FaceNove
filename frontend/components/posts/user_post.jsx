@@ -7,11 +7,14 @@ class UserPost extends React.Component {
         super(props);
         this.state = {
             dropOpen: false,
+            commentsOpen: false,
             postBody: this.props.postBody,
             enlarged: false
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
+        // createComment={this.props.createComment}
+        // indexComments={this.props.indexComments}
     }
 
     dropOpen() {
@@ -20,6 +23,11 @@ class UserPost extends React.Component {
 
     dropClose() {
         this.setState({ dropOpen: false })
+    }
+
+    commentsToggle() {
+        let value = this.state.commentsOpen;
+        this.setState({ commentsOpen: !value })
     }
 
     enlargePic() {
@@ -167,6 +175,17 @@ class UserPost extends React.Component {
         }
     }
 
+    rendersComments() {
+        debugger
+        if (this.state.commentsOpen) {
+            return (
+                <h2 className="post_placeholder">Write a comment</h2>
+            )
+        } else {
+            return null;
+        }
+    }
+
     render() {
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page
@@ -262,11 +281,12 @@ class UserPost extends React.Component {
                 <div className="post_bottom">
                     <div className="postlinediv"></div>
                     <div className="post_buttons">
-                        <h2 className="post_placeholder">Comment?</h2>
+                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
                         <h2 className="post_placeholder">Like?</h2>
                     </div>
                     <div className="postlinediv"></div>
-                    <h2 className="post_placeholder">Write a comment</h2>
+                    {/* <h2 className="post_placeholder">Write a comment</h2> */}
+                    {this.rendersComments()}
                 </div>
             </div>
         )

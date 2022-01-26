@@ -41,21 +41,29 @@ export const removeAllComments = () => {
 //     }
 // }
 
-export const indexPostComments = (postId) => (dispatch) => {
+export const indexComments = (relatedId) => (dispatch) => {
     debugger
     return (
-        CommentApiUtil.getAllPostComments(postId)
+        CommentApiUtil.getAllComments(relatedId)
         .then(comments => dispatch(receiveAllComments(comments)))
     )
 }
 
-export const indexUserComments = (userId) => (dispatch) => {
-    debugger
-    return (
-        CommentApiUtil.getAllUserComments(userId)
-        .then(comments => dispatch(receiveAllComments(comments)))
-    )
-}
+// export const indexPostComments = (postId) => (dispatch) => {
+//     debugger
+//     return (
+//         CommentApiUtil.getAllComments(postId)
+//         .then(comments => dispatch(receiveAllComments(comments)))
+//     )
+// }
+
+// export const indexUserComments = (userId) => (dispatch) => {
+//     debugger
+//     return (
+//         CommentApiUtil.getAllComments(userId)
+//         .then(comments => dispatch(receiveAllComments(comments)))
+//     )
+// }
 
 // export const showComment = (commentId) => (dispatch) => {
 //     return (
