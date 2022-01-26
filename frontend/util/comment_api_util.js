@@ -3,7 +3,9 @@ export const getAllComments = (relatedId) => {
     return $.ajax({
         url: '/api/comments',
         method: 'GET',
-        data: relatedId
+        data: relatedId,
+        // contentType: false,
+        // processData: false
     })
 }
 

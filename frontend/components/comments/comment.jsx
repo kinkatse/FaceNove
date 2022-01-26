@@ -2,10 +2,17 @@ import React from 'react';
 import PostComments from './post_comments';
 
 class Comment extends React.Component {
-    // componentDidMount() {
-    //     this.props.clearPosts()
-    //     this.props.showPost(this.props.userId)
-    // }
+    componentDidMount() {
+        debugger
+        this.props.clearComments()
+        const commentRelatedId = Object.assign(
+            {},
+            { post_id: this.props.postId },
+            { isPostComments: true }
+        )
+        debugger
+        this.props.indexComments(commentRelatedId)
+    }
 
     // componentDidUpdate(oldProps) {
     //     if ((this.props.userId !== oldProps.userId) ||
@@ -74,9 +81,10 @@ class Comment extends React.Component {
             profpicColor = "postprofpicred"
         }
 
-        // if (Object.keys(this.props.posts).length === 0) {
-        //     return this.rendersCreatePost(profpicColor)
-        // }
+        debugger
+        if (Object.keys(this.props.comments).length === 0) {
+            return null;
+        }
 
         debugger
         let commentArr = Object.values(this.props.comments).reverse()

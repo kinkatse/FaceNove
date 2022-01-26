@@ -1,11 +1,8 @@
 class Api::CommentsController < ApplicationController
 
     def create
-        # debugger
         @comment = Comment.new(comment_params)
-        # debugger
         if @comment.save
-            # debugger
             self.index
         else
             render json: @comment.errors.full_messages, status: 422
@@ -13,19 +10,22 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        # debugger
-        @user = User.find_by(id: comment_params[:user_id].to_i)
-        @post = Post.find_by(id: comment_params[:post_id].to_i)
         if params[:isUserComments]
-            # debugger
+            if params[:user_id]
+                @user = User.find_by(id: params[:user_id].to_i)
+            else
+                @user = User.find_by(id: comment_params[:user_id].to_i)
+            end
             @comments = @user.comments
         elsif params[:isPostComments]
-            # debugger
+            if params[:post_id]
+                @post = Post.find_by(id: params[:post_id].to_i)
+            else
+                @post = Post.find_by(id: comment_params[:post_id].to_i)
+            end
             @comments = @post.comments
         end
         render :index
-        # @comments = Comment.all
-        # render :index
     end
 
     def show
@@ -49,9 +49,6 @@ class Api::CommentsController < ApplicationController
 
     def update
         @comment = Comment.find_by(id: params[:id])
-        # if params[:commentPhotoUrl] == "purge"
-        #     @comment.commentPhotoUrl.purge
-        # end
         if @comment.update_attributes(comment_params)
             self.index
         else
