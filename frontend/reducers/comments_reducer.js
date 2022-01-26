@@ -1,12 +1,14 @@
  import { RECEIVE_ALL_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT, REMOVE_ALL_COMMENTS } from "../actions/comment_actions";
 
  const commentsReducer = (commentState = {}, action) => {
+    debugger
     Object.freeze(commentState);
     switch(action.type) {
         case RECEIVE_ALL_COMMENTS:
             debugger
             return Object.assign({}, commentState, action.comments);
         case RECEIVE_COMMENT:
+            debugger
             return Object.assign({}, commentState, action.comment)
         case REMOVE_COMMENT:
             let newState = Object.assign({}, commentState);

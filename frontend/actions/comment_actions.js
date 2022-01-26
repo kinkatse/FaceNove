@@ -15,6 +15,7 @@ const receiveAllComments = (comments) => {
 }
 
 const receiveComment = (comment) => {
+    debugger
     return {
         type: RECEIVE_COMMENT,
         comment
@@ -75,7 +76,7 @@ export const indexComments = (relatedId) => (dispatch) => {
 export const createComment = (commentData) => (dispatch) => {
     return (
         CommentApiUtil.createComment(commentData)
-        .then(comment => dispatch(receiveComment(comment)))
+        .then(comments => dispatch(receiveAllComments(comments)))
     )
 }
 

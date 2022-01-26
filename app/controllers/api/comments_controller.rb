@@ -16,9 +16,11 @@ class Api::CommentsController < ApplicationController
         debugger
         @user = User.find_by(id: comment_params[:user_id].to_i)
         @post = Post.find_by(id: comment_params[:post_id].to_i)
-        if params[:userComments] == true
+        if params[:isUserComments]
+            debugger
             @comments = @user.comments
-        elsif params[:postComments] == true
+        elsif params[:isPostComments]
+            debugger
             @comments = @post.comments
         end
         render :index

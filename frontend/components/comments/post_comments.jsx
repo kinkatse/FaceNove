@@ -29,6 +29,7 @@ class PostComments extends React.Component {
         commentData.append('commentData[body]', this.state.commentBody);
         commentData.append('commentData[user_id]', this.props.userId);
         commentData.append('commentData[post_id]', this.props.postId);
+        commentData.append('isPostComments', true)
         debugger
         this.props.createComment(commentData).then(this.resetState())
     }
