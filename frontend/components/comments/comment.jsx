@@ -50,6 +50,20 @@ class Comment extends React.Component {
         this.props.createComment(commentData).then(this.resetState())
     }
 
+    rendersCreateComment() {
+        return (
+            <form onSubmit={this.handleCommentSubmit}>
+                <input
+                    className="post_placeholder"
+                    type="text"
+                    value={this.state.commentBody}
+                    placeholder="Write a comment"
+                    onChange={this.updateCommentBody()}
+                />
+            </form>
+        )
+    }
+
     render() {
         let profpicColor;
         if (this.props.color === "blue") {
@@ -69,29 +83,25 @@ class Comment extends React.Component {
         debugger
         return (
             <div>
-                <form onSubmit={this.handleCommentSubmit}>
-                    <input
-                        className="post_placeholder"
-                        type="text"
-                        value={this.state.commentBody}
-                        placeholder="Write a comment"
-                        onChange={this.updateCommentBody()}
-                    />
-                </form>
+                {this.rendersCreateComment()}
                 {
                     commentArr.map(comment => (
                         <PostComments
                             key={comment.id}
                             commentId={comment.id}
                             commentBody={comment.body}
-                            authorUserId={comment.user_id}
-                            postId={comment.post_id}
-                            userId={this.props.userId}
+                            authorCommentId={comment.user_id}
+                            // This is the comment's post_id
+                            commentPostId={comment.post_id}
+                            // This is for which post we are on
+                            postId={this.props.postId}
+                            // userId={this.props.userId}
                             firstName={comment.firstName}
                             lastName={comment.lastName}
+                            createComment={this.props.createComment}
                             profilePicUrl={comment.profilePicUrl}
                             profpicColor={profpicColor}
-                            // currentUser={this.props.currentUser}
+                            currentUser={this.props.currentUser}
 
                             // updatePost={this.props.updatePost}
                             // destroyPost={this.props.destroyPost}

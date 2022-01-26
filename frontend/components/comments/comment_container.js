@@ -14,7 +14,7 @@ import {
 const mapStateToProps = (state, ownProps) => {
     debugger
     return {
-        userId: ownProps.userId,
+        autherUserId: ownProps.userId,
         postId: ownProps.postId,
         comments: state.entities.comments,
         currentUser: state.entities.users[state.session.id],

@@ -7,7 +7,7 @@ class PostComments extends React.Component {
         super(props);
         this.state = {
             // commentBody: "",
-            // // Eventually pass all comments into here from the indexcomment action
+            // Eventually pass all comments into here from the indexcomment action
         }
         // this.updateCommentBody = this.updateCommentBody.bind(this);
         // this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -28,7 +28,7 @@ class PostComments extends React.Component {
     //     e.preventDefault();
     //     const commentData = new FormData();
     //     commentData.append('commentData[body]', this.state.commentBody);
-    //     commentData.append('commentData[user_id]', this.props.userId);
+    //     commentData.append('commentData[user_id]', this.props.currentUser.id);
     //     commentData.append('commentData[post_id]', this.props.postId);
     //     commentData.append('isPostComments', true)
     //     debugger
@@ -90,17 +90,27 @@ class PostComments extends React.Component {
     //     return component;
     // }
 
+    // rendersCreateComment() {
+    //     return (
+    //         <form onSubmit={this.handleCommentSubmit}>
+    //             <input
+    //                 className="post_placeholder"
+    //                 type="text"
+    //                 value={this.state.commentBody}
+    //                 placeholder="Write a comment"
+    //                 onChange={this.updateCommentBody()}
+    //             />
+    //         </form>
+    //     )
+    // }
+
     render() {
         debugger
-            // <form onSubmit={this.handleCommentSubmit}>
-            //     <input
-            //         className="post_placeholder"
-            //         type="text"
-            //         value={this.state.commentBody}
-            //         placeholder="Write a comment"
-            //         onChange={this.updateCommentBody()}
-            //     />
-            // </form>
+
+        if (this.props.commentPostId !== this.props.postId) {
+            return null;
+        }
+
         return (
             <div className="post_whole">
                 <div className="post_top">
