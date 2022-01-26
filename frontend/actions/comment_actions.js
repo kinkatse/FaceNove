@@ -29,7 +29,7 @@ const removeComment = (commentId) => {
     }
 }
 
-export const removeAllComments = () => {
+export const clearComments = () => {
     return {
         type: REMOVE_ALL_COMMENTS
     }

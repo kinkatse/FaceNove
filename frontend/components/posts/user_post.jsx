@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PostComments from '../comments/post_comments';
+import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
 class UserPost extends React.Component {
@@ -178,7 +178,7 @@ class UserPost extends React.Component {
         debugger
         if (this.state.commentsOpen) {
             return (
-                <PostComments
+                <CommentContainer
                     userId={this.props.postUserId}
                     postId={this.props.postId}
                     indexComments={this.props.indexComments}
