@@ -78,6 +78,7 @@ class UserPost extends React.Component {
                 <div className="">
                     <div className="post_dropdown">...</div>
                     <PostDrop
+                        type="Post"
                         postId={this.props.postId}
                         openEditPostModal={this.props.openEditPostModal}
                         destroyPost={this.props.destroyPost}
@@ -181,8 +182,6 @@ class UserPost extends React.Component {
                 <CommentContainer
                     postUserId={this.props.postUserId}
                     postId={this.props.postId}
-                    // indexComments={this.props.indexComments}
-                    // createComment={this.props.createComment}
                 />
             )
         } else {

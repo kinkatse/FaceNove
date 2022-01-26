@@ -6,64 +6,76 @@ class PostComments extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            dropOpen: false
         }
-        
+        this.dropOpen = this.dropOpen.bind(this);
+        this.dropClose = this.dropClose.bind(this);
     }
 
-    // rendersPostTopRight() {
-    //     let component;
-    //     let dropclassname;
-    //     if (this.state.dropOpen) {
-    //         dropclassname = ""
-    //     } else {
-    //         dropclassname = "opendropbtn"
-    //     }
+    dropOpen() {
+        this.setState({ dropOpen: true })
+    }
 
-    //     if (this.props.currentUser.id === parseInt(this.props.userId)) {
-    //         component = (
-    //             <div>
-    //                 {this.rendersPostDropClose()}
-    //                 <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
-    //                     {this.rendersPostDrop()}
-    //                 </div>
-    //             </div>
-    //         )
-    //     } else {
-    //         component = null;
-    //     }
-    //     return (
-    //         component
-    //     )
-    // }
+    dropClose() {
+        this.setState({ dropOpen: false })
+    }
 
-    // rendersPostDropClose() {
-    //     if (this.state.dropOpen) {
-    //         return (
-    //             <div className="post_dropclose" onClick={this.dropClose}></div>
-    //         )
-    //     }
-    // }
+    rendersCommentTopRight() {
+        let component;
+        let dropclassname;
+        if (this.state.dropOpen) {
+            dropclassname = ""
+        } else {
+            dropclassname = "opendropbtn"
+        }
 
-    // rendersPostDrop() {
-    //     let component;
-    //     if (this.state.dropOpen) {
-    //         component = (
-    //             <div className="">
-    //                 <div className="post_dropdown">...</div>
-    //                 <PostDrop
-    //                     postId={this.props.postId}
-    //                     openEditPostModal={this.props.openEditPostModal}
-    //                     destroyPost={this.props.destroyPost}
-    //                 />
-    //             </div>
-    //         )
-    //     } else {
-    //         component = (
-    //             <div className="post_dropdown">...</div>
-    //         );
-    //     }
-    //     return component;
-    // }
+        debugger
+        if (this.props.currentUser.id === parseInt(this.props.postUserId)) {
+            component = (
+                <div>
+                    {this.rendersCommentDropClose()}
+                    <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
+                        {this.rendersCommentDrop()}
+                    </div>
+                </div>
+            )
+        } else {
+            component = null;
+        }
+        return (
+            component
+        )
+    }
+
+    rendersCommentDropClose() {
+        if (this.state.dropOpen) {
+            return (
+                <div className="post_dropclose" onClick={this.dropClose}></div>
+            )
+        }
+    }
+
+    rendersCommentDrop() {
+        let component;
+        if (this.state.dropOpen) {
+            component = (
+                <div className="">
+                    <div className="post_dropdown">...</div>
+                    <PostDrop
+                        type="Comment"
+                        commentId={this.props.commentId}
+                        updateComment={this.props.updateComment}
+                        destroyComment={this.props.destroyComment}
+                    />
+                </div>
+            )
+        } else {
+            component = (
+                <div className="post_dropdown">...</div>
+            );
+        }
+        return component;
+    }
 
     render() {
         debugger
@@ -90,7 +102,7 @@ class PostComments extends React.Component {
                             </Link>
                         </div>
                     </div>
-                    {/* {this.rendersPostTopRight()} */}
+                    {this.rendersCommentTopRight()}
                 </div>
                 <div className="post_middle">
                     <p className="comment_body">

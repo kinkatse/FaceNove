@@ -55,7 +55,7 @@ export const editComment = (commentData, commentId) => {
     })
 }
 
-export const deleteComment = () => {
+export const deleteComment = (commentId) => {
     return $.ajax({
         url: `/api/comments/${commentId}`,
         method: 'DELETE'

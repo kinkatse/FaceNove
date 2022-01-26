@@ -17,7 +17,9 @@ class Api::CommentsController < ApplicationController
                 @user = User.find_by(id: comment_params[:user_id].to_i)
             end
             @comments = @user.comments
-        elsif params[:isPostComments]
+        elsif @post
+            @comments = @post.comments
+        elsif params[:isPostComments] && !@post
             if params[:post_id]
                 @post = Post.find_by(id: params[:post_id].to_i)
             else
@@ -58,6 +60,7 @@ class Api::CommentsController < ApplicationController
 
     def destroy
         @comment = Comment.find_by(id: params[:id])
+        @post = @comment.parent_post
         if @comment
             @comment.destroy
             self.index

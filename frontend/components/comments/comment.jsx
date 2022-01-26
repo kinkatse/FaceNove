@@ -104,10 +104,12 @@ class Comment extends React.Component {
                             commentPostId={comment.post_id}
                             // This is for which post we are on
                             postId={this.props.postId}
-                            // userId={this.props.userId}
+                            postUserId={this.props.postUserId}
                             firstName={comment.firstName}
                             lastName={comment.lastName}
                             createComment={this.props.createComment}
+                            updateComment={this.props.updateComment}
+                            destroyComment={this.props.destroyComment}
                             profilePicUrl={comment.profilePicUrl}
                             profpicColor={profpicColor}
                             currentUser={this.props.currentUser}
