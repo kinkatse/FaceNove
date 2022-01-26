@@ -1,7 +1,18 @@
-export const getAllComments = () => {
+export const getAllPostComments = (postId) => {
+    debugger
     return $.ajax({
         url: '/api/comments',
-        method: 'GET'
+        method: 'GET',
+        data: postId
+    })
+}
+
+export const getAllUserComments = (commentId) => {
+    debugger
+    return $.ajax({
+        url: '/api/comments',
+        method: 'GET',
+        data: commentId
     })
 }
 
@@ -13,6 +24,7 @@ export const getAllComments = () => {
 // }
 
 export const createComment = (commentData) => {
+    debugger
     return $.ajax({
         url: '/api/comments',
         method: 'POST',
