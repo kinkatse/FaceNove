@@ -1,5 +1,5 @@
 import React from 'react';
-import PostDrop from './post_drop'
+import PostDrop from '../posts/post_drop'
 
 class PostComments extends React.Component {
     constructor(props) {
@@ -32,6 +32,32 @@ class PostComments extends React.Component {
         debugger
         this.props.createComment(commentData).then(this.resetState())
     }
+
+    // rendersPostTopRight() {
+    //     let component;
+    //     let dropclassname;
+    //     if (this.state.dropOpen) {
+    //         dropclassname = ""
+    //     } else {
+    //         dropclassname = "opendropbtn"
+    //     }
+
+    //     if (this.props.currentUser.id === parseInt(this.props.userId)) {
+    //         component = (
+    //             <div>
+    //                 {this.rendersPostDropClose()}
+    //                 <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
+    //                     {this.rendersPostDrop()}
+    //                 </div>
+    //             </div>
+    //         )
+    //     } else {
+    //         component = null;
+    //     }
+    //     return (
+    //         component
+    //     )
+    // }
 
     // rendersPostDropClose() {
     //     if (this.state.dropOpen) {

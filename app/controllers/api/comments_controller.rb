@@ -6,7 +6,7 @@ class Api::CommentsController < ApplicationController
         debugger
         if @comment.save
             debugger
-            render "api/users/index"
+            self.index
         else
             render json: @comment.errors.full_messages, status: 422
         end
@@ -51,7 +51,7 @@ class Api::CommentsController < ApplicationController
         #     @comment.commentPhotoUrl.purge
         # end
         if @comment.update_attributes(comment_params)
-            render "api/users/index"
+            self.index
         else
             render json: @comment.errors.full_messages, status: 418
         end
@@ -61,7 +61,7 @@ class Api::CommentsController < ApplicationController
         @comment = Comment.find_by(id: params[:id])
         if @comment
             @comment.destroy
-            render "api/users/index"
+            self.index
         else
             render json: @comment.errors.full_messages, status: 418
         end
