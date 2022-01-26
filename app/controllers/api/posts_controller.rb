@@ -46,6 +46,10 @@ class Api::PostsController < ApplicationController
 
     def update
         @post = Post.find_by(id: params[:id])
+        # For deleting picture that is attached to a post
+        if params[:postPhotoUrl] == "purge"
+            @post.postPhotoUrl.purge
+        end
         if @post.update_attributes(post_params)
             # Cant put render here or I get double render error
             # I tried redirect_to as well but the url is a built in

@@ -36,7 +36,16 @@ class ModalEditPost extends React.Component {
         const postData = new FormData();
         postData.append('postData[post]', this.state.post);
         postData.append('postData[user_id]', this.state.user_id);
-        postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        // This is so we can tell the backend when we want to delete a photo
+        // We also dont want this under the postData obj as a key since
+        // we cant update the post with post_params so we pass it in as
+        // part of the params and use the params to key in and check the
+        // value for the condition in the backend
+        if (this.state.photoFile) {
+            postData.append('postData[postPhotoUrl]', this.state.photoFile);
+        } else {
+            postData.append('postPhotoUrl', "purge");
+        }
         if (this.state.post) {
             this.props.updatePost(postData, this.props.postObj.id)
             .then(this.resetState())
