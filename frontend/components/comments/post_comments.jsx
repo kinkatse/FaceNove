@@ -1,38 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PostDrop from '../posts/post_drop'
 
 class PostComments extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentBody: "",
-            // Eventually pass all comments into here from the indexcomment action
+            // commentBody: "",
+            // // Eventually pass all comments into here from the indexcomment action
         }
-        this.updateCommentBody = this.updateCommentBody.bind(this);
-        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        // this.updateCommentBody = this.updateCommentBody.bind(this);
+        // this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     }
 
-    updateCommentBody() {
-        return e => this.setState({ commentBody: e.currentTarget.value })
-    }
+    // updateCommentBody() {
+    //     return e => this.setState({ commentBody: e.currentTarget.value })
+    // }
 
-    resetState() {
-        this.setState({
-            commentBody: ""
-        })
-    }
+    // resetState() {
+    //     this.setState({
+    //         commentBody: ""
+    //     })
+    // }
 
-    handleCommentSubmit(e) {
-        debugger
-        e.preventDefault();
-        const commentData = new FormData();
-        commentData.append('commentData[body]', this.state.commentBody);
-        commentData.append('commentData[user_id]', this.props.userId);
-        commentData.append('commentData[post_id]', this.props.postId);
-        commentData.append('isPostComments', true)
-        debugger
-        this.props.createComment(commentData).then(this.resetState())
-    }
+    // handleCommentSubmit(e) {
+    //     debugger
+    //     e.preventDefault();
+    //     const commentData = new FormData();
+    //     commentData.append('commentData[body]', this.state.commentBody);
+    //     commentData.append('commentData[user_id]', this.props.userId);
+    //     commentData.append('commentData[post_id]', this.props.postId);
+    //     commentData.append('isPostComments', true)
+    //     debugger
+    //     this.props.createComment(commentData).then(this.resetState())
+    // }
 
     // rendersPostTopRight() {
     //     let component;
@@ -91,16 +92,46 @@ class PostComments extends React.Component {
 
     render() {
         debugger
+            // <form onSubmit={this.handleCommentSubmit}>
+            //     <input
+            //         className="post_placeholder"
+            //         type="text"
+            //         value={this.state.commentBody}
+            //         placeholder="Write a comment"
+            //         onChange={this.updateCommentBody()}
+            //     />
+            // </form>
         return (
-            <form onSubmit={this.handleCommentSubmit}>
-                <input
-                    className="post_placeholder"
-                    type="text"
-                    value={this.state.commentBody}
-                    placeholder="Write a comment"
-                    onChange={this.updateCommentBody()}
-                />
-            </form>
+            <div className="post_whole">
+                <div className="post_top">
+                    <div className="post_top_left">
+                        <Link to={`/user/${this.props.authorUserId}`}>
+                            <img
+                                className={'post_profile_pic ' + this.props.profpicColor}
+                                src={this.props.profilePicUrl}
+                            />
+                        </Link>
+                        <div className="name_and_time">
+                            <Link to={`/user/${this.props.authorUserId}`}>
+                                <h2 className="post_name">
+                                    {this.props.firstName} {this.props.lastName}
+                                </h2>
+                            </Link>
+                        </div>
+                    </div>
+                    {/* {this.rendersPostTopRight()} */}
+                </div>
+                <div className="post_middle">
+                    <p className="post_body">
+                        {this.props.commentBody}
+                    </p>
+                </div>
+                <div className="post_bottom">
+                    <div className="post_buttons">
+                        <h2 className="post_placeholder">Like?</h2>
+                    </div>
+                </div>
+            </div>
         )
     }
 }

@@ -21,61 +21,84 @@ class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            commentBody: "",
+            // Eventually pass all comments into here from the indexcomment action
         }
+        this.updateCommentBody = this.updateCommentBody.bind(this);
+        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    }
+
+    updateCommentBody() {
+        return e => this.setState({ commentBody: e.currentTarget.value })
+    }
+
+    resetState() {
+        this.setState({
+            commentBody: ""
+        })
+    }
+
+    handleCommentSubmit(e) {
+        debugger
+        e.preventDefault();
+        const commentData = new FormData();
+        commentData.append('commentData[body]', this.state.commentBody);
+        commentData.append('commentData[user_id]', this.props.userId);
+        commentData.append('commentData[post_id]', this.props.postId);
+        commentData.append('isPostComments', true)
+        debugger
+        this.props.createComment(commentData).then(this.resetState())
     }
 
     render() {
-        // let profpicColor;
-        // if (this.props.color === "blue") {
-        //     profpicColor = "postprofpicblue"
-        // } else if (this.props.color === "green") {
-        //     profpicColor = "postprofpicgreen"
-        // } else if (this.props.color === "red") {
-        //     profpicColor = "postprofpicred"
-        // }
+        let profpicColor;
+        if (this.props.color === "blue") {
+            profpicColor = "postprofpicblue"
+        } else if (this.props.color === "green") {
+            profpicColor = "postprofpicgreen"
+        } else if (this.props.color === "red") {
+            profpicColor = "postprofpicred"
+        }
 
         // if (Object.keys(this.props.posts).length === 0) {
         //     return this.rendersCreatePost(profpicColor)
         // }
 
-        // let postArr = Object.values(this.props.posts).reverse()
+        debugger
+        let commentArr = Object.values(this.props.comments).reverse()
         debugger
         return (
             <div>
-                <PostComments
-                    userId={this.props.userId}
-                    postId={this.props.postId}
-                    indexComments={this.props.indexComments}
-                    createComment={this.props.createComment}
-                    currentUser={this.props.currentUser}
-                />
+                <form onSubmit={this.handleCommentSubmit}>
+                    <input
+                        className="post_placeholder"
+                        type="text"
+                        value={this.state.commentBody}
+                        placeholder="Write a comment"
+                        onChange={this.updateCommentBody()}
+                    />
+                </form>
+                {
+                    commentArr.map(comment => (
+                        <PostComments
+                            key={comment.id}
+                            commentId={comment.id}
+                            commentBody={comment.body}
+                            authorUserId={comment.user_id}
+                            postId={comment.post_id}
+                            userId={this.props.userId}
+                            firstName={comment.firstName}
+                            lastName={comment.lastName}
+                            profilePicUrl={comment.profilePicUrl}
+                            profpicColor={profpicColor}
+                            // currentUser={this.props.currentUser}
+
+                            // updatePost={this.props.updatePost}
+                            // destroyPost={this.props.destroyPost}
+                        /> )
+                    )
+                }
             </div>
-            // <div>
-            //     {
-            //         postArr.map(post => (
-            //             <UserPost
-            //                 key={post.id}
-            //                 postId={post.id}
-            //                 postUserId={post.user_id}
-            //                 postBody={post.body}
-            //                 currentUser={this.props.currentUser}
-            //                 userId={this.props.userId}
-            //                 firstName={post.firstName}
-            //                 lastName={post.lastName}
-            //                 created_at={post.created_at}
-            //                 updated_at={post.updated_at}
-            //                 updatePost={this.props.updatePost}
-            //                 destroyPost={this.props.destroyPost}
-            //                 indexComments={this.props.indexComments}
-            //                 createComment={this.props.createComment}
-            //                 openEditPostModal={this.props.openEditPostModal}
-            //                 postPicUrl={post.postPhotoUrl}
-            //                 profilePicUrl={post.profilePicUrl}
-            //                 profpicColor={profpicColor}
-            //             /> )
-            //         )
-            //     }
-            // </div>
         )
     }
 }

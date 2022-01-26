@@ -1,11 +1,11 @@
 class Api::CommentsController < ApplicationController
 
     def create
-        debugger
+        # debugger
         @comment = Comment.new(comment_params)
-        debugger
+        # debugger
         if @comment.save
-            debugger
+            # debugger
             self.index
         else
             render json: @comment.errors.full_messages, status: 422
@@ -13,14 +13,14 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        debugger
+        # debugger
         @user = User.find_by(id: comment_params[:user_id].to_i)
         @post = Post.find_by(id: comment_params[:post_id].to_i)
         if params[:isUserComments]
-            debugger
+            # debugger
             @comments = @user.comments
         elsif params[:isPostComments]
-            debugger
+            # debugger
             @comments = @post.comments
         end
         render :index
