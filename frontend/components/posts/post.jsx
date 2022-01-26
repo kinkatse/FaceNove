@@ -93,7 +93,7 @@ class Post extends React.Component {
                             key={post.id}
                             postId={post.id}
                             postUserId={post.user_id}
-                            postBody={post.post}
+                            postBody={post.body}
                             currentUser={this.props.currentUser}
                             userId={this.props.userId}
                             firstName={post.firstName}

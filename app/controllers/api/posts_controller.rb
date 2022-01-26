@@ -75,7 +75,7 @@ class Api::PostsController < ApplicationController
     def post_params
         params.require(:postData).permit(
             :id,
-            :post,
+            :body,
             :user_id,
             :postPhotoUrl
         )

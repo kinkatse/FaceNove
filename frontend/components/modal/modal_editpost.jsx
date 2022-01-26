@@ -4,7 +4,7 @@ class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            post: this.props.postObj.post,
+            body: this.props.postObj.body,
             user_id: this.props.postObj.user_id,
             photoUrl:
             (typeof this.props.postObj.postPhotoUrl === "string" ?
@@ -17,7 +17,7 @@ class ModalEditPost extends React.Component {
     }
 
     updatePostBody() {
-        return e => this.setState({ post: e.currentTarget.value })
+        return e => this.setState({ body: e.currentTarget.value })
     }
 
     handleFile(e) {
@@ -34,7 +34,7 @@ class ModalEditPost extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
-        postData.append('postData[post]', this.state.post);
+        postData.append('postData[body]', this.state.body);
         postData.append('postData[user_id]', this.state.user_id);
         // This is so we can tell the backend when we want to delete a photo
         // We also dont want this under the postData obj as a key since
@@ -46,7 +46,7 @@ class ModalEditPost extends React.Component {
         } else {
             postData.append('postPhotoUrl', "purge");
         }
-        if (this.state.post) {
+        if (this.state.body) {
             this.props.updatePost(postData, this.props.postObj.id)
             .then(this.resetState())
         } else {
@@ -65,7 +65,7 @@ class ModalEditPost extends React.Component {
 
     resetState() {
         this.setState({
-            post: this.props.postObj.post,
+            body: this.props.postObj.post,
             photoUrl: null,
             photoFile: null
         })
@@ -165,8 +165,8 @@ class ModalEditPost extends React.Component {
                             <textarea
                                 className="editpost_input"
                                 type="text"
-                                placeholder={`${this.state.post}`}
-                                value={this.state.post}
+                                placeholder={`${this.state.body}`}
+                                value={this.state.body}
                                 onChange={this.updatePostBody()}
                             ></textarea>
                         </div>

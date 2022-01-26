@@ -4,7 +4,7 @@ class ModalCreatePost extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            post: "",
+            body: "",
             user_id: this.props.currentUser.id,
             photoUrl: null,
             photoFile: null
@@ -15,7 +15,7 @@ class ModalCreatePost extends React.Component {
     }
 
     updatePostBody() {
-        return e => this.setState({ post: e.currentTarget.value })
+        return e => this.setState({ body: e.currentTarget.value })
     }
 
     handleFile(e) {
@@ -32,12 +32,12 @@ class ModalCreatePost extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const postData = new FormData();
-        postData.append('postData[post]', this.state.post);
+        postData.append('postData[body]', this.state.body);
         postData.append('postData[user_id]', this.state.user_id);
         if (this.state.photoFile) {
             postData.append('postData[postPhotoUrl]', this.state.photoFile);
         }
-        if (this.state.post) {
+        if (this.state.body) {
             this.props.createPost(postData)
             .then(this.resetState())
         } else {
@@ -56,7 +56,7 @@ class ModalCreatePost extends React.Component {
 
     resetState() {
         this.setState({
-            post: "",
+            body: "",
             photoUrl: null,
             photoFile: null
         })
@@ -161,7 +161,7 @@ class ModalCreatePost extends React.Component {
                                 className="editpost_input"
                                 type="text"
                                 placeholder="What's on your mind?"
-                                value={this.state.post}
+                                value={this.state.body}
                                 onChange={this.updatePostBody()}
                             ></textarea>
                         </div>

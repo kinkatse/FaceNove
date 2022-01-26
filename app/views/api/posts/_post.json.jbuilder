@@ -1,4 +1,4 @@
-json.extract! post, :id, :post, :user_id, :postPhotoUrl, :created_at, :updated_at
+json.extract! post, :id, :body, :user_id, :postPhotoUrl, :created_at, :updated_at
 json.extract! post.author, :firstName, :lastName, :profilePicUrl
 
 if post.author.profilePicUrl.attached?
