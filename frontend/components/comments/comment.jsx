@@ -43,7 +43,7 @@ class Comment extends React.Component {
         e.preventDefault();
         const commentData = new FormData();
         commentData.append('commentData[body]', this.state.commentBody);
-        commentData.append('commentData[user_id]', this.props.userId);
+        commentData.append('commentData[user_id]', this.props.currentUser.id);
         commentData.append('commentData[post_id]', this.props.postId);
         commentData.append('isPostComments', true)
         debugger
