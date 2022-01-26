@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PostComments from '../comments/post_comments';
 import PostDrop from './post_drop'
 
 class UserPost extends React.Component {
@@ -8,14 +9,14 @@ class UserPost extends React.Component {
         this.state = {
             dropOpen: false,
             commentsOpen: false,
-            commentBody: "",
+            // commentBody: "",
             postBody: this.props.postBody,
             enlarged: false
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
-        this.updateCommentBody = this.updateCommentBody.bind(this);
-        this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        // this.updateCommentBody = this.updateCommentBody.bind(this);
+        // this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
         // createComment={this.props.createComment}
         // indexComments={this.props.indexComments}
     }
@@ -41,30 +42,29 @@ class UserPost extends React.Component {
         this.setState({ enlarged: false })
     }
 
-    updateCommentBody() {
-        return e => this.setState({ commentBody: e.currentTarget.value })
-    }
+    // updateCommentBody() {
+    //     return e => this.setState({ commentBody: e.currentTarget.value })
+    // }
 
-    resetState() {
-        this.setState({
-            dropOpen: false,
-            commentsOpen: false,
-            commentBody: "",
-            postBody: this.props.postBody,
-            enlarged: false
-        })
-    }
+    // resetState() {
+    //     this.setState({
+    //         dropOpen: false,
+    //         commentsOpen: false,
+    //         postBody: this.props.postBody,
+    //         enlarged: false
+    //     })
+    // }
 
-    handleCommentSubmit(e) {
-        debugger
-        e.preventDefault();
-        const commentData = new FormData();
-        commentData.append('commentData[body]', this.state.commentBody);
-        commentData.append('commentData[user_id]', this.props.postUserId);
-        commentData.append('commentData[post_id]', this.props.postId);
-        debugger
-        this.props.createComment(commentData).then(this.resetState())
-    }
+    // handleCommentSubmit(e) {
+    //     debugger
+    //     e.preventDefault();
+    //     const commentData = new FormData();
+    //     commentData.append('commentData[body]', this.state.commentBody);
+    //     commentData.append('commentData[user_id]', this.props.postUserId);
+    //     commentData.append('commentData[post_id]', this.props.postId);
+    //     debugger
+    //     this.props.createComment(commentData).then(this.resetState())
+    // }
 
     rendersPostTopRight() {
         let component;
@@ -207,18 +207,23 @@ class UserPost extends React.Component {
         debugger
         if (this.state.commentsOpen) {
             return (
-                <>
-                    {/* <h2 className="post_placeholder">Write a comment</h2> */}
-                    <form onSubmit={this.handleCommentSubmit}>
-                        <input
-                            className="post_placeholder"
-                            type="text"
-                            value={this.state.commentBody}
-                            placeholder="Write a comment"
-                            onChange={this.updateCommentBody()}
-                        />
-                    </form>
-                </>
+                // <>
+                //     <form onSubmit={this.handleCommentSubmit}>
+                //         <input
+                //             className="post_placeholder"
+                //             type="text"
+                //             value={this.state.commentBody}
+                //             placeholder="Write a comment"
+                //             onChange={this.updateCommentBody()}
+                //         />
+                //     </form>
+                // </>
+                <PostComments
+                    userId={this.props.postUserId}
+                    postId={this.props.postId}
+                    indexComments={this.props.indexComments}
+                    createComment={this.props.createComment}
+                />
             )
         } else {
             return null;
