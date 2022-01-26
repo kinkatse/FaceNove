@@ -3,7 +3,6 @@ import React from 'react';
 class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
-        debugger
         this.state = {
             body: this.props.postObj.body,
             user_id: this.props.postObj.user_id,
@@ -22,10 +21,8 @@ class ModalEditPost extends React.Component {
     }
 
     handleFile(e) {
-        debugger
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
-        debugger
         fileReader.onloadend = () => {
             this.setState({photoFile: file, photoUrl: fileReader.result})
         }
@@ -35,7 +32,6 @@ class ModalEditPost extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const postData = new FormData();
         postData.append('postData[body]', this.state.body);
@@ -50,7 +46,6 @@ class ModalEditPost extends React.Component {
         } else if (!this.state.photoUrl) {
             postData.append('postPhotoUrl', "purge");
         }
-        debugger
         if (this.state.body) {
             this.props.updatePost(postData, this.props.postObj.id)
             .then(this.resetState())

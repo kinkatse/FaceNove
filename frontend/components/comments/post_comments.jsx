@@ -82,7 +82,7 @@ class PostComments extends React.Component {
         }
 
         return (
-            <div className="post_whole">
+            <div className="comment_whole">
                 <div className="post_top">
                     <div className="post_top_left">
                         <Link to={`/user/${this.props.authorCommentId}`}>
