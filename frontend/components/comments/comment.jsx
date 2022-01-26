@@ -84,7 +84,6 @@ class Comment extends React.Component {
         let commentArr = Object.values(this.props.comments).reverse()
         return (
             <div>
-                {this.rendersCreateComment()}
                 {
                     commentArr.map(comment => (
                         <PostComments
@@ -107,6 +106,7 @@ class Comment extends React.Component {
                         /> )
                     )
                 }
+                {this.rendersCreateComment()}
             </div>
         )
     }

@@ -108,7 +108,7 @@ class PostComments extends React.Component {
                 </div>
                 <div className="post_bottom">
                     <div className="post_buttons">
-                        <h2 className="post_placeholder">Like?</h2>
+                        <h2 className="comments_placeholder_like">Like?</h2>
                     </div>
                 </div>
             </div>
