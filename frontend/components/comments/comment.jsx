@@ -3,14 +3,12 @@ import PostComments from './post_comments';
 
 class Comment extends React.Component {
     componentDidMount() {
-        debugger
         this.props.clearComments()
         const commentRelatedId = Object.assign(
             {},
             { post_id: this.props.postId },
             { isPostComments: true }
         )
-        debugger
         this.props.indexComments(commentRelatedId)
     }
 
@@ -28,8 +26,7 @@ class Comment extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentBody: "",
-            // Eventually pass all comments into here from the indexcomment action
+            commentBody: ""
         }
         this.updateCommentBody = this.updateCommentBody.bind(this);
         this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
@@ -46,14 +43,12 @@ class Comment extends React.Component {
     }
 
     handleCommentSubmit(e) {
-        debugger
         e.preventDefault();
         const commentData = new FormData();
         commentData.append('commentData[body]', this.state.commentBody);
         commentData.append('commentData[user_id]', this.props.currentUser.id);
         commentData.append('commentData[post_id]', this.props.postId);
         commentData.append('isPostComments', true)
-        debugger
         this.props.createComment(commentData).then(this.resetState())
     }
 
@@ -82,14 +77,11 @@ class Comment extends React.Component {
             profpicColor = "postprofpicred"
         }
 
-        debugger
         if (Object.keys(this.props.comments).length === 0) {
             return null;
         }
 
-        debugger
         let commentArr = Object.values(this.props.comments).reverse()
-        debugger
         return (
             <div>
                 {this.rendersCreateComment()}
@@ -113,9 +105,6 @@ class Comment extends React.Component {
                             profilePicUrl={comment.profilePicUrl}
                             profpicColor={profpicColor}
                             currentUser={this.props.currentUser}
-
-                            // updatePost={this.props.updatePost}
-                            // destroyPost={this.props.destroyPost}
                         /> )
                     )
                 }

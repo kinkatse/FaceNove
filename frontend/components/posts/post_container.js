@@ -5,18 +5,9 @@ import {
     indexPosts,
     showPost,
     createPost,
-    updatePost,
     destroyPost,
     clearPosts
 } from '../../actions/post_actions';
-// import {
-//     // indexPostComments,
-//     // indexUserComments,
-//     indexComments,
-//     createComment,
-//     updateComment,
-//     destroyComment
-// } from '../../actions/comment_actions';
 import { openCreatePostModal, openEditPostModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -35,19 +26,11 @@ const mapDispatchToProps = (dispatch) => {
         indexPosts: (() => dispatch(indexPosts())),
         showPost: (postId => dispatch(showPost(postId))),
         createPost: (post => dispatch(createPost(post))),
-        // updatePost: ((post, postId) => dispatch(updatePost(post, postId))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
-        // indexComments: (relatedId => dispatch(indexComments(relatedId))),
-        // indexPostComments: (postId => dispatch(indexPostComments(postId))),
-        // indexUserComments: (userId => dispatch(indexUserComments(userId))),
-        // createComment: (commentData) => dispatch(createComment(commentData)),
-        // updateComment: ((commentData, commentId) => dispatch(updateComment(commentData, commentId))),
-        // destroyComment: (commentId) => dispatch(destroyComment(commentId)),
         openCreatePostModal: () => dispatch(openCreatePostModal()),
         openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         clearPosts: (() => dispatch(clearPosts()))
-        // openPostModal: () => dispatch(openPostModal())
     }
 }
 

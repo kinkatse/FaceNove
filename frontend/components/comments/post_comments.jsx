@@ -29,7 +29,6 @@ class PostComments extends React.Component {
             dropclassname = "opendropbtn"
         }
 
-        debugger
         if (this.props.currentUser.id === parseInt(this.props.postUserId)) {
             component = (
                 <div>
@@ -78,8 +77,6 @@ class PostComments extends React.Component {
     }
 
     render() {
-        debugger
-
         if (this.props.commentPostId !== this.props.postId) {
             return null;
         }

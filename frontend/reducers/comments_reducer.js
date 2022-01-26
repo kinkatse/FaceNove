@@ -4,7 +4,6 @@
     Object.freeze(commentState);
     switch(action.type) {
         case RECEIVE_ALL_COMMENTS:
-            debugger
             return Object.assign({}, commentState, action.comments);
         case RECEIVE_COMMENT:
             return Object.assign({}, commentState, action.comment)

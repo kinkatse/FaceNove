@@ -177,7 +177,6 @@ class UserPost extends React.Component {
 
     rendersComments() {
         if (this.state.commentsOpen) {
-            debugger
             return (
                 <CommentContainer
                     postUserId={this.props.postUserId}

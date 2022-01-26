@@ -2,8 +2,6 @@ import { connect } from 'react-redux';
 
 import Comment from './comment';
 import {
-    // indexPostComments,
-    // indexUserComments,
     indexComments,
     createComment,
     updateComment,
@@ -12,7 +10,6 @@ import {
 } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
     return {
         postUserId: ownProps.postUserId,
         postId: ownProps.postId,
@@ -25,8 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         indexComments: (relatedId => dispatch(indexComments(relatedId))),
-        // indexPostComments: (postId => dispatch(indexPostComments(postId))),
-        // indexUserComments: (userId => dispatch(indexUserComments(userId))),
         createComment: (commentData) => dispatch(createComment(commentData)),
         updateComment: ((commentData, commentId) => dispatch(updateComment(commentData, commentId))),
         destroyComment: (commentId) => dispatch(destroyComment(commentId)),

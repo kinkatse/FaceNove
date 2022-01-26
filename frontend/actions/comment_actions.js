@@ -7,7 +7,6 @@ export const REMOVE_ALL_COMMENTS = 'REMOVE_ALL_COMMENTS';
 // export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
 const receiveAllComments = (comments) => {
-    debugger
     return {
         type: RECEIVE_ALL_COMMENTS,
         comments
@@ -15,7 +14,6 @@ const receiveAllComments = (comments) => {
 }
 
 const receiveComment = (comment) => {
-    debugger
     return {
         type: RECEIVE_COMMENT,
         comment
@@ -43,28 +41,11 @@ export const clearComments = () => {
 // }
 
 export const indexComments = (relatedId) => (dispatch) => {
-    debugger
     return (
         CommentApiUtil.getAllComments(relatedId)
         .then(comments => dispatch(receiveAllComments(comments)))
     )
 }
-
-// export const indexPostComments = (postId) => (dispatch) => {
-//     debugger
-//     return (
-//         CommentApiUtil.getAllComments(postId)
-//         .then(comments => dispatch(receiveAllComments(comments)))
-//     )
-// }
-
-// export const indexUserComments = (userId) => (dispatch) => {
-//     debugger
-//     return (
-//         CommentApiUtil.getAllComments(userId)
-//         .then(comments => dispatch(receiveAllComments(comments)))
-//     )
-// }
 
 // export const showComment = (commentId) => (dispatch) => {
 //     return (
