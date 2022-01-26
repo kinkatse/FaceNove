@@ -13,7 +13,7 @@ const Splash = (props) => {
         splashComponent =
             <div className="splash">
             <div className="splash-background"></div>
-                {/* <NavBarContainer /> */}
+                <NavBarContainer />
                 <HomeContanier />
             </div>
     } else {
