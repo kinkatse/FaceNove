@@ -6,34 +6,9 @@ class PostComments extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // commentBody: "",
-            // Eventually pass all comments into here from the indexcomment action
         }
-        // this.updateCommentBody = this.updateCommentBody.bind(this);
-        // this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+        
     }
-
-    // updateCommentBody() {
-    //     return e => this.setState({ commentBody: e.currentTarget.value })
-    // }
-
-    // resetState() {
-    //     this.setState({
-    //         commentBody: ""
-    //     })
-    // }
-
-    // handleCommentSubmit(e) {
-    //     debugger
-    //     e.preventDefault();
-    //     const commentData = new FormData();
-    //     commentData.append('commentData[body]', this.state.commentBody);
-    //     commentData.append('commentData[user_id]', this.props.currentUser.id);
-    //     commentData.append('commentData[post_id]', this.props.postId);
-    //     commentData.append('isPostComments', true)
-    //     debugger
-    //     this.props.createComment(commentData).then(this.resetState())
-    // }
 
     // rendersPostTopRight() {
     //     let component;
@@ -90,20 +65,6 @@ class PostComments extends React.Component {
     //     return component;
     // }
 
-    // rendersCreateComment() {
-    //     return (
-    //         <form onSubmit={this.handleCommentSubmit}>
-    //             <input
-    //                 className="post_placeholder"
-    //                 type="text"
-    //                 value={this.state.commentBody}
-    //                 placeholder="Write a comment"
-    //                 onChange={this.updateCommentBody()}
-    //             />
-    //         </form>
-    //     )
-    // }
-
     render() {
         debugger
 
@@ -132,7 +93,7 @@ class PostComments extends React.Component {
                     {/* {this.rendersPostTopRight()} */}
                 </div>
                 <div className="post_middle">
-                    <p className="post_body">
+                    <p className="comment_body">
                         {this.props.commentBody}
                     </p>
                 </div>

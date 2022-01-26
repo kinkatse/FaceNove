@@ -61,12 +61,13 @@ class Comment extends React.Component {
         return (
             <form onSubmit={this.handleCommentSubmit}>
                 <input
-                    className="post_placeholder"
+                    className="createcomment"
                     type="text"
                     value={this.state.commentBody}
                     placeholder="Write a comment"
                     onChange={this.updateCommentBody()}
                 />
+                <p className="comments_placeholder">Press Enter to Post.</p>
             </form>
         )
     }
