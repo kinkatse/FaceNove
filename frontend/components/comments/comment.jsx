@@ -91,12 +91,11 @@ class Comment extends React.Component {
                             key={comment.id}
                             commentId={comment.id}
                             commentBody={comment.body}
+                            // this is for which user from the comment
                             authorCommentId={comment.user_id}
-                            // This is the comment's post_id
                             commentPostId={comment.post_id}
-                            // This is for which post we are on
                             postId={this.props.postId}
-                            postUserId={this.props.postUserId}
+                            // postUserId={this.props.postUserId}
                             firstName={comment.firstName}
                             lastName={comment.lastName}
                             createComment={this.props.createComment}

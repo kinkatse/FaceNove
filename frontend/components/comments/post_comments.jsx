@@ -29,7 +29,7 @@ class PostComments extends React.Component {
             dropclassname = "opendropbtn"
         }
 
-        if (this.props.currentUser.id === parseInt(this.props.postUserId)) {
+        if (this.props.currentUser.id === parseInt(this.props.authorCommentId)) {
             component = (
                 <div>
                     {this.rendersCommentDropClose()}
