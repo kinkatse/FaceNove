@@ -63,6 +63,9 @@ class PostComments extends React.Component {
                     <PostDrop
                         type="Comment"
                         commentId={this.props.commentId}
+                        commentBody={this.props.commentBody}
+                        commentUserId={this.props.authorCommentId}
+                        commentPostId={this.props.commentPostId}
                         updateComment={this.props.updateComment}
                         destroyComment={this.props.destroyComment}
                     />

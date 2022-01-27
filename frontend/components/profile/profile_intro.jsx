@@ -20,6 +20,10 @@ class ProfileIntro extends React.Component {
         })
     }
 
+    closeBio() {
+        this.setState({ openBio: false })
+    }
+
     updateBio() {
         return e => this.setState({ bio: e.currentTarget.value })
     }
@@ -31,12 +35,6 @@ class ProfileIntro extends React.Component {
         .then(this.closeBio())
     }
 
-    closeBio() {
-        this.setState({
-            openBio: false
-        })
-    }
-    
     resetState() {
         this.setState({
             bio: this.props.currentUser.bio || "",
