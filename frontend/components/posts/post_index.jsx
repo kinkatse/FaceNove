@@ -14,6 +14,7 @@ class IndexPost extends React.Component {
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
+        this.commentsToggle = this.commentsToggle.bind(this);
     }
 
     dropOpen() {
@@ -178,10 +179,13 @@ class IndexPost extends React.Component {
     rendersComments() {
         if (this.state.commentsOpen) {
             return (
-                <CommentContainer
-                    postUserId={this.props.postUserId}
-                    postId={this.props.postId}
-                />
+                <>
+                    <div className="postlinediv"></div>
+                    <CommentContainer
+                        postUserId={this.props.postUserId}
+                        postId={this.props.postId}
+                    />
+                </>
             )
         } else {
             return null;
@@ -285,7 +289,6 @@ class IndexPost extends React.Component {
                         <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
                         <h2 className="post_placeholder">Like?</h2>
                     </div>
-                    <div className="postlinediv"></div>
                     {this.rendersComments()}
                 </div>
             </div>

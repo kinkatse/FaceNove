@@ -3,13 +3,25 @@ import PostComments from './post_comments';
 
 class Comment extends React.Component {
     componentDidMount() {
-        this.props.clearComments()
         const commentRelatedId = Object.assign(
             {},
             { post_id: this.props.postId },
             { isPostComments: true }
         )
         this.props.indexComments(commentRelatedId)
+    }
+
+    componentDidUpdate(oldProps) {
+        if (JSON.stringify(Object.keys(this.props.comments))
+        !== JSON.stringify(Object.keys(oldProps.comments))) {
+            this.props.clearComments()
+            const commentRelatedId = Object.assign(
+                {},
+                { post_id: this.props.postId },
+                { isPostComments: true }
+            )
+            this.props.indexComments(commentRelatedId)
+        }
     }
 
     // componentDidUpdate(oldProps) {

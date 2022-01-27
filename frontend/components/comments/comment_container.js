@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         indexComments: (relatedId => dispatch(indexComments(relatedId))),
         createComment: (commentData) => dispatch(createComment(commentData)),
