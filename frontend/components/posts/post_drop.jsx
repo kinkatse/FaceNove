@@ -48,7 +48,42 @@ class PostDrop extends React.Component {
         })
     }
 
-    rendersDropType() {
+    rendersDropType(colorSplash) {
+        // let editComment;
+        // if (this.props.commentUserId === this.props.currentUser.id) {
+
+        // }
+
+        let editComment;
+        if (this.state.openComment) {
+            editComment = (
+                <form className="openedit_form" onSubmit={this.handleSubmit}>
+                    <textarea
+                        className="openedit_textarea"
+                        type="text"
+                        placeholder={`${this.state.commentBody}`}
+                        value={this.state.commentBody}
+                        onChange={this.updateComment()}
+                    ></textarea>
+                    <div className="editbio_whole">
+                        <div className="prof_openbiobutton edit_bio_cancel" onClick={() => this.resetState()}>
+                            Cancel
+                        </div>
+                        <input className={'prof_openbiobutton edit_bio_submit ' + colorSplash} type="submit" value="Save"/>
+                    </div>
+                </form>
+            )
+        }
+        // } else {
+        //     bioEmpty = "profile_bio"
+        //     bio = (
+        //         <div className="profile_bio_div">
+        //             {user.bio}
+        //             {editBio}
+        //         </div>
+        //     )
+        // }
+
         if (this.props.type === "Post") {
             return (
                 <div className="dropopenabsolute">
@@ -68,13 +103,11 @@ class PostDrop extends React.Component {
             return (
                 <div className="dropopenabsolute">
                     <div className="dropopenbackground">
-                        {/* <div
-                            onClick={() => this.props.updateComment()}>
+                        <div
+                            onClick={() => this.openCommentEdit()}>
                                 <p className="dropopentext">Edit</p>
-                                // This needs more logic since it will be similar to
-                                // edit bio where you edit in place of the comment
-                        </div> */}
-                        <p className="dropopentext">Edit</p>
+                        </div>
+                        {/* <p className="dropopentext">Edit</p> */}
                         <div
                             onClick={() => this.props.destroyComment(this.props.commentId)}>
                                 <p className="dropopentext">Delete</p>
@@ -86,8 +119,17 @@ class PostDrop extends React.Component {
     }
 
     render() {
+        let colorSplash;
+        if (this.props.color === "blue") {
+            colorSplash = 'bluesplash';
+        } else if (this.props.color === "green") {
+            colorSplash = 'greensplash'
+        } else if (this.props.color === "red") {
+            colorSplash = 'redsplash'
+        }
+
         return (
-            this.rendersDropType()
+            this.rendersDropType(colorSplash)
         )
     }
 }
