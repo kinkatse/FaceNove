@@ -10,9 +10,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        debugger
         if params[:isUserComments]
-            debugger
             if params[:user_id]
                 @user = User.find_by(id: params[:user_id].to_i)
             else
@@ -21,10 +19,8 @@ class Api::CommentsController < ApplicationController
             @comments = @user.comments
             # @post would be from destroy
         elsif @post
-            debugger
             @comments = @post.comments
         elsif params[:isPostComments] && !@post
-            debugger
             if params[:post_id]
                 @post = Post.find_by(id: params[:post_id].to_i)
             else

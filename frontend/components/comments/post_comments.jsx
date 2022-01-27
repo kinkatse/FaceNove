@@ -68,6 +68,7 @@ class PostComments extends React.Component {
                         commentPostId={this.props.commentPostId}
                         updateComment={this.props.updateComment}
                         destroyComment={this.props.destroyComment}
+                        color={this.props.color}
                     />
                 </div>
             )

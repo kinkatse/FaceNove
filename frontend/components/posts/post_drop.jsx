@@ -7,10 +7,6 @@ class PostDrop extends React.Component {
             commentBody: props.commentBody,
             openComment: false
         }
-        // commentId={this.props.commentId}
-        // commentBody={this.props.commentBody}
-        // commentUserId={this.props.authorCommentId}
-        // commentPostId={this.props.commentPostId}
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -29,9 +25,6 @@ class PostDrop extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // const commentData = Object.assign({}, { commentBody: this.state.bio });
-        // this.props.updateComment(commentData, this.props.commentId)
-        // .then(this.closeComment())
         const commentData = new FormData();
         commentData.append('commentData[body]', this.state.commentBody);
         commentData.append('commentData[user_id]', this.props.commentUserId);
@@ -49,11 +42,6 @@ class PostDrop extends React.Component {
     }
 
     rendersDropType(colorSplash) {
-        // let editComment;
-        // if (this.props.commentUserId === this.props.currentUser.id) {
-
-        // }
-
         let editComment;
         if (this.state.openComment) {
             editComment = (
@@ -73,16 +61,9 @@ class PostDrop extends React.Component {
                     </div>
                 </form>
             )
+        } else {
+            editComment = null;
         }
-        // } else {
-        //     bioEmpty = "profile_bio"
-        //     bio = (
-        //         <div className="profile_bio_div">
-        //             {user.bio}
-        //             {editBio}
-        //         </div>
-        //     )
-        // }
 
         if (this.props.type === "Post") {
             return (
@@ -107,7 +88,7 @@ class PostDrop extends React.Component {
                             onClick={() => this.openCommentEdit()}>
                                 <p className="dropopentext">Edit</p>
                         </div>
-                        {/* <p className="dropopentext">Edit</p> */}
+                        {editComment}
                         <div
                             onClick={() => this.props.destroyComment(this.props.commentId)}>
                                 <p className="dropopentext">Delete</p>
