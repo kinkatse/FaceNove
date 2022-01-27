@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import PostDrop from '../posts/post_drop'
 
 class PostComments extends React.Component {
+    componentDidUpdate(oldProps) {
+        // Just to make sure that after you edit a comment, and try to
+        // edit it again, that the state commentBody is updated as well
+        if (oldProps.commentBody !== this.props.commentBody) {
+            this.resetState()
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,9 +33,7 @@ class PostComments extends React.Component {
     }
 
     openCommentEdit() {
-        debugger
         this.setState({ openComment: true })
-        // commentBody: this.props.commentBody,
     }
 
     closeComment() {
@@ -100,12 +106,7 @@ class PostComments extends React.Component {
                         type="Comment"
                         openCommentEdit={this.openCommentEdit}
                         commentId={this.props.commentId}
-                        commentBody={this.props.commentBody}
-                        commentUserId={this.props.authorCommentId}
-                        commentPostId={this.props.commentPostId}
-                        updateComment={this.props.updateComment}
                         destroyComment={this.props.destroyComment}
-                        color={this.props.color}
                     />
                 </div>
             )

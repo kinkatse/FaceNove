@@ -11,17 +11,6 @@ class Comment extends React.Component {
         this.props.indexComments(commentRelatedId)
     }
 
-    // componentDidUpdate(oldProps) {
-    //     if ((this.props.userId !== oldProps.userId) ||
-    //     (Object.values(oldProps.posts).length !== 0 &&
-    //     this.props.currentUser.id === parseInt(this.props.userId) &&
-    //     this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
-    //     {
-    //         this.props.clearPosts()
-    //         this.props.showPost(this.props.userId);
-    //     }
-    // }
-
     constructor(props) {
         super(props);
         this.state = {
