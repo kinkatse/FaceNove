@@ -11,6 +11,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        this.props.clearComments()
         this.props.clearPosts()
         this.props.indexPosts()
     }

@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         createComment: (commentData) => dispatch(createComment(commentData)),
         updateComment: ((commentData, commentId) => dispatch(updateComment(commentData, commentId))),
         destroyComment: (commentId) => dispatch(destroyComment(commentId)),
-        clearComments: (() => dispatch(clearComments()))
+        // clearComments: (() => dispatch(clearComments()))
     }
 }
 

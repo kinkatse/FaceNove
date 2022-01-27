@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Post extends React.Component {
     componentDidMount() {
+        this.props.clearComments()
         this.props.clearPosts()
         this.props.showPost(this.props.userId)
     }
@@ -14,6 +15,7 @@ class Post extends React.Component {
         this.props.currentUser.id === parseInt(this.props.userId) &&
         this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
         {
+            this.props.clearComments()
             this.props.clearPosts()
             this.props.showPost(this.props.userId);
         }
