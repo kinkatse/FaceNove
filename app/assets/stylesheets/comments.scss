@@ -32,7 +32,8 @@
     font-size: 11px;
     padding: 3px;
     margin-left: 6px;
-    opacity: 40%;
+    opacity: 65%;
+    cursor: pointer;
 }
 
 .createcomment {
@@ -53,6 +54,6 @@
 }
 
 .createcomment:hover {
-    background: rgba(200, 200, 200, 0.7);
+    background: rgba(230, 230, 230, 0.7);
     animation: 0.5s hoveroversml forwards;
 }
