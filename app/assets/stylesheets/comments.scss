@@ -67,30 +67,69 @@
 .openeditcomment_form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
-.openeditcomment_textarea {
+// .createcomment {
+//     font-size: 15px;
+//     width: 93%;
+//     margin-left: 10px;
+//     margin-top: 4px;
+//     margin-bottom: 0;
+//     padding: 10px;
+//     padding-left: 13px;
+//     color: rgba(46, 46, 46, 0.7);
+//     border: none;
+//     outline: none;
+//     border-radius: 100px;
+//     background: rgba(236, 236, 236, 0.7);
+//     z-index: 5;
+//     animation: 0.5s hoveroffsml forwards;
+// }
+
+// .createcomment:hover {
+//     background: rgba(230, 230, 230, 0.7);
+//     animation: 0.5s hoveroversml forwards;
+// }
+
+.openeditcomment_input {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
-    text-align: center;
-    padding: 5px;
+    padding: 6px;
+    padding-left: 10px;
+    // padding-bottom: 0;
     margin: 0;
-    margin-bottom: 10px;
-    min-height: 70px;
-    max-height: 150px;
-    width: 380px;
-    resize: vertical;
-    border-radius: 5px;
-    border: 1px solid rgba(134, 134, 134, 0.4);
+    // margin-bottom: 10px;
+    resize: none;
+    width: 93%;
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    background: rgba(236, 236, 236, 0.7);
     background-color: rgba(229, 231, 235, 0.9);
     z-index: 5;
 }
 
-.openeditcomment_textarea:focus {
+// .openedit_input {
+//     font-size: 15px;
+//     text-align: center;
+//     padding: 5px;
+//     margin: 0;
+//     margin-bottom: 10px;
+//     min-height: 70px;
+//     max-height: 150px;
+//     width: 380px;
+//     resize: vertical;
+//     border-radius: 5px;
+//     border: 1px solid rgba(134, 134, 134, 0.4);
+//     background-color: rgba(229, 231, 235, 0.9);
+//     z-index: 5;
+// }
+
+.openeditcomment_input:focus {
     outline: none;
-    border: 1px solid rgba(70, 70, 70, 0.8);
-    background-color: rgba(229, 231, 235, 0.4);
 }
 
 .editcomment_whole {

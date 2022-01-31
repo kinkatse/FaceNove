@@ -124,18 +124,18 @@ class PostComments extends React.Component {
             editComment = (
                 <div className="comment_bio_div">
                     <form className="openeditcomment_form" onSubmit={this.handleSubmit}>
-                        <textarea
-                            className="openeditcomment_textarea"
+                        <input
+                            className="openeditcomment_input"
                             type="text"
                             placeholder={`${this.state.commentBody}`}
                             value={this.state.commentBody}
                             onChange={this.updateComment()}
-                        ></textarea>
+                        ></input>
                         <div className="editcomment_whole">
-                            <div className="comment_openbiobutton edit_comment_cancel" onClick={() => this.resetState()}>
+                        {/* className="comment_openbiobutton edit_comment_cancel" */}
+                            <div className="" onClick={() => this.resetState()}>
                                 Cancel
                             </div>
-                            <input className={'comment_openbiobutton edit_comment_submit ' + colorSplash} type="submit" value="Save"/>
                         </div>
                     </form>
                 </div>
