@@ -118,7 +118,7 @@ class PostComments extends React.Component {
         return component;
     }
 
-    rendersComment(colorSplash) {
+    rendersComment() {
         let editComment;
         if (this.state.openComment) {
             editComment = (
@@ -132,8 +132,7 @@ class PostComments extends React.Component {
                             onChange={this.updateComment()}
                         ></input>
                         <div className="editcomment_whole">
-                        {/* className="comment_openbiobutton edit_comment_cancel" */}
-                            <div className="" onClick={() => this.resetState()}>
+                            <div className="edit_comment_cancel" onClick={() => this.resetState()}>
                                 Cancel
                             </div>
                         </div>
@@ -149,15 +148,6 @@ class PostComments extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        if (this.props.color === "blue") {
-            colorSplash = 'bluesplash';
-        } else if (this.props.color === "green") {
-            colorSplash = 'greensplash'
-        } else if (this.props.color === "red") {
-            colorSplash = 'redsplash'
-        }
-
         if (this.props.commentPostId !== this.props.postId) {
             return null;
         }
@@ -183,7 +173,7 @@ class PostComments extends React.Component {
                     {this.rendersCommentTopRight()}
                 </div>
                 <div className="post_middle">
-                    {this.rendersComment(colorSplash)}
+                    {this.rendersComment()}
                 </div>
                 <div className="post_bottom">
                     <div className="post_buttons">
