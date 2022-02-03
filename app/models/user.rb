@@ -17,6 +17,11 @@ class User < ApplicationRecord
         foreign_key: :user_id,
         class_name: :Comment
 
+    has_many :likes,
+        primary_key: :id,
+        foreign_key: :liker_id,
+        class_name: :Like
+
     has_one_attached :profilePicUrl
     has_one_attached :coverPicUrl
 
