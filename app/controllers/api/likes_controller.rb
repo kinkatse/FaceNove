@@ -1,17 +1,23 @@
 class Api::LikesController < ApplicationController
 
     def create
-        # @post = Post.new(post_params)
-        # if @post.save
-        #     self.show
-        # else
-        #     render json: @post.errors.full_messages, status: 422
-        # end
+        @like = Like.new(like_params)
+        if @like.save
+            self.show
+        else
+            render json: @like.errors.full_messages, status: 422
+        end
     end
 
     def index
-        # @posts = Post.all
-        # render :index
+        # if user's likes
+        # if post's likes
+        if @post
+            @likes = Like.find_by(id: params[:post_id])
+        elsif @user
+            @likes = Like.find_by(id: params[:user_id])
+        end
+        render :index
     end
 
     # This show is showing all posts for a user. May need to refactor if we
