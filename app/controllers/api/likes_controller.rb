@@ -20,7 +20,6 @@ class Api::LikesController < ApplicationController
         render :index
     end
 
-    # dont need show and update i think
     def show
     end
 
