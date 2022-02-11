@@ -20,7 +20,6 @@ class Api::LikesController < ApplicationController
         render :index
     end
 
-    # testing things on rails c
     def show
     end
 
