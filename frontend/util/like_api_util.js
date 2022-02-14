@@ -1,8 +1,8 @@
-export const getAllLikes = (relatedId) => {
+export const getAllLikes = (likeData) => {
     return $.ajax({
         url: '/api/likes',
         method: 'GET',
-        data: relatedId
+        data: likeData
     })
 }
 
