@@ -12,22 +12,22 @@ const Splash = (props) => {
     if (currentUser.id) {
         splashComponent =
             <div className="splash">
-            <div className="splash-background"></div>
+                <div className="splash-background"></div>
                 <NavBarContainer />
                 <HomeContanier />
             </div>
     } else {
         splashComponent =
             <div className="splash">
-            <div className="splash-background"></div>
-            <div className="splash-top">
-                <div className="splash-core">
-                    <LogoSection color={props.color} updateColor={props.updateColor}/>
-                    <AuthForm color={props.color}/>
+                <div className="splash-background"></div>
+                <div className="splash-top">
+                    <div className="splash-core">
+                        <LogoSection color={props.color} updateColor={props.updateColor}/>
+                        <AuthForm color={props.color}/>
+                    </div>
                 </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
     }
 
     return (
