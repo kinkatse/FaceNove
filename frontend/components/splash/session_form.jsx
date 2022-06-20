@@ -46,6 +46,8 @@ class SessionForm extends React.Component {
     rendersLogin(color, colorSplash) {
         // First argument is for login class color change, the colorSplash only changed for splashbuttons
         let colorInput;
+        let redHighlight;
+
         if (color === 'blue') {
             colorInput = 'blueinput';
         } else if (color === 'green') {
@@ -53,17 +55,22 @@ class SessionForm extends React.Component {
         } else if (color === 'red') {
             colorInput = 'redinput';
         }
+
+        if (this.props.errors.length > 0) {
+            redHighlight = 'redError';
+        }
+
         return (
             <div className="loginform">
                 <input
-                    className={'login ' + colorInput}
+                    className={`login ${redHighlight} ${colorInput}`}
                     type="text"
                     placeholder="Email"
                     value={this.state.email}
                     onChange={this.update('email')}
                 />
                 <input
-                    className={'login ' + colorInput}
+                    className={`login ${redHighlight} ${colorInput}`}
                     type="password"
                     placeholder="Password"
                     value={this.state.password}

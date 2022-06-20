@@ -134,6 +134,11 @@
     box-shadow: 0 0 5px rgba(189, 62, 53, 0.4);
 }
 
+.redError {
+    border: 1.5px solid rgb(255, 0, 0);
+    // border-color: #ff0000;
+}
+
 .login::placeholder {
     color: rgba(153, 153, 153, 0.85);
 }
