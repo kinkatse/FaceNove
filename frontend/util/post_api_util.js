@@ -1,7 +1,8 @@
-export const getAllPosts = () => {
+export const getAllPosts = (userIds) => {
     return $.ajax({
         url: '/api/posts',
-        method: 'GET'
+        method: 'GET',
+        data: userIds
     })
 }
 

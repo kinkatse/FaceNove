@@ -38,9 +38,9 @@ export const clearPosts = () => ({
 //     }
 // }
 
-export const indexPosts = () => (dispatch) => {
+export const indexPosts = (userIds) => (dispatch) => {
     return (
-        PostApiUtil.getAllPosts()
+        PostApiUtil.getAllPosts(userIds)
         .then(posts => dispatch(receiveAllPosts(posts)))
     )
 }
