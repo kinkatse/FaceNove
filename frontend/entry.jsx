@@ -7,9 +7,9 @@ import configureStore from './store/store.js'
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     // default color
-    if (!window.localStorage.appColor) {
-        window.localStorage.setItem('appColor', 'blue')
-    }
+    // if (!window.localStorage.appColor) {
+    //     window.localStorage.setItem('appColor', 'blue')
+    // }
 
     if (window.currentUser) {
         const preloadedState = {
@@ -24,12 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore(preloadedState)
         delete window.currentUser
     } else {
-        const preloadedState = {
-            ui: {
-                colorRed: { color: window.localStorage.getItem('appColor') }
-            }
-        }
-        store = configureStore(preloadedState)
+        // const preloadedState = {
+        //     ui: {
+        //         colorRed: { color: window.localStorage.getItem('appColor') }
+        //     }
+        // }
+        // store = configureStore(preloadedState)
+        store = configureStore()
     }
     
     const root = document.getElementById("root");
