@@ -13,6 +13,7 @@ class Home extends React.Component {
         this.props.clearComments()
         this.props.clearPosts()
         this.props.indexPosts()
+        // Later use the userIds array for only friends and make an option for friends only posts on home page
     }
 
     // componentDidUpdate(oldProps) {

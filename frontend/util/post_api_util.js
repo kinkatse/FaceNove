@@ -1,8 +1,9 @@
 export const getAllPosts = (userIds) => {
+    // debugger
     return $.ajax({
         url: '/api/posts',
         method: 'GET',
-        data: userIds
+        data: { userIds }
     })
 }
 

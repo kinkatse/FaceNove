@@ -198,6 +198,9 @@ class IndexPost extends React.Component {
         if (this.props.userId && this.props.postUserId !== parseInt(this.props.userId)) {
             return null;
         }
+        // Note that if our index was just @posts = Post.all, this would work for the
+        // frontend to filter only posts related to the user. However, it's inefficient
+        // to fetch for every post so I made that filter happen on the backend
 
         let datetime_created = new Date(this.props.created_at)
         let created = this.rendersTime(datetime_created, "created_hover")

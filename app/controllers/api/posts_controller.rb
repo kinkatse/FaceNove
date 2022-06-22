@@ -1,36 +1,34 @@
 class Api::PostsController < ApplicationController
 
     def index
-        # debugger
-
         # If there are users posts we want to grab here
+        # in cases like a specific user's profile or friend's posts
         userIds = params[:userIds]
         if userIds
             @posts = []
-            userIds.each do |id|
-                @user = User.find_by(id: id.to_i)
-                @posts << @user.posts
+            userIds.each do |user_id|
+                @user = User.find_by(id: user_id.to_i)
+                @posts += @user.posts
             end
             render :index
+        # Otherwise show all posts
         else
             @posts = Post.all
             render :index
         end
-            
-
-
-        # @posts = Post.all
-        # render :index
     end
 
+    # Note that if our index was just @posts = Post.all, it would work for the
+    # frontend to filter only posts related to the user (check post_index render).
+    # However, it's inefficient to fetch for every post so I made that
+    # filter happen on the backend
+
     def show
-        # debugger
         @post = Post.find_by(id: params[:id])
         render :show
     end
 
     def create
-        # debugger
         @post = Post.new(post_params)
         if @post.save
             render :show
