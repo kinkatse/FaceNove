@@ -7,15 +7,6 @@ import { ProtectedRoute } from '../../util/route_util';
 const ProfileBody = (props) => {
     return (
         <div className="profile_body">
-            {/* <ProfileLeft
-                currentUser={props.currentUser}
-                user={props.user}
-                updateUser={props.updateUser}
-                showPost={props.showPost}
-                clearPosts={props.clearPosts}
-                openEditModal={props.openEditModal}
-                color={props.color}
-            /> */}
             <ProfileLeftContainer />
             <ProfileRight />
         </div>
