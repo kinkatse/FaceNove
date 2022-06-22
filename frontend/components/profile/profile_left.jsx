@@ -11,7 +11,6 @@ const ProfileLeft = (props) => {
                 user={props.user}
                 updateUser={props.updateUser}
                 openEditModal={props.openEditModal}
-                color={props.color}
             />
             <ProfilePhotos />
             <ProfileFriends />

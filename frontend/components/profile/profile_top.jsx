@@ -97,8 +97,8 @@ class ProfileTop extends React.Component {
         return (
             <div className="profile_top">
                 {this.rendersCoverPic()}
-                {this.rendersCoverPicButton(this.props.color)}
-                {this.rendersProfilePic(this.props.color)}
+                {this.rendersCoverPicButton()}
+                {this.rendersProfilePic()}
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
                     currentUser={this.props.currentUser}
@@ -106,7 +106,6 @@ class ProfileTop extends React.Component {
                     user={this.props.user}
                     userId={this.props.userId}
                     openEditModal={this.props.openEditModal}
-                    color={this.props.color}
                 />
             </div>
         )

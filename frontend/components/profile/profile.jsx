@@ -47,7 +47,6 @@ class Profile extends React.Component {
                         openEditModal={this.props.openEditModal}
                         openProfPicModal={this.props.openProfPicModal}
                         openCovPicModal={this.props.openCovPicModal}
-                        color={this.props.color}
                     />
                 </div>
             </div>

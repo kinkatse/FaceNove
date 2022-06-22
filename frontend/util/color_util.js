@@ -1,4 +1,26 @@
+// const color = window.localStorage.getItem('appColor')
+
+// Setting color on localStorage
+
+export const toggleColor = () => {
+    let color = window.localStorage.getItem('appColor')
+    if (color === "blue")
+        { window.localStorage.setItem('appColor', 'green') }
+    else if (color === "green")
+        { window.localStorage.setItem('appColor', 'red') }
+    else
+        { window.localStorage.setItem('appColor', 'blue') }
+}
+
 // Classnames
+
+// colorSplash
+export const appColor = () => {
+    let color = window.localStorage.getItem('appColor')
+    if (color === "blue") { return 'bluesplash' }
+    else if (color === "green") { return 'greensplash' }
+    else if (color === "red") { return 'redsplash' }
+}
 
 export const tabColor = () => {
     let color = window.localStorage.getItem('appColor')
@@ -16,6 +38,7 @@ export const profPicColor = () => {
 
 // Images
 
+// picImageButton
 export const uploadPicImage = () => {
     let color = window.localStorage.getItem('appColor')
     if (color === "blue") { return window.image_blue_url }
@@ -23,6 +46,7 @@ export const uploadPicImage = () => {
     else if (color === "red") { return window.image_red_url }
 }
 
+// editColor
 export const editProfImage = () => {
     let color = window.localStorage.getItem('appColor')
     if (color === "blue") { return window.edit_blue_url }

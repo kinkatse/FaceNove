@@ -1,4 +1,5 @@
 import React from 'react';
+import { appColor } from '../../util/color_util';
 
 class ProfileIntro extends React.Component {
     constructor(props) {
@@ -55,15 +56,6 @@ class ProfileIntro extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        if (this.props.color === "blue") {
-            colorSplash = 'bluesplash';
-        } else if (this.props.color === "green") {
-            colorSplash = 'greensplash'
-        } else if (this.props.color === "red") {
-            colorSplash = 'redsplash'
-        }
-
         // Later want to implement logic to allow to show certain info fields
         let user = this.props.user;
         let bioEmpty = "openedit_whole";
@@ -108,7 +100,7 @@ class ProfileIntro extends React.Component {
                         <div className="prof_openbiobutton edit_bio_cancel" onClick={() => this.resetState()}>
                             Cancel
                         </div>
-                        <input className={'prof_openbiobutton edit_bio_submit ' + colorSplash} type="submit" value="Save"/>
+                        <input className={`prof_openbiobutton edit_bio_submit ${appColor()}`} type="submit" value="Save"/>
                     </div>
                 </form>
             )
