@@ -1,6 +1,8 @@
 import React from 'react';
 import ProfileTabs from './profile_tabs';
 
+import { profPicColor, uploadPicImage } from '../../util/color_util';
+
 class ProfileTop extends React.Component {
     constructor(props) {
         super(props)
@@ -9,7 +11,7 @@ class ProfileTop extends React.Component {
         }
     }
     
-    rendersProfilePic(profpicColor, profpicImageButton) {
+    rendersProfilePic(color) {
         let eventlistener;
         let profpicbutton;
         let picbuttonactive;
@@ -19,7 +21,7 @@ class ProfileTop extends React.Component {
                 <img
                     className="profpicbutton"
                     onClick={eventlistener}
-                    src={profpicImageButton}
+                    src={uploadPicImage()}
                 />
             )
             picbuttonactive = "profilepicwholeadjustment";
@@ -32,7 +34,7 @@ class ProfileTop extends React.Component {
         return (
             <div className={picbuttonactive}>
                 <img
-                    className={'profilepic ' + profpicColor}
+                    className={`profilepic ${profPicColor()}`}
                     onClick={eventlistener}
                     src={this.props.user.profilePicUrl}
                 />
@@ -58,7 +60,7 @@ class ProfileTop extends React.Component {
         )
     }
 
-    rendersCoverPicButton(covpicImageButton) {
+    rendersCoverPicButton(color) {
         let eventlistener;
         let covpicbutton;
         let picbuttonactive;
@@ -68,7 +70,7 @@ class ProfileTop extends React.Component {
                 <div className="covpicbuttonwhole" onClick={eventlistener}>
                     <img
                         className="covpicbutton"
-                        src={covpicImageButton}
+                        src={uploadPicImage(color)}
                     />
                     <div className="editcoverpic">
                         Edit Cover Picture
@@ -90,26 +92,13 @@ class ProfileTop extends React.Component {
     }
 
     render() {
-        let profpicColor;
-        let picImageButton;
-        if (this.props.color === "blue") {
-            profpicColor = "profpicbluebig"
-            picImageButton = window.image_blue_url
-        } else if (this.props.color === "green") {
-            profpicColor = "profpicgreenbig"
-            picImageButton = window.image_green_url
-        } else if (this.props.color === "red") {
-            profpicColor = "profpicredbig"
-            picImageButton = window.image_red_url
-        }
-
         let first = this.props.user.firstName;
         let last = this.props.user.lastName;
         return (
             <div className="profile_top">
                 {this.rendersCoverPic()}
-                {this.rendersCoverPicButton(picImageButton)}
-                {this.rendersProfilePic(profpicColor, picImageButton)}
+                {this.rendersCoverPicButton(this.props.color)}
+                {this.rendersProfilePic(this.props.color)}
                 <p className="profile_title">{first} {last}</p>
                 <ProfileTabs
                     currentUser={this.props.currentUser}
