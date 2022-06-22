@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Post from './post';
 import {
     indexPosts,
-    showPost,
     createPost,
     destroyPost,
     clearPosts
@@ -25,7 +24,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
-        showPost: (postId => dispatch(showPost(postId))),
         createPost: (post => dispatch(createPost(post))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),

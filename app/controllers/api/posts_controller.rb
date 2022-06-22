@@ -20,9 +20,10 @@ class Api::PostsController < ApplicationController
             allPosts = Post.all
             userIds.each do |user_id|
                 userPosts = allPosts.select do |post|
-                    post.user_id === user_id.to_i
+                    @posts << post if userIds.include?(post.user_id.to_s)
+                    # post.user_id === user_id.to_i
                 end
-                @posts += userPosts
+                # @posts += userPosts
             end
             render :index
 

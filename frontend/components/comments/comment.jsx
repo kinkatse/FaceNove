@@ -5,8 +5,8 @@ class Comment extends React.Component {
     componentDidMount() {
         const commentRelatedId = Object.assign(
             {},
-            { post_id: this.props.postId },
-            { isPostComments: true }
+            { post_id: [this.props.postId] },
+            { type: 'post' }
         )
         this.props.indexComments(commentRelatedId)
     }
