@@ -1,5 +1,5 @@
 import React from 'react';
-import PostIndex from '../posts/post_index';
+import PostItem from '../posts/post_item';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
@@ -76,7 +76,7 @@ class Home extends React.Component {
                     {this.rendersCreatePost(profpicColor)}
                     {
                         postArr.map(post => (
-                            <PostIndex
+                            <PostItem
                                 key={post.id}
                                 postId={post.id}
                                 postUserId={post.user_id}
@@ -89,6 +89,7 @@ class Home extends React.Component {
                                 updated_at={post.updated_at}
                                 updatePost={this.props.updatePost}
                                 destroyPost={this.props.destroyPost}
+                                removePostComments={this.props.removePostComments}
                                 openEditPostModal={this.props.openEditPostModal}
                                 postPicUrl={post.postPhotoUrl}
                                 profilePicUrl={post.profilePicUrl}

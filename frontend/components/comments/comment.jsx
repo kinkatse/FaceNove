@@ -88,6 +88,7 @@ class Comment extends React.Component {
                             createComment={this.props.createComment}
                             updateComment={this.props.updateComment}
                             destroyComment={this.props.destroyComment}
+                            removePostComments={this.props.removePostComments}
                             profilePicUrl={comment.profilePicUrl}
                             color={this.props.color}
                             profpicColor={profpicColor}

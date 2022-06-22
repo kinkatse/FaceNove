@@ -37,6 +37,8 @@ class PostComments extends React.Component {
     }
 
     closeComment() {
+        debugger
+        // this.props.removePostComments(this.props.postId)
         this.setState({ openComment: false })
     }
 

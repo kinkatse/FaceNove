@@ -3,6 +3,7 @@ import * as CommentApiUtil from '../util/comment_api_util';
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const REMOVE_POST_COMMENTS = 'REMOVE_POST_COMMENTS';
 export const REMOVE_ALL_COMMENTS = 'REMOVE_ALL_COMMENTS';
 // export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
@@ -20,10 +21,17 @@ const receiveComment = (comment) => {
     }
 }
 
-const removeComment = (commentId) => {
+export const removeComment = (commentId) => {
     return {
         type: REMOVE_COMMENT,
         commentId
+    }
+}
+
+export const removePostComments = (postId) => {
+    return {
+        type: REMOVE_POST_COMMENTS,
+        postId
     }
 }
 
