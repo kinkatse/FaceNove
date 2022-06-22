@@ -9,18 +9,15 @@
         case RECEIVE_COMMENT:
             return Object.assign({}, commentState, action.comment)
         case REMOVE_COMMENT:
-            // newState = Object.assign({}, commentState);
             delete newState[action.commentId];
             return newState;
         case REMOVE_POST_COMMENTS:
-            debugger
-            // let temporaryState = Object.assign({}, commentState);
             let commentsArr = Object.values(newState).filter(comment => comment.post_id !== action.postId)
             newState = {}
             commentsArr.forEach(comment => {
                 newState[comment.id] = comment
             })
-            return newState;
+            return newState
         case REMOVE_ALL_COMMENTS:
             return {}
         default:

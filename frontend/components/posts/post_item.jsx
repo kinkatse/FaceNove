@@ -26,10 +26,8 @@ class PostItem extends React.Component {
     }
 
     commentsToggle() {
-        debugger
         let value = this.state.commentsOpen;
         if (this.state.commentsOpen) {
-            debugger
             this.props.removePostComments(this.props.postId)
         }
         this.setState({ commentsOpen: !value })

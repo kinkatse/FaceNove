@@ -21,7 +21,7 @@ const receiveComment = (comment) => {
     }
 }
 
-export const removeComment = (commentId) => {
+const removeComment = (commentId) => {
     return {
         type: REMOVE_COMMENT,
         commentId

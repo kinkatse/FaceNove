@@ -6,8 +6,6 @@ import {
     createComment,
     updateComment,
     destroyComment,
-    removeComment,
-    removePostComments,
     clearComments
 } from '../../actions/comment_actions';
 
@@ -27,10 +25,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         createComment: (commentData) => dispatch(createComment(commentData)),
         updateComment: ((commentData, commentId) => dispatch(updateComment(commentData, commentId))),
         destroyComment: (commentId) => dispatch(destroyComment(commentId)),
-        removePostComments: ((postId) => {
-            // debugger
-            return dispatch(removePostComments(postId))
-        })
         // clearComments: (() => dispatch(clearComments()))
     }
 }

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import { showUser, updateUser } from '../../actions/user_actions';
-import { showPost, clearPosts } from '../../actions/post_actions';
+import { showUser } from '../../actions/user_actions';
 import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/modal_actions';
 
 import Profile from './profile';
