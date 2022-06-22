@@ -69,15 +69,16 @@ class ProfileTabs extends React.Component {
     render() {
         const tabs = [
             { title: "Posts",
-              content: <ProfileBody
-                    currentUser={this.props.currentUser}
-                    user={this.props.user}
-                    updateUser={this.props.updateUser}
-                    showPost={this.props.showPost}
-                    clearPosts={this.props.clearPosts}
-                    openEditModal={this.props.openEditModal}
-                    color={this.props.color}
-                />
+              content: <ProfileBody />
+            //   content: <ProfileBody
+            //         currentUser={this.props.currentUser}
+            //         user={this.props.user}
+            //         updateUser={this.props.updateUser}
+            //         showPost={this.props.showPost}
+            //         clearPosts={this.props.clearPosts}
+            //         openEditModal={this.props.openEditModal}
+            //         color={this.props.color}
+            //     />
             }, 
 
             { title: "About",

@@ -1,11 +1,13 @@
 import React from 'react';
-import ProfileLeft from './profile_left';
+// import ProfileLeft from './profile_left';
+import ProfileLeftContainer from './profile_left_container'
 import ProfileRight from './profile_right';
+import { ProtectedRoute } from '../../util/route_util';
 
 const ProfileBody = (props) => {
     return (
         <div className="profile_body">
-            <ProfileLeft
+            {/* <ProfileLeft
                 currentUser={props.currentUser}
                 user={props.user}
                 updateUser={props.updateUser}
@@ -13,7 +15,8 @@ const ProfileBody = (props) => {
                 clearPosts={props.clearPosts}
                 openEditModal={props.openEditModal}
                 color={props.color}
-            />
+            /> */}
+            <ProfileLeftContainer />
             <ProfileRight />
         </div>
     )

@@ -6,6 +6,7 @@ import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/
 import Profile from './profile';
 
 const mapStateToProps = (state, ownProps) => {
+    // debugger
     return {
         // ownProps is from Routes built in and we access path wildcard of 'userId'
         // (from our route path in app.jsx) to key into which user of our state entities
@@ -21,9 +22,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         showUser: (userId => dispatch(showUser(userId))),
-        updateUser: (user, userId) => dispatch(updateUser(user, userId)),
-        showPost: (postId => dispatch(showPost(postId))),
-        clearPosts: (() => dispatch(clearPosts())),
+        // updateUser: (user, userId) => dispatch(updateUser(user, userId)),
+        // showPost: (postId => dispatch(showPost(postId))),
+        // clearPosts: (() => dispatch(clearPosts())),
         openEditModal: () => dispatch(openEditModal()),
         openProfPicModal: () => dispatch(openProfPicModal()),
         openCovPicModal: () => dispatch(openCovPicModal())
