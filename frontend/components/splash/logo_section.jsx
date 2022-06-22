@@ -9,7 +9,7 @@ class LogoSection extends React.Component {
         let color = this.props.color;
         return (
             <div className="logo-section">
-                <h1 className={'front-logo ' + color} onClick={this.props.updateColor}>facenove</h1>
+                <h1 className={`front-logo ${color}`} onClick={this.props.updateColor}>facenove</h1>
                 <p className="under-logo-message">Connect with friends and be the face of your own page!</p>
             </div>
         )
