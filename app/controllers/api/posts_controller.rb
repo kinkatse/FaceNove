@@ -5,12 +5,27 @@ class Api::PostsController < ApplicationController
         # in cases like a specific user's profile or friend's posts
         userIds = params[:userIds]
         if userIds
+            # N + 1 Query
+            # @posts = []
+            # userIds.each do |user_id|
+            #     debugger
+            #     @user = User.find_by(id: user_id.to_i)
+            #     @posts += @user.posts
+            # end
+            # debugger
+            # render :index
+
+            # Not N + 1 Query
             @posts = []
+            allPosts = Post.all
             userIds.each do |user_id|
-                @user = User.find_by(id: user_id.to_i)
-                @posts += @user.posts
+                userPosts = allPosts.select do |post|
+                    post.user_id === user_id.to_i
+                end
+                @posts += userPosts
             end
             render :index
+
         # Otherwise show all posts
         else
             @posts = Post.all
