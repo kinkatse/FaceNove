@@ -1,9 +1,8 @@
-// const color = window.localStorage.getItem('appColor')
+const getColor = () => { return window.localStorage.getItem('appColor') }
 
 // Setting color on localStorage
 
 export const toggleColor = () => {
-    let color = window.localStorage.getItem('appColor')
     if (color === "blue")
         { window.localStorage.setItem('appColor', 'green') }
     else if (color === "green")
@@ -16,21 +15,28 @@ export const toggleColor = () => {
 
 // colorSplash
 export const appColor = () => {
-    let color = window.localStorage.getItem('appColor')
+    let color = getColor()
     if (color === "blue") { return 'bluesplash' }
     else if (color === "green") { return 'greensplash' }
     else if (color === "red") { return 'redsplash' }
 }
 
+export const inputColor = () => {
+    let color = getColor()
+    if (color === "blue") { return 'blueinput' }
+    else if (color === "green") { return 'greeninput' }
+    else if (color === "red") { return 'redinput' }
+}
+
 export const tabColor = () => {
-    let color = window.localStorage.getItem('appColor')
+    let color = getColor()
     if (color === "blue") { return "tabblue" }
     else if (color === "green") { return "tabgreen" }
     else if (color === "red") { return "tabred" }
 }
 
 export const profPicColor = () => {
-    let color = window.localStorage.getItem('appColor')
+    let color = getColor()
     if (color === "blue") { return "profpicbluebig" }
     else if (color === "green") { return "profpicgreenbig" }
     else if (color === "red") { return "profpicredbig" }
@@ -40,7 +46,7 @@ export const profPicColor = () => {
 
 // picImageButton
 export const uploadPicImage = () => {
-    let color = window.localStorage.getItem('appColor')
+    let color = getColor()
     if (color === "blue") { return window.image_blue_url }
     else if (color === "green") { return window.image_green_url }
     else if (color === "red") { return window.image_red_url }
@@ -48,7 +54,7 @@ export const uploadPicImage = () => {
 
 // editColor
 export const editProfImage = () => {
-    let color = window.localStorage.getItem('appColor')
+    let color = getColor()
     if (color === "blue") { return window.edit_blue_url }
     else if (color === "green") { return window.edit_green_url }
     else if (color === "red") { return window.edit_red_url }

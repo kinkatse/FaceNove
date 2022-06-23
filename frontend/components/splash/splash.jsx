@@ -23,7 +23,7 @@ const Splash = (props) => {
                 <div className="splash-top">
                     <div className="splash-core">
                         <LogoSection color={props.color} updateColor={props.updateColor}/>
-                        <AuthForm color={props.color}/>
+                        <AuthForm />
                     </div>
                 </div>
                 <Footer />

@@ -4,14 +4,7 @@ import ProfileTabs from './profile_tabs';
 import { profPicColor, uploadPicImage } from '../../util/color_util';
 
 class ProfileTop extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-    
-    rendersProfilePic(color) {
+    rendersProfilePic() {
         let eventlistener;
         let profpicbutton;
         let picbuttonactive;
@@ -60,7 +53,7 @@ class ProfileTop extends React.Component {
         )
     }
 
-    rendersCoverPicButton(color) {
+    rendersCoverPicButton() {
         let eventlistener;
         let covpicbutton;
         let picbuttonactive;
@@ -70,7 +63,7 @@ class ProfileTop extends React.Component {
                 <div className="covpicbuttonwhole" onClick={eventlistener}>
                     <img
                         className="covpicbutton"
-                        src={uploadPicImage(color)}
+                        src={uploadPicImage()}
                     />
                     <div className="editcoverpic">
                         Edit Cover Picture

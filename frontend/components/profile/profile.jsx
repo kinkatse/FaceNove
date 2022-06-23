@@ -21,13 +21,6 @@ class Profile extends React.Component {
         }
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
     render() {
         // Necessary for when there is no user with that wildcard
         if (!this.props.user) {

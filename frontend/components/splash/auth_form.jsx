@@ -13,7 +13,7 @@ class AuthForm extends React.Component {
         return (
             <div className="authform">
                 <div className="authform-core">
-                    <SessionFormContainer color={this.props.color}/>
+                    <SessionFormContainer />
                 </div>
                 <p className="authform-note">Create a Page or Nove for sharing you or your interests!</p>
             </div>

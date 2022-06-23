@@ -6,7 +6,11 @@ import SessionForm from './session_form';
 const mapStateToProps = (state) => {
     return {
         modal: state.ui.modalRed,
-        errors: state.errors.session
+        errors: state.errors.session,
+        // Even though this isn't being passed anywhere, we need the
+        // state to subscribe to this component or the color isnt updated
+        // since localStorage wont update the page until we refresh
+        color: state.ui.colorRed.color
     }
 }
 
