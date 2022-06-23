@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { appColor, postProfPicColor } from '../../util/color_util';
+
 class ModalCreatePost extends React.Component {
     constructor(props) {
         super(props)
@@ -92,18 +94,18 @@ class ModalCreatePost extends React.Component {
         return preview
     }
 
-    rendersPictureButton(colorSplash) {
+    rendersPictureButton() {
         let photobutton;
         if (!this.state.photoUrl) {
             photobutton = (
-                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                <label className={`profpic_filebutton splashbutton profchoose ${appColor()}`}>
                     <input type="file" onChange={this.handleFile}/>
                     Add a Picture?
                 </label>
             )
         } else {
             photobutton = (
-                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                <label className={`profpic_filebutton splashbutton profchoose ${appColor()}`}>
                     <input type="file" onChange={this.handleFile}/>
                     Change Picture?
                 </label>
@@ -121,19 +123,6 @@ class ModalCreatePost extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        let profpicColor;
-        if (this.props.color === "blue") {
-            colorSplash = 'bluesplash';
-            profpicColor = "postprofpicblue"
-        } else if (this.props.color === "green") {
-            colorSplash = 'greensplash'
-            profpicColor = "postprofpicgreen"
-        } else if (this.props.color === "red") {
-            colorSplash = 'redsplash'
-            profpicColor = "postprofpicred"
-        }
-
         return (
             <div>
             <form onSubmit={this.handleSubmit}>
@@ -148,7 +137,7 @@ class ModalCreatePost extends React.Component {
                         <div className="editpost_top">
                             <div className="editpost_top_left">
                                 <img
-                                    className={'editpost_profile_pic ' + profpicColor}
+                                    className={`editpost_profile_pic ${postProfPicColor()}`}
                                     src={this.props.currentUser.profilePicUrl}
                                 />
                                 <h2 className="editpost_name">
@@ -166,9 +155,9 @@ class ModalCreatePost extends React.Component {
                             ></textarea>
                         </div>
                     </div>
-                    {this.rendersPictureButton(colorSplash)}
+                    {this.rendersPictureButton()}
                     <div className="editsubmit">
-                        <input className={'editsubmitbutton splashbutton createpostposition ' + colorSplash} type="submit" value="Make Post"/>
+                        <input className={`editsubmitbutton splashbutton createpostposition ${appColor()}`} type="submit" value="Make Post"/>
                     </div>
                 </div>
             </form>

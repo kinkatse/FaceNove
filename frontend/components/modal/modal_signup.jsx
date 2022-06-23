@@ -1,6 +1,8 @@
 import React from 'react';
 import { RECEIVE_SIGNUP_ERRORS } from '../../actions/session_actions';
 
+import { appColor } from '../../util/color_util';
+
 class ModalSignup extends React.Component {
     constructor(props) {
         super(props)
@@ -119,15 +121,6 @@ class ModalSignup extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        if (this.props.color === 'blue') {
-            colorSplash = 'bluesplash';
-        } else if (this.props.color === 'green') {
-            colorSplash = 'greensplash'
-        } else if (this.props.color === 'red') {
-            colorSplash = 'redsplash'
-        }
-
         const monthsObj = {
             1: "January",
             2: "February",
@@ -240,7 +233,7 @@ class ModalSignup extends React.Component {
                                 </label>
                             </div>
                         <div className="submit">
-                            <input className={'submitbutton splashbutton ' + colorSplash} type="submit" value="Submit"/>
+                            <input className={`submitbutton splashbutton ${appColor()}`} type="submit" value="Submit"/>
                         </div>
                     </div>
                 </div>

@@ -8,20 +8,13 @@ import CreatePostModalForm from './modal_createpost';
 import EditPostModalForm from './modal_editpost';
 
 class Modal extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-    }
-
+    
     selectModal() {
         switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm
                     signup={this.props.signup}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                     errors={this.props.errors}
                 />
             case 'edit':
@@ -29,28 +22,24 @@ class Modal extends React.Component {
                     currentUser={this.props.currentUser}
                     updateUser={this.props.updateUser}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                 />
             case 'profilepic':
                 return <ProfPicModalForm
                     currentUser={this.props.currentUser}
                     updateProfPic={this.props.updateProfPic}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                 />
             case 'coverpic':
                 return <CovPicModalForm
                     currentUser={this.props.currentUser}
                     updateCovPic={this.props.updateCovPic}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                 />
             case 'createpost':
                 return <CreatePostModalForm
                     currentUser={this.props.currentUser}
                     createPost={this.props.createPost}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                 />
             case 'editpost':
                 return <EditPostModalForm
@@ -58,7 +47,6 @@ class Modal extends React.Component {
                     postObj={this.props.postObj}
                     updatePost={this.props.updatePost}
                     closeModal={this.props.closeModal}
-                    color={this.props.color}
                 />
             case '':
                 return null;

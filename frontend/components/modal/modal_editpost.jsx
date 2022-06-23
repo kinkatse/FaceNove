@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { appColor, postProfPicColor } from '../../util/color_util';
+
 class ModalEditPost extends React.Component {
     constructor(props) {
         super(props)
@@ -98,18 +100,18 @@ class ModalEditPost extends React.Component {
         return preview
     }
 
-    rendersPictureButton(colorSplash) {
+    rendersPictureButton() {
         let photobutton;
         if (!this.state.photoUrl) {
             photobutton = (
-                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                <label className={`profpic_filebutton splashbutton profchoose ${appColor()}`}>
                     <input type="file" onChange={this.handleFile}/>
                     Add a Picture?
                 </label>
             )
         } else {
             photobutton = (
-                <label className={'profpic_filebutton splashbutton profchoose ' + colorSplash}>
+                <label className={`profpic_filebutton splashbutton profchoose ${appColor()}`}>
                     <input type="file" onChange={this.handleFile}/>
                     Change Picture?
                 </label>
@@ -127,19 +129,6 @@ class ModalEditPost extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        let profpicColor;
-        if (this.props.color === "blue") {
-            colorSplash = 'bluesplash';
-            profpicColor = "postprofpicblue"
-        } else if (this.props.color === "green") {
-            colorSplash = 'greensplash'
-            profpicColor = "postprofpicgreen"
-        } else if (this.props.color === "red") {
-            colorSplash = 'redsplash'
-            profpicColor = "postprofpicred"
-        }
-
         return (
             <form onSubmit={this.handleSubmit}>
                 <div className="postedit_modal_background" onClick={this.props.closeModal}></div>
@@ -153,7 +142,7 @@ class ModalEditPost extends React.Component {
                         <div className="editpost_top">
                             <div className="editpost_top_left">
                                 <img
-                                    className={'editpost_profile_pic ' + profpicColor}
+                                    className={`editpost_profile_pic ${postProfPicColor()}`}
                                     src={this.props.postObj.profilePicUrl}
                                 />
                                 <h2 className="editpost_name">
@@ -171,9 +160,9 @@ class ModalEditPost extends React.Component {
                             ></textarea>
                         </div>
                     </div>
-                    {this.rendersPictureButton(colorSplash)}
+                    {this.rendersPictureButton()}
                     <div className="editsubmit">
-                        <input className={'editsubmitbutton splashbutton editpostposition ' + colorSplash} type="submit" value="Save"/>
+                        <input className={`editsubmitbutton splashbutton editpostposition ${appColor()}`} type="submit" value="Save"/>
                     </div>
                 </div>
             </form>

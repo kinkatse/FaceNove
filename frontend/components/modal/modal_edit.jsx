@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { appColor } from '../../util/color_util';
+
 class ModalEdit extends React.Component {
     constructor(props) {
         super(props)
@@ -66,15 +68,6 @@ class ModalEdit extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        if (this.props.color === 'blue') {
-            colorSplash = 'bluesplash';
-        } else if (this.props.color === 'green') {
-            colorSplash = 'greensplash'
-        } else if (this.props.color === 'red') {
-            colorSplash = 'redsplash'
-        }
-
         const monthsObj = {
             1: "January",
             2: "February",
@@ -240,7 +233,7 @@ class ModalEdit extends React.Component {
                         </div>
                     </div>
                     <div className="editsubmit">
-                        <input className={'editsubmitbutton splashbutton ' + colorSplash} type="submit" value="Update Info"/>
+                        <input className={`editsubmitbutton splashbutton ${appColor()}`} type="submit" value="Update Info"/>
                     </div>
                 </div>
             </form>

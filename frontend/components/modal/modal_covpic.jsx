@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { appColor } from '../../util/color_util';
+
 class ModalCovPic extends React.Component {
     constructor(props) {
         super(props)
@@ -63,15 +65,6 @@ class ModalCovPic extends React.Component {
     }
 
     render() {
-        let colorSplash;
-        if (this.props.color === 'blue') {
-            colorSplash = 'bluesplash';
-        } else if (this.props.color === 'green') {
-            colorSplash = 'greensplash'
-        } else if (this.props.color === 'red') {
-            colorSplash = 'redsplash'
-        }
-
         return (
             <form onSubmit={this.handleCovSubmit}>
                 <div className="covpic_modal_background" onClick={this.props.closeModal}></div>
@@ -82,12 +75,12 @@ class ModalCovPic extends React.Component {
                     </div>
                     <div className="covpiclinediv"></div>
                     <div className="covpic_components">
-                        <label className={'covpic_filebutton splashbutton covchoose ' + colorSplash}>
+                        <label className={`covpic_filebutton splashbutton covchoose ${appColor()}`}>
                             <input type="file" onChange={this.handleFile}/>
                             Choose A File
                         </label>
                         {this.rendersPreview()}
-                        <input className={'covpic_submitbutton splashbutton ' + colorSplash} type="submit" value="Update Cover Picture"/>
+                        <input className={`covpic_submitbutton splashbutton ${appColor()}`} type="submit" value="Update Cover Picture"/>
                     </div>
                 </div>
             </form>
