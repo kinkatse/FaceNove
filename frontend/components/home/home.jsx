@@ -2,13 +2,9 @@ import React from 'react';
 import PostItem from '../posts/post_item';
 import { Link } from 'react-router-dom';
 
-class Home extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
+import { postProfPicColor } from '../../util/color_util';
 
+class Home extends React.Component {
     componentDidMount() {
         this.props.clearComments()
         this.props.clearPosts()
@@ -27,14 +23,14 @@ class Home extends React.Component {
     //     }
     // }
 
-    rendersCreatePost(profpicColor) {
+    rendersCreatePost() {
         return (
             <div>
                 <div className="profile_posts createpost">
                     <div className="createpost_profpic">
                         <Link to={`/user/${this.props.currentUser.id}`}>
                             <img
-                                className={'createpost_profile_pic ' + profpicColor}
+                                className={`createpost_profile_pic ${postProfPicColor()}`}
                                 src={this.props.currentUser.profilePicUrl}
                             />
                         </Link>
@@ -55,17 +51,8 @@ class Home extends React.Component {
     }
 
     render() {
-        let profpicColor;
-        if (this.props.color === "blue") {
-            profpicColor = "postprofpicblue"
-        } else if (this.props.color === "green") {
-            profpicColor = "postprofpicgreen"
-        } else if (this.props.color === "red") {
-            profpicColor = "postprofpicred"
-        }
-
         if (Object.keys(this.props.posts).length === 0) {
-            return this.rendersCreatePost(profpicColor)
+            return this.rendersCreatePost()
         }
 
         let postArr = Object.values(this.props.posts).reverse()
@@ -73,7 +60,7 @@ class Home extends React.Component {
         return (
             <div className="home">
                 <div className="home_posts">
-                    {this.rendersCreatePost(profpicColor)}
+                    {this.rendersCreatePost()}
                     {
                         postArr.map(post => (
                             <PostItem
@@ -93,7 +80,6 @@ class Home extends React.Component {
                                 openEditPostModal={this.props.openEditPostModal}
                                 postPicUrl={post.postPhotoUrl}
                                 profilePicUrl={post.profilePicUrl}
-                                profpicColor={profpicColor}
                             /> )
                         )
                     }

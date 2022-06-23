@@ -56,15 +56,6 @@ class Comment extends React.Component {
     }
 
     render() {
-        let profpicColor;
-        if (this.props.color === "blue") {
-            profpicColor = "postprofpicblue"
-        } else if (this.props.color === "green") {
-            profpicColor = "postprofpicgreen"
-        } else if (this.props.color === "red") {
-            profpicColor = "postprofpicred"
-        }
-
         if (Object.keys(this.props.comments).length === 0) {
             return this.rendersCreateComment()
         }
@@ -89,8 +80,6 @@ class Comment extends React.Component {
                             updateComment={this.props.updateComment}
                             destroyComment={this.props.destroyComment}
                             profilePicUrl={comment.profilePicUrl}
-                            color={this.props.color}
-                            profpicColor={profpicColor}
                             currentUser={this.props.currentUser}
                         /> )
                     )

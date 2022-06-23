@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostDrop from '../posts/post_drop'
 
+import { postProfPicColor } from '../../util/color_util';
+
 class PostComments extends React.Component {
     componentDidUpdate(oldProps) {
         // Just to make sure that after you edit a comment, and try to
@@ -75,7 +77,7 @@ class PostComments extends React.Component {
             component = (
                 <div>
                     {this.rendersCommentDropClose()}
-                    <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
+                    <div className={`post_top_right ${dropclassname}`} onClick={this.dropOpen}>
                         {this.rendersCommentDrop()}
                     </div>
                 </div>
@@ -158,7 +160,7 @@ class PostComments extends React.Component {
                     <div className="post_top_left">
                         <Link to={`/user/${this.props.authorCommentId}`}>
                             <img
-                                className={'post_profile_pic ' + this.props.profpicColor}
+                                className={`post_profile_pic ${postProfPicColor()}`}
                                 src={this.props.profilePicUrl}
                             />
                         </Link>

@@ -10,8 +10,11 @@ const mapStateToProps = (state) => {
         currentUser: state.entities.users[state.session.id],
         postObj: state.entities.posts[state.ui.modalRed.postId],
         modal: state.ui.modalRed,
-        color: state.ui.colorRed.color,
-        errors: state.errors.session
+        errors: state.errors.session,
+        // Even though this isn't being passed anywhere, we need the
+        // state to subscribe to this component or the color isnt updated
+        // since localStorage wont update the page until we refresh
+        color: state.ui.colorRed.color
     }
 }
 
