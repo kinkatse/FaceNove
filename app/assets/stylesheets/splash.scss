@@ -119,17 +119,17 @@
     outline: none;
 }
 
-.blueinput:focus {
+.input-blue:focus {
     border-color: #63adf1;
     box-shadow: 0 0 5px rgba(52, 173, 243, 0.4);
 }
 
-.greeninput:focus {
+.input-green:focus {
     border-color: rgb(102, 245, 150);
     box-shadow: 0 0 5px rgba(32, 226, 135, 0.4);
 }
 
-.redinput:focus {
+.input-red:focus {
     border-color: #b46153;
     box-shadow: 0 0 5px rgba(189, 62, 53, 0.4);
 }
@@ -168,31 +168,31 @@
     animation: 0.3s hoveroversml forwards;
 }
 
-.bluesplash {
+.main-blue {
     background-color: #558cd8;
 }
 
-.bluesplash:hover {
+.main-blue:hover {
     border-color: #b5f4f8;
     box-shadow: 0 0 5px rgba(52, 173, 243, 0.4);
     background-color: #739cd4;
 }
 
-.greensplash {
+.main-green {
     background-color: #20e288;
 }
 
-.greensplash:hover {
+.main-green:hover {
     border-color: #70e68d;
     box-shadow: 0 0 5px rgba(33, 141, 69, 0.4);
     background-color: #53e7a2;
 }
 
-.redsplash {
+.main-red {
     background-color: #db4646;
 }
 
-.redsplash:hover {
+.main-red:hover {
     border-color: #be7b5c;
     box-shadow: 0 0 5px rgba(155, 54, 46, 0.4);
     background-color: #e25d5d;

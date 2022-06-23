@@ -16,44 +16,44 @@ const getColor = () => { return window.localStorage.getItem('appColor') }
 // colorSplash
 export const appColor = () => {
     let color = getColor()
-    if (color === "blue") { return 'bluesplash' }
-    else if (color === "green") { return 'greensplash' }
-    else if (color === "red") { return 'redsplash' }
+    if (color === "blue") { return 'main-blue' }
+    else if (color === "green") { return 'main-green' }
+    else if (color === "red") { return 'main-red' }
 }
 
 export const inputColor = () => {
     let color = getColor()
-    if (color === "blue") { return 'blueinput' }
-    else if (color === "green") { return 'greeninput' }
-    else if (color === "red") { return 'redinput' }
+    if (color === "blue") { return 'input-blue' }
+    else if (color === "green") { return 'input-green' }
+    else if (color === "red") { return 'input-red' }
 }
 
 export const tabColor = () => {
     let color = getColor()
-    if (color === "blue") { return "tabblue" }
-    else if (color === "green") { return "tabgreen" }
-    else if (color === "red") { return "tabred" }
+    if (color === "blue") { return "tab-blue" }
+    else if (color === "green") { return "tab-green" }
+    else if (color === "red") { return "tab-red" }
 }
 
 export const profPicColor = () => {
     let color = getColor()
-    if (color === "blue") { return "profpicblue" }
-    else if (color === "green") { return "profpicgreen" }
-    else if (color === "red") { return "profpicred" }
+    if (color === "blue") { return "prof-pic-blue" }
+    else if (color === "green") { return "prof-pic-green" }
+    else if (color === "red") { return "prof-pic-red" }
 }
 
 export const postProfPicColor = () => {
     let color = getColor()
-    if (color === "blue") { return "postprofpicblue" }
-    else if (color === "green") { return "postprofpicgreen" }
-    else if (color === "red") { return "postprofpicred" }
+    if (color === "blue") { return "post-prof-pic-blue" }
+    else if (color === "green") { return "post-prof-pic-green" }
+    else if (color === "red") { return "post-prof-pic-red" }
 }
 
 export const bigProfPicColor = () => {
     let color = getColor()
-    if (color === "blue") { return "profpicbluebig" }
-    else if (color === "green") { return "profpicgreenbig" }
-    else if (color === "red") { return "profpicredbig" }
+    if (color === "blue") { return "big-prof-pic-blue" }
+    else if (color === "green") { return "big-prof-pic-green" }
+    else if (color === "red") { return "big-prof-pic-red" }
 }
 
 // Images
