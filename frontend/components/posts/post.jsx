@@ -2,6 +2,8 @@ import React from 'react';
 import PostItem from './post_item';
 import { Link } from 'react-router-dom';
 
+import { postProfPicColor } from '../../util/color_util';
+
 class Post extends React.Component {
     componentDidMount() {
         this.props.clearComments()
@@ -33,21 +35,14 @@ class Post extends React.Component {
         // }
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
-    rendersCreatePost(profpicColor) {
+    rendersCreatePost() {
         return (
             <div>
                 <div className="profile_posts createpost">
                     <div className="createpost_profpic">
                         <Link to={`/user/${this.props.currentUser.id}`}>
                             <img
-                                className={'createpost_profile_pic ' + profpicColor}
+                                className={`createpost_profile_pic ${postProfPicColor()}`}
                                 src={this.props.currentUser.profilePicUrl}
                             />
                         </Link>
@@ -71,24 +66,15 @@ class Post extends React.Component {
     }
 
     render() {
-        let profpicColor;
-        if (this.props.color === "blue") {
-            profpicColor = "postprofpicblue"
-        } else if (this.props.color === "green") {
-            profpicColor = "postprofpicgreen"
-        } else if (this.props.color === "red") {
-            profpicColor = "postprofpicred"
-        }
-
         if (Object.keys(this.props.posts).length === 0) {
-            return this.rendersCreatePost(profpicColor)
+            return this.rendersCreatePost()
         }
 
         let postArr = Object.values(this.props.posts).reverse()
         
         return (
             <div>
-                {this.rendersCreatePost(profpicColor)}
+                {this.rendersCreatePost()}
                 {
                     postArr.map(post => (
                         <PostItem
@@ -108,7 +94,6 @@ class Post extends React.Component {
                             openEditPostModal={this.props.openEditPostModal}
                             postPicUrl={post.postPhotoUrl}
                             profilePicUrl={post.profilePicUrl}
-                            profpicColor={profpicColor}
                         /> )
                     )
                 }

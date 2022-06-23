@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileTabs from './profile_tabs';
 
-import { profPicColor, uploadPicImage } from '../../util/color_util';
+import { bigProfPicColor, uploadPicImage } from '../../util/color_util';
 
 class ProfileTop extends React.Component {
     rendersProfilePic() {
@@ -27,7 +27,7 @@ class ProfileTop extends React.Component {
         return (
             <div className={picbuttonactive}>
                 <img
-                    className={`profilepic ${profPicColor()}`}
+                    className={`profilepic ${bigProfPicColor()}`}
                     onClick={eventlistener}
                     src={this.props.user.profilePicUrl}
                 />

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
+import { postProfPicColor } from '../../util/color_util';
+
 class PostItem extends React.Component {
     constructor(props) {
         super(props);
@@ -54,7 +56,7 @@ class PostItem extends React.Component {
             component = (
                 <div>
                     {this.rendersPostDropClose()}
-                    <div className={'post_top_right ' + dropclassname} onClick={this.dropOpen}>
+                    <div className={`post_top_right ${dropclassname}`} onClick={this.dropOpen}>
                         {this.rendersPostDrop()}
                     </div>
                 </div>
@@ -146,7 +148,7 @@ class PostItem extends React.Component {
         } else {
             date.unshift("Created on")
         }
-        return date.join(" ") + " at " + time.join(" ")
+        return `${date.join(" ")} at ${time.join(" ")}`
     }
 
     rendersPostPhoto() {
@@ -261,7 +263,7 @@ class PostItem extends React.Component {
                     <div className="post_top_left">
                         <Link to={`/user/${this.props.postUserId}`}>
                             <img
-                                className={'post_profile_pic ' + this.props.profpicColor}
+                                className={`post_profile_pic ${postProfPicColor()}`}
                                 src={this.props.profilePicUrl}
                             />
                         </Link>

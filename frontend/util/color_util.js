@@ -35,7 +35,14 @@ export const tabColor = () => {
     else if (color === "red") { return "tabred" }
 }
 
-export const profPicColor = () => {
+export const postProfPicColor = () => {
+    let color = getColor()
+    if (color === "blue") { return "postprofpicblue" }
+    else if (color === "green") { return "postprofpicgreen" }
+    else if (color === "red") { return "postprofpicred" }
+}
+
+export const bigProfPicColor = () => {
     let color = getColor()
     if (color === "blue") { return "profpicbluebig" }
     else if (color === "green") { return "profpicgreenbig" }
