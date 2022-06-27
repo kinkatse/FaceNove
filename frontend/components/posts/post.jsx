@@ -6,7 +6,7 @@ import { postProfPicColor } from '../../util/color_util';
 
 class Post extends React.Component {
     componentDidMount() {
-        debugger
+        // debugger
         this.props.clearComments()
         this.props.clearPosts()
         this.props.indexPosts([this.props.userId])
@@ -38,7 +38,7 @@ class Post extends React.Component {
     }
 
     rendersCreatePost() {
-        debugger
+        // debugger
         return (
             <div>
                 <div className="profile_posts createpost">

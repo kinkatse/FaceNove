@@ -17,5 +17,9 @@ class Post < ApplicationRecord
         class_name: :Comment
 
     has_one_attached :postPhotoUrl
+
+    # def self.post_and_likes
+    #     Post.includes(:likes)
+    # end
     
 end

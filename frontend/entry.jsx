@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Root from './components/root'
 import configureStore from './store/store.js'
 
+import { indexLikes, createLike, destroyLike } from './actions/like_actions'
+
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
@@ -26,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         store = configureStore(preloadedState)
     }
+
+    window.store = store
+    window.indexLikes = indexLikes
+    window.createLike = createLike
+    window.destroyLike = destroyLike
     
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root)

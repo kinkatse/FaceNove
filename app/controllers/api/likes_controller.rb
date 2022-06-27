@@ -10,11 +10,11 @@ class Api::LikesController < ApplicationController
     end
 
     def index
-        if params[:likeable_type] == "Post"
+        if like_params[:likeable_type] == "Post"
             @likes = Post.find(:likeable_id).likes
-        elsif params[:likeable_type] == "Comment"
+        elsif like_params[:likeable_type] == "Comment"
             @likes = Comment.find(:likeable_id).likes
-        elsif params[:likeable_type] == "User_All"
+        elsif like_params[:likeable_type] == "User_All"
             user = User.find(:likeable_id)
             @likes = user.liked_posts + user.liked_comments
 
@@ -41,9 +41,9 @@ class Api::LikesController < ApplicationController
     end
 
     def like_params
-        params.require(:like).permit(
+        params.require(:likeData).permit(
             :id,
-            :liker_id
+            :liker_id,
             :likeable_type,
             :likeable_id
         )

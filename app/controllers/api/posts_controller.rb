@@ -15,12 +15,32 @@ class Api::PostsController < ApplicationController
             # debugger
             # render :index
 
+            # @posts = []
+            # allPostsLikes = Post.post_and_likes
+            # debugger
+            # userIds.each do |user_id|
+            #     userPosts = allPostsLikes.select do |postsLikes|
+            #         debugger
+            #         if userIds.include?(postsLikes.user_id.to_s)
+            #             @posts << postsLikes
+            #         elsif userIds.include?(postsLikes.liker_id.to_s)
+            #             @likes << postsLikes
+            #         end
+            #     end
+            # end
+            # render :index
+
             # Not N + 1 Query
             @posts = []
+            @likes = []
             allPosts = Post.all
+            allLikes = Like.all
             userIds.each do |user_id|
                 userPosts = allPosts.select do |post|
-                    @posts << post if userIds.include?(post.user_id.to_s)
+                    if userIds.include?(post.user_id.to_s)
+                        @posts << post
+                        @likes += allLikes.select { |like| like.likeable_id == post.id }
+                    end
                 end
             end
             render :index

@@ -1,5 +1,7 @@
 import * as PostApiUtil from '../util/post_api_util';
 
+import { receiveAllLikes } from './like_actions'
+
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const REMOVE_POST = 'REMOVE_POST';
@@ -41,7 +43,11 @@ export const clearPosts = () => ({
 export const indexPosts = (userIds) => (dispatch) => {
     return (
         PostApiUtil.getAllPosts(userIds)
-        .then(posts => dispatch(receiveAllPosts(posts)))
+        .then(postsAndLikes => {
+            debugger
+            dispatch(receiveAllPosts(postsAndLikes.posts))
+            dispatch(receiveAllLikes(postsAndLikes.likes))
+        })
     )
 }
 
