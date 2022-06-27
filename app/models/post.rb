@@ -18,4 +18,5 @@ class Post < ApplicationRecord
         class_name: :Like
 
     has_one_attached :postPhotoUrl
+    
 end
