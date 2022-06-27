@@ -48,6 +48,7 @@ class Api::PostsController < ApplicationController
         # Otherwise show all posts
         else
             @posts = Post.all
+            @likes = Like.all
             render :index
         end
     end

@@ -44,7 +44,6 @@ export const indexPosts = (userIds) => (dispatch) => {
     return (
         PostApiUtil.getAllPosts(userIds)
         .then(postsAndLikes => {
-            debugger
             dispatch(receiveAllPosts(postsAndLikes.posts))
             dispatch(receiveAllLikes(postsAndLikes.likes))
         })

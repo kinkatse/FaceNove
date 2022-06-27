@@ -9,10 +9,12 @@ import {
 } from '../../actions/post_actions';
 import { clearComments, removePostComments } from '../../actions/comment_actions';
 import { openCreatePostModal, openEditPostModal } from '../../actions/modal_actions';
+import { indexLikes, createLike, destroyLike } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
         posts: state.entities.posts,
+        likes: state.entities.likes,
         // userPosts: state.entities.posts[ownProps.match.params.userId],
         userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
@@ -30,6 +32,9 @@ const mapDispatchToProps = (dispatch) => {
         createPost: (post => dispatch(createPost(post))),
         destroyPost: (postId => dispatch(destroyPost(postId))),
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
+        indexLike: ((likeData) => dispatch(indexLikes(likeData))),
+        createLike: ((likeData) => dispatch(createLike(likeData))),
+        destroyLike: ((likeId) => dispatch(destroyLike(likeId))),
         openCreatePostModal: () => dispatch(openCreatePostModal()),
         openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         removePostComments: ((postId) => dispatch(removePostComments(postId))),

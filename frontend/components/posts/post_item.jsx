@@ -197,6 +197,47 @@ class PostItem extends React.Component {
         }
     }
 
+    rendersLike() {
+        let currentUserLikeId = null;
+        let currentUserLikePostId = null;
+        let likesArr = [];
+        let likesObj = this.props.likes
+        for (const id in likesObj) {
+            let like = likesObj[id]
+            // Making sure we only count the likes for this post
+            if (like.likeable_type === "Post" &&
+            like.likeable_id === this.props.postId) {
+                likesArr.push(like)
+            }
+            if (like.liker_id === this.props.currentUser.id) {
+                currentUserLikeId = like.id
+                currentUserLikePostId = like.likeable_id
+            }
+        }
+
+        // Return different onClick callbacks based on if the current user liked this post or not
+        if (currentUserLikePostId !== this.props.postId) {
+            // debugger
+
+            const likeData = {
+                liker_id: this.props.currentUser.id,
+                likeable_type: "Post",
+                likeable_id: this.props.postId
+            }
+
+            return (<h2 className="post_placeholder"
+                    onClick={() => this.props.createLike(likeData)}>
+                        Like {likesArr.length}
+                    </h2>)
+        } else {
+            // debugger
+            return (<h2 className="post_placeholder"
+                    onClick={() => this.props.destroyLike(currentUserLikeId)}>
+                        Like {likesArr.length}
+                    </h2>)
+        }
+    }
+
     render() {
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page
@@ -295,7 +336,8 @@ class PostItem extends React.Component {
                     <div className="postlinediv"></div>
                     <div className="post_buttons">
                         <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
-                        <h2 className="post_placeholder">Like?</h2>
+                        {/* <h2 className="post_placeholder" onClick={() => this.createLike()}>Like?</h2> */}
+                        {this.rendersLike()}
                     </div>
                     {this.rendersComments()}
                 </div>
