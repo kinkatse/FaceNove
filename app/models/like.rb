@@ -1,5 +1,5 @@
 class Like < ApplicationRecord
-    validates :liker_id, :post_id
+    validates :liker_id, uniqueness: { scope: [:likeable_id, :likeable_type] }
 
     belongs_to :likeable,
         polymorphic: true
@@ -8,17 +8,5 @@ class Like < ApplicationRecord
         primary_key: :id,
         foreign_key: :liker_id,
         class_name: :User
-
-    # belongs_to :post,
-    #     dependent: :destroy,
-    #     primary_key: :id,
-    #     foreign_key: :post_id,
-    #     class_name: :Post
-
-    # belongs_to :comment,
-    #     dependent: :destroy,
-    #     primary_key: :id,
-    #     foreign_key: :comment_id,
-    #     class_name: :Comment
 
 end

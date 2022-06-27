@@ -10,9 +10,22 @@ class Api::LikesController < ApplicationController
     end
 
     def index
-        @users
         if params[:likeable_type] == "Post"
+            @likes = Post.find(:likeable_id).likes
         elsif params[:likeable_type] == "Comment"
+            @likes = Comment.find(:likeable_id).likes
+        elsif params[:likeable_type] == "User_All"
+            user = User.find(:likeable_id)
+            @likes = user.liked_posts + user.liked_comments
+
+            # Probably doesnt work because its not going to work with _likes.json.jbuilder
+            # @likes = Hash.new { |hash, key| hash[key] = [] }
+            # user = User.find(:likeable_id)
+
+            # @likes[:liked_posts] << user.liked_posts
+            # @likes[:liked_comments] << user.liked_comments
+        else
+            @likes = []
         end
         render :index
     end
@@ -31,8 +44,8 @@ class Api::LikesController < ApplicationController
         params.require(:like).permit(
             :id,
             :liker_id
-            :likeable_id,
             :likeable_type,
+            :likeable_id
         )
     end
 
