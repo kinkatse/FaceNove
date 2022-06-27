@@ -1,6 +1,10 @@
 class Comment < ApplicationRecord
     validates :body, :user_id, :post_id, presence: true
 
+    has_many :likes,
+        as: :likeable
+        # dependent: :destroy
+
     belongs_to :author,
         primary_key: :id,
         foreign_key: :user_id,
