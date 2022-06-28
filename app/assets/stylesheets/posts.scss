@@ -290,3 +290,45 @@
     background: rgba(229, 231, 235, 0.6);
     border-radius: 5px;
 }
+
+// .post_like {
+//     margin-left: 5px;
+//     margin-right: 5px;
+//     width: 25px;
+//     height: 25px;
+// }
+
+.post_like_buttons {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+.post_buttons_bigger {
+    width: 35px;
+    height: 35px;
+}
+
+.post_like_buttons:hover {
+    cursor: pointer;
+    opacity: 85%;
+    animation: 0.3s hoverover forwards;
+}
+
+// .logout_button {
+//     margin-left: 5px;
+//     margin-right: 5px;
+//     width: 48px;
+//     height: 48px;
+//     border: 1.5px solid #ccc;
+//     background: rgba(221, 221, 221, 0.25);
+//     border-radius: 100px;
+//     // animation: 0.3s hoveroff forwards;
+// }
+
+// .logout_button:hover {
+//     cursor: pointer;
+//     opacity: 85%;
+//     animation: 0.3s hoverover forwards;
+// }

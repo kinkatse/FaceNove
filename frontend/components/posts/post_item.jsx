@@ -314,7 +314,7 @@ class PostItem extends React.Component {
                         {this.rendersLikeButton()}
                         <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>
                             <img
-                                className="logout_button"
+                                className="post_like_buttons post_buttons_bigger"
                                 src={commentButton()}
                             />
                             Comment

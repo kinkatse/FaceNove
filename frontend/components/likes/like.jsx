@@ -57,7 +57,7 @@ const LikeCount = (props) => {
         likeCount = (
             <div>
                 <img
-                    className="logout_button"
+                    className="post_like_buttons"
                     src={likedVisual()}
                 />
                 {renderThree.map((liker) => {
@@ -102,22 +102,20 @@ const LikeButton = (props) => {
         return (<h2 className="post_placeholder"
                 onClick={() => props.createLike(likeData)}>
                     <img
-                        className="logout_button"
+                        className="post_like_buttons post_buttons_bigger"
                         src={likeButton()}
                     />
                     Like
-                    {/* <span> Like </span> */}
                     {props.likeIds.length}
                 </h2>)
     } else {
         return (<h2 className="post_placeholder"
                 onClick={() => props.destroyLike(props.specifiedLike)}>
                     <img
-                        className="logout_button"
+                        className="post_like_buttons post_buttons_bigger"
                         src={unlikeButton()}
                     />
                     Like
-                    {/* <span> Like </span> */}
                     {props.likeIds.length}
                 </h2>)
     }
