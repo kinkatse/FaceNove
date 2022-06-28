@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
-import { postProfPicColor, likedVisual, likeButton, unlikeButton } from '../../util/color_util';
+import { postProfPicColor, likedVisual, likeButton, unlikeButton, commentButton } from '../../util/color_util';
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -229,6 +229,7 @@ class PostItem extends React.Component {
                             src={likeButton()}
                         />
                         Like
+                        {/* <span> Like </span> */}
                         {likeIds.length}
                     </h2>)
         } else {
@@ -239,6 +240,7 @@ class PostItem extends React.Component {
                             src={unlikeButton()}
                         />
                         Like
+                        {/* <span> Like </span> */}
                         {likeIds.length}
                     </h2>)
         }
@@ -397,7 +399,13 @@ class PostItem extends React.Component {
                     {this.rendersLikeCount()}
                     <div className="post_buttons">
                         {this.rendersLike()}
-                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
+                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>
+                            <img
+                                className="logout_button"
+                                src={commentButton()}
+                            />
+                            Comment
+                        </h2>
                     </div>
                     {this.rendersComments()}
                 </div>

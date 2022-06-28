@@ -98,7 +98,6 @@ export const editProfImage = () => {
     else if (color === "red") { return window.edit_red_url }
 }
 
-// likedVisual
 export const likedVisual = () => {
     let color = getColor()
     if (color === "blue") { return window.liked_visual_blue_url }
@@ -106,7 +105,6 @@ export const likedVisual = () => {
     else if (color === "red") { return window.liked_visual_red_url }
 }
 
-// likeButton
 export const likeButton = () => {
     let color = getColor()
     if (color === "blue") { return window.like_blue_url }
@@ -114,10 +112,16 @@ export const likeButton = () => {
     else if (color === "red") { return window.like_red_url }
 }
 
-// unlikeButton
 export const unlikeButton = () => {
     let color = getColor()
     if (color === "blue") { return window.unlike_blue_url }
     else if (color === "green") { return window.unlike_green_url }
     else if (color === "red") { return window.unlike_red_url }
+}
+
+export const commentButton = () => {
+    let color = getColor()
+    if (color === "blue") { return window.comment_blue_url }
+    else if (color === "green") { return window.comment_green_url }
+    else if (color === "red") { return window.comment_red_url }
 }
