@@ -204,6 +204,7 @@ class PostItem extends React.Component {
         let likeIds = this.props.likeIds
         let likesObj = this.props.likes
 
+        // For determining this specific posts' likes
         likeIds.forEach((likedId) => {
             let like = likesObj[likedId]
             if (like !== undefined && like.liker_id === currentUser.id) {
@@ -231,6 +232,57 @@ class PostItem extends React.Component {
                         Like {likeIds.length}
                     </h2>)
         }
+    }
+
+    rendersLikeCount() {
+        let likeCount;
+        let likeIds = this.props.likeIds;
+        let likesObj = this.props.likes;
+        // For determining this specific posts' likes
+        let likesArr = []
+        
+        likeIds.forEach(likedId => {
+            let like = likesObj[likedId]
+            if (like !== undefined) { likesArr.push(like) }
+        })
+
+        // Grab first three likes
+        let threeLikes = likesArr.slice(0, 3);
+        let renderThree = [];
+
+        // debugger
+
+        threeLikes.forEach((like) => {
+            renderThree.push({
+                liker_id: like.liker_id,
+                firstName: like.firstName,
+                lastName: like.lastName
+            })
+        })
+
+        // debugger
+
+        if (likesArr.length > 0) {
+            likeCount = (
+                <div>
+                    {/* picture */}
+                    {renderThree.map((liker) => {
+                        return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
+                            {liker.firstName} {liker.LastName}
+                        </Link>
+                    })}
+                    <div className="postlinediv"></div>
+                </div>
+            )
+        } else {
+            likeCount = null;
+        }
+
+        return (
+            <>
+                {likeCount}
+            </>
+        )
     }
 
     render() {
@@ -329,10 +381,10 @@ class PostItem extends React.Component {
                 </div>
                 <div className="post_bottom">
                     <div className="postlinediv"></div>
+                    {this.rendersLikeCount()}
                     <div className="post_buttons">
-                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
-                        {/* <h2 className="post_placeholder" onClick={() => this.createLike()}>Like?</h2> */}
                         {this.rendersLike()}
+                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
                     </div>
                     {this.rendersComments()}
                 </div>
