@@ -3,11 +3,19 @@ import * as LikeApiUtil from '../util/like_api_util';
 export const RECEIVE_ALL_LIKES = 'RECEIVE_ALL_LIKES';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 export const REMOVE_ALL_LIKES = 'REMOVE_ALL_LIKES';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 
 export const receiveAllLikes = (likes) => {
     return {
         type: RECEIVE_ALL_LIKES,
         likes
+    }
+}
+
+const receiveLike = (like) => {
+    return {
+        type: RECEIVE_LIKE,
+        like
     }
 }
 
@@ -36,7 +44,10 @@ export const indexLikes = (likeData) => (dispatch) => {
 export const createLike = (likeData) => (dispatch) => {
     return (
         LikeApiUtil.createLike(likeData)
-        .then(likes => dispatch(receiveAllLikes(likes)))
+        .then(likes => {
+            dispatch(receiveLike(likes))
+            dispatch(receiveAllLikes(likes))
+        })
     )
 }
 
