@@ -85,6 +85,7 @@ class Post extends React.Component {
                             postId={post.id}
                             postUserId={post.user_id}
                             postBody={post.body}
+                            likeIds={post.likeIds}
                             likes={this.props.likes}
                             indexLikes={this.props.indexLikes}
                             createLike={this.props.createLike}

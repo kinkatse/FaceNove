@@ -198,42 +198,58 @@ class PostItem extends React.Component {
     }
 
     rendersLike() {
-        let currentUserLikeId = null;
-        let currentUserLikePostId = null;
-        let likesArr = [];
+        // let currentUserLikeId = null;
+        // let currentUserLikePostId = null;
+        // let likesArr = [];
+        // let likesObj = this.props.likes
+        // for (const id in likesObj) {
+        //     let like = likesObj[id]
+        //     // Making sure we only count the likes for this post
+        //     if (like.likeable_type === "Post" &&
+        //     like.likeable_id === this.props.postId) {
+        //         likesArr.push(like)
+        //     }
+        //     if (like.liker_id === this.props.currentUser.id) {
+        //         currentUserLikeId = like.id
+        //         currentUserLikePostId = like.likeable_id
+        //     }
+        // }
+
+        const { currentUser } = this.props
+        let currentUserLiked = false;
+        let specifiedLike;
+        let likeIds = this.props.likeIds
         let likesObj = this.props.likes
-        for (const id in likesObj) {
-            let like = likesObj[id]
-            // Making sure we only count the likes for this post
-            if (like.likeable_type === "Post" &&
-            like.likeable_id === this.props.postId) {
-                likesArr.push(like)
+        // debugger
+
+        likeIds.forEach((likedId) => {
+            let like = likesObj[likedId]
+            if (like !== undefined && like.liker_id === currentUser.id) {
+                // debugger
+                specifiedLike = like;
+                currentUserLiked = true;
             }
-            if (like.liker_id === this.props.currentUser.id) {
-                currentUserLikeId = like.id
-                currentUserLikePostId = like.likeable_id
-            }
-        }
+        })
 
         // Return different onClick callbacks based on if the current user liked this post or not
-        if (currentUserLikePostId !== this.props.postId) {
+        if (!currentUserLiked) {
             // debugger
 
             const likeData = {
-                liker_id: this.props.currentUser.id,
+                liker_id: currentUser.id,
                 likeable_type: "Post",
                 likeable_id: this.props.postId
             }
 
             return (<h2 className="post_placeholder"
                     onClick={() => this.props.createLike(likeData)}>
-                        Like {likesArr.length}
+                        Like {likeIds.length}
                     </h2>)
         } else {
             // debugger
             return (<h2 className="post_placeholder"
-                    onClick={() => this.props.destroyLike(currentUserLikeId)}>
-                        Like {likesArr.length}
+                    onClick={() => this.props.destroyLike(specifiedLike)}>
+                        Like {likeIds.length}
                     </h2>)
         }
     }

@@ -31,6 +31,7 @@ class Api::LikesController < ApplicationController
     end
 
     def destroy
+        # debugger
         @like = Like.find_by(id: params[:id])
         if @like
             @like.destroy

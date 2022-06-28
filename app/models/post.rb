@@ -18,7 +18,7 @@ class Post < ApplicationRecord
 
     has_one_attached :postPhotoUrl
 
-    # def self.post_and_likes
+    # def self.post_likes(likeIds)
     #     Post.includes(:likes)
     # end
     

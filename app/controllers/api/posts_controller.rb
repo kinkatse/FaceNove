@@ -32,14 +32,17 @@ class Api::PostsController < ApplicationController
 
             # Not N + 1 Query
             @posts = []
-            @likes = []
+            # @likes = Hash.new { |hash, key| hash[key] = [] }
             allPosts = Post.all
-            allLikes = Like.all
+            # allLikes = Like.all
+            # @likes = Post.likes
+            @likes = Like.all
             userIds.each do |user_id|
                 userPosts = allPosts.select do |post|
                     if userIds.include?(post.user_id.to_s)
                         @posts << post
-                        @likes += allLikes.select { |like| like.likeable_id == post.id }
+                         # @likes[post.id] = allLikes.select { |like| like.likeable_id == post.id }
+                        # @likes << post.likes
                     end
                 end
             end

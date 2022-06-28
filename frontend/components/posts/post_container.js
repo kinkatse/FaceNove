@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch) => {
         addPostPhoto: ((post, postId) => dispatch(addPostPhoto(post, postId))),
         indexLike: ((likeData) => dispatch(indexLikes(likeData))),
         createLike: ((likeData) => dispatch(createLike(likeData))),
-        destroyLike: ((likeId) => dispatch(destroyLike(likeId))),
+        destroyLike: ((like) => dispatch(destroyLike(like))),
         openCreatePostModal: () => dispatch(openCreatePostModal()),
         openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         removePostComments: ((postId) => dispatch(removePostComments(postId))),

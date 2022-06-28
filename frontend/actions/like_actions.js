@@ -11,10 +11,12 @@ export const receiveAllLikes = (likes) => {
     }
 }
 
-const removeLike = (likeId) => {
+// This is removing the like in both the post.likeIds array and the like state
+// so it shows up in both post reducer and like reducer
+const removeLike = (like) => {
     return {
         type: REMOVE_LIKE,
-        likeId
+        like
     }
 }
 
@@ -32,15 +34,17 @@ export const indexLikes = (likeData) => (dispatch) => {
 }
 
 export const createLike = (likeData) => (dispatch) => {
+    // debugger
     return (
         LikeApiUtil.createLike(likeData)
         .then(likes => dispatch(receiveAllLikes(likes)))
     )
 }
 
-export const destroyLike = (likeId) => (dispatch) => {
+export const destroyLike = (like) => (dispatch) => {
+    // debugger
     return (
-        LikeApiUtil.deleteLike(likeId)
-        .then(() => dispatch(removeLike(likeId)))
+        LikeApiUtil.deleteLike(like.id)
+        .then(() => dispatch(removeLike(like)))
     )
 }
