@@ -15,7 +15,6 @@ export const createLike = (likeData) => {
 }
 
 export const deleteLike = (likeId) => {
-    // debugger
     return $.ajax({
         url: `/api/likes/${likeId}`,
         method: 'DELETE'

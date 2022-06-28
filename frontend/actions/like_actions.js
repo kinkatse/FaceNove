@@ -34,7 +34,6 @@ export const indexLikes = (likeData) => (dispatch) => {
 }
 
 export const createLike = (likeData) => (dispatch) => {
-    // debugger
     return (
         LikeApiUtil.createLike(likeData)
         .then(likes => dispatch(receiveAllLikes(likes)))
@@ -42,7 +41,6 @@ export const createLike = (likeData) => (dispatch) => {
 }
 
 export const destroyLike = (like) => (dispatch) => {
-    // debugger
     return (
         LikeApiUtil.deleteLike(like.id)
         .then(() => dispatch(removeLike(like)))

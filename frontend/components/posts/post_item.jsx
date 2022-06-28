@@ -198,34 +198,15 @@ class PostItem extends React.Component {
     }
 
     rendersLike() {
-        // let currentUserLikeId = null;
-        // let currentUserLikePostId = null;
-        // let likesArr = [];
-        // let likesObj = this.props.likes
-        // for (const id in likesObj) {
-        //     let like = likesObj[id]
-        //     // Making sure we only count the likes for this post
-        //     if (like.likeable_type === "Post" &&
-        //     like.likeable_id === this.props.postId) {
-        //         likesArr.push(like)
-        //     }
-        //     if (like.liker_id === this.props.currentUser.id) {
-        //         currentUserLikeId = like.id
-        //         currentUserLikePostId = like.likeable_id
-        //     }
-        // }
-
         const { currentUser } = this.props
         let currentUserLiked = false;
         let specifiedLike;
         let likeIds = this.props.likeIds
         let likesObj = this.props.likes
-        // debugger
 
         likeIds.forEach((likedId) => {
             let like = likesObj[likedId]
             if (like !== undefined && like.liker_id === currentUser.id) {
-                // debugger
                 specifiedLike = like;
                 currentUserLiked = true;
             }
@@ -233,7 +214,6 @@ class PostItem extends React.Component {
 
         // Return different onClick callbacks based on if the current user liked this post or not
         if (!currentUserLiked) {
-            // debugger
 
             const likeData = {
                 liker_id: currentUser.id,
@@ -246,7 +226,6 @@ class PostItem extends React.Component {
                         Like {likeIds.length}
                     </h2>)
         } else {
-            // debugger
             return (<h2 className="post_placeholder"
                     onClick={() => this.props.destroyLike(specifiedLike)}>
                         Like {likeIds.length}

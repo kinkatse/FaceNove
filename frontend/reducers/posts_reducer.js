@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_POSTS, RECEIVE_POST, REMOVE_POST, REMOVE_ALL_POSTS } from "../actions/post_actions";
-import { REMOVE_LIKE } from "../actions/like_actions";
+import { RECEIVE_ALL_LIKES, REMOVE_LIKE } from "../actions/like_actions";
 
 const postsReducer = (postState = {}, action) => {
     Object.freeze(postState);
@@ -15,6 +15,16 @@ const postsReducer = (postState = {}, action) => {
             return newState;
         case REMOVE_ALL_POSTS:
             return {}
+        case RECEIVE_ALL_LIKES:
+            let likes = Object.values(action.likes)
+            if (likes.length === 1) {
+                let like = likes[0]
+                let postId = like.likeable_id
+                newState = Object.assign({}, postState);
+                newState[postId].likeIds.push(like.id)
+                return newState;
+            }
+            return postState;
         case REMOVE_LIKE:
             let postId = action.like.likeable_id
             newState = Object.assign({}, postState);

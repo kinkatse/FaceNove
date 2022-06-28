@@ -1,3 +1,14 @@
 node_modules/
 bundle.js
 bundle.js.map
+
+/config/master.key
+.byebug_history
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
