@@ -1,5 +1,7 @@
 import * as CommentApiUtil from '../util/comment_api_util';
 
+import { receiveAllLikes } from './like_actions'
+
 export const RECEIVE_ALL_COMMENTS = 'RECEIVE_ALL_COMMENTS';
 export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
@@ -51,7 +53,10 @@ export const clearComments = () => {
 export const indexComments = (relatedId) => (dispatch) => {
     return (
         CommentApiUtil.getAllComments(relatedId)
-        .then(comments => dispatch(receiveAllComments(comments)))
+        .then(commentsAndLikes => {
+            dispatch(receiveAllComments(commentsAndLikes.comments))
+            dispatch(receiveAllLikes(commentsAndLikes.likes))
+        })
     )
 }
 

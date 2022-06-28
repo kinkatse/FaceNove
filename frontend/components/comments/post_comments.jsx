@@ -192,11 +192,12 @@ class PostComments extends React.Component {
                 </div>
                 <div className="post_middle">
                     {this.rendersComment()}
+                    {this.rendersLikeCount()}
                 </div>
                 <div className="post_bottom">
                     <div className="post_buttons">
                         {/* <h2 className="comments_placeholder_like">Like?</h2> */}
-                        {/* {rendersLikeButton()} */}
+                        {this.rendersLikeButton()}
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ class Api::CommentsController < ApplicationController
     
     def index
         # Grab all comments of a post
+        @likes = Like.all
         if params[:type] == 'post'
             post_id = params[:post_id]
             @comments = Post.find_by(id: post_id).comments
