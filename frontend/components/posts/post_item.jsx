@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
-import { postProfPicColor } from '../../util/color_util';
+import { postProfPicColor, likedVisual, likeButton, unlikeButton } from '../../util/color_util';
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -224,12 +224,22 @@ class PostItem extends React.Component {
 
             return (<h2 className="post_placeholder"
                     onClick={() => this.props.createLike(likeData)}>
-                        Like {likeIds.length}
+                        <img
+                            className="logout_button"
+                            src={likeButton()}
+                        />
+                        Like
+                        {likeIds.length}
                     </h2>)
         } else {
             return (<h2 className="post_placeholder"
                     onClick={() => this.props.destroyLike(specifiedLike)}>
-                        Like {likeIds.length}
+                        <img
+                            className="logout_button"
+                            src={unlikeButton()}
+                        />
+                        Like
+                        {likeIds.length}
                     </h2>)
         }
     }
@@ -264,7 +274,10 @@ class PostItem extends React.Component {
         if (likesArr.length > 0) {
             likeCount = (
                 <div>
-                    {/* picture */}
+                    <img
+                        className="logout_button"
+                        src={likedVisual()}
+                    />
                     {renderThree.map((liker) => {
                         return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
                             {liker.firstName} {liker.LastName}
