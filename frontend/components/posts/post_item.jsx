@@ -250,8 +250,6 @@ class PostItem extends React.Component {
         let threeLikes = likesArr.slice(0, 3);
         let renderThree = [];
 
-        // debugger
-
         threeLikes.forEach((like) => {
             renderThree.push({
                 liker_id: like.liker_id,
@@ -260,7 +258,8 @@ class PostItem extends React.Component {
             })
         })
 
-        // debugger
+        let moreLiked; // if more than 3 users liked the post
+        if (likesArr.length > 3) { moreLiked = <span> and more</span> }
 
         if (likesArr.length > 0) {
             likeCount = (
@@ -271,6 +270,7 @@ class PostItem extends React.Component {
                             {liker.firstName} {liker.LastName}
                         </Link>
                     })}
+                    {moreLiked}
                     <div className="postlinediv"></div>
                 </div>
             )
