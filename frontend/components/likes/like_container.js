@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated
         // since localStorage wont update the page until we refresh
-        // color: state.ui.colorRed.color
+        color: state.ui.colorRed.color
     }
 }
 

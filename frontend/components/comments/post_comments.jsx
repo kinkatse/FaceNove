@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostDrop from '../posts/post_drop'
+import LikeContainer from '../likes/like_container';
 
 import { postProfPicColor } from '../../util/color_util';
 
@@ -149,6 +150,21 @@ class PostComments extends React.Component {
         return editComment;
     }
 
+    rendersLikeButton() {
+        return <LikeContainer
+                    likeRender="Button"
+                    commentId={this.props.commentId}
+                    likeIds={this.props.likeIds}
+                />
+    }
+
+    rendersLikeCount() {
+        return <LikeContainer
+                    likeRender="Count"
+                    likeIds={this.props.likeIds}
+                />
+    }
+
     render() {
         if (this.props.commentPostId !== this.props.postId) {
             return null;
@@ -179,7 +195,8 @@ class PostComments extends React.Component {
                 </div>
                 <div className="post_bottom">
                     <div className="post_buttons">
-                        <h2 className="comments_placeholder_like">Like?</h2>
+                        {/* <h2 className="comments_placeholder_like">Like?</h2> */}
+                        {/* {rendersLikeButton()} */}
                     </div>
                 </div>
             </div>

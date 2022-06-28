@@ -48,7 +48,10 @@ const LikeCount = (props) => {
     })
 
     let moreLiked; // if more than 3 users liked the post
-    if (props.likesArr.length > 3) { moreLiked = <span> and more</span> }
+    if (props.likesArr.length > 3) {
+        let amount = props.likesArr.length - 3
+        moreLiked = <span> and {amount} more liked this</span>
+    }
 
     if (props.likesArr.length > 0) {
         likeCount = (
@@ -81,10 +84,19 @@ const LikeButton = (props) => {
     // Return different onClick callbacks based on if the current user liked this post or not
     if (!props.currentUserLiked) {
 
+        let likeable_type, likeable_id;
+        if (props.postId) {
+            likeable_type = "Post"
+            likeable_id = props.postId
+        } else if (props.commentId) {
+            likeable_type = "Comment"
+            likeable_id = props.commentId
+        }
+
         const likeData = {
             liker_id: props.currentUser.id,
-            likeable_type: "Post",
-            likeable_id: props.postId
+            likeable_type: likeable_type,
+            likeable_id: likeable_id
         }
 
         return (<h2 className="post_placeholder"
