@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { postProfPicColor, likedVisual, likeButton, unlikeButton } from '../../util/color_util';
+import { postProfPicColor, likedVisual, likeButton, unlikeButton, postButtonColor } from '../../util/color_util';
 
 export const Like = (props) => {
 
@@ -105,8 +105,8 @@ const LikeButton = (props) => {
                         className="post_like_buttons post_buttons_bigger"
                         src={likeButton()}
                     />
-                    Like
-                    {props.likeIds.length}
+                    <span className={`post_button_text ${postButtonColor()}`}>Like</span>
+                    {/* {props.likeIds.length} */}
                 </h2>)
     } else {
         return (<h2 className="post_placeholder"
@@ -115,8 +115,8 @@ const LikeButton = (props) => {
                         className="post_like_buttons post_buttons_bigger"
                         src={unlikeButton()}
                     />
-                    Like
-                    {props.likeIds.length}
+                    <span className={`post_button_text ${postButtonColor()}`}>Like</span>
+                    {/* {props.likeIds.length} */}
                 </h2>)
     }
 }

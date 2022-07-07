@@ -253,6 +253,28 @@
     width: 100%;
 }
 
+.post_button_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.post-button-blue {
+    color: rgba(24, 119, 242, 1);
+    opacity: 90%;
+}
+
+.post-button-green {
+    color: rgba(32, 226, 136, 1);
+    opacity: 90%;
+}
+
+.post-button-red {
+    color: rgba(240, 47, 47, 1);
+    opacity: 90%;
+}
+
 .post_placeholder {
     display: flex;
     justify-content: center;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
-import { postProfPicColor, commentButton } from '../../util/color_util';
+import { postProfPicColor, commentButton, postButtonColor } from '../../util/color_util';
 import LikeContainer from '../likes/like_container';
 
 class PostItem extends React.Component {
@@ -317,7 +317,7 @@ class PostItem extends React.Component {
                                 className="post_like_buttons post_buttons_bigger"
                                 src={commentButton()}
                             />
-                            Comment
+                            <span className={`post_button_text ${postButtonColor()}`}>Comment</span>
                         </h2>
                     </div>
                     {this.rendersComments()}

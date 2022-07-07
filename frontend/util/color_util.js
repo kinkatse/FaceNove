@@ -56,6 +56,13 @@ export const bigProfPicColor = () => {
     else if (color === "red") { return "big-prof-pic-red" }
 }
 
+export const postButtonColor = () => {
+    let color = getColor()
+    if (color === "blue") { return "post-button-blue" }
+    else if (color === "green") { return "post-button-green" }
+    else if (color === "red") { return "post-button-red" }
+}
+
 // Images
 
 // logo
