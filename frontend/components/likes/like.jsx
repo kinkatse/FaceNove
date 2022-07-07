@@ -54,6 +54,11 @@ const LikeCount = (props) => {
     }
 
     if (props.likesArr.length > 0) {
+        // Logic for a god dam comma lmao
+        let endCount = null;
+        if (renderThree.length === 3) { endCount = 3 }
+        else if (renderThree.length === 2) { endCount = 2 }
+        else { endCount = 1 }
         likeCount = (
             <div>
                 <span className='like_details'>
@@ -62,10 +67,16 @@ const LikeCount = (props) => {
                         src={likedVisual()}
                     />
                     <span className='like_details_names'>
-                        {renderThree.map((liker) => {
-                            return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
-                                {liker.firstName} {liker.LastName}
-                            </Link>
+                        {renderThree.map((liker, idx) => {
+                            let countLikes = null;
+                            if (idx === endCount-1) { countLikes = <span> </span>}
+                            else { countLikes = <span>, </span>}
+                            return (<>
+                                <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
+                                    {liker.firstName} {liker.lastName}
+                                </Link>
+                                {countLikes}
+                            </>)
                         })}
                         {moreLiked}
                     </span>
