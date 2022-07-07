@@ -56,16 +56,20 @@ const LikeCount = (props) => {
     if (props.likesArr.length > 0) {
         likeCount = (
             <div>
-                <img
-                    className="post_like_buttons"
-                    src={likedVisual()}
-                />
-                {renderThree.map((liker) => {
-                    return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
-                        {liker.firstName} {liker.LastName}
-                    </Link>
-                })}
-                {moreLiked}
+                <span className='like_details'>
+                    <img
+                        className="post_like_buttons"
+                        src={likedVisual()}
+                    />
+                    <span className='like_details_names'>
+                        {renderThree.map((liker) => {
+                            return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
+                                {liker.firstName} {liker.LastName}
+                            </Link>
+                        })}
+                        {moreLiked}
+                    </span>
+                </span>
                 <div className="postlinediv"></div>
             </div>
         )

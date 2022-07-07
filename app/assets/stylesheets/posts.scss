@@ -246,6 +246,17 @@
     animation: 0.5s hoverover forwards;
 }
 
+.like_details {
+    display: flex;
+    flex-direction: row;
+    opacity: 80%;
+}
+
+.like_details_names {
+    font-size: 85%;
+    padding: 3px;
+}
+
 .post_buttons {
     display: flex;
     flex-direction: row;
@@ -262,16 +273,19 @@
 
 .post-button-blue {
     color: rgba(24, 119, 242, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
     opacity: 90%;
 }
 
 .post-button-green {
     color: rgba(32, 226, 136, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
     opacity: 90%;
 }
 
 .post-button-red {
     color: rgba(240, 47, 47, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
     opacity: 90%;
 }
 
@@ -288,7 +302,8 @@
 
 .post_placeholder:hover {
     border-radius: 3px;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(246, 246, 246);
+    animation: 0.3s hoverover forwards;
 }
 
 .dropopenabsolute {
@@ -344,7 +359,6 @@
 .post_like_buttons:hover {
     cursor: pointer;
     opacity: 85%;
-    animation: 0.3s hoverover forwards;
 }
 
 // .logout_button {
