@@ -70,7 +70,7 @@ const LikeCount = (props) => {
                         {moreLiked}
                     </span>
                 </span>
-                <div className="postlinediv"></div>
+                <div className="postlinediv postlinediv-comments"></div>
             </div>
         )
     } else {
