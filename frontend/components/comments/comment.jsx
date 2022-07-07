@@ -78,6 +78,7 @@ class Comment extends React.Component {
                             authorCommentId={comment.user_id}
                             commentPostId={comment.post_id}
                             postId={this.props.postId}
+                            likeIds={comment.likeIds}
                             // postUserId={this.props.postUserId}
                             firstName={comment.firstName}
                             lastName={comment.lastName}

@@ -155,6 +155,10 @@
     width: 583px;
 }
 
+.postlinediv-comments {
+    width: 98.5%;
+}
+
 .post_body {
     font-size: 20px;
     // Can use inline size to determine width
@@ -246,18 +250,65 @@
     animation: 0.5s hoverover forwards;
 }
 
+.like_details {
+    display: flex;
+    flex-direction: row;
+    opacity: 80%;
+}
+
+.like_details_names {
+    font-size: 85%;
+    padding: 3px;
+}
+
 .post_buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    width: 100%;
+}
+
+.post_button_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 95%;
+    font-weight: bold;
+}
+
+.post-button-blue {
+    color: rgba(24, 119, 242, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
+    opacity: 90%;
+}
+
+.post-button-green {
+    color: rgba(32, 226, 136, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
+    opacity: 90%;
+}
+
+.post-button-red {
+    color: rgba(240, 47, 47, 1);
+    text-shadow: 0px 0px 0.5px #0000004c;
+    opacity: 90%;
 }
 
 .post_placeholder {
+    display: flex;
+    justify-content: center;
     font-size: 15px;
     padding: 4px;
     margin: 2px;
-    opacity: 65%;
+    width: 270px;
+    opacity: 90%;
     cursor: pointer;
+}
+
+.post_placeholder:hover {
+    border-radius: 3px;
+    background-color: rgb(246, 246, 246);
+    animation: 0.3s hoverover forwards;
 }
 
 .dropopenabsolute {
@@ -290,3 +341,44 @@
     background: rgba(229, 231, 235, 0.6);
     border-radius: 5px;
 }
+
+// .post_like {
+//     margin-left: 5px;
+//     margin-right: 5px;
+//     width: 25px;
+//     height: 25px;
+// }
+
+.post_like_buttons {
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.post_buttons_bigger {
+    width: 30px;
+    height: 30px;
+}
+
+.post_like_buttons:hover {
+    cursor: pointer;
+    opacity: 85%;
+}
+
+// .logout_button {
+//     margin-left: 5px;
+//     margin-right: 5px;
+//     width: 48px;
+//     height: 48px;
+//     border: 1.5px solid #ccc;
+//     background: rgba(221, 221, 221, 0.25);
+//     border-radius: 100px;
+//     // animation: 0.3s hoveroff forwards;
+// }
+
+// .logout_button:hover {
+//     cursor: pointer;
+//     opacity: 85%;
+//     animation: 0.3s hoverover forwards;
+// }

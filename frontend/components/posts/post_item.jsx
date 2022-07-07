@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import CommentContainer from '../comments/comment_container';
 import PostDrop from './post_drop'
 
-import { postProfPicColor } from '../../util/color_util';
+import { postProfPicColor, commentButton, postButtonColor } from '../../util/color_util';
+import LikeContainer from '../likes/like_container';
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -197,92 +198,19 @@ class PostItem extends React.Component {
         }
     }
 
-    rendersLike() {
-        const { currentUser } = this.props
-        let currentUserLiked = false;
-        let specifiedLike;
-        let likeIds = this.props.likeIds
-        let likesObj = this.props.likes
-
-        // For determining this specific posts' likes
-        likeIds.forEach((likedId) => {
-            let like = likesObj[likedId]
-            if (like !== undefined && like.liker_id === currentUser.id) {
-                specifiedLike = like;
-                currentUserLiked = true;
-            }
-        })
-
-        // Return different onClick callbacks based on if the current user liked this post or not
-        if (!currentUserLiked) {
-
-            const likeData = {
-                liker_id: currentUser.id,
-                likeable_type: "Post",
-                likeable_id: this.props.postId
-            }
-
-            return (<h2 className="post_placeholder"
-                    onClick={() => this.props.createLike(likeData)}>
-                        Like {likeIds.length}
-                    </h2>)
-        } else {
-            return (<h2 className="post_placeholder"
-                    onClick={() => this.props.destroyLike(specifiedLike)}>
-                        Like {likeIds.length}
-                    </h2>)
-        }
+    rendersLikeButton() {
+        return <LikeContainer
+                    likeRender="Button"
+                    postId={this.props.postId}
+                    likeIds={this.props.likeIds}
+                />
     }
 
     rendersLikeCount() {
-        let likeCount;
-        let likeIds = this.props.likeIds;
-        let likesObj = this.props.likes;
-        // For determining this specific posts' likes
-        let likesArr = []
-        
-        likeIds.forEach(likedId => {
-            let like = likesObj[likedId]
-            if (like !== undefined) { likesArr.push(like) }
-        })
-
-        // Grab first three likes
-        let threeLikes = likesArr.slice(0, 3);
-        let renderThree = [];
-
-        // debugger
-
-        threeLikes.forEach((like) => {
-            renderThree.push({
-                liker_id: like.liker_id,
-                firstName: like.firstName,
-                lastName: like.lastName
-            })
-        })
-
-        // debugger
-
-        if (likesArr.length > 0) {
-            likeCount = (
-                <div>
-                    {/* picture */}
-                    {renderThree.map((liker) => {
-                        return <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
-                            {liker.firstName} {liker.LastName}
-                        </Link>
-                    })}
-                    <div className="postlinediv"></div>
-                </div>
-            )
-        } else {
-            likeCount = null;
-        }
-
-        return (
-            <>
-                {likeCount}
-            </>
-        )
+        return <LikeContainer
+                    likeRender="Count"
+                    likeIds={this.props.likeIds}
+                />
     }
 
     render() {
@@ -383,8 +311,14 @@ class PostItem extends React.Component {
                     <div className="postlinediv"></div>
                     {this.rendersLikeCount()}
                     <div className="post_buttons">
-                        {this.rendersLike()}
-                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>Comment</h2>
+                        {this.rendersLikeButton()}
+                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>
+                            <img
+                                className="post_like_buttons post_buttons_bigger"
+                                src={commentButton()}
+                            />
+                            <span className={`post_button_text ${postButtonColor()}`}>Comment</span>
+                        </h2>
                     </div>
                     {this.rendersComments()}
                 </div>

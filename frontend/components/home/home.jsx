@@ -69,10 +69,6 @@ class Home extends React.Component {
                                 postUserId={post.user_id}
                                 postBody={post.body}
                                 likeIds={post.likeIds}
-                                likes={this.props.likes}
-                                indexLikes={this.props.indexLikes}
-                                createLike={this.props.createLike}
-                                destroyLike={this.props.destroyLike}
                                 currentUser={this.props.currentUser}
                                 userId={this.props.userId}
                                 firstName={post.firstName}

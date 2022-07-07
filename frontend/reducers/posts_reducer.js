@@ -4,6 +4,7 @@ import { RECEIVE_LIKE, REMOVE_LIKE } from "../actions/like_actions";
 const postsReducer = (postState = {}, action) => {
     Object.freeze(postState);
     let newState;
+    let postId;
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
             return Object.assign({}, postState, action.posts);
@@ -16,21 +17,23 @@ const postsReducer = (postState = {}, action) => {
         case REMOVE_ALL_POSTS:
             return {}
         case RECEIVE_LIKE:
-            let likeArr = Object.values(action.like)
-            if (likeArr.length === 1) {
-                let like = likeArr[0]
-                let postId = like.likeable_id
+            let like = Object.values(action.like)[0]
+            if (like.likeable_type === "Post") {
+                postId = like.likeable_id
                 newState = Object.assign({}, postState);
                 newState[postId].likeIds.push(like.id)
                 return newState;
             }
             return postState;
         case REMOVE_LIKE:
-            let postId = action.like.likeable_id
-            newState = Object.assign({}, postState);
-            newState[postId].likeIds =
-            newState[postId].likeIds.filter(likeId => likeId !== action.like.id);
-            return newState;
+            if (action.like.likeable_type === "Post") {
+                postId = action.like.likeable_id
+                newState = Object.assign({}, postState);
+                newState[postId].likeIds =
+                newState[postId].likeIds.filter(likeId => likeId !== action.like.id);
+                return newState;
+            }
+            return postState;
         default:
             return postState;
     }
