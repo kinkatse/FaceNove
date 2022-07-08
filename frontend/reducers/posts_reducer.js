@@ -19,6 +19,7 @@ const postsReducer = (postState = {}, action) => {
         case RECEIVE_LIKE:
             let like = Object.values(action.like)[0]
             if (like.likeable_type === "Post") {
+                debugger
                 postId = like.likeable_id
                 newState = Object.assign({}, postState);
                 newState[postId].likeIds.push(like.id)

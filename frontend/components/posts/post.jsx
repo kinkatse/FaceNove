@@ -13,7 +13,7 @@ class Post extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
-        // debugger
+        debugger
         if ((this.props.userId !== oldProps.userId) ||
         (Object.values(oldProps.posts).length !== 0 &&
         this.props.currentUser.id === parseInt(this.props.userId) &&

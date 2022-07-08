@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 
-import { Like } from './like';
+import Like from './like';
 
+import { indexPosts } from '../../actions/post_actions';
+import { indexComments } from '../../actions/comment_actions';
 import { indexLikes, createLike, destroyLike } from '../../actions/like_actions';
 // import { openCreatePostModal, openEditPostModal } from '../../actions/modal_actions';
 
@@ -19,7 +21,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        indexLike: ((likeData) => dispatch(indexLikes(likeData))),
+        indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
+        indexComments: (relatedId => dispatch(indexComments(relatedId))),
+        indexLikes: ((likeData) => dispatch(indexLikes(likeData))),
         createLike: ((likeData) => dispatch(createLike(likeData))),
         destroyLike: ((like) => dispatch(destroyLike(like))),
         // openCreatePostModal: () => dispatch(openCreatePostModal()),
