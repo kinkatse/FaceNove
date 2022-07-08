@@ -1,6 +1,19 @@
 class Api::PostsController < ApplicationController
 
     def index
+        # Clean up likes on database:
+        # likes = Like.all
+        # likes.each do |like|
+        #     if like.likeable_type == "Post"
+        #         debugger
+        #         like.destroy if !Post.find_by(id: like.likeable_id)
+        #     else
+        #         debugger
+        #         like.destroy if !Comment.find_by(id: like.likeable_id)
+        #     end
+        # end
+
+
         # If there are users posts we want to grab here
         # in cases like a specific user's profile or friend's posts
         userIds = params[:userIds]
