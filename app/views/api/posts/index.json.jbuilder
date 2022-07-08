@@ -4,16 +4,19 @@
 @posts.each do |post|
     likeIds = []
 
+    # json.likes do
+    #     @likes.each do |like|
+    #         if post.id == like.likeable_id
+    #             likeIds << like.id
+    #             json.set! like.id do
+    #                 json.partial! 'api/likes/like', like: like
+    #             end
+    #         end
+    #     end
+    # end
     json.likes do
-        @likes.each do |like|
-            if post.id == like.likeable_id
-                likeIds << like.id
-                json.set! like.id do
-                    json.partial! 'api/likes/like', like: like
-                end
-            end
-        end
-    end
+        json.partial! 'api/posts/post_likes', post: post, likes: @likes, likeIds: likeIds
+    end 
 
     json.posts do
         json.set! post.id do
