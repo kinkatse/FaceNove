@@ -82,6 +82,7 @@ class Api::PostsController < ApplicationController
             @post.postPhotoUrl.purge
         end
         if @post.update_attributes(post_params)
+            @likes = Like.all
             render :show
         else
             render json: @post.errors.full_messages, status: 418

@@ -99,12 +99,12 @@ const LikeCount = (props) => {
                             let countLikes = null;
                             if (idx === endCount-1) { countLikes = <span> </span>}
                             else { countLikes = <span>, </span>}
-                            return (<>
-                                <Link to={`/user/${liker.liker_id}`} key={liker.liker_id}>
+                            return (<span key={liker.liker_id}>
+                                <Link to={`/user/${liker.liker_id}`}>
                                     {liker.firstName} {liker.lastName}
                                 </Link>
                                 {countLikes}
-                            </>)
+                            </span>)
                         })}
                         {moreLiked}
                     </span>

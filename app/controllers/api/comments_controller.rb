@@ -34,6 +34,7 @@ class Api::CommentsController < ApplicationController
     def update
         @comment = Comment.find_by(id: params[:id])
         if @comment.update_attributes(comment_params)
+            @likes = Like.all
             render :show
         else
             render json: @post.errors.full_messages, status: 418
