@@ -8,19 +8,15 @@ class Api::PostsController < ApplicationController
             # N + 1 Query
             # @posts = []
             # userIds.each do |user_id|
-            #     debugger
             #     @user = User.find_by(id: user_id.to_i)
             #     @posts += @user.posts
             # end
-            # debugger
             # render :index
 
             # @posts = []
             # allPostsLikes = Post.post_and_likes
-            # debugger
             # userIds.each do |user_id|
             #     userPosts = allPostsLikes.select do |postsLikes|
-            #         debugger
             #         if userIds.include?(postsLikes.user_id.to_s)
             #             @posts << postsLikes
             #         elsif userIds.include?(postsLikes.liker_id.to_s)
@@ -76,7 +72,6 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        # debugger
         @post = Post.find_by(id: params[:id])
         if params[:postPhotoUrl] == "purge"
             @post.postPhotoUrl.purge
@@ -90,7 +85,6 @@ class Api::PostsController < ApplicationController
     end
 
     def destroy
-        # debugger
         @post = Post.find_by(id: params[:id])
         if @post
             @post.destroy

@@ -294,7 +294,7 @@
     opacity: 90%;
 }
 
-.post_placeholder {
+.post_buttons_div {
     display: flex;
     justify-content: center;
     font-size: 15px;
@@ -305,7 +305,7 @@
     cursor: pointer;
 }
 
-.post_placeholder:hover {
+.post_buttons_div:hover {
     border-radius: 3px;
     background-color: rgba(0, 0, 0, 0.05);
     animation: 0.3s hoverover forwards;

@@ -312,7 +312,7 @@ class PostItem extends React.Component {
                     {this.rendersLikeCount()}
                     <div className="post_buttons">
                         {this.rendersLikeButton()}
-                        <h2 className="post_placeholder" onClick={() => this.commentsToggle()}>
+                        <h2 className="post_buttons_div" onClick={() => this.commentsToggle()}>
                             <img
                                 className="post_like_buttons post_buttons_bigger"
                                 src={commentButton()}

@@ -3,49 +3,33 @@ import { Link } from 'react-router-dom';
 
 import { postProfPicColor, likedVisual, likeButton, unlikeButton, postButtonColor } from '../../util/color_util';
 
-class Like extends React.Component {
-
-    // componentDidMount() {
-    //     if (!this.props.likeIds) {
-    //         this.props.indexPosts()
-    //         const commentRelatedId = Object.assign(
-    //             {},
-    //             { post_id: [this.props.postId],
-    //               type: 'post' }
-    //         )
-    //         this.props.indexComments(commentRelatedId)
-    //     }
-    // }
-
-    render() {
-        let currentUserLiked = false;
-        let specifiedLike;
-        let likesArr = [];
-        
-        // For determining this specific posts' likes
-        // debugger
-        if (this.props.likeIds) {
-            this.props.likeIds.forEach(likedId => {
-                if (this.props.likeRender === "Count") {
-                    let like = this.props.likesState[likedId]
-                    if (like !== undefined) { likesArr.push(like) }
-                } else if (this.props.likeRender === "Button") {
-                    let like = this.props.likesState[likedId]
-                    if (like !== undefined && like.liker_id === this.props.currentUser.id) {
-                        specifiedLike = like;
-                        currentUserLiked = true;
-                    }
+export const Like = (props) => {
+    let currentUserLiked = false;
+    let specifiedLike;
+    let likesArr = [];
+    
+    // For determining this specific posts' likes
+    if (props.likeIds) {
+        props.likeIds.forEach(likedId => {
+            if (props.likeRender === "Count") {
+                let like = props.likesState[likedId]
+                if (like !== undefined) { likesArr.push(like) }
+            } else if (props.likeRender === "Button") {
+                let like = props.likesState[likedId]
+                if (like !== undefined && like.liker_id === props.currentUser.id) {
+                    specifiedLike = like;
+                    currentUserLiked = true;
                 }
-            })
-        }
-        
-        if (this.props.likeRender === "Count") {
-            let newProps = Object.assign({}, this.props, {likesArr})
-            return (LikeCount(newProps))
-        } else if (this.props.likeRender === "Button") {
-            let newProps = Object.assign({}, this.props, {specifiedLike, currentUserLiked})
-            return (LikeButton(newProps))
-        }
+            }
+        })
+    }
+    
+    if (props.likeRender === "Count") {
+        let newProps = Object.assign({}, props, {likesArr})
+        return (LikeCount(newProps))
+    } else if (props.likeRender === "Button") {
+        let newProps = Object.assign({}, props, {specifiedLike, currentUserLiked})
+        return (LikeButton(newProps))
     }
 }
 
@@ -53,15 +37,12 @@ const LikeCount = (props) => {
     let likeCount;
 
     // Logic to always place the current user's likes in front of the array
-    // props.likesArr.forEach((likeObj, idx) => {
-    //     if (likeObj.id === props.currentUser.id) {
-    //         let newLikeArr = []
-
-    //         let newState = Object.assign({}, likeState);
-    //         delete newState[action.like.id];
-    //         return newState;
-    //     }
-    // })
+    props.likesArr.forEach((likeObj, idx) => {
+        if (likeObj.liker_id === props.currentUser.id) {
+            let currentUserLiked = props.likesArr.splice(idx, 1)
+            props.likesArr.unshift(Object.values(currentUserLiked)[0])
+        }
+    })
 
     // Grab first three likes
     let threeLikes = props.likesArr.slice(0, 3);
@@ -142,7 +123,7 @@ const LikeButton = (props) => {
             likeable_id: likeable_id
         }
 
-        return (<h2 className="post_placeholder"
+        return (<h2 className="post_buttons_div"
                 onClick={() => props.createLike(likeData)}>
                     <img
                         className="post_like_buttons post_buttons_bigger"
@@ -152,7 +133,7 @@ const LikeButton = (props) => {
                     {/* {props.likeIds.length} */}
                 </h2>)
     } else {
-        return (<h2 className="post_placeholder"
+        return (<h2 className="post_buttons_div"
                 onClick={() => props.destroyLike(props.specifiedLike)}>
                     <img
                         className="post_like_buttons post_buttons_bigger"
@@ -163,5 +144,3 @@ const LikeButton = (props) => {
                 </h2>)
     }
 }
-
-export default Like;
