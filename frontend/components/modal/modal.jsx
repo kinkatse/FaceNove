@@ -48,6 +48,12 @@ class Modal extends React.Component {
                     updatePost={this.props.updatePost}
                     closeModal={this.props.closeModal}
                 />
+            case 'likes':
+                return <LikesModal
+                    currentUser={this.props.currentUser}
+                    likesObj={this.props.likesObj}
+                    closeModal={this.props.closeModal}
+                />
             case '':
                 return null;
             default:

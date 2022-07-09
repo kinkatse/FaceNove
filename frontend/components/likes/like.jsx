@@ -68,9 +68,10 @@ const LikeCount = (props) => {
         if (renderThree.length === 3) { endCount = 3 }
         else if (renderThree.length === 2) { endCount = 2 }
         else { endCount = 1 }
+        // Eventually add on hover for the likes
         likeCount = (
             <div>
-                <span className='like_details'>
+                <span className='like_details' onMouseEnter={() => {}}>
                     <img
                         className="post_like_buttons"
                         src={likedVisual()}

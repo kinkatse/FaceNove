@@ -3,11 +3,6 @@ import PostComments from './post_comments';
 
 class Comment extends React.Component {
     componentDidMount() {
-        // const commentRelatedId = Object.assign(
-        //     {},
-        //     { post_id: [this.props.postId] },
-        //     { type: 'post' }
-        // )
         const commentRelatedId = Object.assign(
             {},
             { post_id: [this.props.postId],
