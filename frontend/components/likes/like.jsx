@@ -59,7 +59,11 @@ const LikeCount = (props) => {
     let moreLiked; // if more than 3 users liked the post
     if (props.likesArr.length > 3) {
         let amount = props.likesArr.length - 3
-        moreLiked = <span> and {amount} more liked this</span>
+        moreLiked =
+            <span
+                onClick={() => props.openLikesModal(props.postId ? props.postId : props.commentId)}>
+                    and {amount} more liked this
+            </span>
     }
 
     if (props.likesArr.length > 0) {
@@ -132,7 +136,6 @@ const LikeButton = (props) => {
                         src={likeButton()}
                     />
                     <span className={`post_button_text ${postButtonColor()}`}>Like</span>
-                    {/* {props.likeIds.length} */}
                 </h2>)
     } else {
         return (<h2 className="post_buttons_div"
@@ -142,7 +145,6 @@ const LikeButton = (props) => {
                         src={unlikeButton()}
                     />
                     <span className={`post_button_text ${postButtonColor()}`}>Like</span>
-                    {/* {props.likeIds.length} */}
                 </h2>)
     }
 }

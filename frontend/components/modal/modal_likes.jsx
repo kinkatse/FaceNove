@@ -17,9 +17,9 @@ class LikesModal extends React.Component {
             likes.push(this.props.likesState[likeId])
         })
 
-        return (<div>
+        return (<div className='likes_modal'>
             {likes.map((like) => {
-                return (<div className='likes_modal' key={like.id}>
+                return (<div className='each_liker' key={like.id}>
                     <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
                         <img
                             className={`post_profile_pic ${postProfPicColor()}`}
@@ -27,7 +27,9 @@ class LikesModal extends React.Component {
                         />
                     </Link>
                     <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
-                        {like.firstName} {like.lastName}
+                        <span className='each_liker_name'>
+                            {like.firstName} {like.lastName}
+                        </span>
                     </Link>
                 </div>)
             })}

@@ -9,3 +9,22 @@
     margin-right: 215px;
     color: blue;
 }
+
+.likes_modal {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.each_liker {
+    display: flex;
+    padding: 10px;
+}
+
+.each_liker_name {
+    font-size: 120%;
+    position: relative;
+    top: 11px;
+    padding: 10px;
+    padding-left: 20px;
+}
