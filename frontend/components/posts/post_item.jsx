@@ -209,6 +209,7 @@ class PostItem extends React.Component {
     rendersLikeCount() {
         return <LikeContainer
                     likeRender="Count"
+                    postId={this.props.postId}
                     likeIds={this.props.likeIds}
                 />
     }

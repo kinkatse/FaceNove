@@ -13,10 +13,10 @@ export const Like = (props) => {
         props.likeIds.forEach(likedId => {
             if (props.likeRender === "Count") {
                 let like = props.likesState[likedId]
-                if (like !== undefined) { likesArr.push(like) }
+                if (like) { likesArr.push(like) }
             } else if (props.likeRender === "Button") {
                 let like = props.likesState[likedId]
-                if (like !== undefined && like.liker_id === props.currentUser.id) {
+                if (like && like.liker_id === props.currentUser.id) {
                     specifiedLike = like;
                     currentUserLiked = true;
                 }
@@ -75,7 +75,7 @@ const LikeCount = (props) => {
                     <img
                         className="post_like_buttons"
                         src={likedVisual()}
-                        onClick={() => props.openLikesModal(props.postId)}
+                        onClick={() => props.openLikesModal(props.postId ? props.postId : props.commentId)}
                     />
                     <span className='like_details_names'>
                         {renderThree.map((liker, idx) => {

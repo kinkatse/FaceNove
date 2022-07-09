@@ -161,6 +161,7 @@ class PostComments extends React.Component {
     rendersLikeCount() {
         return <LikeContainer
                     likeRender="Count"
+                    commentId={this.props.commentId}
                     likeIds={this.props.likeIds}
                 />
     }
