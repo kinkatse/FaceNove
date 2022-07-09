@@ -75,6 +75,7 @@ const LikeCount = (props) => {
                     <img
                         className="post_like_buttons"
                         src={likedVisual()}
+                        onClick={() => props.openLikesModal(props.postId)}
                     />
                     <span className='like_details_names'>
                         {renderThree.map((liker, idx) => {

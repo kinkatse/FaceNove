@@ -6,6 +6,7 @@ import ProfPicModalForm from './modal_profpic';
 import CovPicModalForm from './modal_covpic';
 import CreatePostModalForm from './modal_createpost';
 import EditPostModalForm from './modal_editpost';
+import LikesModal from './modal_likes';
 
 class Modal extends React.Component {
     

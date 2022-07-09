@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Like } from './like';
 
 import { indexLikes, createLike, destroyLike } from '../../actions/like_actions';
+import { openLikesModal } from '../../actions/modal_actions';
 // import { openCreatePostModal, openEditPostModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
         indexLikes: ((likeData) => dispatch(indexLikes(likeData))),
         createLike: ((likeData) => dispatch(createLike(likeData))),
         destroyLike: ((like) => dispatch(destroyLike(like))),
+        openLikesModal: (postId) => dispatch(openLikesModal(postId))
         // openCreatePostModal: () => dispatch(openCreatePostModal()),
         // openEditPostModal: (postId) => dispatch(openEditPostModal(postId))
     }
