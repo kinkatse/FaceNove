@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { appColor } from '../../util/color_util';
+import { Link } from 'react-router-dom';
+import { appColor, postProfPicColor } from '../../util/color_util';
 
 class LikesModal extends React.Component {
     constructor(props) {
@@ -10,12 +11,44 @@ class LikesModal extends React.Component {
     }
 
     rendersLikers() {
+        const post = this.props.postObj;
+        const likes = [];
+        post.likeIds.map((likeId) => {
+            likes.push(this.props.likesState[likeId])
+        })
+        // debugger
+        // let likers = likes.forEach((like) => {
+        //     <div className='likes_modal'>
+        //         <Link to={`/user/${like.liker_id}`}>
+        //             <img
+        //                 className={`post_profile_pic ${postProfPicColor()}`}
+        //                 src={like.profilePicUrl}
+        //             />
+        //         </Link>
+        //         <Link to={`/user/${like.liker_id}`}>{like.firstName} {like.lastName}</Link>
+        //     </div>
+        // })
+        // return likers
+
+        return (<div>
+            {likes.map((like) => {
+                return (<div className='likes_modal' key={like.id}>
+                    <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
+                        <img
+                            className={`post_profile_pic ${postProfPicColor()}`}
+                            src={like.profilePicUrl}
+                        />
+                    </Link>
+                    <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
+                        {like.firstName} {like.lastName}
+                    </Link>
+                </div>)
+            })}
+        </div>)
     }
 
     render() {
-        debugger
         return (
-            // <h1 onClick={this.props.closeModal}>H1 from likes Modal</h1>
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
                 <div className="profpic_modal_child">
@@ -25,6 +58,7 @@ class LikesModal extends React.Component {
                     </div>
                     <div className="profpiclinediv"></div>
                     <h1 onClick={this.props.closeModal}>H1 from likes Modal</h1>
+                    {this.rendersLikers()}
                 </div>
             </>
         )

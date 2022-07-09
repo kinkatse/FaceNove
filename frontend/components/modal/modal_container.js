@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
         postObj: state.entities.posts[state.ui.modalRed.postId],
+        likesState: state.entities.likes,
         modal: state.ui.modalRed,
         errors: state.errors.session,
         // Even though this isn't being passed anywhere, we need the
