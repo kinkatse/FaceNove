@@ -1,24 +1,22 @@
-# README
+# Welcome to FaceNove wiki!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<img align="center" src="https://i.gyazo.com/0cbd11cea1c9ecaeeedcb7a8ec8e7ec6.png" width=350px>
+<br/>
 
-Things you may want to cover:
+<img align="left" src="https://cdn.discordapp.com/attachments/597985513701376013/865589779303497728/FaceNovel_Logo_Simple_Circle.png" width=100px>
+<br/>
 
-* Ruby version
+<a href="https://facenove.herokuapp.com/">FaceNove</a> is a social media application clone of <a href="https://www.facebook.com/">Facebook</a>. It permits users to view and create posts with family and friends.
 
-* System dependencies
+## Technologies Used:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby on Rails
+- React
+- Redux
+- JavaScript
+- HTML/CSS
+- JBuilder
+- Heroku
+- PostgreSQL
+- jQuery
+- Amazon Web Services (AWS S3)
