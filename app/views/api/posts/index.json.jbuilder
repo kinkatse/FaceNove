@@ -14,9 +14,29 @@
     #         end
     #     end
     # end
+    # json.likes do
+    #     json.partial! 'api/posts/post_likes', post: post, likes: @likes, likeIds: likeIds
+    # end
+
     json.likes do
-        json.partial! 'api/posts/post_likes', post: post, likes: @likes, likeIds: likeIds
-    end 
+        @posts.each do |post|
+            post.likes.each do |like|
+                json.set! like.id do
+                    likeIds << like.id
+                    json.partial! 'api/likes/like', like: like
+                end
+            end
+        end
+    end
+
+    # likes.each do |like|
+    #     if post.id == like.likeable_id
+    #         likeIds << like.id
+    #         json.set! like.id do
+    #             json.partial! 'api/likes/like', like: like
+    #         end
+    #     end
+    # end
 
     json.posts do
         json.set! post.id do

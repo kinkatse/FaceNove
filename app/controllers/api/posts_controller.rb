@@ -70,7 +70,7 @@ class Api::PostsController < ApplicationController
         if userIds
             # @posts = []
             # allPosts = Post.all
-            @likes = Like.all
+            # @likes = Like.all
             # userIds.each do |user_id|
             #     userPosts = allPosts.select do |post|
             #         if userIds.include?(post.user_id.to_s)
@@ -81,6 +81,8 @@ class Api::PostsController < ApplicationController
             
             # We want an array of all posts from the array of userIds
             @posts = Post.find_posts(userIds)
+            # debugger
+            # @likes = Like.find_post_likes(@posts)
             # debugger
             # We want an array of all likes of said posts
             render :index

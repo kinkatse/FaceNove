@@ -20,12 +20,13 @@ class Post < ApplicationRecord
 
     def self.find_posts(userIds)
         userIds.map!(&:to_i)
-        # @posts = Post.select(:id, :body, :user_id).where("user_id IN (?)", userIds)
-        @posts = Post.select(:id, :body, :user_id, :created_at, :updated_at).where(user_id: userIds)
+        # Post.select(:id, :body, :user_id).where("user_id IN (?)", userIds)
+        # debugger
+        Post.where(user_id: userIds).includes(:likes)
     end
 
-    def find_post_likes(posts)
-    end
+    # def find_post_likes(posts)
+    # end
 
     # def self.post_likes(likeIds)
     #     Post.includes(:likes)
