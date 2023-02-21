@@ -8,24 +8,24 @@ class Api::UsersController < ApplicationController
             # log_in comes from ApplicationController which we inherit
             log_in(@emailUser)
             # We then render the users show page to indicate they have logged in
-            render "api/users/show"
+            render :show
         else
             render json: @emailUser.errors.full_messages, status: 422
         end
 
     end
 
-    def index
-        @emailUsers = User.all
-        render "api/users/index"
-    end
+    # def index
+    #     @emailUsers = User.all
+    #     render :index
+    # end
 
     def show
         # Looking for specific user so we check params for that id, and so params[:id] evaluates
         # to the User and then we make a key value pair of the id to the User we just accessed
         @emailUser = User.find_by(id: params[:id])
         if @emailUser
-            render "api/users/show"
+            render :show
         else
             render json: ["User does not exist"], status: 404
         end
@@ -35,14 +35,14 @@ class Api::UsersController < ApplicationController
         @emailUser = User.find_by(id: params[:id])
         # .update_attribute is a rails built in method and takes in params to update all info passed in
         if @emailUser.update_attributes(email_user_params)
-            render "api/users/show"
+            render :show
         else
             render json: @emailUser.errors.full_messages, status: 418
         end
     end
 
-    def destroy
-    end
+    # def destroy
+    # end
 
     def email_user_params
         params.require(:user).permit(
