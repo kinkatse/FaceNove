@@ -1,5 +1,8 @@
 import * as LikeApiUtil from '../util/like_api_util';
 
+import { receiveAllComments } from './comment_actions';
+import { receiveAllPosts } from './post_actions';
+
 export const RECEIVE_ALL_LIKES = 'RECEIVE_ALL_LIKES';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
 export const REMOVE_ALL_LIKES = 'REMOVE_ALL_LIKES';
@@ -35,9 +38,15 @@ export const clearLikes = () => {
 }
 
 export const indexLikes = (likeData) => (dispatch) => {
+    debugger
     return (
         LikeApiUtil.getAllLikes(likeData)
-        .then(likes => dispatch(receiveAllLikes(likes)))
+        .then(data => {
+            debugger
+            dispatch(receiveAllLikes(data.likes))
+            dispatch(receiveAllPosts(data.posts))
+            dispatch(receiveAllComments(data.comments))
+        })
     )
 }
 

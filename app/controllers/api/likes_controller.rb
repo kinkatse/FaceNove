@@ -17,11 +17,11 @@ class Api::LikesController < ApplicationController
         #     @likes = Comment.find(:likeable_id).likes
 
         if like_params[:likeable_type] == "User_All"
-            liker_id = 4
+            # liker_id = 4
 
-            @likes = Like.includes(:liker).where(liker_id: liker_id)
-            @posts = Post.includes(:author).where(user_id: liker_id)
-            @comments = Comment.includes(:author).where(user_id: liker_id)
+            @likes = Like.includes(:liker).where(liker_id: like_params[:liker_id])
+            @posts = Post.includes(:author).where(user_id: like_params[:liker_id])
+            @comments = Comment.includes(:author).where(user_id: like_params[:liker_id])
         else
             @likes = []
             @posts = []

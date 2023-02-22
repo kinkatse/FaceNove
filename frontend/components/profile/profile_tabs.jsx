@@ -3,7 +3,7 @@ import ProfileBody from './profile_body';
 import About from './profile_abouttab';
 import Friends from './profile_friendstab';
 import Photos from './profile_photostab';
-import Hobbies from './profile_hobbiestab';
+import Likes from './profile_likestab';
 
 import { editProfImage, tabColor } from '../../util/color_util';
 
@@ -71,8 +71,16 @@ class ProfileTabs extends React.Component {
                 />
             },
 
-            { title: "Hobbies",
-              content: <Hobbies
+            { title: "Likes",
+              content: <Likes
+                    currentUser={this.props.currentUser}
+                    currentUserId={this.props.currentUserId}
+                    user={this.props.user}
+                    userId={this.props.userId}
+                    likesState={this.props.likesState}
+                    indexLikes={this.props.indexLikes}
+                    destroyLike={this.props.destroyLike}
+                    openLikesModal={this.props.openLikesModal}
                 />
             }
         ]

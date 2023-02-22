@@ -9,7 +9,7 @@ export const REMOVE_POST_COMMENTS = 'REMOVE_POST_COMMENTS';
 export const REMOVE_ALL_COMMENTS = 'REMOVE_ALL_COMMENTS';
 // export const RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
-const receiveAllComments = (comments) => {
+export const receiveAllComments = (comments) => {
     return {
         type: RECEIVE_ALL_COMMENTS,
         comments
