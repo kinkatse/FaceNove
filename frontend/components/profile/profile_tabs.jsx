@@ -77,10 +77,14 @@ class ProfileTabs extends React.Component {
                     currentUserId={this.props.currentUserId}
                     user={this.props.user}
                     userId={this.props.userId}
-                    likesState={this.props.likesState}
+                    posts={this.props.posts}
+                    likes={this.props.likes}
                     indexLikes={this.props.indexLikes}
                     destroyLike={this.props.destroyLike}
                     openLikesModal={this.props.openLikesModal}
+                    removePostComments={this.props.removePostComments}
+                    clearPosts={this.props.clearPosts}
+                    clearLikes={this.props.clearLikes}
                 />
             }
         ]
