@@ -15,7 +15,7 @@ class Api::LikesController < ApplicationController
         elsif like_params[:likeable_type] == "Comment"
             @likes = Comment.find(:likeable_id).likes
         elsif like_params[:likeable_type] == "User_All"
-            user = User.find(:likeable_id)
+            user = User.find(:liker_id)
             @likes = user.liked_posts + user.liked_comments
 
             # Probably doesnt work because its not going to work with _likes.json.jbuilder
