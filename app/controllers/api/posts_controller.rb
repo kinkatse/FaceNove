@@ -11,7 +11,7 @@ class Api::PostsController < ApplicationController
     end
 
     def show
-        @post = Post.find_by(id: params[:id])
+        @post = Post.includes(:likes).find_by(id: params[:id])
         render :show
     end
 
@@ -25,12 +25,11 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-        @post = Post.find_by(id: params[:id])
+        @post = Post.includes(:likes).find_by(id: params[:id])
         if params[:postPhotoUrl] == "purge"
             @post.postPhotoUrl.purge
         end
         if @post.update_attributes(post_params)
-            @likes = Like.all
             render :show
         else
             render json: @post.errors.full_messages, status: 418

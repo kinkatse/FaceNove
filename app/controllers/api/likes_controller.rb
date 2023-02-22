@@ -10,11 +10,12 @@ class Api::LikesController < ApplicationController
     end
 
     def index
-        if like_params[:likeable_type] == "Post"
-            @likes = Post.find(:likeable_id).likes
-        elsif like_params[:likeable_type] == "Comment"
-            @likes = Comment.find(:likeable_id).likes
-        elsif like_params[:likeable_type] == "User_All"
+        # These are redundant since the jbuilder for posts and comments also send likes
+        # if like_params[:likeable_type] == "Post"
+        #     @likes = Post.find(:likeable_id).likes
+        # elsif like_params[:likeable_type] == "Comment"
+        #     @likes = Comment.find(:likeable_id).likes
+        if like_params[:likeable_type] == "User_All"
             user = User.find(:liker_id)
             @likes = user.liked_posts + user.liked_comments
 
@@ -27,6 +28,7 @@ class Api::LikesController < ApplicationController
         else
             @likes = []
         end
+        debugger
         render :index
     end
 
