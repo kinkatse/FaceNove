@@ -10,25 +10,25 @@ class Api::LikesController < ApplicationController
     end
 
     def index
+        # debugger
         # These are redundant since the jbuilder for posts and comments also send likes
         # if like_params[:likeable_type] == "Post"
         #     @likes = Post.find(:likeable_id).likes
         # elsif like_params[:likeable_type] == "Comment"
         #     @likes = Comment.find(:likeable_id).likes
-        if like_params[:likeable_type] == "User_All"
-            user = User.find(:liker_id)
-            @likes = user.liked_posts + user.liked_comments
+        # if like_params[:likeable_type] == "User_All"
+            liker_id = 4
+            # @user = User.includes(:liked_posts, :liked_comments).find_by(id: liker_id)
 
-            # Probably doesnt work because its not going to work with _likes.json.jbuilder
-            # @likes = Hash.new { |hash, key| hash[key] = [] }
-            # user = User.find(:likeable_id)
-
-            # @likes[:liked_posts] << user.liked_posts
-            # @likes[:liked_comments] << user.liked_comments
-        else
-            @likes = []
-        end
-        debugger
+            @likes = Like.includes(:liker).where(liker_id: liker_id)
+            # @posts = @user.liked_posts
+            # @comments = @user.liked_comments
+            @posts = Post.includes(:author).where(user_id: liker_id)
+            @comments = Comment.includes(:author).where(user_id: liker_id)
+        # else
+        #     @likes = []
+        # debugger
+        # end
         render :index
     end
 
