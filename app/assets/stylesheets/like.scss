@@ -60,3 +60,17 @@
     top: 11px;
     padding: 10px;
 }
+
+.liketab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -10px;
+}
+
+.liketab_posts {
+    width: 623px;
+    padding: 15px;
+    padding-top: 0px;
+}

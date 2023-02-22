@@ -217,9 +217,11 @@ class PostItem extends React.Component {
     render() {
         // This is to prevent the posts made by the user on a different
         // user's page from showing up on that page
-        if (this.props.userId && this.props.postUserId !== parseInt(this.props.userId)) {
+        // if (!this.props.fromLikesTab) {
+        if (!this.props.fromLikesTab && this.props.userId && this.props.postUserId !== parseInt(this.props.userId)) {
             return null;
         }
+        // }
         // Note that if our index was just @posts = Post.all, this would work for the
         // frontend to filter only posts related to the user. However, it's inefficient
         // to fetch for every post so I made that filter happen on the backend

@@ -8,14 +8,14 @@ import { createPost, updatePost } from '../../actions/post_actions'
 const mapStateToProps = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        postObj: state.entities.posts[state.ui.modalRed.postId] ? state.entities.posts[state.ui.modalRed.postId] : state.entities.comments[state.ui.modalRed.postId],
+        postObj: state.entities.posts[state.ui.modal.postId] ? state.entities.posts[state.ui.modal.postId] : state.entities.comments[state.ui.modal.postId],
         likesState: state.entities.likes,
-        modal: state.ui.modalRed,
+        modal: state.ui.modal,
         errors: state.errors.session,
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated
         // since localStorage wont update the page until we refresh
-        color: state.ui.colorRed.color
+        color: state.ui.theme.color
     }
 }
 

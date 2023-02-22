@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             session: { id: window.currentUser.id },
             ui: {
-                colorRed: { color: window.localStorage.getItem('appColor') }
+                theme: { color: window.localStorage.getItem('appColor') }
             }
         }
         store = configureStore(preloadedState)
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         const preloadedState = {
             ui: {
-                colorRed: { color: window.localStorage.getItem('appColor') }
+                theme: { color: window.localStorage.getItem('appColor') }
             }
         }
         store = configureStore(preloadedState)

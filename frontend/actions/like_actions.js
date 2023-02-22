@@ -38,11 +38,9 @@ export const clearLikes = () => {
 }
 
 export const indexLikes = (likeData) => (dispatch) => {
-    debugger
     return (
         LikeApiUtil.getAllLikes(likeData)
         .then(data => {
-            debugger
             dispatch(receiveAllLikes(data.likes))
             dispatch(receiveAllPosts(data.posts))
             dispatch(receiveAllComments(data.comments))

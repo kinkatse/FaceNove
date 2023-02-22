@@ -17,7 +17,7 @@ const mapStateToProps = ({session, entities: { users }, ui}) => {
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated
         // since localStorage wont update the page until we refresh
-        color: ui.colorRed.color
+        color: ui.theme.color
     }
 }
 

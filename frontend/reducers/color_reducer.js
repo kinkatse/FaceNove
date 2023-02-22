@@ -1,6 +1,6 @@
 import { TOGGLE_COLOR } from "../actions/color_actions";
 
-const colorReducer = (state = {color: 'blue'}, action) => {
+const themeucer = (state = {color: 'blue'}, action) => {
     Object.freeze(state)
 
     switch(action.type) {
@@ -20,4 +20,4 @@ const colorReducer = (state = {color: 'blue'}, action) => {
     }
 }
 
-export default colorReducer;
+export default themeucer;

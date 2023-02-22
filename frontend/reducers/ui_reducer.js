@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import colorReducer from './color_reducer';
-import modalReducer from './modal_reducer';
+import themeucer from './color_reducer';
+import modalucer from './modal_reducer';
 
 const uiReducer = combineReducers({
-    modalRed: modalReducer,
-    colorRed: colorReducer
+    modal: modalucer,
+    theme: themeucer
 })
 
 export default uiReducer;

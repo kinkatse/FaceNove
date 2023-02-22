@@ -5,11 +5,11 @@ import { toggleColor } from '../../actions/color_actions';
 
 const mapStateToProps = (state) => {
     // This went through the root reducer which is why we need to key into
-    // ui, colorRed and then color since that is the particular slice
+    // ui, theme and then color since that is the particular slice
     // of state we want
     return {
         currentUser: state.session,
-        color: state.ui.colorRed.color
+        color: state.ui.theme.color
     }
 }
 

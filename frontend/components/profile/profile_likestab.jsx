@@ -1,5 +1,4 @@
 import React from 'react';
-import ProfilePosts from './profile_posts';
 import PostItem from '../posts/post_item';
 
 // Problem with showing comments here, is they are under a post.
@@ -18,21 +17,19 @@ class ProfileLikesTab extends React.Component {
 
     render() {
         if (!this.props.posts || Object.keys(this.props.posts).length === 0) {
-            return (<h1>loading...</h1>)
+            // return (<p>loading...</p>)
+            return null
         }
     
-        debugger
         let postArr = Object.values(this.props.posts).reverse()
 
         return (
             <div className="tabbody">
-                {/* <h1>This is Likes</h1> */}
-                {/* <ProfilePosts /> */}
-                <div className="home">
-                <div className="home_posts">
+                <div className="liketab">
+                    <div className="liketab_posts">
                         {
-                        postArr.map(post => (
-                            <PostItem
+                        postArr.map(post => {
+                            return (<PostItem
                                 key={post.id}
                                 postId={post.id}
                                 postUserId={post.user_id}
@@ -50,9 +47,10 @@ class ProfileLikesTab extends React.Component {
                                 // openEditPostModal={this.props.openEditPostModal}
                                 postPicUrl={post.postPhotoUrl}
                                 profilePicUrl={post.profilePicUrl}
-                            /> )
-                            )
-                        }
+                                fromLikesTab={true}
+                            />)
+                            }
+                        )}
                     </div>
                 </div>
             </div>

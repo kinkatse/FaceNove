@@ -16,29 +16,20 @@ class Api::LikesController < ApplicationController
         # elsif like_params[:likeable_type] == "Comment"
         #     @likes = Comment.find(:likeable_id).likes
 
-        # if like_params[:likeable_type] == "User_All"
-            liker_id = 4
-
-            @likes = Like.includes(:liker, likeable: [:author]).where(liker_id: liker_id)
+        if like_params[:likeable_type] == "User_All"
+            @likes = Like.includes(:liker, likeable: [:author]).where(liker_id: like_params[:liker_id])
             @posts = []
             @likes.each do |like|
                 post = like.likeable
                 @posts << post if like.likeable_type == "Post"
             end
 
-            # @likes = Like.joins(:likeable).includes("like.liker", "post.author").where("like.liker_id IN (?)", like_params[:liker_id])
-            # Like
-            #     .includes(liker: [:author])
-            #     .where('like.liker_id = (?)', like_parmas[liker_id])
-            #     .references(:likes)
-            # Like.includes(liker: [:author]).where(like: { liker_id: like_parmas[liker_id] })
             # @posts = Post.includes(:author).where(user_id: like_params[:liker_id])
             # @comments = Comment.includes(:author).where(user_id: like_params[:liker_id])
-        # else
-        #     @likes = []
-        #     @posts = []
-        #     # @comments = []
-        # end
+        else
+            @likes = []
+            @posts = []
+        end
         render :index
     end
 
