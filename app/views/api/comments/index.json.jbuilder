@@ -1,19 +1,14 @@
 @comments.each do |comment|
     likeIds = []
 
-    # json.likes do
-    #     @likes.each do |like|
-    #         if comment.id == like.likeable_id
-    #             likeIds << like.id
-    #             json.set! like.id do
-    #                 json.partial! 'api/likes/like', like: like
-    #             end
-    #         end
-    #     end
-    # end
-
     json.likes do
-        json.partial! 'api/comments/comment_likes', comment: comment, likes: @likes, likeIds: likeIds
+        # json.partial! 'api/comments/comment_likes', comment: comment, likes: comment.likes, likeIds: likeIds
+        comment.likes.each do |like|
+            likeIds << like.id
+            json.set! like.id do
+                json.partial! 'api/likes/like', like: like
+            end
+        end
     end 
 
     json.comments do

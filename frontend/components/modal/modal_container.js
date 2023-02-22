@@ -8,7 +8,7 @@ import { createPost, updatePost } from '../../actions/post_actions'
 const mapStateToProps = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
-        postObj: state.entities.posts[state.ui.modalRed.postId],
+        postObj: state.entities.posts[state.ui.modalRed.postId] ? state.entities.posts[state.ui.modalRed.postId] : state.entities.comments[state.ui.modalRed.postId],
         likesState: state.entities.likes,
         modal: state.ui.modalRed,
         errors: state.errors.session,

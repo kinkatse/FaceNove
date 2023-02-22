@@ -11,6 +11,7 @@ class LikesModal extends React.Component {
     }
 
     rendersLikers() {
+        debugger
         const post = this.props.postObj;
         const likes = [];
         post.likeIds.map((likeId) => {
@@ -41,6 +42,7 @@ class LikesModal extends React.Component {
     }
 
     render() {
+        debugger
         return (
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>

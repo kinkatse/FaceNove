@@ -2,14 +2,16 @@ class Api::CommentsController < ApplicationController
     
     def index
         # Grab all comments of a post
-        @likes = Like.all
+        # @likes = Like.all
         if params[:type] == 'post'
             post_id = params[:post_id]
-            @comments = Post.find_by(id: post_id).comments
+            # @comments = Post.find_by(id: post_id).comments
+            @comments = Comment.includes(:likes).where(post_id: post_id)
         # Grab all comments of a user
         elsif params[:type] == 'user'
             user_id = params[:user_id]
-            @comments = User.find_by(id: user_id).comments
+            # @comments = User.find_by(id: user_id).comments
+            @comments = Comment.includes(:likes).where(user_id: user_id)
         else
             @comments = []
         end
@@ -18,7 +20,7 @@ class Api::CommentsController < ApplicationController
     end
 
     def show
-        @comment = Comment.find_by(id: params[:id])
+        @comment = Comment.includes(:likes).find_by(id: params[:id])
         render :show
     end
 
@@ -32,9 +34,8 @@ class Api::CommentsController < ApplicationController
     end
 
     def update
-        @comment = Comment.find_by(id: params[:id])
+        @comment = Comment.includes(:likes).find_by(id: params[:id])
         if @comment.update_attributes(comment_params)
-            @likes = Like.all
             render :show
         else
             render json: @post.errors.full_messages, status: 418

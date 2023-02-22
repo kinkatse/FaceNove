@@ -16,4 +16,5 @@ class Comment < ApplicationRecord
         class_name: :Post
 
     # has_one_attached :commentPhotoUrl
+
 end
