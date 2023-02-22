@@ -101,10 +101,12 @@ class ProfileTop extends React.Component {
                     posts={this.props.posts}
                     likes={this.props.likes}
                     indexLikes={this.props.indexLikes}
+                    updatePost={this.props.updatePost}
+                    destroyPost={this.props.destroyPost}
+                    removePostComments={this.props.removePostComments}
                     destroyLike={this.props.destroyLike}
                     openLikesModal={this.props.openLikesModal}
-                    openEditModal={this.props.openEditModal}
-                    removePostComments={this.props.removePostComments}
+                    openEditPostModal={this.props.openEditPostModal}
                     clearPosts={this.props.clearPosts}
                     clearLikes={this.props.clearLikes}
                 />

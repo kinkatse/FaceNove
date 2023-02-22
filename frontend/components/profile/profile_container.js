@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { showUser } from '../../actions/user_actions';
-import { openEditModal, openProfPicModal, openCovPicModal } from '../../actions/modal_actions';
+import { openEditModal, openProfPicModal, openCovPicModal, openEditPostModal } from '../../actions/modal_actions';
 import { clearLikes, indexLikes } from '../../actions/like_actions';
 
 import Profile from './profile';
-import { clearPosts } from '../../actions/post_actions';
+import { clearPosts, destroyPost, updatePost } from '../../actions/post_actions';
+import { removePostComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -28,12 +29,15 @@ const mapDispatchToProps = (dispatch) => {
     return {
         showUser: (userId => dispatch(showUser(userId))),
         indexLikes: (likeData) => dispatch(indexLikes(likeData)),
+        updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
+        destroyPost: (postId) => dispatch(destroyPost(postId)),
+        removePostComments: (postId) => dispatch(removePostComments(postId)),
         destroyLike: ((like) => dispatch(destroyLike(like))),
         openLikesModal: (postId) => dispatch(openLikesModal(postId)),
         openEditModal: () => dispatch(openEditModal()),
+        openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         openProfPicModal: () => dispatch(openProfPicModal()),
         openCovPicModal: () => dispatch(openCovPicModal()),
-        removePostComments: ((postId) => dispatch(removePostComments(postId))),
         clearPosts: (() => dispatch(clearPosts())),
         clearLikes: (() => dispatch(clearLikes()))
     }

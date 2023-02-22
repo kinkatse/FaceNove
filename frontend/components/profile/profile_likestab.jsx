@@ -41,10 +41,10 @@ class ProfileLikesTab extends React.Component {
                                 lastName={post.lastName}
                                 created_at={post.created_at}
                                 updated_at={post.updated_at}
-                                // updatePost={this.props.updatePost}
-                                // destroyPost={this.props.destroyPost}
-                                // removePostComments={this.props.removePostComments}
-                                // openEditPostModal={this.props.openEditPostModal}
+                                updatePost={this.props.updatePost}
+                                destroyPost={this.props.destroyPost}
+                                removePostComments={this.props.removePostComments}
+                                openEditPostModal={this.props.openEditPostModal}
                                 postPicUrl={post.postPhotoUrl}
                                 profilePicUrl={post.profilePicUrl}
                                 fromLikesTab={true}
