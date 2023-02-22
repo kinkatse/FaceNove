@@ -2,7 +2,6 @@
     likeIds = []
 
     json.likes do
-        # json.partial! 'api/comments/comment_likes', comment: comment, likes: comment.likes, likeIds: likeIds
         comment.likes.each do |like|
             likeIds << like.id
             json.set! like.id do

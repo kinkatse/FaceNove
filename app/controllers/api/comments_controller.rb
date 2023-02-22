@@ -2,15 +2,12 @@ class Api::CommentsController < ApplicationController
     
     def index
         # Grab all comments of a post
-        # @likes = Like.all
         if params[:type] == 'post'
             post_id = params[:post_id]
-            # @comments = Post.find_by(id: post_id).comments
             @comments = Comment.includes(:likes).where(post_id: post_id)
         # Grab all comments of a user
         elsif params[:type] == 'user'
             user_id = params[:user_id]
-            # @comments = User.find_by(id: user_id).comments
             @comments = Comment.includes(:likes).where(user_id: user_id)
         else
             @comments = []

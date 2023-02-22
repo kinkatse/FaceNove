@@ -20,7 +20,8 @@ class Post < ApplicationRecord
 
     def self.find_posts(userIds)
         userIds.map!(&:to_i)
-        Post.includes(:likes).where(user_id: userIds)
+        # Post.includes(:likes).where(user_id: userIds)
+        Post.where(user_id: userIds)
     end
     
 end

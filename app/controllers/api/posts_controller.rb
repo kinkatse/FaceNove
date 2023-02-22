@@ -4,6 +4,7 @@ class Api::PostsController < ApplicationController
         userIds = params[:userIds]
         if userIds
             @posts = Post.find_posts(userIds)
+            @likes = Like.includes(:liker).where(likeable_id: @posts)
         else
             @posts = Post.all.includes(:likes)
         end
