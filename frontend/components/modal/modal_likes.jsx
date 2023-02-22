@@ -26,7 +26,7 @@ class LikesModal extends React.Component {
                             src={like.profilePicUrl}
                         />
                     </Link>
-                    <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
+                    <Link className="each_liker_link" to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
                         <span className='each_liker_name'>
                             {like.firstName} {like.lastName}
                         </span>
