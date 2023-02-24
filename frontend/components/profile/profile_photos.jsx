@@ -12,23 +12,22 @@ class ProfilePhotos extends React.Component {
     render() {
         debugger
         if (!this.props.posts) return null
+        let containerStyling = this.props.fromLikesTab ? "photos": "profile_photos"
         return (
-            <div className="photos">
-                <div className="profile_photos">
-                    {!this.props.fromLikesTab && (
-                        <h2 className="profbodytitle">Photos</h2>
-                    )}
-                    <div className="photos_album_tab">
-                        {this.props.posts.map(post => {
-                            return (
-                                    <img
-                                        key={post.id}
-                                        className="photopic"
-                                        src={post.postPhotoUrl}
-                                    />
-                            )
-                        })}
-                    </div>
+            <div className={`${containerStyling}`}>
+                {!this.props.fromLikesTab && (
+                    <h2 className="profbodytitle">Photos</h2>
+                )}
+                <div className="photos_album_tab">
+                    {this.props.posts.map(post => {
+                        return (
+                                <img
+                                    key={post.id}
+                                    className="photopic"
+                                    src={post.postPhotoUrl}
+                                />
+                        )
+                    })}
                 </div>
             </div>
         )

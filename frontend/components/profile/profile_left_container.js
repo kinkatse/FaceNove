@@ -27,26 +27,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        // showUser: (userId => dispatch(showUser(userId))),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
         destroyPost: (postId) => dispatch(destroyPost(postId)),
         removePostComments: (postId) => dispatch(removePostComments(postId)),
         openEditModal: () => dispatch(openEditModal()),
         updateUser: (user, userId) => dispatch(updateUser(user, userId)),
-        openEditModal: () => dispatch(openEditModal()),
-        // clearPosts: (() => dispatch(clearPosts())),
-        // clearComments: (() => dispatch(clearComments())),
-        // clearLikes: (() => dispatch(clearLikes()))
+        openEditModal: () => dispatch(openEditModal())
     }
 }
-
-// showUser: (userId => dispatch(showUser(userId))),
-// indexLikes: (likeData) => dispatch(indexLikes(likeData)),
-// indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
-// destroyLike: ((like) => dispatch(destroyLike(like))),
-// openLikesModal: (postId) => dispatch(openLikesModal(postId)),
-// openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
-// openProfPicModal: () => dispatch(openProfPicModal()),
-// openCovPicModal: () => dispatch(openCovPicModal()),
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileLeft))
