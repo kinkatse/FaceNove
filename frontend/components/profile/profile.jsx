@@ -4,26 +4,16 @@ import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
     componentWillMount() {
-        // Can't do this.props.user.id because then the user would be
-        // undefined without grabbing the user first. Need just the
-        // userId so we can pass that in showUser and then the
-        // container will properly assign the right user
         this.props.clearLikes()
         this.props.clearComments()
         this.props.clearPosts()
         this.props.showUser(this.props.userId)
     }
 
-    // This is necessary for us to reload after returning null
-    // when user.id is undefined. This is so that after component
-    // did mount and fetched the data, it will now do the following
-    // when it is updating, not sure how it knows to do that
     componentDidUpdate(oldProps) {
-        // debugger
         if (this.props.userId !== oldProps.userId) {
             this.props.showUser(this.props.userId);
         }
-        // debugger
         if (this.props.user && oldProps.user &&
             (this.props.user.firstName !== oldProps.user.firstName ||
             this.props.user.lastName !== oldProps.user.lastName)) {
@@ -32,7 +22,6 @@ class Profile extends React.Component {
     }
 
     render() {
-        // Necessary for when there is no user with that wildcard
         if (!this.props.user) {
             return null;
         }

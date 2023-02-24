@@ -42,7 +42,7 @@ class Home extends React.Component {
                     </div>
                     <div className="createpostlinediv"></div>
                     <div className="post_buttons">
-                        <h2 className="post_buttons_div">Photo?</h2>
+                        {/* <h2 className="post_buttons_div">Photo?</h2> */}
                         {/* <h2 className="post_buttons_div">Other</h2> */}
                     </div>
                 </div>

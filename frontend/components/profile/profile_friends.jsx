@@ -9,21 +9,22 @@ class ProfileFriends extends React.Component {
     }
 
     render() {
-        return (
-            <div className="profile_friends">
-                <h2 className="profbodytitle">Friends</h2>
-                <div className="friends_wall">
-                    <p>Tom</p>
-                    <p>Jerry</p>
-                    <p>Mob</p>
-                    <p>Carly Lau</p>
-                    <p>Mochi</p>
-                    <p>Luffy</p>
-                    <p>Mario</p>
-                    <p>Pikachu</p>
-                </div>
-            </div>
-        )
+        return null
+        // return (
+        //     <div className="profile_friends">
+        //         <h2 className="profbodytitle">Friends</h2>
+        //         <div className="friends_wall">
+        //             <p>Tom</p>
+        //             <p>Jerry</p>
+        //             <p>Mob</p>
+        //             <p>Carly Lau</p>
+        //             <p>Mochi</p>
+        //             <p>Luffy</p>
+        //             <p>Mario</p>
+        //             <p>Pikachu</p>
+        //         </div>
+        //     </div>
+        // )
     }
 }
 

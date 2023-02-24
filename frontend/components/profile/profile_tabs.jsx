@@ -10,21 +10,11 @@ import { editProfImage, tabColor } from '../../util/color_util';
 class ProfileTabs extends React.Component {
 
     componentDidMount() {
-        // this.props.clearPosts()
-        // this.props.clearLikes()
         this.props.indexLikes({
             liker_id: this.props.userId,
             likeable_type: "User_All"
         })
     }
-
-    // componentDidUpdate(oldProps) {
-    //     debugger
-    //     this.props.indexLikes({
-    //         liker_id: this.props.userId,
-    //         likeable_type: "User_All"
-    //     })
-    // }
 
     constructor(props) {
         super(props)
@@ -74,20 +64,20 @@ class ProfileTabs extends React.Component {
               content: <ProfileBody />
             }, 
 
-            { title: "About",
-              content: <About
-                />
-            },
+            // { title: "About",
+            //   content: <About
+            //     />
+            // },
 
-            { title: "Friends",
-              content: <Friends
-                />
-            },
+            // { title: "Friends",
+            //   content: <Friends
+            //     />
+            // },
 
-            { title: "Photos",
-              content: <Photos
-                />
-            },
+            // { title: "Photos",
+            //   content: <Photos
+            //     />
+            // },
 
             { title: "Likes",
               content: <Likes
@@ -97,15 +87,12 @@ class ProfileTabs extends React.Component {
                     userId={this.props.userId}
                     posts={this.props.posts}
                     likes={this.props.likes}
-                    // indexLikes={this.props.indexLikes}
                     updatePost={this.props.updatePost}
                     destroyPost={this.props.destroyPost}
                     removePostComments={this.props.removePostComments}
                     destroyLike={this.props.destroyLike}
                     openLikesModal={this.props.openLikesModal}
                     openEditPostModal={this.props.openEditPostModal}
-                    // clearPosts={this.props.clearPosts}
-                    // clearLikes={this.props.clearLikes}
                 />
             }
         ]

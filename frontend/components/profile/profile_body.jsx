@@ -1,5 +1,4 @@
 import React from 'react';
-// import ProfileLeft from './profile_left';
 import ProfileLeftContainer from './profile_left_container'
 import ProfileRight from './profile_right';
 

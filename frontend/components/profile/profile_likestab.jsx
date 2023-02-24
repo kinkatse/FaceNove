@@ -6,43 +6,25 @@ import PostItem from '../posts/post_item';
 // which is a little too much so I will only show the liked posts
 class ProfileLikesTab extends React.Component {
 
-    // componentDidMount() {
-    //     this.props.clearPosts()
-    //     this.props.clearLikes()
-    //     this.props.indexLikes({
-    //         liker_id: this.props.userId,
-    //         likeable_type: "User_All"
-    //     })
-    // }
-
     render() {
-        if (!this.props.posts || Object.keys(this.props.posts).length === 0) {
-            // return (<p>loading...</p>)
-            return null
-        }
+        if (!this.props.posts || Object.keys(this.props.posts).length === 0) return null
     
         // Grab only user's likes
         let likeArr = Object.values(this.props.likes)
         let userLikedIdArr = []
         for (let like of likeArr) {
-            // debugger
-            if (like.liker_id === parseInt(this.props.userId)) {
-                userLikedIdArr.push(like.id)
-            }
+            if (like.liker_id === parseInt(this.props.userId)) userLikedIdArr.push(like.id)
         }
-        // debugger
         // Grab the posts with this likeIds in their likeIds array
         let postArr = Object.values(this.props.posts).reverse()
         let likedPostsArr = []
         for (let post of postArr) {
             for (let likeId of post.likeIds) {
-                // debugger
                 if (userLikedIdArr.includes(likeId)) {
                     likedPostsArr.push(post)
                 }
             }
         }
-        // debugger
 
         return (
             <div className="tabbody">
@@ -79,14 +61,5 @@ class ProfileLikesTab extends React.Component {
     }
 
 }
-
-// const ProfileLikesTab = (props) => {
-
-//     return (
-//         <div className="tabbody">
-//             <h1>This is Likes</h1>
-//         </div>
-//     )
-// }
 
 export default ProfileLikesTab;
