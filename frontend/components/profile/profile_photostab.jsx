@@ -6,7 +6,7 @@ const ProfilePhotosTab = (props) => {
     if (!props.posts || Object.keys(props.posts).length === 0) {
         return (
             <div className="tabbody">
-                <div className="liketab">
+                <div className="phototab">
                 <h1>No Photos</h1>
                 </div>
             </div>
@@ -28,7 +28,7 @@ const ProfilePhotosTab = (props) => {
     if (postsWithPhotosArr.length === 0) {
         return (
             <div className="tabbody">
-                <div className="liketab">
+                <div className="phototab">
                 <h1>No Photos</h1>
                 </div>
             </div>
@@ -37,7 +37,7 @@ const ProfilePhotosTab = (props) => {
 
     return (
         <div className="tabbody">
-        <div className="liketab">
+        <div className="phototab">
             <ProfilePhotos
                 posts={postsWithPhotosArr}
                 currentUser={props.currentUser}
@@ -51,8 +51,8 @@ const ProfilePhotosTab = (props) => {
         </div>
         </div>
         // <div className="tabbody">
-        // <div className="liketab">
-        //     <div className="liketab_posts">
+        // <div className="phototab">
+        //     <div className="phototab_posts">
         //         {
         //         postsWithPhotosArr.map(post => {
         //             return (<PostItem

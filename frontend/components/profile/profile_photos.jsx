@@ -12,17 +12,20 @@ class ProfilePhotos extends React.Component {
         if (!this.props.posts) return null
         return (
             <div className="photos">
-                {this.props.posts.map(post => {
-                    return (
-                        <div key={post.id}>
-                            {/* <h1>image</h1> */}
-                            <img
-                                className="postpic"
-                                src={post.postPhotoUrl}
-                            />
-                        </div>
-                    )
-                })}
+                {/* <div className="profile_photos"> */}
+                    {/* <h2 className="profbodytitle">Photos</h2> */}
+                    <div className="photos_album_tab">
+                        {this.props.posts.map(post => {
+                            return (
+                                    <img
+                                        key={post.id}
+                                        className="photopic"
+                                        src={post.postPhotoUrl}
+                                    />
+                            )
+                        })}
+                    </div>
+                {/* </div> */}
             </div>
         )
 
