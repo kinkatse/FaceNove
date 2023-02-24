@@ -9,15 +9,14 @@ import { editProfImage, tabColor } from '../../util/color_util';
 
 class ProfileTabs extends React.Component {
 
-    // componentDidMount() {
-    //     // debugger
-    //     // this.props.clearPosts()
-    //     // this.props.clearLikes()
-    //     this.props.indexLikes({
-    //         liker_id: this.props.userId,
-    //         likeable_type: "User_All"
-    //     })
-    // }
+    componentDidMount() {
+        // this.props.clearPosts()
+        // this.props.clearLikes()
+        this.props.indexLikes({
+            liker_id: this.props.userId,
+            likeable_type: "User_All"
+        })
+    }
 
     // componentDidUpdate(oldProps) {
     //     debugger

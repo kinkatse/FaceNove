@@ -5,7 +5,7 @@ import { clearLikes, indexLikes } from '../../actions/like_actions';
 
 import Profile from './profile';
 import { clearPosts, destroyPost, updatePost } from '../../actions/post_actions';
-import { removePostComments } from '../../actions/comment_actions';
+import { clearComments, removePostComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -39,6 +39,7 @@ const mapDispatchToProps = (dispatch) => {
         openProfPicModal: () => dispatch(openProfPicModal()),
         openCovPicModal: () => dispatch(openCovPicModal()),
         clearPosts: (() => dispatch(clearPosts())),
+        clearComments: (() => dispatch(clearComments())),
         clearLikes: (() => dispatch(clearLikes()))
     }
 }

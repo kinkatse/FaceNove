@@ -6,21 +6,22 @@ import { postProfPicColor } from '../../util/color_util';
 
 class Post extends React.Component {
     componentDidMount() {
-        this.props.clearComments()
-        this.props.clearPosts()
+        // this.props.clearComments()
+        // this.props.clearPosts()
         this.props.indexPosts([this.props.userId])
     }
 
-    componentDidUpdate(oldProps) {
-        if ((this.props.userId !== oldProps.userId) ||
-        (Object.values(oldProps.posts).length !== 0 &&
-        this.props.currentUser.id === parseInt(this.props.userId) &&
-        this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
-        {
-            this.props.clearComments()
-            this.props.clearPosts()
-            this.props.indexPosts([this.props.userId]);
-        }
+    // componentDidUpdate(oldProps) {
+    //     debugger
+        // if ((this.props.userId !== oldProps.userId) ||
+        // (Object.values(oldProps.posts).length !== 0 &&
+        // this.props.currentUser.id === parseInt(this.props.userId) &&
+        // this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
+        // {
+        //     this.props.clearComments()
+        //     this.props.clearPosts()
+        //     this.props.indexPosts([this.props.userId]);
+        // }
         
         // If the above is hard to understand, All I am doing is making
         // an OR statement for the below here. The reason I did that is
@@ -33,7 +34,7 @@ class Post extends React.Component {
         //     this.props.clearPosts()
         //     this.props.indexPosts([this.props.userId]);
         // }
-    }
+    // }
 
     rendersCreatePost() {
         return (

@@ -21,22 +21,34 @@ class ProfileLikesTab extends React.Component {
             return null
         }
     
+        // Grab only user's likes
+        let likeArr = Object.values(this.props.likes)
+        let userLikedIdArr = []
+        for (let like of likeArr) {
+            if (like.liker_id === this.props.currentUserId) {
+                userLikedIdArr.push(like.id)
+            }
+        }
+        // debugger
+        // Grab the posts with this likeIds in their likeIds array
         let postArr = Object.values(this.props.posts).reverse()
+        let likedPostsArr = []
+        for (let post of postArr) {
+            for (let likeId of post.likeIds) {
+                debugger
+                if (userLikedIdArr.includes(likeId)) {
+                    likedPostsArr.push(post)
+                }
+            }
+        }
         // debugger
-        // let likedPostsArr = []
-        // debugger
-        // postArr.forEach(post => {
-        //     debugger
-        //     // if (post.likeId)
-        // })
 
         return (
             <div className="tabbody">
                 <div className="liketab">
                     <div className="liketab_posts">
                         {
-                        postArr.map(post => {
-                            debugger
+                        likedPostsArr.map(post => {
                             return (<PostItem
                                 key={post.id}
                                 postId={post.id}

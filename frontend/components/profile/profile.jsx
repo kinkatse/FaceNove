@@ -3,11 +3,14 @@ import NavBarContainer from '../navbar/navbar_container';
 import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
-    componentDidMount() {
+    componentWillMount() {
         // Can't do this.props.user.id because then the user would be
         // undefined without grabbing the user first. Need just the
         // userId so we can pass that in showUser and then the
         // container will properly assign the right user
+        this.props.clearLikes()
+        this.props.clearComments()
+        this.props.clearPosts()
         this.props.showUser(this.props.userId)
     }
 
