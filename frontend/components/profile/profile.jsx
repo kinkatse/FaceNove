@@ -3,7 +3,7 @@ import NavBarContainer from '../navbar/navbar_container';
 import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.clearLikes()
         this.props.clearComments()
         this.props.clearPosts()

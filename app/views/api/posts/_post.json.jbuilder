@@ -12,4 +12,6 @@ end
 
 if postPhoto.attached?
     json.postPhotoUrl url_for(postPhoto)
+else
+    json.postPhotoUrl nil
 end

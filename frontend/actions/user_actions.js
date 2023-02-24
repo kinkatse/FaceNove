@@ -1,4 +1,5 @@
 import * as UsersApiUtil from '../util/user_api_util';
+import { receiveAllPosts } from './post_actions';
 
 export const ALL_USERS = 'ALL_USERS';
 export const GET_USER = 'GET_USER';
@@ -24,7 +25,10 @@ export const indexUsers = () => (dispatch) => (
 export const showUser = (userId) => (dispatch) => {
     return (
         UsersApiUtil.getUser(userId)
-        .then(user => dispatch(getUser(user)))
+        .then(data => {
+            dispatch(getUser(data.user))
+            dispatch(receiveAllPosts(data.posts))
+        })
     )
 }
 

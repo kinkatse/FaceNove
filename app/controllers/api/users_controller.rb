@@ -23,8 +23,13 @@ class Api::UsersController < ApplicationController
     def show
         # Looking for specific user so we check params for that id, and so params[:id] evaluates
         # to the User and then we make a key value pair of the id to the User we just accessed
-        @emailUser = User.find_by(id: params[:id])
+        @emailUser = User.includes(posts: [:likes]).find_by(id: params[:id])
         if @emailUser
+            @posts = @emailUser.posts
+            @postsWithPhotos = []
+            @posts.each do |post|
+                @postsWithPhotos << post if post.postPhotoUrl.attached?
+            end
             render :show
         else
             render json: ["User does not exist"], status: 404

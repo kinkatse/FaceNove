@@ -1,9 +1,53 @@
 import React from 'react';
+import PostItem from '../posts/post_item';
 
 const ProfilePhotosTab = (props) => {
+    if (!props.posts || Object.keys(props.posts).length === 0) return <h1>No Photos</h1>
+
+    // Grab only user's posts
+    let postArr = Object.values(props.posts).reverse()
+    let userPostsArr = []
+    for (let post of postArr) {
+        if (props.userId === post.user_id) userPostsArr.push(post)
+    }
+    // Grab posts with photos
+    let postsWithPhotosArr = []
+    for (let post of userPostsArr) {
+        if (post.postPhotoUrl) postsWithPhotosArr.push(post)
+    }
+
+    if (postsWithPhotosArr.length === 0) return <h1>No Photos</h1>
+
     return (
         <div className="tabbody">
-            {/* <h1>This is Photos</h1> */}
+        <div className="liketab">
+            <div className="liketab_posts">
+                {
+                postsWithPhotosArr.map(post => {
+                    return (<PostItem
+                        key={post.id}
+                        postId={post.id}
+                        postUserId={post.user_id}
+                        postBody={post.body}
+                        likeIds={post.likeIds}
+                        currentUser={props.currentUser}
+                        userId={props.userId}
+                        firstName={post.firstName}
+                        lastName={post.lastName}
+                        created_at={post.created_at}
+                        updated_at={post.updated_at}
+                        updatePost={props.updatePost}
+                        destroyPost={props.destroyPost}
+                        removePostComments={props.removePostComments}
+                        openEditPostModal={props.openEditPostModal}
+                        postPicUrl={post.postPhotoUrl}
+                        profilePicUrl={post.profilePicUrl}
+                        fromLikesTab={true}
+                    />)
+                    }
+                )}
+            </div>
+        </div>
         </div>
     )
 }

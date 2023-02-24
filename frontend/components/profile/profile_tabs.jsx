@@ -74,25 +74,36 @@ class ProfileTabs extends React.Component {
             //     />
             // },
 
-            // { title: "Photos",
-            //   content: <Photos
-            //     />
-            // },
+            { title: "Photos",
+              content: <Photos
+                currentUser={this.props.currentUser}
+                currentUserId={this.props.currentUserId}
+                user={this.props.user}
+                userId={parseInt(this.props.userId)}
+                posts={this.props.posts}
+                updatePost={this.props.updatePost}
+                destroyPost={this.props.destroyPost}
+                removePostComments={this.props.removePostComments}
+                // destroyLike={this.props.destroyLike}
+                // openLikesModal={this.props.openLikesModal}
+                openEditPostModal={this.props.openEditPostModal}
+                />
+            },
 
             { title: "Likes",
               content: <Likes
-                    currentUser={this.props.currentUser}
-                    currentUserId={this.props.currentUserId}
-                    user={this.props.user}
-                    userId={this.props.userId}
-                    posts={this.props.posts}
-                    likes={this.props.likes}
-                    updatePost={this.props.updatePost}
-                    destroyPost={this.props.destroyPost}
-                    removePostComments={this.props.removePostComments}
-                    destroyLike={this.props.destroyLike}
-                    openLikesModal={this.props.openLikesModal}
-                    openEditPostModal={this.props.openEditPostModal}
+                currentUser={this.props.currentUser}
+                currentUserId={this.props.currentUserId}
+                user={this.props.user}
+                userId={parseInt(this.props.userId)}
+                posts={this.props.posts}
+                likes={this.props.likes}
+                updatePost={this.props.updatePost}
+                destroyPost={this.props.destroyPost}
+                removePostComments={this.props.removePostComments}
+                // destroyLike={this.props.destroyLike}
+                // openLikesModal={this.props.openLikesModal}
+                openEditPostModal={this.props.openEditPostModal}
                 />
             }
         ]
