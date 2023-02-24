@@ -22,6 +22,7 @@ class ProfileLikesTab extends React.Component {
         }
     
         let postArr = Object.values(this.props.posts).reverse()
+        debugger
 
         return (
             <div className="tabbody">

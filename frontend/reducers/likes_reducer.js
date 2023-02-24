@@ -4,6 +4,7 @@ const likesReducer = (likeState = {}, action) => {
     Object.freeze(likeState);
     switch(action.type) {
         case RECEIVE_ALL_LIKES:
+            debugger
             return Object.assign({}, likeState, action.likes);
         case REMOVE_LIKE:
             let newState = Object.assign({}, likeState);

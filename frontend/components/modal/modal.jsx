@@ -53,7 +53,7 @@ class Modal extends React.Component {
                 return <LikesModal
                     currentUser={this.props.currentUser}
                     postObj={this.props.postObj}
-                    likesState={this.props.likesState}
+                    likes={this.props.likes}
                     closeModal={this.props.closeModal}
                 />
             case '':

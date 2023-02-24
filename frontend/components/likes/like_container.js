@@ -8,7 +8,7 @@ import { openLikesModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
     return {
-        likesState: state.entities.likes,
+        likes: state.entities.likes,
         currentUser: state.entities.users[state.session.id],
         // modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the

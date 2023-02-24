@@ -17,7 +17,7 @@ class Api::LikesController < ApplicationController
         #     @likes = Comment.find(:likeable_id).likes
 
         if like_params[:likeable_type] == "User_All"
-            @likes = Like.includes(:liker, likeable: [:author]).where(liker_id: like_params[:liker_id])
+            @likes = Like.includes(:liker, likeable: [:author, :likes]).where(liker_id: like_params[:liker_id])
             @posts = []
             @likes.each do |like|
                 post = like.likeable

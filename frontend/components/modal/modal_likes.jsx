@@ -14,7 +14,7 @@ class LikesModal extends React.Component {
         const post = this.props.postObj;
         const likes = [];
         post.likeIds.map((likeId) => {
-            likes.push(this.props.likesState[likeId])
+            likes.push(this.props.likes[likeId])
         })
 
         return (<div className='likes_modal'>

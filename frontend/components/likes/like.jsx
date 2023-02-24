@@ -9,13 +9,14 @@ export const Like = (props) => {
     let likesArr = [];
     
     // For determining this specific posts' likes
+    debugger
     if (props.likeIds) {
         props.likeIds.forEach(likedId => {
             if (props.likeRender === "Count") {
-                let like = props.likesState[likedId]
+                let like = props.likes[likedId]
                 if (like) { likesArr.push(like) }
             } else if (props.likeRender === "Button") {
-                let like = props.likesState[likedId]
+                let like = props.likes[likedId]
                 if (like && like.liker_id === props.currentUser.id) {
                     specifiedLike = like;
                     currentUserLiked = true;
