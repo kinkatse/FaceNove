@@ -17,6 +17,7 @@ class LikesModal extends React.Component {
             likes.push(this.props.likes[likeId])
         })
 
+        debugger
         return (<div className='likes_modal'>
             {likes.map((like) => {
                 return (<div className='each_liker' key={like.id}>

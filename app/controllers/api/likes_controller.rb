@@ -23,6 +23,9 @@ class Api::LikesController < ApplicationController
                 post = like.likeable
                 @posts << post if like.likeable_type == "Post"
             end
+            # get all posts' likes in the @likes as well since it
+            # should contain more than just the user's likes
+            @posts.each { |post| @likes = @likes + post.likes }
 
             # @posts = Post.includes(:author).where(user_id: like_params[:liker_id])
             # @comments = Comment.includes(:author).where(user_id: like_params[:liker_id])

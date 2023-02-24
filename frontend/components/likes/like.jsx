@@ -9,7 +9,6 @@ export const Like = (props) => {
     let likesArr = [];
     
     // For determining this specific posts' likes
-    debugger
     if (props.likeIds) {
         props.likeIds.forEach(likedId => {
             if (props.likeRender === "Count") {

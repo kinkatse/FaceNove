@@ -7,7 +7,6 @@ const postsReducer = (postState = {}, action) => {
     let postId;
     switch(action.type) {
         case RECEIVE_ALL_POSTS:
-            debugger
             return Object.assign({}, postState, action.posts);
         case RECEIVE_POST:
             return Object.assign({}, postState, action.post);
