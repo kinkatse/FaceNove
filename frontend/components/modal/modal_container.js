@@ -6,6 +6,7 @@ import { updateUser, updateProfPic, updateCovPic } from '../../actions/user_acti
 import { createPost, updatePost } from '../../actions/post_actions'
 
 const mapStateToProps = (state) => {
+    // debugger
     return {
         currentUser: state.entities.users[state.session.id],
         postObj: state.entities.posts[state.ui.modal.postId] ? state.entities.posts[state.ui.modal.postId] : state.entities.comments[state.ui.modal.postId],
