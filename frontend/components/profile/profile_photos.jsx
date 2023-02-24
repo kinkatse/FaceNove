@@ -10,7 +10,7 @@ class ProfilePhotos extends React.Component {
     }
 
     render() {
-        if (!this.props.posts) return null
+        if (!this.props.posts || Object.keys(this.props.posts).length === 0) return null
 
         let componentContainerStyling = "photos";
         let photosContainerStyling = "photos_album_tab";
@@ -33,10 +33,10 @@ class ProfilePhotos extends React.Component {
         return (
             <div className={`${componentContainerStyling}`}>
                 {!this.props.fromLikesTab && (
-                    <>
+                    <span className='photos-tab'>
                         <h2 className="profbodytitle">Photos</h2>
-                        
-                    </>
+                        <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all photos</h2>
+                    </span>
                 )}
                 <div className={`${photosContainerStyling}`}>
                     {posts.map(post => {

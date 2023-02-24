@@ -5,7 +5,7 @@ import ProfileRight from './profile_right';
 const ProfileBody = (props) => {
     return (
         <div className="profile_body">
-            <ProfileLeftContainer />
+            <ProfileLeftContainer changeActiveTab={props.changeActiveTab} />
             <ProfileRight />
         </div>
     )

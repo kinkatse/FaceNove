@@ -25,8 +25,9 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
+        changeActiveTab: ownProps.changeActiveTab,
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
         destroyPost: (postId) => dispatch(destroyPost(postId)),
         removePostComments: (postId) => dispatch(removePostComments(postId)),

@@ -61,7 +61,9 @@ class ProfileTabs extends React.Component {
     render() {
         const tabs = [
             { title: "Posts",
-              content: <ProfileBody />
+              content: <ProfileBody
+                changeActiveTab={this.changeActiveTab.bind(this)}
+                />
             }, 
 
             // { title: "About",
@@ -84,8 +86,6 @@ class ProfileTabs extends React.Component {
                 updatePost={this.props.updatePost}
                 destroyPost={this.props.destroyPost}
                 removePostComments={this.props.removePostComments}
-                // destroyLike={this.props.destroyLike}
-                // openLikesModal={this.props.openLikesModal}
                 openEditPostModal={this.props.openEditPostModal}
                 />
             },
@@ -101,8 +101,6 @@ class ProfileTabs extends React.Component {
                 updatePost={this.props.updatePost}
                 destroyPost={this.props.destroyPost}
                 removePostComments={this.props.removePostComments}
-                // destroyLike={this.props.destroyLike}
-                // openLikesModal={this.props.openLikesModal}
                 openEditPostModal={this.props.openEditPostModal}
                 />
             }
