@@ -5,7 +5,15 @@ import PostItem from '../posts/post_item';
 // This would require pulling all posts with those comments we liked
 // which is a little too much so I will only show the liked posts
 const ProfileLikesTab = (props) => {
-    if (!props.posts || Object.keys(props.posts).length === 0) return <h1>No Likes</h1>
+    if (!props.posts || Object.keys(props.posts).length === 0) {
+        return (
+            <div className="tabbody">
+                <div className="liketab">
+                <h1>No Likes</h1>
+                </div>
+            </div>
+        )
+    }
 
     // Grab only user's likes
     let likeArr = Object.values(props.likes)
@@ -24,7 +32,15 @@ const ProfileLikesTab = (props) => {
         }
     }
 
-    if (likedPostsArr.length === 0) return <h1>No Likes</h1>
+    if (likedPostsArr.length === 0) {
+        return (
+            <div className="tabbody">
+                <div className="liketab">
+                <h1>No Likes</h1>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="tabbody">

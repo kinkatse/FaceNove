@@ -32,7 +32,7 @@ const receiveSignupErrors = (errors) => {
 export const login = (user) => (dispatch) => {
     return (
         SessionApiUtil.logIn(user)
-        .then(user => dispatch(receiveCurrentUser(user)),
+        .then(data => dispatch(receiveCurrentUser(data.user)),
         (err) => dispatch(receiveLoginErrors(err.responseJSON)))
     )
 }
@@ -40,7 +40,7 @@ export const login = (user) => (dispatch) => {
 export const signup = (user) => (dispatch) => {
     return (
         UserApiUtil.signUp(user)
-        .then(user => dispatch(receiveCurrentUser(user)),
+        .then(data => dispatch(receiveCurrentUser(data.user)),
         (err)=>dispatch(receiveSignupErrors(err)))
     )
 }

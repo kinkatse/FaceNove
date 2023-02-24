@@ -9,7 +9,27 @@ class ProfilePhotos extends React.Component {
     }
 
     render() {
-        return null
+        if (!this.props.posts) return null
+        return (
+            <div className="photos">
+                {this.props.posts.map(post => {
+                    // debugger
+                    // if (!post.postPicUrl) return null
+                    // debugger
+                    return (
+                        <>
+                            <h1>image</h1>
+                            <img
+                                className="postpic"
+                                src={post.postPicUrl}
+                            />
+                        </>
+                    )
+                })}
+            </div>
+        )
+
+
         // return (
         //     <div className="profile_photos">
         //         <h2 className="profbodytitle">Photos</h2>
