@@ -13,17 +13,14 @@ class ProfilePhotos extends React.Component {
         return (
             <div className="photos">
                 {this.props.posts.map(post => {
-                    // debugger
-                    // if (!post.postPicUrl) return null
-                    // debugger
                     return (
-                        <>
-                            <h1>image</h1>
+                        <div key={post.id}>
+                            {/* <h1>image</h1> */}
                             <img
                                 className="postpic"
-                                src={post.postPicUrl}
+                                src={post.postPhotoUrl}
                             />
-                        </>
+                        </div>
                     )
                 })}
             </div>

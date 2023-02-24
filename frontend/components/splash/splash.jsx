@@ -9,7 +9,6 @@ import Footer from './footer'
 const Splash = (props) => {
     let currentUser = props.currentUser
     let splashComponent = '';
-    debugger
     if (currentUser.id) {
         splashComponent =
             <div className="splash">
