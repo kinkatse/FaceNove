@@ -4,7 +4,7 @@ import { openEditModal, openProfPicModal, openCovPicModal, openEditPostModal } f
 import { clearLikes, indexLikes } from '../../actions/like_actions';
 
 import Profile from './profile';
-import { clearPosts, destroyPost, updatePost } from '../../actions/post_actions';
+import { clearPosts, destroyPost, indexPosts, updatePost } from '../../actions/post_actions';
 import { clearComments, removePostComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -29,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         showUser: (userId => dispatch(showUser(userId))),
         indexLikes: (likeData) => dispatch(indexLikes(likeData)),
+        indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
         destroyPost: (postId) => dispatch(destroyPost(postId)),
         removePostComments: (postId) => dispatch(removePostComments(postId)),

@@ -19,8 +19,15 @@ class Profile extends React.Component {
     // did mount and fetched the data, it will now do the following
     // when it is updating, not sure how it knows to do that
     componentDidUpdate(oldProps) {
+        // debugger
         if (this.props.userId !== oldProps.userId) {
             this.props.showUser(this.props.userId);
+        }
+        // debugger
+        if (this.props.user && oldProps.user &&
+            (this.props.user.firstName !== oldProps.user.firstName ||
+            this.props.user.lastName !== oldProps.user.lastName)) {
+            this.props.indexPosts([this.props.userId]);
         }
     }
 

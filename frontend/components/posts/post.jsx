@@ -13,15 +13,16 @@ class Post extends React.Component {
 
     // componentDidUpdate(oldProps) {
     //     debugger
-        // if ((this.props.userId !== oldProps.userId) ||
-        // (Object.values(oldProps.posts).length !== 0 &&
-        // this.props.currentUser.id === parseInt(this.props.userId) &&
-        // this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
-        // {
-        //     this.props.clearComments()
-        //     this.props.clearPosts()
-        //     this.props.indexPosts([this.props.userId]);
-        // }
+        
+    //     if ((this.props.userId !== oldProps.userId) ||
+    //     (Object.values(oldProps.posts).length !== 0 &&
+    //     this.props.currentUser.id === parseInt(this.props.userId) &&
+    //     this.props.currentUser.profilePicUrl !== Object.values(oldProps.posts)[0].profilePicUrl))
+    //     {
+    //         // this.props.clearComments()
+    //         // this.props.clearPosts()
+    //         this.props.indexPosts([this.props.userId]);
+    //     }
         
         // If the above is hard to understand, All I am doing is making
         // an OR statement for the below here. The reason I did that is
@@ -37,6 +38,15 @@ class Post extends React.Component {
     // }
 
     rendersCreatePost() {
+        if (parseInt(this.props.userId) !== this.props.currentUser.id) {
+            return (
+            <div>
+                <div className="profile_posts">
+                    <h2 className="profbodytitle">Posts</h2>
+                </div>
+            </div>
+            )
+        }
         return (
             <div>
                 <div className="profile_posts createpost">

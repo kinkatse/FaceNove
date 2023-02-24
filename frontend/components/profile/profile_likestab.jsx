@@ -25,7 +25,8 @@ class ProfileLikesTab extends React.Component {
         let likeArr = Object.values(this.props.likes)
         let userLikedIdArr = []
         for (let like of likeArr) {
-            if (like.liker_id === this.props.currentUserId) {
+            // debugger
+            if (like.liker_id === parseInt(this.props.userId)) {
                 userLikedIdArr.push(like.id)
             }
         }
@@ -35,7 +36,7 @@ class ProfileLikesTab extends React.Component {
         let likedPostsArr = []
         for (let post of postArr) {
             for (let likeId of post.likeIds) {
-                debugger
+                // debugger
                 if (userLikedIdArr.includes(likeId)) {
                     likedPostsArr.push(post)
                 }
