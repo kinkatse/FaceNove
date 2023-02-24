@@ -8,7 +8,7 @@ const NavBar = ({ currentUser, firstName, lastName, logout, updateColor }) => {
         <div className="navbar_whole">
             <NavBarLeft currentUser={currentUser} />
             <NavBarMiddle firstName={firstName} lastName={lastName} />
-            <NavBarRight logout={logout} updateColor={updateColor} />
+            <NavBarRight currentUser={currentUser} logout={logout} updateColor={updateColor} />
         </div>
     )
 }

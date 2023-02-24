@@ -11,11 +11,14 @@ const NavBarLeft = ({ currentUser }) => {
                     <img src={logoImage()} />
                 </Link>
             </div>
-            <div className={`navprofpic ${profPicColor()}`}>
-                    <Link to={`/user/${currentUser.id}`}>
-                        <img src={currentUser.profilePicUrl}/>
-                    </Link>
-                </div>
+            <div className='search'>
+                <input className='search-bar' type="text" placeholder='Search FaceNove' />
+            </div>
+            {/* <div className={`navprofpic ${profPicColor()}`}>
+                <Link to={`/user/${currentUser.id}`}>
+                    <img src={currentUser.profilePicUrl}/>
+                </Link>
+            </div> */}
         </div>
     )
 }

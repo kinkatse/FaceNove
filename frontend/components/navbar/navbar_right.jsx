@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { colorWheelImage, logoutImage } from '../../util/color_util';
+import { colorWheelImage, logoutImage, profPicColor } from '../../util/color_util';
 
 // Show about links and log out
 
-const NavBarRight = ({ logout, updateColor }) => {
+const NavBarRight = ({ currentUser, logout, updateColor }) => {
     return (
         <div className="navbar_right">
             <img
@@ -18,6 +18,11 @@ const NavBarRight = ({ logout, updateColor }) => {
                 onClick={logout}
                 src={logoutImage()}
             />
+            <div className={`navprofpic ${profPicColor()}`}>
+                <Link to={`/user/${currentUser.id}`}>
+                    <img src={currentUser.profilePicUrl}/>
+                </Link>
+            </div>
         </div>
     )
 }
