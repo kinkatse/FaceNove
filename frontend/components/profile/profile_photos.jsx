@@ -1,6 +1,7 @@
 import React from 'react';
 
 class ProfilePhotos extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -9,11 +10,14 @@ class ProfilePhotos extends React.Component {
     }
 
     render() {
+        debugger
         if (!this.props.posts) return null
         return (
             <div className="photos">
-                {/* <div className="profile_photos"> */}
-                    {/* <h2 className="profbodytitle">Photos</h2> */}
+                <div className="profile_photos">
+                    {!this.props.fromLikesTab && (
+                        <h2 className="profbodytitle">Photos</h2>
+                    )}
                     <div className="photos_album_tab">
                         {this.props.posts.map(post => {
                             return (
@@ -25,7 +29,7 @@ class ProfilePhotos extends React.Component {
                             )
                         })}
                     </div>
-                {/* </div> */}
+                </div>
             </div>
         )
 

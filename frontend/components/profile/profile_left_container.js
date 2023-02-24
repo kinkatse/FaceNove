@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
-import { updateUser } from '../../actions/user_actions';
+import { showUser, updateUser } from '../../actions/user_actions';
 import { openEditModal } from '../../actions/modal_actions';
 
 import { withRouter } from 'react-router-dom';
 // Need to have withRouter here or call the component with Route
 // Those are the only two ways the container will access ownProps
 import ProfileLeft from './profile_left'
+import { clearPosts, destroyPost, updatePost } from '../../actions/post_actions';
+import { clearComments, removePostComments } from '../../actions/comment_actions';
+import { clearLikes } from '../../actions/like_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -13,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
         userId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id],
         currentUserId: state.session.id,
+        posts: state.entities.posts,
         modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated
@@ -23,9 +27,26 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        // showUser: (userId => dispatch(showUser(userId))),
+        updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
+        destroyPost: (postId) => dispatch(destroyPost(postId)),
+        removePostComments: (postId) => dispatch(removePostComments(postId)),
+        openEditModal: () => dispatch(openEditModal()),
         updateUser: (user, userId) => dispatch(updateUser(user, userId)),
-        openEditModal: () => dispatch(openEditModal())
+        openEditModal: () => dispatch(openEditModal()),
+        // clearPosts: (() => dispatch(clearPosts())),
+        // clearComments: (() => dispatch(clearComments())),
+        // clearLikes: (() => dispatch(clearLikes()))
     }
 }
+
+// showUser: (userId => dispatch(showUser(userId))),
+// indexLikes: (likeData) => dispatch(indexLikes(likeData)),
+// indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
+// destroyLike: ((like) => dispatch(destroyLike(like))),
+// openLikesModal: (postId) => dispatch(openLikesModal(postId)),
+// openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
+// openProfPicModal: () => dispatch(openProfPicModal()),
+// openCovPicModal: () => dispatch(openCovPicModal()),
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileLeft))
