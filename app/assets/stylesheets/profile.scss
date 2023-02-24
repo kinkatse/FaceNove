@@ -488,10 +488,19 @@ p em {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.photos_album_leftside {
+.photos_album_prof {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.photos_album_prof > * {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 5px;
+    margin-bottom: 10px;
+    margin-top: 0px;
 }
 
 .photos_album_tab {
@@ -521,6 +530,21 @@ p em {
     opacity: 85%;
     animation: 0.5s hoveroversml forwards;
 }
+
+.photopic-prof {
+    padding: 0px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    z-index: 4;
+    animation: 0.5s hoveroffsml forwards;
+}
+
+.photopic-prof:hover {
+    cursor: pointer;
+    opacity: 85%;
+    animation: 0.5s hoveroversml forwards;
+}
+
 
 // .photos_album p {
 //     margin: 5px;

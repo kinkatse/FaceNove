@@ -10,20 +10,40 @@ class ProfilePhotos extends React.Component {
     }
 
     render() {
-        debugger
         if (!this.props.posts) return null
-        let containerStyling = this.props.fromLikesTab ? "photos": "profile_photos"
+
+        let componentContainerStyling = "photos";
+        let photosContainerStyling = "photos_album_tab";
+        let photoStyling = "photopic";
+
+        let posts = this.props.posts
+        
+        if (!this.props.fromLikesTab) {
+            componentContainerStyling = "profile_photos";
+            photosContainerStyling = "photos_album_prof";
+            photoStyling = "photopic-prof";
+
+            const newPosts = []
+            posts.reverse().map((post) => {
+                if (newPosts.length < 9) newPosts.push(post)
+            })
+            posts = newPosts
+        }
+
         return (
-            <div className={`${containerStyling}`}>
+            <div className={`${componentContainerStyling}`}>
                 {!this.props.fromLikesTab && (
-                    <h2 className="profbodytitle">Photos</h2>
+                    <>
+                        <h2 className="profbodytitle">Photos</h2>
+                        
+                    </>
                 )}
-                <div className="photos_album_tab">
-                    {this.props.posts.map(post => {
+                <div className={`${photosContainerStyling}`}>
+                    {posts.map(post => {
                         return (
                                 <img
                                     key={post.id}
-                                    className="photopic"
+                                    className={`${photoStyling}`}
                                     src={post.postPhotoUrl}
                                 />
                         )
