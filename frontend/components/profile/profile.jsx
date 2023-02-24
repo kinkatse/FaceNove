@@ -48,6 +48,9 @@ class Profile extends React.Component {
                         openEditPostModal={this.props.openEditPostModal}
                         clearPosts={this.props.clearPosts}
                         clearLikes={this.props.clearLikes}
+                        openCovPicModal={this.props.openCovPicModal}
+                        openProfPicModal={this.props.openProfPicModal}
+                        openEditModal={this.props.openEditModal}
                     />
                 </div>
             </div>

@@ -19,7 +19,6 @@ class LikesModal extends React.Component {
 
         return (<div className='likes_modal'>
             {likes.map((like) => {
-                debugger
                 return (<div className='each_liker' key={like.id}>
                     <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
                         <img

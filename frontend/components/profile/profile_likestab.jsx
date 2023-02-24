@@ -6,14 +6,14 @@ import PostItem from '../posts/post_item';
 // which is a little too much so I will only show the liked posts
 class ProfileLikesTab extends React.Component {
 
-    componentDidMount() {
-        this.props.clearPosts()
-        this.props.clearLikes()
-        this.props.indexLikes({
-            liker_id: this.props.userId,
-            likeable_type: "User_All"
-        })
-    }
+    // componentDidMount() {
+    //     this.props.clearPosts()
+    //     this.props.clearLikes()
+    //     this.props.indexLikes({
+    //         liker_id: this.props.userId,
+    //         likeable_type: "User_All"
+    //     })
+    // }
 
     render() {
         if (!this.props.posts || Object.keys(this.props.posts).length === 0) {
@@ -22,6 +22,13 @@ class ProfileLikesTab extends React.Component {
         }
     
         let postArr = Object.values(this.props.posts).reverse()
+        // debugger
+        // let likedPostsArr = []
+        // debugger
+        // postArr.forEach(post => {
+        //     debugger
+        //     // if (post.likeId)
+        // })
 
         return (
             <div className="tabbody">
@@ -29,6 +36,7 @@ class ProfileLikesTab extends React.Component {
                     <div className="liketab_posts">
                         {
                         postArr.map(post => {
+                            debugger
                             return (<PostItem
                                 key={post.id}
                                 postId={post.id}

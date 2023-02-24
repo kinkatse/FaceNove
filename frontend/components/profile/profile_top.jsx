@@ -109,6 +109,7 @@ class ProfileTop extends React.Component {
                     openEditPostModal={this.props.openEditPostModal}
                     clearPosts={this.props.clearPosts}
                     clearLikes={this.props.clearLikes}
+                    openEditModal={this.props.openEditModal}
                 />
             </div>
         )

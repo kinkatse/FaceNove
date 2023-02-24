@@ -8,6 +8,25 @@ import Likes from './profile_likestab';
 import { editProfImage, tabColor } from '../../util/color_util';
 
 class ProfileTabs extends React.Component {
+
+    // componentDidMount() {
+    //     // debugger
+    //     // this.props.clearPosts()
+    //     // this.props.clearLikes()
+    //     this.props.indexLikes({
+    //         liker_id: this.props.userId,
+    //         likeable_type: "User_All"
+    //     })
+    // }
+
+    // componentDidUpdate(oldProps) {
+    //     debugger
+    //     this.props.indexLikes({
+    //         liker_id: this.props.userId,
+    //         likeable_type: "User_All"
+    //     })
+    // }
+
     constructor(props) {
         super(props)
         this.state = {
@@ -79,15 +98,15 @@ class ProfileTabs extends React.Component {
                     userId={this.props.userId}
                     posts={this.props.posts}
                     likes={this.props.likes}
-                    indexLikes={this.props.indexLikes}
+                    // indexLikes={this.props.indexLikes}
                     updatePost={this.props.updatePost}
                     destroyPost={this.props.destroyPost}
                     removePostComments={this.props.removePostComments}
                     destroyLike={this.props.destroyLike}
                     openLikesModal={this.props.openLikesModal}
                     openEditPostModal={this.props.openEditPostModal}
-                    clearPosts={this.props.clearPosts}
-                    clearLikes={this.props.clearLikes}
+                    // clearPosts={this.props.clearPosts}
+                    // clearLikes={this.props.clearLikes}
                 />
             }
         ]
