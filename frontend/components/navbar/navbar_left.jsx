@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { profPicColor, logoImage } from '../../util/color_util';
+import { logoImage } from '../../util/color_util';
 
 const NavBarLeft = ({ currentUser }) => {
     return (
