@@ -67,7 +67,10 @@ export const postButtonColor = () => {
 
 // middle nav bar icons
 export const homeImage = () => {
-    return window.home_url
+    let color = getColor()
+    if (color === "blue") { return window.blue_home_url }
+    else if (color === "green") { return window.green_home_url }
+    else if (color === "red") { return window.red_home_url }
 }
 
 export const gitHubImage = () => {

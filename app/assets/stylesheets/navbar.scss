@@ -39,7 +39,7 @@
 
 .search-bar {
     height: 40px;
-    width: 25vw;
+    width: 20vw;
     margin-left: 3px;
     font-size: 15px;
     color: rgba(46, 46, 46, 0.7);
@@ -50,8 +50,9 @@
 }
 
 .search-bar:hover {
-    opacity: 85%;
-    animation: 0.3s hoverover forwards;
+    // opacity: 85%;
+    animation: 0.3s hoveroversml forwards;
+    background: rgba(230, 230, 230, 0.8);
 }
 
 .search-bar:focus {
@@ -143,9 +144,11 @@
 .navbar_middle {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     height: 100%;
+    width: 30%;
     // border: 4px solid rgba(5, 71, 146, 0.5);
 }
 
