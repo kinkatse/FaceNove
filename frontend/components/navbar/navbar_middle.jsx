@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { logoImage } from '../../util/color_util';
+import { homeImage, gitHubImage, linkedInImage } from '../../util/color_util';
 
 // Show search bar eventually, but for now show greeting for user
 
@@ -12,7 +12,7 @@ const NavBarMiddle = ({ firstName, lastName}) => {
             </div> */}
             <div className="navbar-link">
                 <Link to="/">
-                    <img src={logoImage()} />
+                    <img src={homeImage()} />
                 </Link>
             </div>
             {/* <div className="navbar-link">
@@ -22,13 +22,13 @@ const NavBarMiddle = ({ firstName, lastName}) => {
                 </a>
             </div> */}
             <div className="navbar-link">
-                <a to="https://github.com/kinkatse">
-                    <img src={logoImage()} />
+                <a href="https://github.com/kinkatse" target="_blank">
+                    <img src={gitHubImage()} />
                 </a>
             </div>
             <div className="navbar-link">
-                <a to="https://www.linkedin.com/in/kin-ka-tse/">
-                    <img src={logoImage()} />
+                <a href="https://www.linkedin.com/in/kin-ka-tse/" target="_blank">
+                    <img src={linkedInImage()} />
                 </a>
             </div>
         </div>

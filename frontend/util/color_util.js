@@ -65,6 +65,19 @@ export const postButtonColor = () => {
 
 // Images
 
+// middle nav bar icons
+export const homeImage = () => {
+    return window.home_url
+}
+
+export const gitHubImage = () => {
+    return window.github_url
+}
+
+export const linkedInImage = () => {
+    return window.linkedin_url
+}
+
 // logo
 export const logoImage = () => {
     let color = getColor()
