@@ -166,6 +166,16 @@
     animation: 0.3s hoverover forwards;
 }
 
+.github {
+    opacity: 70%;
+}
+
+.github:hover {
+    margin-top: 1px;
+    opacity: 55%;
+    animation: 0.3s hoverover forwards;
+}
+
 // .greeting {
 //     font-family: Arial, Helvetica, sans-serif;
 //     font-size: 140%;

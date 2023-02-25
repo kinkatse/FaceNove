@@ -21,7 +21,7 @@ const NavBarMiddle = ({ firstName, lastName}) => {
                 <img src={logoImage()} />
                 </a>
             </div> */}
-            <div className="navbar-link">
+            <div className="navbar-link github">
                 <a href="https://github.com/kinkatse" target="_blank">
                     <img src={gitHubImage()} />
                 </a>
