@@ -8,7 +8,7 @@ const ProfileLikesTab = (props) => {
     if (!props.posts || Object.keys(props.posts).length === 0) {
         return (
             <div className="tabbody">
-                <div className="liketab">
+                <div className="noliketab">
                 <h1>No Likes</h1>
                 </div>
             </div>
@@ -35,7 +35,7 @@ const ProfileLikesTab = (props) => {
     if (likedPostsArr.length === 0) {
         return (
             <div className="tabbody">
-                <div className="liketab">
+                <div className="noliketab">
                 <h1>No Likes</h1>
                 </div>
             </div>
