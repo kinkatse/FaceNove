@@ -27,6 +27,6 @@ kinka.coverPicUrl.attach(io: File.open("app/assets/images/User_Kin_CovPic.png"),
 bob.coverPicUrl.attach(io: File.open("app/assets/images/User_Bob_CovPic.png"), filename: "User_Bob_CovPic.png")
 carly.coverPicUrl.attach(io: File.open("app/assets/images/User_Carly_CovPic.png"), filename: "User_Carly_CovPic.png")
 
-Post.create!(post: "Hello, this is Demo's first post", user_id: 1)
-Post.create!(post: "Oh my god, this is my second post!", user_id: 1)
-Post.create!(post: "I like to play tennis, does anyone want to play?", user_id: 2)
+Post.create!(post: "Hello, this is Demo's first post", user_id: demo.id)
+Post.create!(post: "Oh my god, this is my second post!", user_id: demo.id)
+Post.create!(post: "I like to play tennis, does anyone want to play?", user_id: kinka.id)

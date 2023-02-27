@@ -3,9 +3,11 @@ class Api::PostsController < ApplicationController
     def index
         userIds = params[:userIds]
         if userIds
+            debugger
             @posts = Post.find_posts(userIds)
             @likes = Like.includes(:liker).where(likeable_id: @posts)
         else
+            debugger
             @posts = Post.all.includes(:likes)
         end
         render :index
