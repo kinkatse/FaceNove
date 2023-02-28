@@ -40,6 +40,7 @@ class ProfileLeft extends React.Component {
                     openEditPostModal={this.props.openEditPostModal}
                     fromLikesTab={false}
                     changeActiveTab={this.props.changeActiveTab}
+                    openPicModal={this.props.openPicModal}
                 />
                 <ProfileFriends />
             </div>

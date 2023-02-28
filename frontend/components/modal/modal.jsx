@@ -7,6 +7,7 @@ import CovPicModalForm from './modal_covpic';
 import CreatePostModalForm from './modal_createpost';
 import EditPostModalForm from './modal_editpost';
 import LikesModal from './modal_likes';
+import PhotoModal from './modal_photos';
 
 class Modal extends React.Component {
     
@@ -51,6 +52,13 @@ class Modal extends React.Component {
                 />
             case 'likes':
                 return <LikesModal
+                    currentUser={this.props.currentUser}
+                    postObj={this.props.postObj}
+                    likes={this.props.likes}
+                    closeModal={this.props.closeModal}
+                />
+            case 'pic':
+                return <PhotoModal
                     currentUser={this.props.currentUser}
                     postObj={this.props.postObj}
                     likes={this.props.likes}

@@ -43,6 +43,7 @@ class ProfilePhotos extends React.Component {
                         return (
                                 <img
                                     key={post.id}
+                                    onClick={this.props.openPicModal}
                                     className={`${photoStyling}`}
                                     src={post.postPhotoUrl}
                                 />

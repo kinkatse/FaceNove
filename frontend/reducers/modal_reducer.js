@@ -6,7 +6,8 @@ import {
     OPEN_CREATEPOST_MODAL,
     OPEN_EDITPOST_MODAL,
     OPEN_LIKES_MODAL,
-    CLOSE_MODAL
+    CLOSE_MODAL,
+    OPEN_PIC_MODAL
 } from "../actions/modal_actions";
 
 const modalucer = (state = {type: ''}, action) => {
@@ -24,6 +25,8 @@ const modalucer = (state = {type: ''}, action) => {
             return Object.assign({}, state, {type: 'createpost'})
         case OPEN_EDITPOST_MODAL:
             return Object.assign({}, state, {type: 'editpost', postId: action.postId})
+        case OPEN_PIC_MODAL:
+            return Object.assign({}, state, {type: 'pic'})
         case OPEN_LIKES_MODAL:
             return Object.assign({}, state, {type: 'likes', postId: action.postId})
         case CLOSE_MODAL:

@@ -87,6 +87,7 @@ class ProfileTabs extends React.Component {
                 destroyPost={this.props.destroyPost}
                 removePostComments={this.props.removePostComments}
                 openEditPostModal={this.props.openEditPostModal}
+                openPicModal={this.props.openPicModal}
                 />
             },
 

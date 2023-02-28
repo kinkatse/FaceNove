@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { showUser, updateUser } from '../../actions/user_actions';
-import { openEditModal } from '../../actions/modal_actions';
+import { openEditModal, openPicModal } from '../../actions/modal_actions';
 
 import { withRouter } from 'react-router-dom';
 // Need to have withRouter here or call the component with Route
@@ -33,7 +33,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         removePostComments: (postId) => dispatch(removePostComments(postId)),
         openEditModal: () => dispatch(openEditModal()),
         updateUser: (user, userId) => dispatch(updateUser(user, userId)),
-        openEditModal: () => dispatch(openEditModal())
+        openEditModal: () => dispatch(openEditModal()),
+        openPicModal: () => dispatch(openPicModal())
     }
 }
 

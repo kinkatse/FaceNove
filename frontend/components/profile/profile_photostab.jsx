@@ -46,6 +46,7 @@ const ProfilePhotosTab = (props) => {
                 destroyPost={props.destroyPost}
                 removePostComments={props.removePostComments}
                 openEditPostModal={props.openEditPostModal}
+                openPicModal={this.props.openPicModal}
                 fromLikesTab={true}
             />
         </div>

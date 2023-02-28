@@ -50,6 +50,7 @@ class Profile extends React.Component {
                         openCovPicModal={this.props.openCovPicModal}
                         openProfPicModal={this.props.openProfPicModal}
                         openEditModal={this.props.openEditModal}
+                        openPicModal={this.props.openPicModal}
                     />
                 </div>
             </div>

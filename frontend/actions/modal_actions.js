@@ -4,6 +4,7 @@ export const OPEN_PROFPIC_MODAL = 'OPEN_PROFPIC_MODAL';
 export const OPEN_COVPIC_MODAL = 'OPEN_COVPIC_MODAL';
 export const OPEN_CREATEPOST_MODAL = 'OPEN_CREATEPOST_MODAL';
 export const OPEN_EDITPOST_MODAL = 'OPEN_EDITPOST_MODAL';
+export const OPEN_PIC_MODAL = 'OPEN_PIC_MODAL';
 export const OPEN_LIKES_MODAL = 'OPEN_LIKES_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
@@ -41,6 +42,12 @@ export const openEditPostModal = (postId) => {
     return {
         type: OPEN_EDITPOST_MODAL,
         postId
+    }
+}
+
+export const openPicModal = () => {
+    return {
+        type: OPEN_PIC_MODAL
     }
 }
 
