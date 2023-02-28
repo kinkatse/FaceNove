@@ -45,9 +45,10 @@ export const openEditPostModal = (postId) => {
     }
 }
 
-export const openPicModal = () => {
+export const openPicModal = (postId) => {
     return {
-        type: OPEN_PIC_MODAL
+        type: OPEN_PIC_MODAL,
+        postId
     }
 }
 

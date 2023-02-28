@@ -26,7 +26,7 @@ const modalucer = (state = {type: ''}, action) => {
         case OPEN_EDITPOST_MODAL:
             return Object.assign({}, state, {type: 'editpost', postId: action.postId})
         case OPEN_PIC_MODAL:
-            return Object.assign({}, state, {type: 'pic'})
+            return Object.assign({}, state, {type: 'pic', postId: action.postId})
         case OPEN_LIKES_MODAL:
             return Object.assign({}, state, {type: 'likes', postId: action.postId})
         case CLOSE_MODAL:
