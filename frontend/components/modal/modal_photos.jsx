@@ -49,7 +49,11 @@ class PhotoModal extends React.Component {
                 <div className="like_modal_child">
                     <div className="profpictop">
                         <h1 className="like_modal_title">Photos</h1>
-                        
+                        <img
+                            key={this.props.postObj.id}
+                            className="photopic-prof"
+                            src={this.props.postObj.postPhotoUrl}
+                        />
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
                     <div className="profpiclinediv"></div>
