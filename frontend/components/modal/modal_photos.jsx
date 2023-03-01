@@ -73,19 +73,18 @@ class PhotoModal extends React.Component {
         return (
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
-                <div className="like_modal_child">
+                {/* Photo */}
+                <img
+                    key={this.props.postObj.id}
+                    className="photopic-photomodal"
+                    src={this.props.postObj.postPhotoUrl}
+                />
+                <div className="photo_modal_child">
                     <div className="profpictop">
-                        {/* Photo */}
                         <h1 className="like_modal_title">Photos</h1>
-                        <img
-                            key={this.props.postObj.id}
-                            className="photopic-prof"
-                            src={this.props.postObj.postPhotoUrl}
-                        />
                         <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                     </div>
-                    <div className="profpiclinediv"></div>
-                    <div className="postlinediv"></div>
+                    <div className="profpiclinediv-photomodal"></div>
                     {/* Post */}
                     <div className="post_top">
                         <div className="post_top_left">
@@ -116,6 +115,7 @@ class PhotoModal extends React.Component {
                             {this.props.postObj.body}
                         </p>
                     </div>
+                    <div className="profpiclinediv-photomodal"></div>
                     {/* Comments */}
                     <CommentContainer
                         postUserId={this.props.postObj.user_id}
