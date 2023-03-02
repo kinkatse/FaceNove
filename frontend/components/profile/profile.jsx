@@ -13,6 +13,7 @@ class Profile extends React.Component {
 
     componentDidUpdate(oldProps) {
         if (this.props.userId !== oldProps.userId) {
+            this.props.closeModal()
             this.props.showUser(this.props.userId);
         }
         if (this.props.user && oldProps.user &&
