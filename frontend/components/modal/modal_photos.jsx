@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { appColor, postProfPicColor, unlikeButton } from '../../util/color_util';
+import { filterTime } from '../../util/filter_util';
 import CommentContainer from '../comments/comment_container';
 
 class PhotoModal extends React.Component {
@@ -90,6 +91,8 @@ class PhotoModal extends React.Component {
 
     render() {
 
+        const { time_posted, timestamp_hover } = filterTime(this.props.postObj.created_at, this.props.postObj.updated_at)
+
         return (
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
@@ -126,12 +129,12 @@ class PhotoModal extends React.Component {
                                             {this.props.postObj.firstName} {this.props.postObj.lastName}
                                         </h2>
                                     </Link>
-                                    {/* <div className="post_timestamp">
+                                    <div className="post_timestamp">
                                         {time_posted}
                                         <div className="post_timestamp_hover">
                                             {timestamp_hover}
                                         </div>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                             {this.rendersPostTopRight()}
