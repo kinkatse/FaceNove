@@ -11,6 +11,17 @@ class Comment extends React.Component {
         this.props.indexComments(commentRelatedId)
     }
 
+    componentDidUpdate(oldProps) {
+        if (this.props.postId !== oldProps.postId) {
+            const commentRelatedId = Object.assign(
+                {},
+                { post_id: [this.props.postId],
+                  type: 'post' }
+            )
+            this.props.indexComments(commentRelatedId)
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {

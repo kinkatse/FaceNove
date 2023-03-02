@@ -14,7 +14,6 @@ class PhotoModal extends React.Component {
         this.prev = this.prev.bind(this)
     }
 
-
     next() {
         let photoPostIds = this.props.photoPostIds
         let postObj = this.props.postObj

@@ -4,6 +4,7 @@ import { closeModal, openPicModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/session_actions'
 import { updateUser, updateProfPic, updateCovPic } from '../../actions/user_actions';
 import { createPost, updatePost } from '../../actions/post_actions'
+import { indexComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -28,6 +29,7 @@ const mapDispatchToProps = (dispatch) => {
         updateCovPic: (user, userId) => dispatch(updateCovPic(user, userId)),
         createPost: (postData) => dispatch(createPost(postData)),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
+        indexComments: (relatedId => dispatch(indexComments(relatedId))),
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         closeModal: () => dispatch(closeModal())
     }
