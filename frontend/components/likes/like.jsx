@@ -67,6 +67,8 @@ const LikeCount = (props) => {
     }
 
     if (props.likesArr.length > 0) {
+        let linedivClass = "postlinediv postlinediv-comments"
+        if (props.fromPhotoModal) linedivClass = "profpiclinediv-photomodal-comment"
         // Logic for a god dam comma lmao
         let endCount = null;
         if (renderThree.length === 3) { endCount = 3 }
@@ -96,7 +98,7 @@ const LikeCount = (props) => {
                         {moreLiked}
                     </span>
                 </span>
-                <div className="postlinediv postlinediv-comments"></div>
+                <div className={`${linedivClass}`}></div>
             </div>
         )
     } else {

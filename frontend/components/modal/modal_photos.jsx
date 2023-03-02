@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { appColor, postProfPicColor, unlikeButton } from '../../util/color_util';
 import { filterTime } from '../../util/filter_util';
 import CommentContainer from '../comments/comment_container';
+import LikeContainer from '../likes/like_container';
 
 class PhotoModal extends React.Component {
     constructor(props) {
@@ -32,35 +33,26 @@ class PhotoModal extends React.Component {
         if (prev) this.props.openPicModal(prev, photoPostIds)
     }
 
-    // rendersLikers() {
-    //     const post = this.props.postObj;
-    //     const likes = [];
-    //     post.likeIds.map((likeId) => {
-    //         likes.push(this.props.likes[likeId])
-    //     })
+    rendersLikeButton() {
+        return <LikeContainer
+                    likeRender="Button"
+                    postId={this.props.postObj.id}
+                    likeIds={this.props.postObj.likeIds}
+                    fromPhotoModal={true}
+                />
+    }
 
-    //     return (<div className='likes_modal'>
-    //         {likes.map((like) => {
-    //             return (<div className='each_liker' key={like.id}>
-    //                 <Link to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
-    //                     <img
-    //                         className={`post_profile_pic ${postProfPicColor()}`}
-    //                         src={like.profilePicUrl}
-    //                     />
-    //                 </Link>
-    //                 <Link className="each_liker_link" to={`/user/${like.liker_id}`} onClick={this.props.closeModal}>
-    //                     <span className='each_liker_name'>
-    //                         {like.firstName} {like.lastName}
-    //                     </span>
-    //                 </Link>
-    //                 <img
-    //                     className="post_like_buttons post_buttons_bigger"
-    //                     src={unlikeButton()}
-    //                 />
-    //             </div>)
-    //         })}
-    //     </div>)
-    // }
+    rendersLikeCount() {
+        if (this.props.postObj.likeIds.length === 0) {
+            return <div className="profpiclinediv-photomodal-comment"></div>
+        }
+        return <LikeContainer
+                    likeRender="Count"
+                    postId={this.props.postObj.id}
+                    likeIds={this.props.postObj.likeIds}
+                    fromPhotoModal={true}
+                />
+    }
 
     rendersPostTopRight() {
         let component;
@@ -141,6 +133,11 @@ class PhotoModal extends React.Component {
                             <p className="post_body">
                                 {this.props.postObj.body}
                             </p>
+                        </div>
+                        {/* Likes */}
+                        {this.rendersLikeCount()}
+                        <div className="post_buttons">
+                            {this.rendersLikeButton()}
                         </div>
                         <div className="profpiclinediv-photomodal"></div>
                         {/* Comments */}

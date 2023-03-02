@@ -6,9 +6,10 @@ import { indexLikes, createLike, destroyLike } from '../../actions/like_actions'
 import { openLikesModal } from '../../actions/modal_actions';
 // import { openCreatePostModal, openEditPostModal } from '../../actions/modal_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         likes: state.entities.likes,
+        fromPhotoModal: ownProps.fromPhotoModal ? true : false,
         currentUser: state.entities.users[state.session.id],
         // modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the

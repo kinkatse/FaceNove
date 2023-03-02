@@ -10,7 +10,11 @@ import LikesModal from './modal_likes';
 import PhotoModal from './modal_photos';
 
 class Modal extends React.Component {
+
     selectModal() {
+        // const profileComponent = document.querySelector(".profile-top")
+        // profileComponent.
+
         switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm
@@ -61,10 +65,8 @@ class Modal extends React.Component {
                     currentUser={this.props.currentUser}
                     userId={this.props.userId}
                     postObj={this.props.postObj}
-                    // indexComments={this.props.indexComments}
                     photoPostIds={this.props.photoPostIds}
                     openPicModal={this.props.openPicModal}
-                    likes={this.props.likes}
                     closeModal={this.props.closeModal}
                 />
             case '':

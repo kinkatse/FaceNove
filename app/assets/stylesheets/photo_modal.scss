@@ -16,10 +16,19 @@
 
 .profpiclinediv-photomodal {
     position: relative;
-    right: 10px;
-    padding-bottom: 12px;
+    right: 9px;
+    padding-bottom: 5px;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 12px;
+    width: 110%;
+}
+
+.profpiclinediv-photomodal-comment {
+    position: relative;
+    right: 9px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 5px;
     width: 110%;
 }
 
