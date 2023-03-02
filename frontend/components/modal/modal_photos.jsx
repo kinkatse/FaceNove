@@ -109,7 +109,7 @@ class PhotoModal extends React.Component {
                     <div className="photo_modal_child">
                         <div className="profpictop">
                             <h1 className="photo_modal_title">Photo</h1>
-                            <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
+                            <img className="X photo-modal-x" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
                         <div className="profpiclinediv-photomodal"></div>
                         {/* Post */}

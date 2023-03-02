@@ -3,7 +3,7 @@
     font-size: 90%;
     position: fixed;
     top: 50%;
-    right: -15.9%;
+    right: -16.5%;
     padding: 10px;
     width: 30%;
     height: 100%;
@@ -35,6 +35,11 @@
     justify-content: space-between;
 }
 
+.photo-modal-x {
+    margin-right: 15px;
+    margin-top: 9px;
+}
+
 .photo-photomodal {
     display: flex;
     justify-content: center;
@@ -61,7 +66,7 @@
 }
 
 .comments-photomodal {
-    width: 95%;
+    width: 92%;
 }
 
 .photo_modal_title {
@@ -73,20 +78,20 @@
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    opacity: 30%;
+    opacity: 40%;
     position: fixed;
     top: 350px;
     z-index: 16;
     border-radius: 100px;
     padding-top: 1px;
     padding-bottom: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
     animation: 0.5s hoveroffsml forwards;
 }
 
 .photomodal-button:hover {
     animation: 0.5s hoveroversml forwards;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.7);
     opacity: 70%;
     z-index: 19;
     user-select: none;
@@ -95,11 +100,11 @@
 .prev {
     padding-left: 8px;
     padding-right: 10px;
-    left: 15px;
+    left: 2%;
 }
 
 .next {
     padding-left: 10px;
     padding-right: 8px;
-    right: 357.5px;
+    left: 64%;
 }
