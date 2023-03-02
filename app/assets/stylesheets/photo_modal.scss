@@ -67,7 +67,16 @@
     margin-left: 10px;
 }
 
+.photomodal-prevbutton {
+    position: fixed;
+    top: 250px;
+    left: 100px;
+    z-index: 16;
+}
+
 .photomodal-nextbutton {
-    position: absolute;
+    position: fixed;
+    top: 250px;
+    right: 100px;
     z-index: 16;
 }

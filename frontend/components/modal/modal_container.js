@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
         postObj: state.entities.posts[state.ui.modal.postId] ? state.entities.posts[state.ui.modal.postId] : state.entities.comments[state.ui.modal.postId],
-        photoPostIds: state.entities.posts[state.ui.modal.photoPostIds] ? state.entities.posts[state.ui.modal.photoPostIds] : [],
+        photoPostIds: state.ui.modal.photoPostIds ? state.ui.modal.photoPostIds : [],
         likes: state.entities.likes,
         modal: state.ui.modal,
         errors: state.errors.session,

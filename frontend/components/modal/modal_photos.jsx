@@ -34,6 +34,7 @@ class PhotoModal extends React.Component {
         let index = photoPostIds.indexOf(postObj.id)
         let partArr = photoPostIds.slice(index + 1)
         let next = partArr.length !== 0 ? partArr[0] : null
+        debugger
         this.props.openPicModal(next, photoPostIds)
     }
 
@@ -43,6 +44,7 @@ class PhotoModal extends React.Component {
         let index = photoPostIds.indexOf(postObj.id)
         let partArr = photoPostIds.slice(0, index)
         let prev = partArr.length !== 0 ? partArr[partArr.length - 1] : null
+        debugger
         this.props.openPicModal(prev, photoPostIds)
     }
 
@@ -111,13 +113,13 @@ class PhotoModal extends React.Component {
                 {/* Photo */}
                 <div className='organize-photomodal'>
                     <div className='photo-photomodal'>
-                        <div className='photomodal-nextbutton' onClick={this.prev()}>Prev</div>
+                        <div className='photomodal-prevbutton' onClick={this.prev}>Prev</div>
                         <img
                             key={this.props.postObj.id}
                             className="photopic-photomodal"
                             src={this.props.postObj.postPhotoUrl}
                         />
-                        <div className='photomodal-nextbutton' onClick={this.next()}>next</div>
+                        <div className='photomodal-nextbutton' onClick={this.next}>next</div>
                     </div>
                     <div className="photo_modal_child">
                         <div className="profpictop">

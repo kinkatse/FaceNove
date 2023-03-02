@@ -43,12 +43,12 @@ class ProfilePhotos extends React.Component {
                 <div className={`${photosContainerStyling}`}>
                     {posts.map(post => {
                         return (
-                                <img
-                                    key={post.id}
-                                    onClick={() => this.props.openPicModal(post.id, photoPostIds)}
-                                    className={`${photoStyling}`}
-                                    src={post.postPhotoUrl}
-                                />
+                            <img
+                                key={post.id}
+                                onClick={() => this.props.openPicModal(post.id, photoPostIds)}
+                                className={`${photoStyling}`}
+                                src={post.postPhotoUrl}
+                            />
                         )
                     })}
                 </div>
