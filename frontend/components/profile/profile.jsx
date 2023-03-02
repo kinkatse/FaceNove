@@ -7,6 +7,7 @@ class Profile extends React.Component {
         this.props.clearLikes()
         this.props.clearComments()
         this.props.clearPosts()
+        this.props.closeModal()
         this.props.showUser(this.props.userId)
     }
 

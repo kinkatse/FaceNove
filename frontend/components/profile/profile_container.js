@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { showUser } from '../../actions/user_actions';
-import { openEditModal, openProfPicModal, openCovPicModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
+import { openEditModal, openProfPicModal, openCovPicModal, openEditPostModal, openPicModal, closeModal } from '../../actions/modal_actions';
 import { clearLikes, indexLikes } from '../../actions/like_actions';
 
 import Profile from './profile';
@@ -42,7 +42,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         clearPosts: (() => dispatch(clearPosts())),
         clearComments: (() => dispatch(clearComments())),
-        clearLikes: (() => dispatch(clearLikes()))
+        clearLikes: (() => dispatch(clearLikes())),
+        closeModal: () => dispatch(closeModal())
     }
 }
 
