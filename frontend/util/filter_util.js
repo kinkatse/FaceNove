@@ -1,4 +1,4 @@
-export const filterPostsWithPhotos = (posts, userId) => {
+export const filterUserPostsWithPhotos = (posts, userId) => {
     let postArr = Object.values(posts).reverse()
     // Grab only users posts
     let userPostsArr = []
@@ -8,6 +8,15 @@ export const filterPostsWithPhotos = (posts, userId) => {
     // Grab only posts with photos
     let postsWithPhotosArr = []
     for (let post of userPostsArr) {
+        if (post.postPhotoUrl) postsWithPhotosArr.push(post)
+    }
+
+    return postsWithPhotosArr
+}
+
+export const filterPostsWithPhotos = (posts) => {
+    let postsWithPhotosArr = []
+    for (let post of posts) {
         if (post.postPhotoUrl) postsWithPhotosArr.push(post)
     }
 

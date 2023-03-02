@@ -1,5 +1,5 @@
 import React from 'react';
-import { filterPostsWithPhotos } from '../../util/filter_util';
+import { filterUserPostsWithPhotos } from '../../util/filter_util';
 import ProfileFriends from './profile_friends';
 import ProfileIntro from './profile_intro';
 import ProfilePhotos from './profile_photos';
@@ -13,7 +13,7 @@ class ProfileLeft extends React.Component {
     // }
 
     render() {
-        const postsWithPhotosArr = filterPostsWithPhotos(this.props.posts, this.props.userId)
+        const postsWithPhotosArr = filterUserPostsWithPhotos(this.props.posts, this.props.userId)
         return (
             <div className="profile_left">
                 <ProfileIntro

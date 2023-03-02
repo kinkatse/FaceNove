@@ -3,7 +3,7 @@ import PostItem from './post_item';
 import { Link } from 'react-router-dom';
 
 import { postProfPicColor } from '../../util/color_util';
-import { filterPostsWithPhotos } from '../../util/filter_util';
+import { filterUserPostsWithPhotos } from '../../util/filter_util';
 
 class Post extends React.Component {
     componentDidMount() {
@@ -55,7 +55,7 @@ class Post extends React.Component {
         }
 
         const postArr = Object.values(this.props.posts).reverse()
-        const postsWithPhotosArr = filterPostsWithPhotos(postArr, this.props.userId)
+        const postsWithPhotosArr = filterUserPostsWithPhotos(postArr, this.props.userId)
         
         return (
             <div>

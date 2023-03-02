@@ -90,7 +90,6 @@ class PhotoModal extends React.Component {
 
     render() {
 
-        // debugger
         return (
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>

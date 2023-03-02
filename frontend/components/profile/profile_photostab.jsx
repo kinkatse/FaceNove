@@ -1,5 +1,5 @@
 import React from 'react';
-import { filterPostsWithPhotos } from '../../util/filter_util';
+import { filterUserPostsWithPhotos } from '../../util/filter_util';
 import ProfilePhotos from './profile_photos';
 // import PostItem from '../posts/post_item';
 
@@ -13,7 +13,7 @@ const ProfilePhotosTab = (props) => {
             </div>
         )
     }
-    const postsWithPhotosArr = filterPostsWithPhotos(props.posts, props.userId)
+    const postsWithPhotosArr = filterUserPostsWithPhotos(props.posts, props.userId)
 
     if (postsWithPhotosArr.length === 0) {
         return (
