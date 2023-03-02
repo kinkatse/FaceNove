@@ -54,8 +54,9 @@ class Post extends React.Component {
             return this.rendersCreatePost()
         }
 
-        const postArr = Object.values(this.props.posts).reverse()
+        const postArr = Object.values(this.props.posts)
         const postsWithPhotosArr = filterUserPostsWithPhotos(postArr, this.props.userId)
+        postArr.reverse()
         
         return (
             <div>
