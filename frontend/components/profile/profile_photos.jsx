@@ -30,6 +30,8 @@ class ProfilePhotos extends React.Component {
             posts = newPosts
         }
 
+        const photoPostIds = posts.map((post) => post.id)
+
         return (
             <div className={`${componentContainerStyling}`}>
                 {!this.props.fromLikesTab && (
@@ -43,7 +45,7 @@ class ProfilePhotos extends React.Component {
                         return (
                                 <img
                                     key={post.id}
-                                    onClick={() => this.props.openPicModal(post.id)}
+                                    onClick={() => this.props.openPicModal(post.id, photoPostIds)}
                                     className={`${photoStyling}`}
                                     src={post.postPhotoUrl}
                                 />

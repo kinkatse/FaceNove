@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Modal from './modal';
-import { closeModal } from '../../actions/modal_actions';
+import { closeModal, openPicModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/session_actions'
 import { updateUser, updateProfPic, updateCovPic } from '../../actions/user_actions';
 import { createPost, updatePost } from '../../actions/post_actions'
@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
     return {
         currentUser: state.entities.users[state.session.id],
         postObj: state.entities.posts[state.ui.modal.postId] ? state.entities.posts[state.ui.modal.postId] : state.entities.comments[state.ui.modal.postId],
+        photoPostIds: state.entities.posts[state.ui.modal.photoPostIds] ? state.entities.posts[state.ui.modal.photoPostIds] : [],
         likes: state.entities.likes,
         modal: state.ui.modal,
         errors: state.errors.session,
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
         updateCovPic: (user, userId) => dispatch(updateCovPic(user, userId)),
         createPost: (postData) => dispatch(createPost(postData)),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
+        openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         closeModal: () => dispatch(closeModal())
     }
 }

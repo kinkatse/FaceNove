@@ -61,6 +61,8 @@ class Modal extends React.Component {
                 return <PhotoModal
                     currentUser={this.props.currentUser}
                     postObj={this.props.postObj}
+                    photoPostIds={this.props.photoPostIds}
+                    openPicModal={this.props.openPicModal}
                     likes={this.props.likes}
                     closeModal={this.props.closeModal}
                 />

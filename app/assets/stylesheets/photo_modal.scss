@@ -48,6 +48,7 @@
     height: 100vh;
     object-fit: contain;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    background-color: black;
     border-radius: 5px;
     z-index: 15;
     animation: 0.5s hoveroffsml forwards;
@@ -55,10 +56,18 @@
 
 .photopic-photomodal:hover {
     cursor: pointer;
-    opacity: 85%;
     animation: 0.5s hoveroversml forwards;
 }
 
 .comments-photomodal {
     width: 95%;
+}
+
+.photo_modal_title {
+    margin-left: 10px;
+}
+
+.photomodal-nextbutton {
+    position: absolute;
+    z-index: 16;
 }

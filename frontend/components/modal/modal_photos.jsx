@@ -7,8 +7,43 @@ import CommentContainer from '../comments/comment_container';
 class PhotoModal extends React.Component {
     constructor(props) {
         super(props)
+        // let photoPostIds = this.props.photoPostIds
+        // let postObj = this.props.postObj
         // this.state = {
+        //     current: postObj.id,
+        //     next: photoPostIds.slice(photoPostIds.indexOf(postObj.id)+1), // Array of next postIds
+        //     prev: photoPostIds.slice(0, photoPostIds.indexOf(postObj.id)), // Array of prev postIds
+        //     photoPostIds: photoPostIds
         // }
+        this.next = this.next.bind(this)
+        this.prev = this.prev.bind(this)
+    }
+
+    // next() {
+    //     this.setState({
+    //         current: this.next[0] ? this.next[0] : null,
+    //         next: this.photoPostIds.slice(photoPostIds.indexOf(postObj.id)+1),
+    //         prev: photoPostIds.slice(0, photoPostIds.indexOf(postObj.id)),
+    //         photoPostIds: photoPostIds
+    //     })
+    // }
+
+    next() {
+        let photoPostIds = this.props.photoPostIds
+        let postObj = this.props.postObj
+        let index = photoPostIds.indexOf(postObj.id)
+        let partArr = photoPostIds.slice(index + 1)
+        let next = partArr.length !== 0 ? partArr[0] : null
+        this.props.openPicModal(next, photoPostIds)
+    }
+
+    prev() {
+        let photoPostIds = this.props.photoPostIds
+        let postObj = this.props.postObj
+        let index = photoPostIds.indexOf(postObj.id)
+        let partArr = photoPostIds.slice(0, index)
+        let prev = partArr.length !== 0 ? partArr[partArr.length - 1] : null
+        this.props.openPicModal(prev, photoPostIds)
     }
 
     // rendersLikers() {
@@ -76,15 +111,17 @@ class PhotoModal extends React.Component {
                 {/* Photo */}
                 <div className='organize-photomodal'>
                     <div className='photo-photomodal'>
+                        <div className='photomodal-nextbutton' onClick={this.prev()}>Prev</div>
                         <img
                             key={this.props.postObj.id}
                             className="photopic-photomodal"
                             src={this.props.postObj.postPhotoUrl}
                         />
+                        <div className='photomodal-nextbutton' onClick={this.next()}>next</div>
                     </div>
                     <div className="photo_modal_child">
                         <div className="profpictop">
-                            <h1 className="like_modal_title">Photos</h1>
+                            <h1 className="photo_modal_title">Photo</h1>
                             <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
                         <div className="profpiclinediv-photomodal"></div>

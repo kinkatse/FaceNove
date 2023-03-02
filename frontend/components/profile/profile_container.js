@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
         openProfPicModal: () => dispatch(openProfPicModal()),
         openCovPicModal: () => dispatch(openCovPicModal()),
-        openPicModal: (postId) => dispatch(openPicModal(postId)),
+        openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         clearPosts: (() => dispatch(clearPosts())),
         clearComments: (() => dispatch(clearComments())),
         clearLikes: (() => dispatch(clearLikes()))
