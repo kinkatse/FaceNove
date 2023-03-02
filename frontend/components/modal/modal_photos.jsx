@@ -148,6 +148,7 @@ class PhotoModal extends React.Component {
                             <CommentContainer
                                 postUserId={this.props.postObj.user_id}
                                 postId={this.props.postObj.id}
+                                fromPhotoModal={true}
                             />
                         </div>
                     </div>

@@ -171,8 +171,11 @@ class PostComments extends React.Component {
             return null;
         }
 
+        let commentClass = "comment_whole"
+        if (this.props.fromPhotoModal) commentClass = "comment_whole-photomodal"
+
         return (
-            <div className="comment_whole">
+            <div className={`${commentClass}`}>
                 <div className="post_top">
                     <div className="post_top_left">
                         <Link to={`/user/${this.props.authorCommentId}`}>

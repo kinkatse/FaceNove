@@ -93,6 +93,7 @@ class Comment extends React.Component {
                             destroyComment={this.props.destroyComment}
                             profilePicUrl={comment.profilePicUrl}
                             currentUser={this.props.currentUser}
+                            fromPhotoModal={this.props.fromPhotoModal}
                         /> )
                     )
                 }

@@ -18,7 +18,8 @@ const mapStateToProps = (state, ownProps) => {
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated
         // since localStorage wont update the page until we refresh
-        color: state.ui.theme.color
+        color: state.ui.theme.color,
+        fromPhotoModal: ownProps.fromPhotoModal ? true : false
     }
 }
 
