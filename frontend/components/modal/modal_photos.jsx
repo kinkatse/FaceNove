@@ -74,53 +74,59 @@ class PhotoModal extends React.Component {
             <>
                 <div className="profpic_modal_background" onClick={this.props.closeModal}></div>
                 {/* Photo */}
-                <img
-                    key={this.props.postObj.id}
-                    className="photopic-photomodal"
-                    src={this.props.postObj.postPhotoUrl}
-                />
-                <div className="photo_modal_child">
-                    <div className="profpictop">
-                        <h1 className="like_modal_title">Photos</h1>
-                        <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
+                <div className='organize-photomodal'>
+                    <div className='photo-photomodal'>
+                        <img
+                            key={this.props.postObj.id}
+                            className="photopic-photomodal"
+                            src={this.props.postObj.postPhotoUrl}
+                        />
                     </div>
-                    <div className="profpiclinediv-photomodal"></div>
-                    {/* Post */}
-                    <div className="post_top">
-                        <div className="post_top_left">
-                            <Link to={`/user/${this.props.postObj.user_id}`}>
-                                <img
-                                    className={`post_profile_pic ${postProfPicColor()}`}
-                                    src={this.props.postObj.profilePicUrl}
-                                />
-                            </Link>
-                            <div className="name_and_time">
-                                <Link to={`/user/${this.props.postObj.user_id}`}>
-                                    <h2 className="post_name">
-                                        {this.props.postObj.firstName} {this.props.postObj.lastName}
-                                    </h2>
-                                </Link>
-                                {/* <div className="post_timestamp">
-                                    {time_posted}
-                                    <div className="post_timestamp_hover">
-                                        {timestamp_hover}
-                                    </div>
-                                </div> */}
-                            </div>
+                    <div className="photo_modal_child">
+                        <div className="profpictop">
+                            <h1 className="like_modal_title">Photos</h1>
+                            <img className="X" src={window.x_url} onClick={this.props.closeModal}/>
                         </div>
-                        {this.rendersPostTopRight()}
+                        <div className="profpiclinediv-photomodal"></div>
+                        {/* Post */}
+                        <div className="post_top">
+                            <div className="post_top_left">
+                                <Link to={`/user/${this.props.postObj.user_id}`}>
+                                    <img
+                                        className={`post_profile_pic ${postProfPicColor()}`}
+                                        src={this.props.postObj.profilePicUrl}
+                                    />
+                                </Link>
+                                <div className="name_and_time">
+                                    <Link to={`/user/${this.props.postObj.user_id}`}>
+                                        <h2 className="post_name">
+                                            {this.props.postObj.firstName} {this.props.postObj.lastName}
+                                        </h2>
+                                    </Link>
+                                    {/* <div className="post_timestamp">
+                                        {time_posted}
+                                        <div className="post_timestamp_hover">
+                                            {timestamp_hover}
+                                        </div>
+                                    </div> */}
+                                </div>
+                            </div>
+                            {this.rendersPostTopRight()}
+                        </div>
+                        <div className="post_middle">
+                            <p className="post_body">
+                                {this.props.postObj.body}
+                            </p>
+                        </div>
+                        <div className="profpiclinediv-photomodal"></div>
+                        {/* Comments */}
+                        <div className='comments-photomodal'>
+                            <CommentContainer
+                                postUserId={this.props.postObj.user_id}
+                                postId={this.props.postObj.id}
+                            />
+                        </div>
                     </div>
-                    <div className="post_middle">
-                        <p className="post_body">
-                            {this.props.postObj.body}
-                        </p>
-                    </div>
-                    <div className="profpiclinediv-photomodal"></div>
-                    {/* Comments */}
-                    <CommentContainer
-                        postUserId={this.props.postObj.user_id}
-                        postId={this.props.postObj.id}
-                    />
                 </div>
             </>
         )

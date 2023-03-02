@@ -3,7 +3,7 @@
     font-size: 90%;
     position: fixed;
     top: 50%;
-    right: -20%;
+    right: -15.9%;
     padding: 10px;
     width: 30%;
     height: 100%;
@@ -30,13 +30,23 @@
     margin-bottom: 6px;
 }
 
+.organize-photomodal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.photo-photomodal {
+    display: flex;
+    justify-content: center;
+    width: 68.6%;
+}
+
 .photopic-photomodal {
     padding: 0px;
-    // width: 100%;
-    // height: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
+    width: 70vw;
+    height: 100vh;
+    object-fit: contain;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     z-index: 15;
@@ -47,4 +57,8 @@
     cursor: pointer;
     opacity: 85%;
     animation: 0.5s hoveroversml forwards;
+}
+
+.comments-photomodal {
+    width: 95%;
 }
