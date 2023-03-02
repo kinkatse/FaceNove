@@ -10,7 +10,7 @@
     background: white;
     border-radius: 7px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    z-index: 15;
+    z-index: 20;
     animation: 0.3s modal_hoveroff forwards;
 }
 
@@ -50,13 +50,14 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
     background-color: black;
     border-radius: 5px;
-    z-index: 15;
-    animation: 0.5s hoveroffsml forwards;
+    z-index: 18;
+    animation: 0.5s hoveroffsmller forwards;
 }
 
 .photopic-photomodal:hover {
     cursor: pointer;
-    animation: 0.5s hoveroversml forwards;
+    animation: 0.5s hoveroversmller forwards;
+    z-index: 15;
 }
 
 .comments-photomodal {
@@ -67,16 +68,38 @@
     margin-left: 10px;
 }
 
-.photomodal-prevbutton {
+.photomodal-button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 30%;
     position: fixed;
-    top: 250px;
-    left: 100px;
+    top: 350px;
     z-index: 16;
+    border-radius: 100px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    animation: 0.5s hoveroffsml forwards;
 }
 
-.photomodal-nextbutton {
-    position: fixed;
-    top: 250px;
-    right: 100px;
-    z-index: 16;
+.photomodal-button:hover {
+    animation: 0.5s hoveroversml forwards;
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 70%;
+    z-index: 19;
+    user-select: none;
+}
+
+.prev {
+    padding-left: 8px;
+    padding-right: 10px;
+    left: 15px;
+}
+
+.next {
+    padding-left: 10px;
+    padding-right: 8px;
+    right: 357.5px;
 }

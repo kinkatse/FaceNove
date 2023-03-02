@@ -41,6 +41,11 @@
     to { transform: scale(1.02); }
   }
 
+  @keyframes hoveroversmller {
+    from { transform: scale(1); }
+    to { transform: scale(1.005); }
+  }
+
   @keyframes hoverover {
     from { transform: scale(1); }
     to { transform: scale(1.04); }
@@ -48,6 +53,11 @@
   
   @keyframes hoveroffsml {
     from { transform: scale(1.02); }
+    to { transform: scale(1); }
+  }
+
+  @keyframes hoveroffsmller {
+    from { transform: scale(1.005); }
     to { transform: scale(1); }
   }
 
