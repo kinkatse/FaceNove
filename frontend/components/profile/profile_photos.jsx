@@ -1,4 +1,5 @@
 import React from 'react';
+import { filterPhotoPostIds } from '../../util/filter_util';
 
 class ProfilePhotos extends React.Component {
 
@@ -30,7 +31,8 @@ class ProfilePhotos extends React.Component {
             posts = newPosts
         }
 
-        const photoPostIds = posts.map((post) => post.id)
+        // const photoPostIds = posts.map((post) => post.id)
+        const photoPostIds = filterPhotoPostIds(this.props.posts)
 
         return (
             <div className={`${componentContainerStyling}`}>

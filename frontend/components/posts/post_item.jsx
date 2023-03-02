@@ -5,6 +5,7 @@ import PostDrop from './post_drop'
 
 import { postProfPicColor, commentButton, postButtonColor } from '../../util/color_util';
 import LikeContainer from '../likes/like_container';
+import { filterPhotoPostIds } from '../../util/filter_util';
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -150,20 +151,7 @@ class PostItem extends React.Component {
         // put that into the else condition
             
         if (typeof this.props.postPicUrl === 'string') {
-            // Grab only user's posts
-            let postArr = Object.values(this.props.posts).reverse()
-            let userPostsArr = []
-            for (let post of postArr) {
-                if (parseInt(this.props.userId) === post.user_id) userPostsArr.push(post)
-            }
-            // Grab posts with photos
-            let postsWithPhotosArr = []
-            for (let post of userPostsArr) {
-                if (post.postPhotoUrl) postsWithPhotosArr.push(post)
-            }
-    
-            const photoPostIds = postsWithPhotosArr.map((post) => post.id)
-
+            const photoPostIds = filterPhotoPostIds(this.props.posts)
             return ( <img
                 className="postpic"
                 src={this.props.postPicUrl}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { filterPostsWithPhotos } from '../../util/filter_util';
 import ProfileFriends from './profile_friends';
 import ProfileIntro from './profile_intro';
 import ProfilePhotos from './profile_photos';
@@ -12,16 +13,7 @@ class ProfileLeft extends React.Component {
     // }
 
     render() {
-        let postArr = Object.values(this.props.posts).reverse()
-        let userPostsArr = []
-        for (let post of postArr) {
-            if (parseInt(this.props.userId) === post.user_id) userPostsArr.push(post)
-        }
-        let postsWithPhotosArr = []
-        for (let post of userPostsArr) {
-            if (post.postPhotoUrl) postsWithPhotosArr.push(post)
-        }
-    
+        const postsWithPhotosArr = filterPostsWithPhotos(this.props.posts, this.props.userId)
         return (
             <div className="profile_left">
                 <ProfileIntro
