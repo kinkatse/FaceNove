@@ -90,7 +90,6 @@ class PhotoModal extends React.Component {
     }
 
     render() {
-        // if (!this.props.postObj) return null;
         const { time_posted, timestamp_hover } = filterTime(this.props.postObj.created_at, this.props.postObj.updated_at)
 
         return (

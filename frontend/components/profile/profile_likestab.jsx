@@ -1,4 +1,5 @@
 import React from 'react';
+import { filterPostsWithPhotos } from '../../util/filter_util';
 import PostItem from '../posts/post_item';
 
 // Problem with showing comments here, is they are under a post.
@@ -41,6 +42,7 @@ const ProfileLikesTab = (props) => {
             </div>
         )
     }
+    const postsWithPhotosArr = filterPostsWithPhotos(likedPostsArr)
 
     return (
         <div className="tabbody">
@@ -51,6 +53,7 @@ const ProfileLikesTab = (props) => {
                         return (<PostItem
                             key={post.id}
                             postId={post.id}
+                            posts={postsWithPhotosArr}
                             postUserId={post.user_id}
                             postBody={post.body}
                             likeIds={post.likeIds}
@@ -64,6 +67,7 @@ const ProfileLikesTab = (props) => {
                             destroyPost={props.destroyPost}
                             removePostComments={props.removePostComments}
                             openEditPostModal={props.openEditPostModal}
+                            openPicModal={props.openPicModal}
                             postPicUrl={post.postPhotoUrl}
                             profilePicUrl={post.profilePicUrl}
                             fromLikesTab={true}
