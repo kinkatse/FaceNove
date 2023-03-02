@@ -65,6 +65,7 @@ class Post extends React.Component {
                             postId={post.id}
                             postUserId={post.user_id}
                             postBody={post.body}
+                            posts={postArr}
                             likeIds={post.likeIds}
                             currentUser={this.props.currentUser}
                             userId={this.props.userId}
@@ -76,6 +77,7 @@ class Post extends React.Component {
                             destroyPost={this.props.destroyPost}
                             removePostComments={this.props.removePostComments}
                             openEditPostModal={this.props.openEditPostModal}
+                            openPicModal={this.props.openPicModal}
                             postPicUrl={post.postPhotoUrl}
                             profilePicUrl={post.profilePicUrl}
                         /> )

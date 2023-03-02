@@ -12,8 +12,7 @@ class PostItem extends React.Component {
         this.state = {
             dropOpen: false,
             commentsOpen: false,
-            postBody: this.props.postBody,
-            enlarged: false
+            postBody: this.props.postBody
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
@@ -34,14 +33,6 @@ class PostItem extends React.Component {
             this.props.removePostComments(this.props.postId)
         }
         this.setState({ commentsOpen: !value })
-    }
-
-    enlargePic() {
-        this.setState({ enlarged: true })
-    }
-
-    closeEnlargedPic() {
-        this.setState({ enlarged: false })
     }
 
     rendersPostTopRight() {
@@ -157,28 +148,29 @@ class PostItem extends React.Component {
         // in the case that the postPicUrl comes in with some
         // other data that isn't the data we want, then we
         // put that into the else condition
-        if (typeof this.props.postPicUrl === 'string' && this.state.enlarged === true) {
-            return (
-            <>
-                <div className="edit_modal_background enlargedback" onClick={() => this.closeEnlargedPic()}></div>
-                <img
-                    className="enlarged"
-                    src={this.props.postPicUrl}
-                />
-                <img
-                    className="postpic"
-                    src={this.props.postPicUrl}
-                />
-            </> 
-            )
-        } else if (typeof this.props.postPicUrl === 'string') {
+            
+        if (typeof this.props.postPicUrl === 'string') {
+            // Grab only user's posts
+            let postArr = Object.values(this.props.posts).reverse()
+            let userPostsArr = []
+            for (let post of postArr) {
+                if (parseInt(this.props.userId) === post.user_id) userPostsArr.push(post)
+            }
+            // Grab posts with photos
+            let postsWithPhotosArr = []
+            for (let post of userPostsArr) {
+                if (post.postPhotoUrl) postsWithPhotosArr.push(post)
+            }
+    
+            const photoPostIds = postsWithPhotosArr.map((post) => post.id)
+
             return ( <img
                 className="postpic"
                 src={this.props.postPicUrl}
-                onClick={() => this.enlargePic()}
+                onClick={() => this.props.openPicModal(this.props.postId, photoPostIds)}
             /> )
         } else {
-            return null;
+            return null
         }
     }
 
