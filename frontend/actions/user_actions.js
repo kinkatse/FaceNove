@@ -35,7 +35,10 @@ export const showUser = (userId) => (dispatch) => {
 export const updateUser = (user, userId) => (dispatch) => {
     return (
         UsersApiUtil.editUser(user, userId)
-        .then(user => dispatch(getUser(user)))
+        .then(data => {
+            dispatch(getUser(data.user))
+            dispatch(receiveAllPosts(data.posts))
+        })
     )
 }
 
@@ -43,7 +46,10 @@ export const updateUser = (user, userId) => (dispatch) => {
 export const updateProfPic = (user, userId) => (dispatch) => {
     return (
         UsersApiUtil.changeProfPic(user, userId)
-        .then(user => dispatch(getUser(user)))
+        .then(data => {
+            dispatch(getUser(data.user))
+            dispatch(receiveAllPosts(data.posts))
+        })
     )
 }
 
@@ -51,6 +57,9 @@ export const updateProfPic = (user, userId) => (dispatch) => {
 export const updateCovPic = (user, userId) => (dispatch) => {
     return (
         UsersApiUtil.changeCovPic(user, userId)
-        .then(user => dispatch(getUser(user)))
+        .then(data => {
+            dispatch(getUser(data.user))
+            dispatch(receiveAllPosts(data.posts))
+        })
     )
 }

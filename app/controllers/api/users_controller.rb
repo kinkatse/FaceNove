@@ -37,9 +37,14 @@ class Api::UsersController < ApplicationController
     end
 
     def update
-        @emailUser = User.find_by(id: params[:id])
+        @emailUser = User.includes(posts: [:likes]).find_by(id: params[:id])
         # .update_attribute is a rails built in method and takes in params to update all info passed in
         if @emailUser.update_attributes(email_user_params)
+            @posts = @emailUser.posts
+            @postsWithPhotos = []
+            @posts.each do |post|
+                @postsWithPhotos << post if post.postPhotoUrl.attached?
+            end
             render :show
         else
             render json: @emailUser.errors.full_messages, status: 418
