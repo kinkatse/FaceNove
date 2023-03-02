@@ -25,7 +25,7 @@ class ProfilePhotos extends React.Component {
             photoStyling = "photopic-prof";
 
             const newPosts = []
-            posts.reverse().map((post) => {
+            posts.map((post) => {
                 if (newPosts.length < 9) newPosts.push(post)
             })
             posts = newPosts

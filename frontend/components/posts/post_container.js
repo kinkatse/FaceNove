@@ -8,7 +8,7 @@ import {
     clearPosts
 } from '../../actions/post_actions';
 import { clearComments, removePostComments } from '../../actions/comment_actions';
-import { openCreatePostModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
+import { closeModal, openCreatePostModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -36,7 +36,8 @@ const mapDispatchToProps = (dispatch) => {
         removePostComments: ((postId) => dispatch(removePostComments(postId))),
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         clearPosts: (() => dispatch(clearPosts())),
-        clearComments: (() => dispatch(clearComments()))
+        clearComments: (() => dispatch(clearComments())),
+        closeModal: () => dispatch(closeModal())
     }
 }
 

@@ -17,7 +17,10 @@ class PostDrop extends React.Component {
                                 <p className="dropopentext">Edit</p>
                         </div>
                         <div
-                            onClick={() => this.props.destroyPost(this.props.postId)}>
+                            onClick={() => {
+                                this.props.closeModal()
+                                this.props.destroyPost(this.props.postId)
+                                }}>
                                 <p className="dropopentext">Delete</p>
                         </div>
                     </div>

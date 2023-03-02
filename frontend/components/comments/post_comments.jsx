@@ -110,6 +110,7 @@ class PostComments extends React.Component {
                         openCommentEdit={this.openCommentEdit}
                         commentId={this.props.commentId}
                         destroyComment={this.props.destroyComment}
+                        closeModal={this.props.closeModal}
                     />
                 </div>
             )

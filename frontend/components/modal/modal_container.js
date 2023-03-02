@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Modal from './modal';
-import { closeModal, openPicModal } from '../../actions/modal_actions';
+import { closeModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
 import { signup } from '../../actions/session_actions'
 import { updateUser, updateProfPic, updateCovPic } from '../../actions/user_actions';
-import { createPost, updatePost } from '../../actions/post_actions'
+import { createPost, destroyPost, updatePost } from '../../actions/post_actions'
 import { indexComments } from '../../actions/comment_actions';
 
 const mapStateToProps = (state) => {
@@ -30,6 +30,8 @@ const mapDispatchToProps = (dispatch) => {
         createPost: (postData) => dispatch(createPost(postData)),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
         indexComments: (relatedId => dispatch(indexComments(relatedId))),
+        openEditPostModal: (postId) => dispatch(openEditPostModal(postId)),
+        destroyPost: (postId => dispatch(destroyPost(postId))),
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         closeModal: () => dispatch(closeModal())
     }

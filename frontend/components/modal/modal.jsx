@@ -12,9 +12,6 @@ import PhotoModal from './modal_photos';
 class Modal extends React.Component {
 
     selectModal() {
-        // const profileComponent = document.querySelector(".profile-top")
-        // profileComponent.
-
         switch(this.props.modal.type) {
             case 'signup':
                 return <SignupModalForm
@@ -67,6 +64,8 @@ class Modal extends React.Component {
                     postObj={this.props.postObj}
                     photoPostIds={this.props.photoPostIds}
                     openPicModal={this.props.openPicModal}
+                    openEditPostModal={this.props.openEditPostModal}
+                    destroyPost={this.props.destroyPost}
                     closeModal={this.props.closeModal}
                 />
             case '':

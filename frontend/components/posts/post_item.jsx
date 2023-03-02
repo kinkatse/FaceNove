@@ -81,6 +81,7 @@ class PostItem extends React.Component {
                         postId={this.props.postId}
                         openEditPostModal={this.props.openEditPostModal}
                         destroyPost={this.props.destroyPost}
+                        closeModal={this.props.closeModal}
                     />
                 </div>
             )

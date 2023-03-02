@@ -5,14 +5,18 @@ import { appColor, postProfPicColor, unlikeButton } from '../../util/color_util'
 import { filterTime } from '../../util/filter_util';
 import CommentContainer from '../comments/comment_container';
 import LikeContainer from '../likes/like_container';
+import PostDrop from '../posts/post_drop';
 
 class PhotoModal extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = {
-        // }
+        this.state = {
+            dropOpen: false
+        }
         this.next = this.next.bind(this)
         this.prev = this.prev.bind(this)
+        this.dropOpen = this.dropOpen.bind(this);
+        this.dropClose = this.dropClose.bind(this);
     }
 
     next() {
@@ -54,30 +58,71 @@ class PhotoModal extends React.Component {
                 />
     }
 
+    dropOpen() {
+        this.setState({ dropOpen: true })
+    }
+
+    dropClose() {
+        this.setState({ dropOpen: false })
+    }
+
+    rendersPostDropClose() {
+        if (this.state.dropOpen) {
+            return (
+                <div className="post_dropclose" onClick={this.dropClose}></div>
+            )
+        }
+    }
+
+    rendersPostDrop() {
+        let component;
+        if (this.state.dropOpen) {
+            component = (
+                <div className="">
+                    <div className="post_dropdown">...</div>
+                    <PostDrop
+                        type="Post"
+                        postId={this.props.postObj.id}
+                        openEditPostModal={this.props.openEditPostModal}
+                        destroyPost={this.props.destroyPost}
+                        closeModal={this.props.closeModal}
+                    />
+                </div>
+            )
+        } else {
+            component = (
+                <div className="post_dropdown">...</div>
+            );
+        }
+        return component;
+    }
+
     rendersPostTopRight() {
         let component;
-        // let dropclassname;
-        // if (this.state.dropOpen) {
-        //     dropclassname = ""
-        // } else {
-        //     dropclassname = "opendropbtn"
-        // }
+        let dropclassname;
+        if (this.state.dropOpen) {
+            dropclassname = ""
+        } else {
+            dropclassname = "opendropbtn"
+        }
 
-        // if (this.props.currentUser.id === parseInt(this.props.postUserId)) {
-        //     component = (
-        //         <div>
-        //             {this.rendersPostDropClose()}
-        //             <div className={`post_top_right ${dropclassname}`} onClick={this.dropOpen}>
-        //                 {this.rendersPostDrop()}
-        //             </div>
-        //         </div>
-        //     )
-        // } else {
-        //     component = null;
-        // }
-        return (
-            component
-        )
+        if (this.props.currentUser.id === this.props.postObj.user_id) {
+            component = (
+                <div>
+                    {this.rendersPostDropClose()}
+                    <div className={`post_top_right ${dropclassname}`} onClick={this.dropOpen}>
+                        {this.rendersPostDrop()}
+                    </div>
+                </div>
+            )
+        } else {
+            component = null;
+        }
+
+        return component;
+        // return (
+        //     component
+        // )
     }
 
     render() {
