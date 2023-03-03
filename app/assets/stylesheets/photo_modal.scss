@@ -83,21 +83,31 @@
 }
 
 .comments-photomodal {
-    width: 92%;
-    height: 50%;
-    padding-right: 20px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    border: solid 1px lightgrey;;
+    width: 100%;
 }
 
-.comments-photomodal::-webkit-scrollbar {
+.comments-photomodal input {
+    margin-top: 10px;
+    width: 85%;
+}
+
+.comments-photomodal-oncomments {
+    width: 92%;
+    height: 55vh;
+    padding-right: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+}
+
+.comments-photomodal-oncomments::-webkit-scrollbar {
     width: 10px;
     background-color: rgb(228, 228, 228);
     border-radius: 5px;
   }
   
-.comments-photomodal::-webkit-scrollbar-thumb {
+.comments-photomodal-oncomments::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     border-radius: 5px;
     // box-shadow: 5px rgba(0,0,0,0.3);
