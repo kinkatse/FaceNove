@@ -51,8 +51,7 @@ class Comment extends React.Component {
         this.props.createComment(commentData).then(this.resetState())
     }
 
-    rendersCreateComment(outsidePhotoModalComments) {
-        if (this.props.fromPhotoModal && !outsidePhotoModalComments) return null
+    rendersCreateComment() {
         return (
             <form onSubmit={this.handleCommentSubmit}>
                 <input
@@ -67,6 +66,57 @@ class Comment extends React.Component {
         )
     }
 
+    renderAllComments(commentArr) {
+        return (
+            <>
+                {
+                    commentArr.map(comment => (
+                        <PostComments
+                            key={comment.id}
+                            commentId={comment.id}
+                            commentBody={comment.body}
+                            // this is for which user from the comment
+                            authorCommentId={comment.user_id}
+                            commentPostId={comment.post_id}
+                            postId={this.props.postId}
+                            likeIds={comment.likeIds}
+                            // postUserId={this.props.postUserId}
+                            firstName={comment.firstName}
+                            lastName={comment.lastName}
+                            createComment={this.props.createComment}
+                            updateComment={this.props.updateComment}
+                            destroyComment={this.props.destroyComment}
+                            profilePicUrl={comment.profilePicUrl}
+                            currentUser={this.props.currentUser}
+                            fromPhotoModal={this.props.fromPhotoModal}
+                        /> )
+                    )
+                }
+            </>
+        )
+    }
+
+    rendersCommentsComponent(commentArr) {
+        if (!this.props.fromPhotoModal) {
+            return (
+                <div>
+                    {this.renderAllComments(commentArr)}
+                    {this.rendersCreateComment()}
+                </div>
+            )
+        } else {
+            return (
+                <>
+                    <div className='comments-photomodal-oncomments'>
+                        {this.renderAllComments(commentArr)}
+                    </div>
+                    {this.rendersCreateComment()}
+                </>
+            )
+        }
+            
+    }
+
     render() {
         if (Object.keys(this.props.comments).length === 0) {
             return this.rendersCreateComment()
@@ -78,7 +128,8 @@ class Comment extends React.Component {
         let commentArr = Object.values(this.props.comments).reverse()
         return (
             <div>
-                <div className='comments-photomodal-oncomments'>
+                {this.rendersCommentsComponent(commentArr)}
+                {/* <div className='comments-photomodal-oncomments'>
                     {
                         commentArr.map(comment => (
                             <PostComments
@@ -104,7 +155,7 @@ class Comment extends React.Component {
                     }
                     {this.rendersCreateComment()}
                 </div>
-                {this.rendersCreateComment(outsidePhotoModalComments)}
+                {this.rendersCreateComment(outsidePhotoModalComments)} */}
             </div>
         )
     }
