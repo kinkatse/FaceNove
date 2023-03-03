@@ -13,8 +13,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     z-index: 20;
     animation: 0.3s modal_hoveroff forwards;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    // overflow-y: scroll;
+    // overflow-x: hidden;
 }
 
 .profpiclinediv-photomodal {
@@ -84,6 +84,23 @@
 
 .comments-photomodal {
     width: 92%;
+    height: 50%;
+    padding-right: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: solid 1px lightgrey;;
+}
+
+.comments-photomodal::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 5px;
+  }
+  
+.comments-photomodal::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 5px;
+    // box-shadow: 5px rgba(0,0,0,0.3);
 }
 
 .photo_modal_title {

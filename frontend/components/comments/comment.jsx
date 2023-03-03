@@ -52,6 +52,7 @@ class Comment extends React.Component {
     }
 
     rendersCreateComment() {
+        if (this.props.fromPhotoModal) return null
         return (
             <form onSubmit={this.handleCommentSubmit}>
                 <input
