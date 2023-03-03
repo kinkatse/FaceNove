@@ -14,16 +14,17 @@ else
                 likeIds << like.id
             end
         end
-
     end
 end
 
-@posts.each do |post|
-    json.posts do
-        json.set! post.id do
-            json.partial! 'api/posts/post', post: post
-            json.likeIds do
-                json.array! likeIds
+if !@posts.nil?
+    @posts.each do |post|
+        json.posts do
+            json.set! post.id do
+                json.partial! 'api/posts/post', post: post
+                json.likeIds do
+                    json.array! likeIds
+                end
             end
         end
     end

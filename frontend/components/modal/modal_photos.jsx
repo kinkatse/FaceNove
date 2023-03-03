@@ -78,7 +78,7 @@ class PhotoModal extends React.Component {
         let component;
         if (this.state.dropOpen) {
             component = (
-                <div className="">
+                <div className="post_drop-photomodal">
                     <div className="post_dropdown">...</div>
                     <PostDrop
                         type="Post"
@@ -91,7 +91,9 @@ class PhotoModal extends React.Component {
             )
         } else {
             component = (
-                <div className="post_dropdown">...</div>
+                <div className="post_drop-photomodal">
+                    <div className="post_dropdown">...</div>
+                </div>
             );
         }
         return component;

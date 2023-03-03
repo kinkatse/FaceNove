@@ -8,6 +8,9 @@ import { indexLikes, createLike, destroyLike } from './actions/like_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
+    if (!window.localStorage.getItem('appColor')) {
+        window.localStorage.setItem('appColor', 'blue')
+    }
     if (window.currentUser) {
         const preloadedState = {
             entities: {

@@ -68,6 +68,11 @@
     animation: 0.5s hoveroffsmller forwards;
 }
 
+.post_drop-photomodal {
+    position: relative;
+    right: 80%;
+}
+
 .photopic-photomodal:hover {
     cursor: pointer;
     animation: 0.5s hoveroversmller forwards;

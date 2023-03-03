@@ -16,7 +16,6 @@ const themeucer = (state = {color: 'blue'}, action) => {
                 return Object.assign({}, state, {color: 'blue'})
             }
         default:
-            window.localStorage.setItem('appColor', 'blue')
             return state;
     }
 }
