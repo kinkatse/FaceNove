@@ -80,3 +80,14 @@
       from { opacity: 100%; }
       to { opacity: 0%; }
   }
+
+  body::-webkit-scrollbar {
+    width: 12px;
+    background-color: rgb(228, 228, 228);
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 5px;
+    // box-shadow: 5px rgba(0,0,0,0.3);
+  }
