@@ -5,6 +5,7 @@
     top: 50%;
     right: -16.5%;
     padding: 10px;
+    padding-bottom: 20px;
     width: 30%;
     height: 100%;
     background: white;
@@ -12,6 +13,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     z-index: 20;
     animation: 0.3s modal_hoveroff forwards;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .profpiclinediv-photomodal {
