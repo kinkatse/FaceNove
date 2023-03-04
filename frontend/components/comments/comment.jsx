@@ -97,17 +97,32 @@ class Comment extends React.Component {
     }
 
     rendersCommentsComponent(commentArr) {
+        // debugger
+        const onlyRelevantComments = []
+        commentArr.forEach(comment => {
+            if (comment.post_id === this.props.postId) onlyRelevantComments.push(comment)
+        })
+        // debugger
         if (!this.props.fromPhotoModal) {
             return (
-                <div>
+                <>
                     {this.renderAllComments(commentArr)}
                     {this.rendersCreateComment()}
-                </div>
+                </>
+            )
+        } else if (onlyRelevantComments.length > 2) {
+            return (
+                <>
+                    <div className='comments-photomodal-oncomments'>
+                        {this.renderAllComments(commentArr)}
+                    </div>
+                    {this.rendersCreateComment()}
+                </>
             )
         } else {
             return (
                 <>
-                    <div className='comments-photomodal-oncomments'>
+                    <div className='comments-photomodal-lesscomments'>
                         {this.renderAllComments(commentArr)}
                     </div>
                     {this.rendersCreateComment()}
