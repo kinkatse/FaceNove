@@ -61,7 +61,7 @@
 .photopic-photomodal {
     padding: 0px;
     position: fixed;
-    width: 70vw;
+    width: 70.5vw;
     height: 100vh;
     object-fit: contain;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
@@ -71,9 +71,13 @@
     animation: 0.5s hoveroffsmller forwards;
 }
 
-.post_drop-photomodal {
+.opendropbtn-photomodal {
     position: relative;
-    right: 80%;
+    right: 45%;
+}
+
+.opendropbtn-photomodal:hover {
+    background: rgba(209, 211, 214, 0.6);
 }
 
 .photopic-photomodal:hover {
@@ -97,6 +101,14 @@
 .comments-photomodal input {
     margin-top: 13px;
     width: 85%;
+}
+
+.comments-photomodal p.comment_body {
+    width: 95%;
+}
+
+.photo_modal_child p.post_body {
+    width: 90%;
 }
 
 .comments-photomodal-oncomments {

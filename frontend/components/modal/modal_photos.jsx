@@ -105,7 +105,7 @@ class PhotoModal extends React.Component {
         if (this.state.dropOpen) {
             dropclassname = ""
         } else {
-            dropclassname = "opendropbtn"
+            dropclassname = "opendropbtn-photomodal"
         }
 
         if (this.props.currentUser.id === this.props.postObj.user_id) {

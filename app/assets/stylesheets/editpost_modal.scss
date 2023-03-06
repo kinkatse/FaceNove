@@ -171,6 +171,18 @@
     color: black;
 }
 
+.editpost_input::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 5px;
+}
+
+.editpost_input::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 5px;
+    // box-shadow: 5px rgba(0,0,0,0.3);
+}
+
 .editpostposition {
     position: relative;
 }
