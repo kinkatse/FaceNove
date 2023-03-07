@@ -99,8 +99,19 @@
 }
 
 .comments-photomodal input {
-    margin-top: 13px;
+    // margin-top: 13px;
     width: 85%;
+}
+
+.comments-photomodal form {
+    position: absolute;
+    bottom: 15px;
+    left: 8px;
+    width: 98%;
+    background: white;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    z-index: 20;
 }
 
 .comments-photomodal p.comment_body {
