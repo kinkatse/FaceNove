@@ -10,14 +10,37 @@ import { filterPhotoPostIds, filterTime } from '../../util/filter_util';
 class PostItem extends React.Component {
     constructor(props) {
         super(props);
+        // if (props.postBody && props.postBody.length > 90) {
+        //     debugger
+        //     this.state = {
+        //         dropOpen: false,
+        //         commentsOpen: false,
+        //         postBody: props.postBody.slice(0, 90)
+        //     }
+        //     console.log(this.state)
+        //     debugger
+        //     console.log(this.state)
+        // } else {
+        //     this.state = {
+        //         dropOpen: false,
+        //         commentsOpen: false,
+        //         postBody: this.props.postBody
+        //     }
+        // }
         this.state = {
             dropOpen: false,
             commentsOpen: false,
+            moreOn: false,
             postBody: this.props.postBody
         }
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
         this.commentsToggle = this.commentsToggle.bind(this);
+        this.moreOnToggle = this.moreOnToggle.bind(this);
+    }
+
+    moreOnToggle() {
+        this.setState({ moreOn: !this.state.moreOn })
     }
 
     dropOpen() {
@@ -111,6 +134,25 @@ class PostItem extends React.Component {
         }
     }
 
+    rendersPostBody() {
+        let postBody = this.props.postBody
+
+        if (postBody.length > 90 && !this.state.moreOn) {
+            let moreButton = <span className="see-more" onClick={this.moreOnToggle}>See more</span>
+            return (
+                <div className="post_body">
+                    {postBody.slice(0, 90)}{'... '}{moreButton}
+                </div>
+            )
+        }
+
+        return (
+            <p className="post_body">
+                {postBody}
+            </p>
+        )
+    }
+
     rendersComments() {
         if (this.state.commentsOpen) {
             return (
@@ -184,9 +226,7 @@ class PostItem extends React.Component {
                     {this.rendersPostTopRight()}
                 </div>
                 <div className="post_middle">
-                    <p className="post_body">
-                        {this.props.postBody}
-                    </p>
+                    {this.rendersPostBody()}
                 </div>
                 <div className="postpic_whole">
                     {this.rendersPostPhoto()}

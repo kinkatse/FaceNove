@@ -118,7 +118,7 @@
     width: 95%;
 }
 
-.photo_modal_child p.post_body {
+.photo_modal_child div.post_body {
     width: 90%;
 }
 
@@ -130,6 +130,11 @@
     overflow-x: hidden;
     border: solid 1px lightgrey;
     border-radius: 5px;
+}
+
+.see-more {
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .comments-photomodal-oncomments div.comment_whole-photomodal {

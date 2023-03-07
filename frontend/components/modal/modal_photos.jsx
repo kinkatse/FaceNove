@@ -11,12 +11,14 @@ class PhotoModal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            dropOpen: false
+            dropOpen: false,
+            moreOn: false
         }
         this.next = this.next.bind(this)
         this.prev = this.prev.bind(this)
         this.dropOpen = this.dropOpen.bind(this);
         this.dropClose = this.dropClose.bind(this);
+        this.moreOnToggle = this.moreOnToggle.bind(this);
     }
 
     next() {
@@ -56,6 +58,10 @@ class PhotoModal extends React.Component {
                     likeIds={this.props.postObj.likeIds}
                     fromPhotoModal={true}
                 />
+    }
+
+    moreOnToggle() {
+        this.setState({ moreOn: !this.state.moreOn })
     }
 
     dropOpen() {
@@ -122,9 +128,25 @@ class PhotoModal extends React.Component {
         }
 
         return component;
-        // return (
-        //     component
-        // )
+    }
+
+    rendersPostBody() {
+        let postBody = this.props.postObj.body
+
+        if (postBody.length > 90 && !this.state.moreOn) {
+            let moreButton = <span className="see-more" onClick={this.moreOnToggle}>See more</span>
+            return (
+                <div className="post_body">
+                    {postBody.slice(0, 90)}{'... '}{moreButton}
+                </div>
+            )
+        }
+
+        return (
+            <div className="post_body">
+                {postBody}
+            </div>
+        )
     }
 
     render() {
@@ -177,9 +199,7 @@ class PhotoModal extends React.Component {
                             {this.rendersPostTopRight()}
                         </div>
                         <div className="post_middle">
-                            <p className="post_body">
-                                {this.props.postObj.body}
-                            </p>
+                            {this.rendersPostBody()}
                         </div>
                         {/* Likes */}
                         {this.rendersLikeCount()}
