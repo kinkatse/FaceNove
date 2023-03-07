@@ -149,6 +149,21 @@ class PhotoModal extends React.Component {
         )
     }
 
+    rendersCreateComment() {
+        return (
+            <form onSubmit={this.handleCommentSubmit}>
+                <input
+                    className="createcomment"
+                    type="text"
+                    value={this.state.commentBody}
+                    placeholder="Write a comment"
+                    onChange={this.updateCommentBody()}
+                />
+                <p className="comments_placeholder">Press Enter to Post.</p>
+            </form>
+        )
+    }
+
     render() {
         const { time_posted, timestamp_hover } = filterTime(this.props.postObj.created_at, this.props.postObj.updated_at)
 
@@ -168,45 +183,47 @@ class PhotoModal extends React.Component {
                         <div className='photomodal-button next' onClick={this.next}>{">"}</div>
                     </div>
                     <div className="photo_modal_child">
-                        <div className="profpictop">
-                            <h1 className="photo_modal_title">Photo</h1>
-                            <img className="X photo-modal-x" src={window.x_url} onClick={this.props.closeModal}/>
-                        </div>
-                        <div className="profpiclinediv-photomodal"></div>
-                        {/* Post */}
-                        <div className="post_top">
-                            <div className="post_top_left">
-                                <Link to={`/user/${this.props.postObj.user_id}`}>
-                                    <img
-                                        className={`post_profile_pic ${postProfPicColor()}`}
-                                        src={this.props.postObj.profilePicUrl}
-                                    />
-                                </Link>
-                                <div className="name_and_time">
+                        {/* <div className='profpictophalf'> */}
+                            <div className="profpictop">
+                                <h1 className="photo_modal_title">Photo</h1>
+                                <img className="X photo-modal-x" src={window.x_url} onClick={this.props.closeModal}/>
+                            </div>
+                            <div className="profpiclinediv-photomodal"></div>
+                            {/* Post */}
+                            <div className="post_top">
+                                <div className="post_top_left">
                                     <Link to={`/user/${this.props.postObj.user_id}`}>
-                                        <h2 className="post_name">
-                                            {this.props.postObj.firstName} {this.props.postObj.lastName}
-                                        </h2>
+                                        <img
+                                            className={`post_profile_pic ${postProfPicColor()}`}
+                                            src={this.props.postObj.profilePicUrl}
+                                        />
                                     </Link>
-                                    <div className="post_timestamp">
-                                        {time_posted}
-                                        <div className="post_timestamp_hover">
-                                            {timestamp_hover}
+                                    <div className="name_and_time">
+                                        <Link to={`/user/${this.props.postObj.user_id}`}>
+                                            <h2 className="post_name">
+                                                {this.props.postObj.firstName} {this.props.postObj.lastName}
+                                            </h2>
+                                        </Link>
+                                        <div className="post_timestamp">
+                                            {time_posted}
+                                            <div className="post_timestamp_hover">
+                                                {timestamp_hover}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                {this.rendersPostTopRight()}
                             </div>
-                            {this.rendersPostTopRight()}
-                        </div>
-                        <div className="post_middle">
-                            {this.rendersPostBody()}
-                        </div>
-                        {/* Likes */}
-                        {this.rendersLikeCount()}
-                        <div className="post_buttons">
-                            {this.rendersLikeButton()}
-                        </div>
-                        <div className="profpiclinediv-photomodal"></div>
+                            <div className="post_middle">
+                                {this.rendersPostBody()}
+                            </div>
+                            {/* Likes */}
+                            {this.rendersLikeCount()}
+                            <div className="post_buttons">
+                                {this.rendersLikeButton()}
+                            </div>
+                            <div className="profpiclinediv-photomodal"></div>
+                        {/* </div> */}
                         {/* Comments */}
                         <div className='comments-photomodal'>
                             <CommentContainer

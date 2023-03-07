@@ -142,7 +142,7 @@ class Comment extends React.Component {
 
         let commentArr = Object.values(this.props.comments).reverse()
         return (
-            <div>
+            <div className='comment-whole-post'>
                 {this.rendersCommentsComponent(commentArr)}
                 {/* <div className='comments-photomodal-oncomments'>
                     {
