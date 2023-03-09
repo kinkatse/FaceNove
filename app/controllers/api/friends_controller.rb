@@ -15,6 +15,7 @@ class Api::FriendsController < ApplicationController
     def index
         @user = User.find(params[:user_id])
         @friends = @user.friends
+        # @friends_accepted = Friend.find_recent_requests(@user, @friends)
         @requests = @user.incoming_requests
         @requesters = @requests.map { |request| request.friend_requester }
         render :index

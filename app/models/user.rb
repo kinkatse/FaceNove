@@ -65,6 +65,14 @@ class User < ApplicationRecord
         return requests
     end
 
+    def self.find_recent_requests(user, friends)
+        accepted = []
+        relatedRequests = Friend.where(user_id: user.id).or.where(friend_id: user_id)
+        # nested iteration to grab corresponding friendships with their latest dates.
+        # this may take some time and is not the most necessary
+        return accepted
+    end
+
     def self.find_by_credentials(email, password)
         # Class method which we get user where their email == the email param we got
         @emailUser = User.find_by(email: email)
