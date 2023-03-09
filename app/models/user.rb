@@ -32,12 +32,12 @@ class User < ApplicationRecord
         source: :likeable,
         source_type: 'Comment'
 
-    has_many :friend_requests_outgoing,
+    has_many :friend_sent_requests,
         primary_key: :id,
         foreign_key: :user_id,
         class_name: :Friend
 
-    has_many :friend_requests_incoming,
+    has_many :friend_requests,
         primary_key: :id,
         foreign_key: :friend_id,
         class_name: :Friend
@@ -47,19 +47,20 @@ class User < ApplicationRecord
 
     def friends
         friends = []
-        self.friend_requests_outgoing.each do |friendee|
-            friend = Friend.find_by(user_id: friendee.friend_id, friend_id: self.id)
-            friends << friendee.friend_requestee if friend
+        self.friend_sent_requests.each do |friendship|
+            other_friendship = Friend.find_by(user_id: friendship.friend_id, friend_id: self.id)
+            friends << friendship.friend_requestee if other_friendship
+            # If there is a friend found, that indicates we have a friendship
         end
-        # debugger
         return friends
     end
 
-    def all_incoming_friend_requests
+    def incoming_requests
         requesters = []
-        self.friend_requests_incoming.each do |request|
-            friend = Friend.find_by(user_id: self.id, friend_id: request.user_id)
-            requesters << request.friend_requester if !friend
+        self.friend_requests.each do |request|
+            friendship = Friend.find_by(user_id: self.id, friend_id: request.user_id)
+            requesters << request.friend_requester if !friendship
+            # Only if the friend isn't found in the same table, then that is a request
         end
         return requesters
     end
