@@ -39,7 +39,7 @@ class Api::LikesController < ApplicationController
             @like.destroy
             render :show
         else
-            render json: @post.errors.full_messages, status: 418
+            render json: @like.errors.full_messages, status: 418
         end
     end
 
