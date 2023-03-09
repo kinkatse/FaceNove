@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     # Prevents Cross Site Request Forgery Attacks
     protect_from_forgery with: :exception
+    skip_before_action :verify_authenticity_token
     
     # This allows access in other classes that inherit this
     helper_method :current_user, :logged_in?

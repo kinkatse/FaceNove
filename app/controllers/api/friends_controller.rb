@@ -5,10 +5,10 @@ class Api::FriendsController < ApplicationController
         if @request.save
             friendship = Friend.find_by(user_id: @request.friend_id, friend_id: @request.user_id)
             @friend = @request.friend_requestee if friendship
-            @requester = @request.friend_requester
+            # @requester = @request.friend_requester
             render :show
         else
-            render json: @friend.errors.full_messages, status: 422
+            render json: @request.errors.full_messages, status: 422
         end
     end
 
@@ -35,7 +35,6 @@ class Api::FriendsController < ApplicationController
 
     def friend_params
         params.require(:friendData).permit(
-            :id,
             :user_id,
             :friend_id
         )
