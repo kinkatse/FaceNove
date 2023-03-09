@@ -32,8 +32,36 @@ class User < ApplicationRecord
         source: :likeable,
         source_type: 'Comment'
 
+    has_many :friend_requests_outgoing,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Friend
+
+    has_many :friend_requests_incoming,
+        primary_key: :id,
+        foreign_key: :friend_id,
+        class_name: :Friend
+
     has_one_attached :profilePicUrl
     has_one_attached :coverPicUrl
+
+    def friends
+        friends = []
+        self.friend_requests_outgoing.each do |friendee|
+            friend = Friend.find_by(user_id: friendee.id, friend_id: self.id)
+            friends << friendee.friend_requestee if friend
+        end
+        return friends
+    end
+
+    def all_incoming_friend_requests
+        requests = []
+        self.friend_requests_incoming.each do |request|
+            friend = Friend.find_by(user_id: self.id, friend_id: request.user_id)
+            requests << request.friend_requester if !friend
+        end
+        debugger
+    end
 
     def self.find_by_credentials(email, password)
         # Class method which we get user where their email == the email param we got

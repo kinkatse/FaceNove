@@ -10,6 +10,7 @@ User.delete_all
 Post.delete_all
 Comment.delete_all
 Like.delete_all
+Friends.delete_all
 
 User.create!(email: 'demo@mail.com', password: 'password', firstName: 'Demo', lastName: 'User', birthdate: '2000-1-1', gender: 'Male', bio: '', hometown: '', education: '', work: '', relationship: '', website: '')
 User.create!(email: 'coder123@gmail.com', password: '123123', firstName: 'Kin Ka', lastName: 'Tse', birthdate: '2000-1-1', gender: 'Male', bio: 'I like tennis!', hometown: 'Brooklyn', education: 'Tennis University', work: 'Halo Agency Employee', relationship: 'Dating', website: 'https://github.com/kinkatse')
