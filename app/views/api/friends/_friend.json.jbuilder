@@ -1,6 +1,6 @@
-json.extract! friend, :id, :firstName, :lastName, :profilePicUrl
+json.extract! user, :id, :firstName, :lastName, :profilePicUrl
 
-profPic = friend.profilePicUrl
+profPic = user.profilePicUrl
 
 if profPic.attached?
     json.profilePicUrl url_for(profPic)
