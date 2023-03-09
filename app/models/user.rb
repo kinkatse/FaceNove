@@ -48,19 +48,20 @@ class User < ApplicationRecord
     def friends
         friends = []
         self.friend_requests_outgoing.each do |friendee|
-            friend = Friend.find_by(user_id: friendee.id, friend_id: self.id)
+            friend = Friend.find_by(user_id: friendee.friend_id, friend_id: self.id)
             friends << friendee.friend_requestee if friend
         end
+        # debugger
         return friends
     end
 
     def all_incoming_friend_requests
-        requests = []
+        requesters = []
         self.friend_requests_incoming.each do |request|
             friend = Friend.find_by(user_id: self.id, friend_id: request.user_id)
-            requests << request.friend_requester if !friend
+            requesters << request.friend_requester if !friend
         end
-        debugger
+        return requesters
     end
 
     def self.find_by_credentials(email, password)
