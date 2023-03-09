@@ -20,29 +20,11 @@ json.friends do
 end
 
 json.requests do
-    requestIds = []
     @requests.each do |request|
-        requestIds << request.id
-
-    end
-
-    json.requestIds do
-        json.array! requestIds
+        requester = @requesters.select {|requester| requester.id == request.user_id}[0]
+        json.set! request.id do
+            json.partial! 'api/friends/friend' friend: requester
+            json.extract! request.created_at
+        end
     end
 end
-
-# json.posts do
-#     @posts.each do |post|
-#         likeIds = []
-#         post.likes.each do |like|
-#             likeIds << like.id
-#         end
-
-#         json.set! post.id do
-#             json.partial! 'api/posts/post', post: post
-#             json.likeIds do
-#                 json.array! likeIds
-#             end
-#         end
-#     end
-# end

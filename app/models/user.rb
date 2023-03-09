@@ -56,13 +56,13 @@ class User < ApplicationRecord
     end
 
     def incoming_requests
-        requesters = []
+        requests = []
         self.friend_requests.each do |request|
             friendship = Friend.find_by(user_id: self.id, friend_id: request.user_id)
-            requesters << request.friend_requester if !friendship
+            requests << request if !friendship
             # Only if the friend isn't found in the same table, then that is a request
         end
-        return requesters
+        return requests
     end
 
     def self.find_by_credentials(email, password)
