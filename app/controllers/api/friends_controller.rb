@@ -16,7 +16,7 @@ class Api::FriendsController < ApplicationController
         @user = User.find(params[:user_id])
         @friends = @user.friends
         @friends_accepted = @user.find_recent_requests(@friends)
-        @friends_since = @user.find_most_recent_request(@friends_accepted)
+        @recent_requests = @user.find_most_recent_request(@friends_accepted)
         @requests = @user.incoming_requests
         @requesters = @requests.map { |request| request.friend_requester }
         render :index

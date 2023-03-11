@@ -15,7 +15,7 @@ json.friends do
     @friends.each do |friend|
         json.set! friend.id do
             json.partial! 'api/friends/friend', user: friend
-            friend_accepted = @friends_since.select { |request| (request.user_id == friend.id || request.friend_id == friend.id) }
+            friend_accepted = @recent_requests.select { |request| (request.user_id == friend.id || request.friend_id == friend.id) }
             json.friends_since friend_accepted[0].created_at
         end
     end

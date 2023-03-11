@@ -71,7 +71,7 @@ class User < ApplicationRecord
             .where('other_friends.friend_id = friends.user_id')
             .where('friends.user_id = (?) OR friends.friend_id = (?)', self.id, self.id)
 
-        # grab corresponding friendships with their latest dates
+        # grab corresponding friendships pertaining to this user
     end
 
     def find_most_recent_request(accepted)
@@ -80,18 +80,8 @@ class User < ApplicationRecord
             accepted.each_with_index do |request2, idx2|
                 if idx2 > idx1 && request1.friend_id == request2.user_id
                     if request1.created_at.to_i > request2.created_at.to_i
-                        # if request1.user_id == self.id
-                        #     recent << request1.friend_requestee
-                        # else
-                        #     recent << request1.friend_requester
-                        # end
                         recent << request1
                     else
-                        # if request2.user_id == self.id
-                        #     recent << request2.friend_requestee
-                        # else
-                        #     recent << request2.friend_requester
-                        # end
                         recent << request2
                     end
                 end
