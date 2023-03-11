@@ -65,12 +65,37 @@ class User < ApplicationRecord
         return requests
     end
 
-    def self.find_recent_requests(user, friends)
-        accepted = []
-        relatedRequests = Friend.where(user_id: user.id).or.where(friend_id: user_id)
-        # nested iteration to grab corresponding friendships with their latest dates.
-        # this may take some time and is not the most necessary
-        return accepted
+    def find_recent_requests(friends)
+        accepted = Friend
+            .joins('JOIN friends AS other_friends on other_friends.user_id = friends.friend_id')
+            .where('other_friends.friend_id = friends.user_id')
+            .where('friends.user_id = (?) OR friends.friend_id = (?)', self.id, self.id)
+
+        # grab corresponding friendships with their latest dates
+    end
+
+    def find_friends_most_recent(accepted)
+        recent = []
+        accepted.each_with_index do |request1, idx1|
+            accepted.each_with_index do |request2, idx2|
+                if idx2 > idx1 && request1.friend_id == request2.user_id
+                    if request1.created_at.to_i > request2.created_at.to_i
+                        if request1.user_id == self.id
+                            recent << request1.friend_requestee
+                        else
+                            recent << request1.friend_requester
+                        end
+                    else
+                        if request2.user_id == self.id
+                            recent << request2.friend_requestee
+                        else
+                            recent << request2.friend_requester
+                        end
+                    end
+                end
+            end
+        end
+        return recent
     end
 
     def self.find_by_credentials(email, password)

@@ -15,7 +15,7 @@ json.friends do
     @friends.each do |friend|
         json.set! friend.id do
             json.partial! 'api/friends/friend', user: friend
-            # json.friends_since friend.created_at
+            json.friends_since friend.created_at
         end
     end
 end
