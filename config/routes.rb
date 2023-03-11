@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :index, :show, :update, :destroy]
     resources :likes, only: [:create, :index, :destroy]
     resources :friends, only: [:create, :index, :destroy]
+    get '/requests', to: 'friends#requests'
   end
 end
