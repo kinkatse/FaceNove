@@ -74,23 +74,25 @@ class User < ApplicationRecord
         # grab corresponding friendships with their latest dates
     end
 
-    def find_friends_most_recent(accepted)
+    def find_most_recent_request(accepted)
         recent = []
         accepted.each_with_index do |request1, idx1|
             accepted.each_with_index do |request2, idx2|
                 if idx2 > idx1 && request1.friend_id == request2.user_id
                     if request1.created_at.to_i > request2.created_at.to_i
-                        if request1.user_id == self.id
-                            recent << request1.friend_requestee
-                        else
-                            recent << request1.friend_requester
-                        end
+                        # if request1.user_id == self.id
+                        #     recent << request1.friend_requestee
+                        # else
+                        #     recent << request1.friend_requester
+                        # end
+                        recent << request1
                     else
-                        if request2.user_id == self.id
-                            recent << request2.friend_requestee
-                        else
-                            recent << request2.friend_requester
-                        end
+                        # if request2.user_id == self.id
+                        #     recent << request2.friend_requestee
+                        # else
+                        #     recent << request2.friend_requester
+                        # end
+                        recent << request2
                     end
                 end
             end
