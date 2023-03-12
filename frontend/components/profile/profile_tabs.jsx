@@ -73,11 +73,11 @@ class ProfileTabs extends React.Component {
 
             { title: "Friends",
               content: <Friends
+                friends={this.props.friends}
                 currentUser={this.props.currentUser}
                 currentUserId={this.props.currentUserId}
                 user={this.props.user}
                 userId={parseInt(this.props.userId)}
-                friends={this.props.friends}
                 destroyFriend={this.props.destroyFriend}
                 />
             },

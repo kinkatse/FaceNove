@@ -16,36 +16,13 @@ const ProfileFriendsTab = (props) => {
                     {Object.values(props.friends).map(friend => {
                         return (<Friend
                             key={friend.id}
+                            friend={friend}
                             currentUser={props.currentUser}
                             currentUserId={props.currentUserId}
                             user={props.user}
                             userId={parseInt(props.userId)}
-                            friend={friend}
                             destroyFriend={props.destroyFriend}
                         />)
-
-                        // const { time_posted, timestamp_hover } = filterTime(friend.friends_since)
-
-                        // return (
-                        // <div key={friend.id} className='friends-list'>
-                        //     <Link to={`/user/${friend.id}`}>
-                        //         <img
-                        //             className={`post_profile_pic ${postProfPicColor()}`}
-                        //             src={friend.profilePicUrl}
-                        //         />
-                        //     </Link>
-                        //     <div className="name_and_time">
-                        //         <Link to={`/user/${friend.id}`}>
-                        //             <h2 className="post_name">
-                        //                 {friend.firstName} {friend.lastName}
-                        //             </h2>
-                        //         </Link>
-                        //         <div className="post_timestamp">
-                        //             {timestamp_hover}
-                        //         </div>
-                        //     </div>
-                        // </div>
-                        // )
                     })}
                 </div>
             </div>
