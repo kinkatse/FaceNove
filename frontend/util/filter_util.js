@@ -84,14 +84,16 @@ const rendersTime = (datetime, type) => {
 export const filterTime = (created_at, updated_at) => {
     let datetime_created = new Date(created_at)
     let created = rendersTime(datetime_created, "created_hover")
-    let datetime_updated = new Date(updated_at)
-    // This is for when the post has never updated so we shouldn't
-    // give updated any info if the post created and post updated
-    // are the same. We need the conditional to have Date.parse since
-    // comparing Date objects will always be false so use numbers
     let updated;
-    if (Date.parse(datetime_created) !== Date.parse(datetime_updated)) {
-        updated = rendersTime(datetime_updated, "edited_hover")
+    if (updated_at) {
+        let datetime_updated = new Date(updated_at)
+        // This is for when the post has never updated so we shouldn't
+        // give updated any info if the post created and post updated
+        // are the same. We need the conditional to have Date.parse since
+        // comparing Date objects will always be false so use numbers
+        if (Date.parse(datetime_created) !== Date.parse(datetime_updated)) {
+            updated = rendersTime(datetime_updated, "edited_hover")
+        }
     }
 
     // This is to prevent showing the null updated if no updated

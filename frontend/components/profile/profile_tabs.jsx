@@ -66,10 +66,10 @@ class ProfileTabs extends React.Component {
                 />
             }, 
 
-            { title: "About",
-              content: <About
-                />
-            },
+            // { title: "About",
+            //   content: <About
+            //     />
+            // },
 
             { title: "Friends",
               content: <Friends
