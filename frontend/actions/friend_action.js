@@ -1,4 +1,4 @@
-// import * as FriendApiUtil from '../util/friend_api_util';
+import * as FriendApiUtil from '../util/friend_api_util';
 
 export const RECEIVE_ALL_FRIENDS = 'RECEIVE_ALL_FRIENDS';
 export const RECEIVE_FRIEND = 'RECEIVE_FRIEND';
@@ -58,8 +58,9 @@ const clearFriends = () => {
 
 export const indexFriends = (friendData) => (dispatch) => {
     // Needs :user_id
+    const {user_id} = friendData
     return (
-        FriendApiUtil.getAllFriends(friendData)
+        FriendApiUtil.getAllFriends(user_id)
         .then(data => {
             dispatch(receiveAllFriends(data.friends))
         })
