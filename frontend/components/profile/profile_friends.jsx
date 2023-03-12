@@ -1,7 +1,8 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { filterTime } from '../../util/filter_util';
+import { Link } from 'react-router-dom';
 
-// import { postProfPicColor } from '../../util/color_util';
+import { postProfPicColor } from '../../util/color_util';
 
 class ProfileFriends extends React.Component {
     constructor(props) {
@@ -12,29 +13,30 @@ class ProfileFriends extends React.Component {
     }
 
     render() {
-        return null
-        // if (!this.props.friends) return <h1>{"No Friends :("}</h1>
-        // return (
-        //     <div className="profile_friends">
-        //         <h2 className="profbodytitle">Friends</h2>
-        //         <div className="friends_wall">
-        //             {this.props.friends.map(friend => {
-        //                 return (
-        //                     <div className='friends-list'>
-        //                         <Link to={`/user/${this.props.friend.id}`}>
-        //                             <img
-        //                                 className={`post_profile_pic ${postProfPicColor()}`}
-        //                                 src={this.props.profilePicUrl}
-        //                             />
-        //                         </Link>
-        //                         <h1>{friend.firstName}</h1>
-        //                         <h1>{friend.lastName}</h1>
-        //                     </div>
-        //                 )
-        //             })}
-        //         </div>
-        //     </div>
-        // )
+        if (!this.props.friend) return null
+
+        const { time_posted, timestamp_hover } = filterTime(this.props.friend.friends_since)
+
+        return (
+            <div className='friends-listitem'>
+                <Link to={`/user/${this.props.friend.id}`}>
+                    <img
+                        className={`post_profile_pic ${postProfPicColor()}`}
+                        src={this.props.friend.profilePicUrl}
+                    />
+                </Link>
+                <div className="name_and_time">
+                    <Link to={`/user/${this.props.friend.id}`}>
+                        <h2 className="post_name">
+                            {this.props.friend.firstName} {this.props.friend.lastName}
+                        </h2>
+                    </Link>
+                    <div className="post_timestamp">
+                        {timestamp_hover}
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
 
