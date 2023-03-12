@@ -17,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         currentUserId: state.session.id,
         posts: state.entities.posts,
+        friends: state.entities.friendships.friends,
         modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the
         // state to subscribe to this component or the color isnt updated

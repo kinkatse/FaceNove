@@ -4,17 +4,20 @@ import ProfileTop from './profile_top';
 
 class Profile extends React.Component {
     componentDidMount() {
-        this.props.clearLikes()
-        this.props.clearComments()
         this.props.clearPosts()
+        this.props.clearComments()
+        this.props.clearFriends()
+        this.props.clearLikes()
         this.props.closeModal()
         this.props.showUser(this.props.userId)
+        this.props.indexFriends(this.props.userId)
     }
 
     componentDidUpdate(oldProps) {
         if (this.props.userId !== oldProps.userId) {
             this.props.closeModal()
             this.props.showUser(this.props.userId);
+            this.props.indexFriends(this.props.userId);
         }
         if (this.props.user && oldProps.user &&
             (this.props.user.firstName !== oldProps.user.firstName ||

@@ -1,16 +1,16 @@
-export const getAllFriends = (friendData) => {
+export const getAllFriends = (user_id) => {
     return $.ajax({
         url: '/api/friends',
         method: 'GET',
-        data: { friendData }
+        data: { user_id }
     })
 }
 
-export const createFriend = (user_id) => {
+export const createFriend = (friendData) => {
     return $.ajax({
         url: '/api/friends',
         method: 'POST',
-        data: { user_id }
+        data: { friendData }
     })
 }
 

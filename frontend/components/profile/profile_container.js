@@ -6,6 +6,7 @@ import { clearLikes, indexLikes } from '../../actions/like_actions';
 import Profile from './profile';
 import { clearPosts, destroyPost, indexPosts, updatePost } from '../../actions/post_actions';
 import { clearComments, removePostComments } from '../../actions/comment_actions';
+import { clearFriends, destroyFriend, indexFriends } from '../../actions/friend_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -16,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUser: state.entities.users[state.session.id],
         currentUserId: state.session.id,
         posts: state.entities.posts,
+        friends: state.entities.friendships.friends,
         likes: state.entities.likes,
         modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the
@@ -27,12 +29,14 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        showUser: (userId => dispatch(showUser(userId))),
-        indexLikes: (likeData) => dispatch(indexLikes(likeData)),
         indexPosts: ((userIds) => dispatch(indexPosts(userIds))),
+        indexFriends: (userId) => dispatch(indexFriends(userId)),
+        indexLikes: (likeData) => dispatch(indexLikes(likeData)),
+        showUser: (userId => dispatch(showUser(userId))),
         updatePost: (postData, postId) => dispatch(updatePost(postData, postId)),
-        destroyPost: (postId) => dispatch(destroyPost(postId)),
         removePostComments: (postId) => dispatch(removePostComments(postId)),
+        destroyPost: (postId) => dispatch(destroyPost(postId)),
+        destroyFriend: (friendId) => dispatch(destroyFriend(friendId)),
         destroyLike: ((like) => dispatch(destroyLike(like))),
         openLikesModal: (postId) => dispatch(openLikesModal(postId)),
         openEditModal: () => dispatch(openEditModal()),
@@ -42,6 +46,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         clearPosts: (() => dispatch(clearPosts())),
         clearComments: (() => dispatch(clearComments())),
+        clearFriends: () => dispatch(clearFriends()),
         clearLikes: (() => dispatch(clearLikes())),
         closeModal: () => dispatch(closeModal())
     }
