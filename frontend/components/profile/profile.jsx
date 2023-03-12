@@ -11,6 +11,7 @@ class Profile extends React.Component {
         this.props.closeModal()
         this.props.showUser(this.props.userId)
         this.props.indexFriends(this.props.userId)
+        this.props.indexFriendRequests(this.props.currentUser.id)
     }
 
     componentDidUpdate(oldProps) {
@@ -46,6 +47,7 @@ class Profile extends React.Component {
                         likes={this.props.likes}
                         indexLikes={this.props.indexLikes}
                         updatePost={this.props.updatePost}
+                        createFriend={this.props.createFriend}
                         destroyPost={this.props.destroyPost}
                         destroyFriend={this.props.destroyFriend}
                         removePostComments={this.props.removePostComments}

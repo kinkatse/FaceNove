@@ -12,14 +12,6 @@ class ProfileLeft extends React.Component {
     //     this.props.showUser(this.props.userId)
     // }
 
-    constructor(props) {
-        super(props)
-        this.state = {
-
-        }
-        this.renderProfileFriends = this.renderProfileFriends.bind(this)
-    }
-
     renderProfileFriends() {
         if (!this.props.friends) return null
         return (

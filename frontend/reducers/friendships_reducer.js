@@ -21,7 +21,7 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
             delete newState[action.request.id];
             return newState;
         case REMOVE_ALL_FRIENDS:
-            return {}
+            return {friends: {}, requests: {}}
         default:
             return friendshipState;
     }

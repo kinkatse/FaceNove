@@ -7,9 +7,11 @@ import { filterPostsWithPhotos } from '../../util/filter_util';
 
 class Home extends React.Component {
     componentDidMount() {
-        this.props.clearComments()
         this.props.clearPosts()
+        this.props.clearComments()
+        this.props.clearFriends()
         this.props.indexPosts()
+        this.props.indexFriendRequests(this.props.currentUser.id)
         // Later use the userIds array for only friends and make an option for friends only posts on home page
     }
 

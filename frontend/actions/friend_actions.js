@@ -25,7 +25,7 @@ const receiveFriend = (friend) => {
 const receiveFriendRequests = (requests) => {
     return {
         type: RECEIVE_FRIEND_REQUESTS,
-        friends
+        requests
     }
 }
 
@@ -61,6 +61,15 @@ export const indexFriends = (userId) => (dispatch) => {
         FriendApiUtil.getAllFriends(userId)
         .then(data => {
             dispatch(receiveAllFriends(data.friends))
+        })
+    )
+}
+
+export const indexFriendRequests = (userId) => (dispatch) => {
+    return (
+        FriendApiUtil.getAllFriendRequests(userId)
+        .then(data => {
+            dispatch(receiveFriendRequests(data.requests))
         })
     )
 }

@@ -45,17 +45,51 @@ class ProfileTabs extends React.Component {
         )
     }
 
-    rendersEdit() {
+    rendersEditOrFriend() {
         if (this.props.currentUserId === parseInt(this.props.userId)) {
-            return (
-                <div
-                    className="edit_profile"
-                    onClick={this.props.openEditModal}>
-                        <img className="editicon" src={editProfImage()} />
-                        Edit Profile
-                </div>
-            )
+            this.rendersEdit()
+        // } else {
+        //     this.rendersAddFriendButton()
+        //     this.rendersRemoveFriendButton()
+
+        // Needs if and check if the current user is friends or not
+        // Seems like I will need to pull sent friend requests as well
+        // so on any users the current user has sent a request should be
+        // "Waiting on request to be accepted" when visiting their page
         }
+    }
+
+    rendersEdit() {
+        return (
+            <div
+                className="edit_profile"
+                onClick={this.props.openEditModal}>
+                    <img className="editicon" src={editProfImage()} />
+                    Edit Profile
+            </div>
+        )
+    }
+
+    rendersAddFriendButton() {
+        return (
+            <div
+                className="edit_profile"
+                onClick={this.props.createFriend}>
+                    <img className="editicon" src={editProfImage()} />
+                    Add Friend
+            </div>
+        )
+    }
+
+    rendersRemoveFriendButton() {
+        return (
+            <div
+                className="edit_profile"
+                onClick={this.props.destroyFriend}>
+                    <img className="editicon" src={editProfImage()} />
+                    Add Friend
+            </div>
+        )
     }
 
     render() {
@@ -119,7 +153,7 @@ class ProfileTabs extends React.Component {
             <div>
                 <div className="profile_tabs_whole">
                     {this.rendersTabs(tabs)}
-                    {this.rendersEdit()}
+                    {this.rendersEditOrFriend()}
                 </div>
                 {tab.content}
             </div>
