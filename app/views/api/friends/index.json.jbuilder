@@ -12,6 +12,9 @@
 # state reflects the user's friends and not the current user's.
 
 json.friends do
+    # if @friends.length == 0
+    #     json.set! {}
+    # end
     @friends.each do |friend|
         json.set! friend.id do
             json.partial! 'api/friends/friend', user: friend

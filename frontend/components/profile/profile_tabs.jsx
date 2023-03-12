@@ -66,15 +66,21 @@ class ProfileTabs extends React.Component {
                 />
             }, 
 
-            // { title: "About",
-            //   content: <About
-            //     />
-            // },
+            { title: "About",
+              content: <About
+                />
+            },
 
-            // { title: "Friends",
-            //   content: <Friends
-            //     />
-            // },
+            { title: "Friends",
+              content: <Friends
+                currentUser={this.props.currentUser}
+                currentUserId={this.props.currentUserId}
+                user={this.props.user}
+                userId={parseInt(this.props.userId)}
+                friends={this.props.friends}
+                destroyFriend={this.props.destroyFriend}
+                />
+            },
 
             { title: "Photos",
               content: <Photos
