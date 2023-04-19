@@ -87,6 +87,7 @@ class Home extends React.Component {
                                 openPicModal={this.props.openPicModal}
                                 postPicUrl={post.postPhotoUrl}
                                 profilePicUrl={post.profilePicUrl}
+                                closeModal={this.props.closeModal}
                             /> )
                         )
                     }

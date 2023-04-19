@@ -9,7 +9,7 @@ import {
     clearPosts
 } from '../../actions/post_actions';
 import { clearComments, removePostComments } from '../../actions/comment_actions';
-import { openCreatePostModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
+import { closeModal, openCreatePostModal, openEditPostModal, openPicModal } from '../../actions/modal_actions';
 import { clearFriends, indexFriendRequests } from '../../actions/friend_actions';
 
 const mapStateToProps = (state) => {
@@ -40,7 +40,8 @@ const mapDispatchToProps = (dispatch) => {
         openPicModal: (postId, photoPostIds) => dispatch(openPicModal(postId, photoPostIds)),
         clearPosts: (() => dispatch(clearPosts())),
         clearComments: (() => dispatch(clearComments())),
-        clearFriends: () => dispatch(clearFriends())
+        clearFriends: () => dispatch(clearFriends()),
+        closeModal: () => dispatch(closeModal())
     }
 }
 
