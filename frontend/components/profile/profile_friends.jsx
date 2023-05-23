@@ -21,7 +21,7 @@ class ProfileFriends extends React.Component {
             <div className='friends-listitem'>
                 <Link to={`/user/${this.props.friend.id}`}>
                     <img
-                        className={`post_profile_pic ${postProfPicColor()}`}
+                        className={`friend_profile_pic`}
                         src={this.props.friend.profilePicUrl}
                     />
                 </Link>
