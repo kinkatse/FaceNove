@@ -75,15 +75,26 @@ const rendersTime = (datetime, type) => {
     // Joining all of the date and time info into one string
     if (type === "edited_hover") {
         date.unshift("Edited on")
-    } else {
+    } else if (type === "created_hover") {
         date.unshift("Created on")
+    } else if (type === "friendsTab") {
+        date.unshift("Friends since")
     }
-    return `${date.join(" ")} at ${time.join(" ")}`
+    if (type !== "friendsTab") {
+        return `${date.join(" ")} at ${time.join(" ")}`
+    } else {
+        return `${date.join(" ")}`
+    }
 }
 
-export const filterTime = (created_at, updated_at) => {
+export const filterTime = (created_at, updated_at, type) => {
     let datetime_created = new Date(created_at)
-    let created = rendersTime(datetime_created, "created_hover")
+    let created;
+    if (type === "friendsTab") {
+        created = rendersTime(datetime_created, type)
+    } else {
+        created = rendersTime(datetime_created, "created_hover")
+    }
     let updated;
     if (updated_at) {
         let datetime_updated = new Date(updated_at)

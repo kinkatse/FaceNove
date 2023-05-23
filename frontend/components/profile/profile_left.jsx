@@ -61,7 +61,7 @@ class ProfileLeft extends React.Component {
                 />
 
                 <div className="profile_friends">
-                    <span className='friends-tab'>
+                    <span className='friends_header'>
                         <h2 className="friends_profbodytitle">Friends</h2>
                         <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all friends</h2>
                     </span>

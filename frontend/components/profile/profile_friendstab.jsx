@@ -10,8 +10,11 @@ const ProfileFriendsTab = (props) => {
 
     return (
         <div className="friends_tabbody">
-            <div className="profile_friends">
-                <h2 className="friends_profbodytitle">Friends</h2>
+            <div className="friends_tab">
+                <div className='friends_tab_header'>
+                    <h2 className="friends_profbodytitle">Friends</h2>
+                    <div>Search</div>
+                </div>
                 <div className="friends_wall">
                     {Object.values(props.friends).map(friend => {
                         return (<Friend
@@ -22,6 +25,7 @@ const ProfileFriendsTab = (props) => {
                             user={props.user}
                             userId={parseInt(props.userId)}
                             destroyFriend={props.destroyFriend}
+                            fromTab={true}
                         />)
                     })}
                 </div>
