@@ -13,10 +13,16 @@ class ProfileLeft extends React.Component {
     // }
 
     renderProfileFriends() {
-        if (!this.props.friends) return null
+        if (!this.props.friends) return null;
+
+        const newFriends = []
+        Object.values(this.props.friends).map((friend) => {
+            if (newFriends.length < 9) newFriends.push(friend)
+        })
+
         return (
             <>
-                {Object.values(this.props.friends).map(friend => {
+                {newFriends.map(friend => {
                     return (<ProfileFriends
                         key={friend.id}
                         friend={friend}
@@ -24,6 +30,7 @@ class ProfileLeft extends React.Component {
                         currentUserId={this.props.currentUserId}
                         user={this.props.user}
                         userId={parseInt(this.props.userId)}
+                        fromPostsTab={"fromPostsTab"}
                     />)
                 })}
             </>
@@ -48,13 +55,16 @@ class ProfileLeft extends React.Component {
                     destroyPost={this.props.destroyPost}
                     removePostComments={this.props.removePostComments}
                     openEditPostModal={this.props.openEditPostModal}
-                    fromLikesTab={false}
+                    fromTab={false}
                     changeActiveTab={this.props.changeActiveTab}
                     openPicModal={this.props.openPicModal}
                 />
 
                 <div className="profile_friends">
-                    <h2 className="profbodytitle">Friends</h2>
+                    <span className='friends-tab'>
+                        <h2 className="friends_profbodytitle">Friends</h2>
+                        <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all friends</h2>
+                    </span>
                     <div className="friends_wall">
                         {this.renderProfileFriends()}
                     </div>

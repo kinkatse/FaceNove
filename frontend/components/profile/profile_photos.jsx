@@ -19,7 +19,8 @@ class ProfilePhotos extends React.Component {
 
         let posts = this.props.posts
         
-        if (!this.props.fromLikesTab) {
+        // Originally fromLikeTab, not sure why so I changed it but could cause issues if I forgot something
+        if (!this.props.fromTab) {
             componentContainerStyling = "profile_photos";
             photosContainerStyling = "photos_album_prof";
             photoStyling = "photopic-prof";
@@ -36,10 +37,10 @@ class ProfilePhotos extends React.Component {
 
         return (
             <div className={`${componentContainerStyling}`}>
-                {!this.props.fromLikesTab && (
+                {!this.props.fromTab && (
                     <span className='photos-tab'>
                         <h2 className="profbodytitle">Photos</h2>
-                        <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all photos</h2>
+                        <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(2)}>See all photos</h2>
                     </span>
                 )}
                 <div className={`${photosContainerStyling}`}>

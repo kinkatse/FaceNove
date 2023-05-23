@@ -516,7 +516,8 @@ p em {
 .photos_album_prof {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    // justify-content: center;
+    // May need this for photo tab itself
 }
 
 .photos_album_prof > * {

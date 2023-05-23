@@ -13,8 +13,6 @@ class ProfileFriends extends React.Component {
     }
 
     render() {
-        if (!this.props.friend) return null
-
         const { time_posted, timestamp_hover } = filterTime(this.props.friend.friends_since)
 
         return (
@@ -27,12 +25,12 @@ class ProfileFriends extends React.Component {
                 </Link>
                 <div className="name_and_time">
                     <Link to={`/user/${this.props.friend.id}`}>
-                        <h2 className="post_name">
+                        <h2 className="friends_post_name">
                             {this.props.friend.firstName} {this.props.friend.lastName}
                         </h2>
                     </Link>
                     <div className="post_timestamp">
-                        {timestamp_hover}
+                        {this.props.fromPostsTab ? null : timestamp_hover}
                     </div>
                 </div>
             </div>

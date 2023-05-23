@@ -113,6 +113,7 @@ class ProfileTabs extends React.Component {
                 user={this.props.user}
                 userId={parseInt(this.props.userId)}
                 destroyFriend={this.props.destroyFriend}
+                // changeActiveTab={this.changeActiveTab.bind(this)}
                 />
             },
 

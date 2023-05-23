@@ -9,9 +9,9 @@ const ProfileFriendsTab = (props) => {
     if (!props.friends) return <h1>{"No Friends :("}</h1>
 
     return (
-        <div className="tabbody">
+        <div className="friends_tabbody">
             <div className="profile_friends">
-                <h2 className="profbodytitle">Friends</h2>
+                <h2 className="friends_profbodytitle">Friends</h2>
                 <div className="friends_wall">
                     {Object.values(props.friends).map(friend => {
                         return (<Friend

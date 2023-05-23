@@ -7,7 +7,6 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
     background-color: white;
     border-radius: 5px;
-    // border: 4px solid rgba(255, 0, 0, 0.5);
 }
 
 .profile_friends * {
@@ -16,22 +15,23 @@
 
 .friends-listitem {
     width: 120px;
-    height: 140px;
 }
 
 div.friends-listitem {
-    margin: 6px;
+    margin: 5px;
 }
 
 .friends-listitem a {
     display: block;
+    text-decoration: none;
 }
 
 .friends_wall {
     display: flex;
-    // flex-wrap: wrap;
     width: 391px;
-    justify-content: center;
+    flex-wrap: wrap;
+    // justify-content: center;
+    margin-top: 0px;
 }
 
 .friends_wall * {
@@ -56,9 +56,9 @@ div.friends-listitem {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     margin-top: 0px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
     padding: 0px;
     border-radius: 5px;
     z-index: 2;
@@ -68,4 +68,53 @@ div.friends-listitem {
 .friend_profile_pic:hover {
     cursor: pointer;
     animation: 0.5s hoverover forwards;
+}
+
+.friends_tabbody {
+    display: flex;
+    justify-content: center;
+    width: 1050px;
+    height: 600px;
+}
+
+.friends_tabbody div.profile_friends {
+    padding: 15px;
+}
+
+.friends_post_name {
+    position: relative;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgba(34, 34, 34, 0.85);
+    z-index: 2;
+    margin-left: 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.friends_post_name:hover {
+    color: rgba(100, 100, 100, 0.85);
+}
+
+.friends-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px;
+}
+
+.friends-tab h2{
+    margin-bottom: 0px;
+}
+
+.friends_profbodytitle {
+    font-size: 20px;
+    color: rgba(34, 34, 34, 0.90);
+    font-weight: bold;
+    // padding-right: 330px;
+    // padding-bottom: 5px;
 }

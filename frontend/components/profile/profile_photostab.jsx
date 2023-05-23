@@ -37,7 +37,7 @@ const ProfilePhotosTab = (props) => {
                 removePostComments={props.removePostComments}
                 openEditPostModal={props.openEditPostModal}
                 openPicModal={props.openPicModal}
-                fromLikesTab={true}
+                fromTab={true}
             />
         </div>
         </div>
