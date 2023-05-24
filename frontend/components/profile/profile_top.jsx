@@ -92,7 +92,11 @@ class ProfileTop extends React.Component {
                 {this.rendersCoverPic()}
                 {this.rendersCoverPicButton()}
                 {this.rendersProfilePic()}
-                <p className="profile_title">{first} {last}</p>
+                <div className='profile_header'>
+                    <div className='empty_profile_placeholder'></div>
+                    <p className="profile_title">{first} {last}</p>
+                    <div className='profile_friend_button'>Add Friend</div>
+                </div>
                 <ProfileTabs
                     currentUser={this.props.currentUser}
                     currentUserId={this.props.currentUserId}

@@ -170,6 +170,22 @@
     border: 6px solid #e25d5d;
 }
 
+.profile_header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.profile_friend_button {
+    width: 10%;
+}
+
+.empty_profile_placeholder {
+    width: 10%;
+}
+
 .profile_tabs_whole {
     position: relative;
     display: flex;
