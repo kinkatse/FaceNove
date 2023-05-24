@@ -13,7 +13,7 @@ const ProfileFriendsTab = (props) => {
             <div className="friends_tab">
                 <div className='friends_tab_header'>
                     <h2 className="friends_profbodytitle">Friends</h2>
-                    <div>Search</div>
+                    {/* <div>Search</div> */}
                 </div>
                 <div className="friends_wall">
                     {Object.values(props.friends).map(friend => {

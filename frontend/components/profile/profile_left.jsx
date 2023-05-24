@@ -39,6 +39,9 @@ class ProfileLeft extends React.Component {
 
     render() {
         const postsWithPhotosArr = filterUserPostsWithPhotos(this.props.posts, this.props.userId)
+
+        const friendsLength = Object.values(this.props.friends).length
+
         return (
             <div className="profile_left">
                 <ProfileIntro
@@ -65,6 +68,7 @@ class ProfileLeft extends React.Component {
                         <h2 className="friends_profbodytitle">Friends</h2>
                         <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all friends</h2>
                     </span>
+                    <p className="how_many_friends">{friendsLength} friends</p>
                     <div className="friends_wall">
                         {this.renderProfileFriends()}
                     </div>

@@ -26,20 +26,23 @@ const ProfilePhotosTab = (props) => {
     }
 
     return (
-        <div className="tabbody">
-        <div className="phototab">
-            <ProfilePhotos
-                posts={postsWithPhotosArr}
-                currentUser={props.currentUser}
-                userId={props.userId}
-                updatePost={props.updatePost}
-                destroyPost={props.destroyPost}
-                removePostComments={props.removePostComments}
-                openEditPostModal={props.openEditPostModal}
-                openPicModal={props.openPicModal}
-                fromTab={true}
-            />
-        </div>
+        <div className="photos_tabbody">
+            <div className="phototab">
+                <div className='photos_tab_header'>
+                    <h2 className="photos_profbodytitle">Photos</h2>
+                </div>
+                <ProfilePhotos
+                    posts={postsWithPhotosArr}
+                    currentUser={props.currentUser}
+                    userId={props.userId}
+                    updatePost={props.updatePost}
+                    destroyPost={props.destroyPost}
+                    removePostComments={props.removePostComments}
+                    openEditPostModal={props.openEditPostModal}
+                    openPicModal={props.openPicModal}
+                    fromTab={true}
+                />
+            </div>
         </div>
     )
 }
