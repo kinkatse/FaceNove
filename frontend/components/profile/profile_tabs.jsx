@@ -5,7 +5,8 @@ import Friends from './profile_friendstab';
 import Photos from './profile_photostab';
 import Likes from './profile_likestab';
 
-import { editProfImage, tabColor } from '../../util/color_util';
+import { editProfImage, friendColor, tabColor } from '../../util/color_util';
+import { filterUserPostsWithPhotos } from '../../util/filter_util';
 
 class ProfileTabs extends React.Component {
 
@@ -31,6 +32,21 @@ class ProfileTabs extends React.Component {
         let active = this.state.activeTab;
         let tabline = tabs.map((tab, idx) => {
             let tabclassname = idx === active ? `tab_active ${tabColor()}` : 'tab_inactive';
+
+            if (tab.title === "Friends" && !this.props.friends) return;
+            if (tab.title === "Photos" && this.props.posts) {
+                const postsWithPhotosArr = filterUserPostsWithPhotos(this.props.posts, this.props.userId)
+                if (postsWithPhotosArr.length === 0) return;
+            }
+            if (tab.title === "Likes" && this.props.likes) {
+                let likeArr = Object.values(this.props.likes)
+                let userLikedIdCount = 0
+                for (let like of likeArr) {
+                    if (like.liker_id === parseInt(this.props.userId)) userLikedIdCount += 1
+                }
+                if (userLikedIdCount === 0) return;
+            }
+
             return (
                 <li
                     key={idx}
@@ -49,7 +65,7 @@ class ProfileTabs extends React.Component {
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             return this.rendersEdit()
         // } else {
-        //     this.rendersAddFriendButton()
+            // return this.rendersAddFriendButton()
         //     this.rendersRemoveFriendButton()
 
         // Needs if and check if the current user is friends or not
@@ -73,9 +89,9 @@ class ProfileTabs extends React.Component {
     rendersAddFriendButton() {
         return (
             <div
-                className="edit_profile"
+                className={`profile_friend_button ${friendColor()}`}
                 onClick={this.props.createFriend}>
-                    <img className="editicon" src={editProfImage()} />
+                    {/* <img className="editicon" src={editProfImage()} /> */}
                     Add Friend
             </div>
         )
@@ -149,6 +165,11 @@ class ProfileTabs extends React.Component {
             }
         ]
 
+        if (this.props.resetTabs) {
+            this.changeActiveTab(0)
+            // this.props.resetTabs = false;
+            this.props.setResetTabs({resetTabs: false})
+        }
         let tab = tabs[this.state.activeTab]
         return (
             <div>

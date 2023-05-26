@@ -87,6 +87,7 @@ class ProfileTop extends React.Component {
     render() {
         let first = this.props.user.firstName;
         let last = this.props.user.lastName;
+        
         return (
             <div className="profile_top">
                 {this.rendersCoverPic()}
@@ -118,6 +119,8 @@ class ProfileTop extends React.Component {
                     clearLikes={this.props.clearLikes}
                     openEditModal={this.props.openEditModal}
                     openPicModal={this.props.openPicModal}
+                    resetTabs={this.props.resetTabs}
+                    setResetTabs={this.props.setResetTabs}
                 />
             </div>
         )

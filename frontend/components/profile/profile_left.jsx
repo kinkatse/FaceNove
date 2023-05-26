@@ -38,9 +38,13 @@ class ProfileLeft extends React.Component {
     }
 
     render() {
+        // if (!this.props.user) return <h2>Oh no, user not found.</h2>;
+        
         const postsWithPhotosArr = filterUserPostsWithPhotos(this.props.posts, this.props.userId)
 
-        const friendsLength = Object.values(this.props.friends).length
+        let friendsLength = 0;
+        if (this.props.friends) friendsLength = Object.values(this.props.friends).length
+
 
         return (
             <div className="profile_left">
@@ -66,7 +70,9 @@ class ProfileLeft extends React.Component {
                 <div className="profile_friends">
                     <span className='friends_header'>
                         <h2 className="friends_profbodytitle">Friends</h2>
-                        <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all friends</h2>
+                        {this.props.friends && (
+                            <h2 className="profbodyseephotos" onClick={() => this.props.changeActiveTab(1)}>See all friends</h2>
+                        )}
                     </span>
                     <p className="how_many_friends">{friendsLength} friends</p>
                     <div className="friends_wall">

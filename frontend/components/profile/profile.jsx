@@ -19,11 +19,19 @@ class Profile extends React.Component {
             this.props.closeModal()
             this.props.showUser(this.props.userId);
             this.props.indexFriends(this.props.userId);
+            this.setState({resetTabs: true});
         }
         if (this.props.user && oldProps.user &&
             (this.props.user.firstName !== oldProps.user.firstName ||
             this.props.user.lastName !== oldProps.user.lastName)) {
             this.props.indexPosts([this.props.userId]);
+        }
+    }
+
+    constructor () {
+        super()
+        this.state = {
+            resetTabs: false
         }
     }
 
@@ -60,6 +68,8 @@ class Profile extends React.Component {
                         openProfPicModal={this.props.openProfPicModal}
                         openEditModal={this.props.openEditModal}
                         openPicModal={this.props.openPicModal}
+                        resetTabs={this.state.resetTabs}
+                        setResetTabs={this.setState.bind(this)}
                     />
                 </div>
             </div>

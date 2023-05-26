@@ -175,6 +175,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    // justify-content: center;
     width: 100%;
 }
 
@@ -288,6 +289,7 @@
     color: rgb(55, 55, 55);
     background-color: rgba(229, 231, 235, 0.9);
     border-radius: 7px;
+    opacity: 90%;
     // animation: 0.5s hoveroff forwards;
 }
 
@@ -557,7 +559,7 @@ p em {
     color: rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     flex-direction: column;
     position: relative;
     top: 9px;
