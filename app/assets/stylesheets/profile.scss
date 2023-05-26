@@ -179,7 +179,38 @@
 }
 
 .profile_friend_button {
+    position: relative;
+    right: 36px;
+    bottom: 6px;
     width: 10%;
+    margin-top: 14px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+    opacity: 90%;
+}
+
+.profile_friend_button:hover {
+    opacity: 100%;
+    cursor: pointer;
+    animation: 0.5s hoverover forwards;
+}
+
+.friend_button_blue {
+    background: #4c89dd;
+}
+
+.friend_button_green {
+    background: #3dd78f;
+}
+
+.friend_button_red {
+    background: #df3f3f;
 }
 
 .empty_profile_placeholder {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileTabs from './profile_tabs';
 
-import { bigProfPicColor, uploadPicImage } from '../../util/color_util';
+import { bigProfPicColor, uploadPicImage, friendColor } from '../../util/color_util';
 
 class ProfileTop extends React.Component {
     rendersProfilePic() {
@@ -95,7 +95,7 @@ class ProfileTop extends React.Component {
                 <div className='profile_header'>
                     <div className='empty_profile_placeholder'></div>
                     <p className="profile_title">{first} {last}</p>
-                    <div className='profile_friend_button'>Add Friend</div>
+                    <button className={`profile_friend_button ${friendColor()}`}>Add Friend</button>
                 </div>
                 <ProfileTabs
                     currentUser={this.props.currentUser}

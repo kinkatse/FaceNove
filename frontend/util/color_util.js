@@ -105,6 +105,14 @@ export const logoutImage = () => {
     else if (color === "red") { return window.logout_red_url }
 }
 
+// Friend Button
+export const friendColor = () => {
+    let color = getColor()
+    if (color === "blue") { return 'friend_button_blue' }
+    else if (color === "green") { return 'friend_button_green' }
+    else if (color === "red") { return 'friend_button_red' }
+}
+
 // picImageButton
 export const uploadPicImage = () => {
     let color = getColor()
