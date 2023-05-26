@@ -47,7 +47,7 @@ class ProfileTabs extends React.Component {
 
     rendersEditOrFriend() {
         if (this.props.currentUserId === parseInt(this.props.userId)) {
-            this.rendersEdit()
+            return this.rendersEdit()
         // } else {
         //     this.rendersAddFriendButton()
         //     this.rendersRemoveFriendButton()
