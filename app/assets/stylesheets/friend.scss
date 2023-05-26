@@ -159,6 +159,7 @@ img.profpic_on_friend_tab {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 60%;
     margin-right: 55px;
 }
 
@@ -169,9 +170,8 @@ img.profpic_on_friend_tab {
 }
 
 .friend_button {
-    width: 20%;
-    margin-right: 40px;
-    margin-left: 0px;
+    width: 25%;
+    margin-right: 20px;
     padding: 8px;
     border-radius: 5px;
     font-weight: bold;
