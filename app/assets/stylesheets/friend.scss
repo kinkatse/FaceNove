@@ -169,7 +169,24 @@ img.profpic_on_friend_tab {
 }
 
 .friend_button {
-    margin-right: 25px;
+    width: 20%;
+    margin-right: 40px;
+    margin-left: 0px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    border: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+    z-index: 5;
+    opacity: 90%;
+}
+
+.friend_button:hover {
+    opacity: 100%;
+    cursor: pointer;
+    animation: 0.5s hoverover forwards;
 }
 
 .friends_tab_header {

@@ -2,7 +2,7 @@ import React from 'react';
 import { filterTime } from '../../util/filter_util';
 import { Link } from 'react-router-dom';
 
-import { postProfPicColor } from '../../util/color_util';
+import { friendColor, postProfPicColor } from '../../util/color_util';
 
 class ProfileFriends extends React.Component {
     constructor(props) {
@@ -45,9 +45,10 @@ class ProfileFriends extends React.Component {
                     )}
                 </div>
                 {!this.props.fromPostsTab && (
-                    <div className="friend_button">
-                        Add Friend
-                    </div>
+                    // <div className="friend_button">
+                    //     Add Friend
+                    // </div>
+                    <button className={`friend_button ${friendColor()}`}>Add Friend</button>
                 )}
             </div>
         )
