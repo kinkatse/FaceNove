@@ -62,16 +62,19 @@ class ProfileTabs extends React.Component {
     }
 
     rendersEditOrFriend() {
+        let userFriend = null;
+        if (this.props.friends) {
+            Object.values(this.props.friends).forEach(friend => {
+                if (this.props.currentUserId === friend.id) userFriend = friend
+            })
+        }
+
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             return this.rendersEdit()
-        } else {
+        } else if (!userFriend) {
             return this.rendersAddFriendButton()
-            // this.rendersRemoveFriendButton()
-
-        // Needs if and check if the current user is friends or not
-        // Seems like I will need to pull sent friend requests as well
-        // so on any users the current user has sent a request should be
-        // "Waiting on request to be accepted" when visiting their page
+        } else {
+            return this.rendersRemoveFriendButton(userFriend)
         }
     }
 
@@ -100,11 +103,11 @@ class ProfileTabs extends React.Component {
         )
     }
 
-    rendersRemoveFriendButton() {
+    rendersRemoveFriendButton(userFriend) {
         return (
             <div
                 className={`profile_friend_button ${friendColor()}`}
-                onClick={this.props.destroyFriend}>
+                onClick={e => this.props.destroyFriend(userFriend.friend_id)}>
                     {/* <img className="editicon" src={editProfImage()} /> */}
                     Remove Friend
             </div>
