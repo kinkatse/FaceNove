@@ -1,6 +1,7 @@
 class Api::FriendsController < ApplicationController
 
     def create
+        debugger
         @request = Friend.new(friend_params)
         if @request.save
             friendship = Friend.find_by(user_id: @request.friend_id, friend_id: @request.user_id)

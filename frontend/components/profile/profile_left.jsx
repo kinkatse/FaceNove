@@ -38,13 +38,11 @@ class ProfileLeft extends React.Component {
     }
 
     render() {
-        // if (!this.props.user) return <h2>Oh no, user not found.</h2>;
         
         const postsWithPhotosArr = filterUserPostsWithPhotos(this.props.posts, this.props.userId)
 
         let friendsLength = 0;
         if (this.props.friends) friendsLength = Object.values(this.props.friends).length
-
 
         return (
             <div className="profile_left">

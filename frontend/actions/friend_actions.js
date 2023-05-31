@@ -79,7 +79,7 @@ export const createFriend = (friendData) => (dispatch) => {
     return (
         FriendApiUtil.createFriend(friendData)
         .then(data => {
-            dispatch(receiveFriend(data.friend))
+            if (data.friend) dispatch(receiveFriend(data.friend))
             if (data.request.is_accepted) {
                 dispatch(removeFriendRequest(data.request))
             } else {

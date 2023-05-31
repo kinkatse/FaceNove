@@ -85,6 +85,7 @@ div.friends_on_tab img {
 }
 
 .friend_profile_pic:hover {
+    opacity: 90%;
     cursor: pointer;
     animation: 0.5s hoverover forwards;
 }

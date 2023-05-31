@@ -174,22 +174,45 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    // justify-content: center;
+    // justify-content: space-between;
+    justify-content: center;
     width: 100%;
 }
 
+// .profile_friend_button {
+//     position: relative;
+//     right: 36px;
+//     width: 10%;
+//     padding: 8px;
+//     border-radius: 5px;
+//     font-weight: bold;
+//     font-size: 14px;
+//     color: white;
+//     border: none;
+//     box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
+//     z-index: 5;
+//     opacity: 90%;
+// }
+
+// .profile_friend_button:hover {
+//     opacity: 100%;
+//     cursor: pointer;
+//     animation: 0.5s hoverover forwards;
+// }
+
 .profile_friend_button {
-    position: relative;
-    right: 36px;
-    width: 10%;
-    padding: 8px;
-    border-radius: 5px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 4.5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 7px;
     color: white;
     border: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
     z-index: 5;
     opacity: 90%;
 }
@@ -289,7 +312,6 @@
     color: rgb(55, 55, 55);
     background-color: rgba(229, 231, 235, 0.9);
     border-radius: 7px;
-    opacity: 90%;
     // animation: 0.5s hoveroff forwards;
 }
 

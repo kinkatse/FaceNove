@@ -64,9 +64,9 @@ class ProfileTabs extends React.Component {
     rendersEditOrFriend() {
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             return this.rendersEdit()
-        // } else {
-            // return this.rendersAddFriendButton()
-        //     this.rendersRemoveFriendButton()
+        } else {
+            return this.rendersAddFriendButton()
+            // this.rendersRemoveFriendButton()
 
         // Needs if and check if the current user is friends or not
         // Seems like I will need to pull sent friend requests as well
@@ -90,7 +90,10 @@ class ProfileTabs extends React.Component {
         return (
             <div
                 className={`profile_friend_button ${friendColor()}`}
-                onClick={this.props.createFriend}>
+                onClick={e => this.props.createFriend({
+                    user_id: this.props.currentUserId,
+                    friend_id: this.props.userId
+                })}>
                     {/* <img className="editicon" src={editProfImage()} /> */}
                     Add Friend
             </div>
@@ -100,10 +103,10 @@ class ProfileTabs extends React.Component {
     rendersRemoveFriendButton() {
         return (
             <div
-                className="edit_profile"
+                className={`profile_friend_button ${friendColor()}`}
                 onClick={this.props.destroyFriend}>
-                    <img className="editicon" src={editProfImage()} />
-                    Add Friend
+                    {/* <img className="editicon" src={editProfImage()} /> */}
+                    Remove Friend
             </div>
         )
     }
@@ -167,7 +170,6 @@ class ProfileTabs extends React.Component {
 
         if (this.props.resetTabs) {
             this.changeActiveTab(0)
-            // this.props.resetTabs = false;
             this.props.setResetTabs({resetTabs: false})
         }
         let tab = tabs[this.state.activeTab]

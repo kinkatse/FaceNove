@@ -45,9 +45,6 @@ class ProfileFriends extends React.Component {
                     )}
                 </div>
                 {!this.props.fromPostsTab && (
-                    // <div className="friend_button">
-                    //     Add Friend
-                    // </div>
                     <button className={`friend_button ${friendColor()}`}>Add Friend</button>
                 )}
             </div>

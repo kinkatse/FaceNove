@@ -7,18 +7,24 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
         case RECEIVE_ALL_FRIENDS:
             return Object.assign({}, friendshipState, {friends: action.friends});
         case RECEIVE_FRIEND:
-            return Object.assign({}, friendshipState, {friends: action.friend});
+            debugger
+            newState.friends[action.friend.id] = action.friend;
+            return newState;
+            // return Object.assign({}, friendshipState, {friends: action.friend});
         case RECEIVE_FRIEND_REQUESTS:
             return Object.assign({}, friendshipState, {requests: action.requests});
         case RECEIVE_FRIEND_REQUEST:
-            return Object.assign({}, friendshipState, {requests: action.request});
+            debugger
+            newState.requests[action.request.id] = action.request;
+            return newState;
+            // return Object.assign({}, friendshipState, {requests: action.request});
         case REMOVE_FRIEND:
             // let newState = Object.assign({}, friendshipState);
-            delete newState[action.friendId];
+            delete newState.friends[action.friendId];
             return newState;
         case REMOVE_FRIEND_REQUEST:
             // let newState = Object.assign({}, friendshipState);
-            delete newState[action.request.id];
+            delete newState.requests[action.request.id];
             return newState;
         case REMOVE_ALL_FRIENDS:
             return {friends: {}, requests: {}}
