@@ -69,7 +69,7 @@ export const indexFriendRequests = (userId) => (dispatch) => {
     return (
         FriendApiUtil.getAllFriendRequests(userId)
         .then(data => {
-            dispatch(receiveFriendRequests(data.requests))
+            if (data.requests) dispatch(receiveFriendRequests(data.requests))
         })
     )
 }
