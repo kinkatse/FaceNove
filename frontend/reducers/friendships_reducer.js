@@ -7,25 +7,31 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
     let newState = { friends, requests }
     switch(action.type) {
         case RECEIVE_ALL_FRIENDS:
-            return Object.assign({}, friendshipState, {friends: action.friends});
+            newState = { friends: action.friends, requests };
+            return newState;
+
+            // return Object.assign({}, friendshipState, {friends: action.friends});
         case RECEIVE_FRIEND:
             // This doesn't update properly so for now, we dont update the page yet
-            // const friendId = Object.values(action.friend)[0].id
-            // newState.friends[friendId] = action.friend[friendId];
-            // return newState;
-
+            const friendId = Object.values(action.friend)[0].id
+            newState.friends[friendId] = action.friend[friendId];
             return newState;
+
+            // return newState;
 
             // return Object.assign({}, friendshipState, {friends: action.friend});
         case RECEIVE_FRIEND_REQUESTS:
-            return Object.assign({}, friendshipState, {requests: action.requests});
+            newState = { friends, requests: action.requests };
+            return newState;
+
+            // return Object.assign({}, friendshipState, {requests: action.requests});
         case RECEIVE_FRIEND_REQUEST:
             // This doesn't update properly so for now, we dont update the page yet
-            // const requestId = Object.values(action.request)[0].id
-            // newState.requests[requestId] = action.request[requestId];
-            // return newState;
-
+            const requestId = Object.values(action.request)[0].id
+            newState.requests[requestId] = action.request[requestId];
             return newState;
+
+            // return newState;
 
 
             // return Object.assign({}, friendshipState, {requests: action.request});

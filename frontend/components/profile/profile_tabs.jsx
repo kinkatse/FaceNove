@@ -114,6 +114,17 @@ class ProfileTabs extends React.Component {
         )
     }
 
+    rendersRequestSentButton(userFriend) {
+        return (
+            <div
+                className={`profile_friend_button ${friendColor()}`}
+                onClick={e => this.props.destroyFriend(userFriend.friend_id)}>
+                    {/* <img className="editicon" src={editProfImage()} /> */}
+                    Request Sent
+            </div>
+        )
+    }
+
     render() {
         const tabs = [
             { title: "Posts",

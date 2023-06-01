@@ -60,7 +60,7 @@ export const indexFriends = (userId) => (dispatch) => {
     return (
         FriendApiUtil.getAllFriends(userId)
         .then(data => {
-            dispatch(receiveAllFriends(data.friends))
+            if (data.friends) dispatch(receiveAllFriends(data.friends))
         })
     )
 }

@@ -24,6 +24,11 @@ class ProfileFriends extends React.Component {
             friends_description_for_tab = "on_friends_tab_for_description"
         }
 
+        let friends_tab_friend_button = <div className="missing_friend_button"></div>;
+        if (this.props.currentUserId !== parseInt(this.props.friend.id)) {
+            friends_tab_friend_button = <button className={`friend_button ${friendColor()}`}>Add Friend</button>
+        }
+
         return (
             <div className={`friends-listitem ${background_for_tab}`}>
                 <Link to={`/user/${this.props.friend.id}`}>
@@ -44,9 +49,7 @@ class ProfileFriends extends React.Component {
                         </div>
                     )}
                 </div>
-                {!this.props.fromPostsTab && (
-                    <button className={`friend_button ${friendColor()}`}>Add Friend</button>
-                )}
+                {!this.props.fromPostsTab && friends_tab_friend_button}
             </div>
         )
     }

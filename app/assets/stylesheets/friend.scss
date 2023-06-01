@@ -160,6 +160,7 @@ img.profpic_on_friend_tab {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
     width: 60%;
     margin-right: 55px;
 }
@@ -168,6 +169,10 @@ img.profpic_on_friend_tab {
     font-size: 18px;
     margin: 0px;
     margin-bottom: 5px;
+}
+
+.missing_friend_button {
+    width: 25%;
 }
 
 .friend_button {

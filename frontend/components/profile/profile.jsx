@@ -15,14 +15,13 @@ class Profile extends React.Component {
     }
 
     componentDidUpdate(oldProps) {
-        // debugger
         if (this.props.userId !== oldProps.userId) {
             this.props.closeModal()
             this.props.showUser(this.props.userId);
             this.props.indexFriends(this.props.userId);
             this.setState({resetTabs: true});
         }
-        if (this.props.friends && Object.values(this.props.friends).length !== 0 &&
+        if (this.props.friends && oldProps.friends &&
             (Object.values(this.props.friends).length !== Object.values(oldProps.friends).length)) {
             this.props.indexFriends(this.props.userId);
         }
