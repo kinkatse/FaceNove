@@ -70,18 +70,21 @@ class ProfileTabs extends React.Component {
         }
 
         let outGoingFriend = null
-        if (this.props.friends) {
-            Object.values(this.props.friends).forEach(friend => {
-                if (this.props.currentUserId === friend.id) userFriend = friend
+        if (this.props.requests) {
+            let userId = parseInt(this.props.userId)
+            let requests = this.props.requests
+            Object.keys(requests).forEach(request_id => {
+                let request = requests[request_id]
+                if (userId === request.requestee_id) outGoingFriend = request_id
             })
         }
 
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             return this.rendersEdit()
+        } else if (!userFriend && outGoingFriend) {
+            return this.rendersRequestSentButton(outGoingFriend)
         } else if (!userFriend) {
             return this.rendersAddFriendButton()
-        } else if (outGoingFriend) {
-            return this.rendersRequestSentButton()
         } else {
             return this.rendersRemoveFriendButton(userFriend)
         }
@@ -123,11 +126,11 @@ class ProfileTabs extends React.Component {
         )
     }
 
-    rendersRequestSentButton(userFriend) {
+    rendersRequestSentButton(request_id) {
         return (
             <div
                 className={`profile_friend_button ${friendColor()}`}
-                onClick={e => this.props.destroyFriend(outGoingFriend.friend_id)}>
+                onClick={e => this.props.destroyFriend(parseInt(request_id))}>
                     {/* <img className="editicon" src={editProfImage()} /> */}
                     Request Sent
             </div>

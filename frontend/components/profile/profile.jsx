@@ -56,6 +56,7 @@ class Profile extends React.Component {
                         userId={this.props.userId}
                         posts={this.props.posts}
                         friends={this.props.friends}
+                        requests={this.props.requests}
                         likes={this.props.likes}
                         indexLikes={this.props.indexLikes}
                         updatePost={this.props.updatePost}

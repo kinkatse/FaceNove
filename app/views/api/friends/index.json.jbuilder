@@ -32,6 +32,7 @@ end
 #             json.partial! 'api/friends/friend', user: requester
 #             # json.created_at request.created_at
 #             json.extract! request, :created_at
+#             json.requestee_id = request.friend_id
 #         end
 #     end
 # end

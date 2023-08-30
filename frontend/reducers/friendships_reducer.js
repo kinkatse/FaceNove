@@ -27,8 +27,8 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
             // return Object.assign({}, friendshipState, {requests: action.requests});
         case RECEIVE_FRIEND_REQUEST:
             // This doesn't update properly so for now, we dont update the page yet
-            const requestId = Object.values(action.request)[0].id
-            newState.requests[requestId] = action.request[requestId];
+            const requestId = Object.values(action.request)[0]
+            newState.requests[requestId] = action.request;
             return newState;
 
             // return newState;
@@ -42,7 +42,7 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
             return newState;
         case REMOVE_FRIEND_REQUEST:
             // let newState = Object.assign({}, friendshipState);
-            delete newState.requests[action.request.id];
+            delete newState.requests[action.request_id];
             return newState;
         case REMOVE_ALL_FRIENDS:
             return {friends: {}, requests: {}}

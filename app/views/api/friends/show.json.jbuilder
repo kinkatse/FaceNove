@@ -8,6 +8,7 @@ end
 
 json.request do
     json.extract! @request, :id
+    json.requestee_id @request.friend_id
     if @friend
         json.is_accepted true
     else

@@ -18,7 +18,7 @@ const mapStateToProps = (state, ownProps) => {
         currentUserId: state.session.id,
         posts: state.entities.posts,
         friends: state.entities.friendships.friends,
-        // requests: state.entities.friendships.friends,
+        requests: state.entities.friendships.requests,
         likes: state.entities.likes,
         modal: state.ui.modal,
         // Even though this isn't being passed anywhere, we need the

@@ -43,10 +43,10 @@ const removeFriend = (friendId) => {
     }
 }
 
-const removeFriendRequest = (request) => {
+const removeFriendRequest = (request_id) => {
     return {
         type: REMOVE_FRIEND_REQUEST,
-        request
+        request_id
     }
 }
 
@@ -61,6 +61,7 @@ export const indexFriends = (userId) => (dispatch) => {
         FriendApiUtil.getAllFriends(userId)
         .then(data => {
             if (data.friends) dispatch(receiveAllFriends(data.friends))
+            // if (data.requests) dispatch(receiveAllFriends(data.friends))
         })
     )
 }
@@ -92,6 +93,9 @@ export const createFriend = (friendData) => (dispatch) => {
 export const destroyFriend = (friendId) => (dispatch) => {
     return (
         FriendApiUtil.deleteFriend(friendId)
-        .then(() => dispatch(removeFriend(friendId)))
+        .then(() => {
+            dispatch(removeFriend(friendId))
+            dispatch(removeFriendRequest(friendId))
+        })
     )
 }
