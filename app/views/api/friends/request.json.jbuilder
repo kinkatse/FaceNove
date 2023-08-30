@@ -6,4 +6,10 @@ json.requests do
             json.extract! request, :created_at
         end
     end
+    @requestees.each do |requestee|
+        json.set! requestee.id do
+            json.extract! requestee, :id
+            json.outgoing true
+        end
+    end
 end

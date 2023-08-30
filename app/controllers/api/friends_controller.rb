@@ -23,7 +23,9 @@ class Api::FriendsController < ApplicationController
     def requests
         @user = User.find(params[:user_id])
         @requests = @user.incoming_requests
+        @outgoing = @user.outgoing_requests
         @requesters = @requests.map { |request| request.friend_requester }
+        @requestees = @outgoing.map { |request| request.friend_requestee }
         render :request
     end
 

@@ -37,7 +37,7 @@ const friendshipsReducer = (friendshipState = {friends: {}, requests: {}}, actio
             // return Object.assign({}, friendshipState, {requests: action.request});
         case REMOVE_FRIEND:
             // let newState = Object.assign({}, friendshipState);
-            debugger
+            // debugger
             delete newState.friends[action.friendId];
             return newState;
         case REMOVE_FRIEND_REQUEST:

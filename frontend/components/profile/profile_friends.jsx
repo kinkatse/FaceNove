@@ -26,7 +26,8 @@ class ProfileFriends extends React.Component {
 
         let friends_tab_friend_button = <div className="missing_friend_button"></div>;
         if (this.props.currentUserId !== parseInt(this.props.friend.id)) {
-            friends_tab_friend_button = <button className={`friend_button ${friendColor()}`}>Add Friend</button>
+            // Eventually add, but its difficult because we have to pull data on user's friends and such
+            // friends_tab_friend_button = <button className={`friend_button ${friendColor()}`}>Add Friend</button>
         }
 
         return (

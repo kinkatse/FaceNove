@@ -69,10 +69,19 @@ class ProfileTabs extends React.Component {
             })
         }
 
+        let outGoingFriend = null
+        if (this.props.friends) {
+            Object.values(this.props.friends).forEach(friend => {
+                if (this.props.currentUserId === friend.id) userFriend = friend
+            })
+        }
+
         if (this.props.currentUserId === parseInt(this.props.userId)) {
             return this.rendersEdit()
         } else if (!userFriend) {
             return this.rendersAddFriendButton()
+        } else if (outGoingFriend) {
+            return this.rendersRequestSentButton()
         } else {
             return this.rendersRemoveFriendButton(userFriend)
         }
@@ -118,7 +127,7 @@ class ProfileTabs extends React.Component {
         return (
             <div
                 className={`profile_friend_button ${friendColor()}`}
-                onClick={e => this.props.destroyFriend(userFriend.friend_id)}>
+                onClick={e => this.props.destroyFriend(outGoingFriend.friend_id)}>
                     {/* <img className="editicon" src={editProfImage()} /> */}
                     Request Sent
             </div>

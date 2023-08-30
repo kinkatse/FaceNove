@@ -65,6 +65,16 @@ class User < ApplicationRecord
         return requests
     end
 
+    def outgoing_requests
+        requests = []
+        self.friend_sent_requests.each do |request|
+            friendship = Friend.find_by(user_id: self.id, friend_id: request.user_id)
+            requests << request if !friendship
+            # Only if the friend isn't found in the same table, then that is a request
+        end
+        return requests
+    end
+
     def find_recent_requests(friends)
         accepted = Friend
             .joins('JOIN friends AS other_friends on other_friends.user_id = friends.friend_id')
